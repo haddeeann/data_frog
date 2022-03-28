@@ -69,3 +69,12 @@ Anaconda is successfully installed. And at the end of the installation there's t
 
 I have no idea what Anaconda Nucleus is. I don't think I need it right away or if ever. It looks like it's used for cloud sharing data. But that is just a guess.
 [Anaconda Nucleus](https://anaconda.cloud/tutorials/getting-started-with-anaconda-individual-edition?source=osx_installer)
+
+## Oh, I Get It
+Anaconda has both a command line prompt use and GUI called Navigator. The Navigator is the GUI way of using Anaconda. With my Mac, the way to use the command line is to open a terminal and type the command `python`.
+
+That switches the terminal to be a Python command terminal with access to all the Anaconda libraries/tools.
+
+As a note, I have Python 3 installed on my Mac. So I normally have to use `python3` for all my commands on the command line. With Anaconda installed to ope a command prompt I just use `python` command. I don't have preference for one or the other. It's just annoying to get confused and keep typing the wrong command. So I thought that was worth noting.
+
+I had been using Python 2 for a while and switched to Python 3 and every time I went to type `python <some-command>` I would get an error. 
