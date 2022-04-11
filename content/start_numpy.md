@@ -1,4 +1,7 @@
 # NumPy
+
+[Go home](/index.html)
+
 This is awesome because it looks like I can use Python and I can run some basic data analysis on, well. data.
 
 I import like:
@@ -34,3 +37,5 @@ Cool, right?
 Here's the next step. Install and start using.
 
 [NumPy Install](https://numpy.org/install/)
+
+[Go home](/index.html)

@@ -1,4 +1,7 @@
-# Anaconda
+# Anaconda 
+
+[Go home](/index.html)
+
 yeah, here is what is passing for the internet these days.
 
 The nerve of me. Leaving everything so _unmade_.
@@ -10,3 +13,5 @@ Cause you better bet I'm gonna walk on a lawn.
 oh. um. This is lorem ipsum.
 
 Maybe it's laura ipsum.
+
+[Go home](/index.html)

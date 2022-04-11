@@ -1,5 +1,7 @@
 # Install and Go, Right?
 
+[Go home](/index.html)
+
 ## The Wrong Way
 ### Or More Accurately, Didn't Work For Me Way
 I don't know. I thought since there was a script example on the Numpy page that it would be as easy as downloading Numpy into a virtual python environment. 
@@ -78,3 +80,5 @@ That switches the terminal to be a Python command terminal with access to all th
 As a note, I have Python 3 installed on my Mac. So I normally have to use `python3` for all my commands on the command line. With Anaconda installed to ope a command prompt I just use `python` command. I don't have preference for one or the other. It's just annoying to get confused and keep typing the wrong command. So I thought that was worth noting.
 
 I had been using Python 2 for a while and switched to Python 3 and every time I went to type `python <some-command>` I would get an error. 
+
+[Go home](/index.html)
