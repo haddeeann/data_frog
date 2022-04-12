@@ -2,7 +2,7 @@
 
 [Go home](/index.html)
 
-This is awesome because it looks like I can use Python and I can run some basic data analysis on, well. data.
+I ended up using NumPy by downloading and installing Anaconda.
 
 I import like:
 `import numpy as np`

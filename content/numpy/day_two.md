@@ -38,7 +38,7 @@ samples
 
 ## NumPy: Absolute Basics for Beginners
 I started with the beginners docs for NumPy
-(NumPy for beginners)[https://numpy.org/doc/stable/user/absolute_beginners.html]
+[NumPy for beginners](https://numpy.org/doc/stable/user/absolute_beginners.html)
 
 NumPy stands for Numerical Python. And apparently it's used in a lot of science and engineering. 
 
@@ -85,15 +85,13 @@ For example, an array with two axes. With the first axes having a length of two 
 `[[1., 2., 3.], [0., 2., 1.]]`
 
 ### Create Basic Array
-To create an array the np.array() can be used.
-
+To create an array the np.array() can be used:
 ```
 import numpy as np
 a = np.array([1, 2, 3])
 ```
 
 To fill the new array with zero's or ones:
-
 ```
 np.zeros(2)
 # result is array([0., 0.])
@@ -102,4 +100,27 @@ np.ones(2)
 # result is array([1., 1.])
 ```
 
+Or even an empty array, it's filled with random data:
+```
+np.empty(3)
+# result array(3.13, 42., 1.3])
+```
+
+Or an evenly spaced array, giving it the first number, last number, and the step size:
+```
+np.arrange(2, 9, 2)
+# result array([2, 4, 6, 8])
+```
+
+To create an array with values with linearly spaced in specified intervals:
+``` 
+np.linspace(0, 10, num=5)
+# result array([0., 2.5, 5., 7.5, 10.])
+```
+
+To specify the data point, you can pass the data type into the dtype variable:
+``` 
+x = np.ones(2, dtype=np.int64)
+# result array([1, 1])
+```
 [Go home](/index.html)

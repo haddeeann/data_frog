@@ -32,7 +32,7 @@ samples
 </code></pre>
 <h2>NumPy: Absolute Basics for Beginners</h2>
 <p>I started with the beginners docs for NumPy
-(NumPy for beginners)[https://numpy.org/doc/stable/user/absolute_beginners.html]</p>
+<a href="https://numpy.org/doc/stable/user/absolute_beginners.html">NumPy for beginners</a></p>
 <p>NumPy stands for Numerical Python. And apparently it's used in a lot of science and engineering.</p>
 <p>It's the universal standard for working with numerical data in Python and it's in many other libraries and Python packages.</p>
 <h3>NumPy and Arrays</h3>
@@ -57,7 +57,7 @@ samples
 <p>For example, an array with two axes. With the first axes having a length of two and the second has a length of three.</p>
 <p><code>[[1., 2., 3.], [0., 2., 1.]]</code></p>
 <h3>Create Basic Array</h3>
-<p>To create an array the np.array() can be used.</p>
+<p>To create an array the np.array() can be used:</p>
 <pre><code>import numpy as np
 a = np.array([1, 2, 3])
 </code></pre>
@@ -67,5 +67,21 @@ a = np.array([1, 2, 3])
 
 np.ones(2)
 # result is array([1., 1.])
+</code></pre>
+<p>Or even an empty array, it's filled with random data:</p>
+<pre><code>np.empty(3)
+# result array(3.13, 42., 1.3])
+</code></pre>
+<p>Or an evenly spaced array, giving it the first number, last number, and the step size:</p>
+<pre><code>np.arrange(2, 9, 2)
+# result array([2, 4, 6, 8])
+</code></pre>
+<p>To create an array with values with linearly spaced in specified intervals:</p>
+<pre><code>np.linspace(0, 10, num=5)
+# result array([0., 2.5, 5., 7.5, 10.])
+</code></pre>
+<p>To specify the data point, you can pass the data type into the dtype variable:</p>
+<pre><code>x = np.ones(2, dtype=np.int64)
+# result array([1, 1])
 </code></pre>
 <p><a href="/index.html">Go home</a></p>

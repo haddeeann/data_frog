@@ -2,16 +2,9 @@
 
 [Go home](/index.html)
 
-yeah, here is what is passing for the internet these days.
+Anaconda so far is like a collection of really cool machine learning and data science python libraries.
 
-The nerve of me. Leaving everything so _unmade_.
+Although it technically takes up more space in my hard drive, it saves me the time of downloading different libraries.
 
-While you're at you better yell at me to get off a lawn. 
-
-Cause you better bet I'm gonna walk on a lawn.
-
-oh. um. This is lorem ipsum.
-
-Maybe it's laura ipsum.
 
 [Go home](/index.html)
