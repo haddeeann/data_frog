@@ -1,6 +1,6 @@
 ---
 title: NumPy for Absolute Beginners
-layout: "base.njk"
+layout: "article_type_two.njk"
 ---
 [Go home](/index.html)
 

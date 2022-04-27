@@ -1,6 +1,6 @@
 ---
 title: Tensor Flow
-layout: "base.njk"
+layout: "article_type_one.njk"
 ---
 [Go home](/index.html)
 

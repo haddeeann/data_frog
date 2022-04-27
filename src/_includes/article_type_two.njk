@@ -3,16 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <title>Data Frog</title>
-    <link rel="stylesheet" href="../style.css" />
+    <link rel="stylesheet" href="../../style.css" />
 </head>
 <body>
-    <h1>Scikit Learn</h1>
+    <h1>{{ title }}</h1>
     <main>
-        <p><a href="/index.html">Go home</a></p>
-<h3>Actually seems awesome</h3>
-<p>But also based on a lot of tech things I have no idea about.</p>
-<p><a href="/index.html">Go home</a></p>
-
+        {{ content | safe }}
     </main>
     <footer>
         <div>

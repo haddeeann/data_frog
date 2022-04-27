@@ -1,6 +1,6 @@
 ---
 title: Data List
-layout: "base.njk"
+layout: "article_type_one.njk"
 ---
 [Go home](/index.html)
 ## Overview of Data Science Libraries

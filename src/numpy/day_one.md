@@ -1,6 +1,6 @@
 ---
 title: Day One, Figuring Things Out
-layout: "base.njk"
+layout: "article_type_two.njk"
 ---
 [Go home](/index.html)
 
