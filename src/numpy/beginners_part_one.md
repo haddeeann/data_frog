@@ -1,6 +1,7 @@
-# NumPy for Absolute Beginners
-
-
+---
+title: NumPy for Absolute Beginners
+layout: "base.njk"
+---
 [Go home](/index.html)
 
 [NumPy Starter](https://numpy.org/doc/stable/user/absolute_beginners.html)

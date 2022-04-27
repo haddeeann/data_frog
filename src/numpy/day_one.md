@@ -1,9 +1,10 @@
-# Install and Go, Right?
-
+---
+title: Day One, Figuring Things Out
+layout: "base.njk"
+---
 [Go home](/index.html)
 
-## The Wrong Way
-### Or More Accurately, Didn't Work For Me Way
+## False Start
 I don't know. I thought since there was a script example on the Numpy page that it would be as easy as downloading Numpy into a virtual python environment. 
 
 This *didn't* work but here's my process so far:

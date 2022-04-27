@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Data Frog</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <h1>NumPy for Absolute Beginners (cont.)</h1>
+    <main>
+        <p><a href="/index.html">Go home</a></p>
+<p><a href="https://numpy.org/doc/stable/user/absolute_beginners.html">NumPy Starter</a></p>
+<h2>How to Convert a 1D Array into a 2D Array</h2>
+<p>Topics are np.newaxis, np.expand_dims</p>
+<p>Using np.newaxis and np.expand_dims increases the dimensions of a current array.</p>
+<pre><code>a = np.array([1, 2, 3, 4, 5, 6])
+a.shape
+(6,)
+</code></pre>
+<p>Then to add a new axis to the array.</p>
+<pre><code>a2 = a[np.newaxis, :]
+a2.shape
+(1, 6)
+</code></pre>
+<p>For a new row vector:</p>
+<pre><code>row_vector = a[np.newaxis, :]
+row_vector.shape
+(1, 6)
+</code></pre>
+<p>For a new column vector:</p>
+<pre><code>col_vector = a[:, np.newaxis]
+col_vector.shape
+(6, 1)
+</code></pre>
+<p>Then to insert a new axis at a specific position, use np.expand_dims:</p>
+<pre><code>a = np.array([1, 2, 3, 4, 5, 6])
+a.shape
+(6,)
+b = np.expand_dims(a, axis=1)
+b.shape
+(6, 1)
+</code></pre>
+<p>And then to add an axis at index position 0:</p>
+<pre><code>c = np.expand_dims(a, axis=0)
+c.shape
+(1, 6)
+</code></pre>
+<h2>Indexing and Slicing</h2>
+<p>For slicing and using index in NumPy it's the same as in Python.</p>
+<p>For an array like this:</p>
+<pre><code>a = np.array([[1 , 2, 3, 4], [1, 2, 6, 7], [9, 10, 11, 12]])
+</code></pre>
+<p>To print the values of the array that are less than 5:</p>
+<pre><code>print(a[a &lt; 5])
+[1 2 3 4 1 2]
+</code></pre>
+<p>To print the values that are more than 5:</p>
+<pre><code>print(a[a &gt;=5])
+[ 6  7  9 10 11 12]
+</code></pre>
+<p>To print the numbers that are even:</p>
+<pre><code>print(a[a%2==0])
+[ 2  4  2  6 10 12]
+</code></pre>
+<p>To select for more than one condition using bitwise operators:</p>
+<pre><code>print(a[(a &gt; 2) &amp; (a &lt; 11)])
+[ 3  4  6  7  9 10]
+</code></pre>
+<p>To find the nonzero elements of an array:</p>
+<pre><code>nonzero = np.nonzero(a &lt; 5)
+print(nonzero)
+(array([0, 0, 0, 0, 1, 1]), array([0, 1, 2, 3, 0, 1]))
+</code></pre>
+<p>This is a tuple of arrays that were returned. One tuple of each dimension.</p>
+<p>The first array is the row indices where the values that are less than five are found.</p>
+<p>The second array represents the column indices are where the values are found.</p>
+
+    </main>
+    <footer>
+        <div>
+            <div>Sponsored by Frog Protection Services</div>
+            <div>Do you have Frog Protection?</div>
+        </div>
+        <div>a <code class="logo">hello world</code> production</div>
+    </footer>
+</body>
+</html>

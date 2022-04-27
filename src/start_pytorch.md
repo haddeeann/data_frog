@@ -1,5 +1,7 @@
-# PyTorch
-
+---
+title: PyTorch
+layout: "base.njk"
+---
 [Go home](/index.html)
 
 According to the website:

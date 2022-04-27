@@ -1,5 +1,7 @@
-# Tensor Flow
-
+---
+title: Tensor Flow
+layout: "base.njk"
+---
 [Go home](/index.html)
 
 ## JavaScript or Python

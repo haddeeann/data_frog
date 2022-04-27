@@ -1,5 +1,7 @@
-# NumPy
-
+---
+title: NumPy
+layout: "base.njk"
+---
 [Go home](/index.html)
 
 I ended up using NumPy by downloading and installing Anaconda.

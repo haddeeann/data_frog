@@ -1,5 +1,7 @@
-# Scikit Learn
-
+---
+title: Scikit Learn
+layout: "base.njk"
+---
 [Go home](/index.html)
 
 ### Actually seems awesome

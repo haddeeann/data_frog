@@ -1,5 +1,7 @@
-# Pandas
-
+---
+title: Pandas
+layout: "base.njk"
+---
 [Go home](/index.html)
 
 yeah, here is what is passing for the internet these days.

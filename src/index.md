@@ -1,14 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Data Frog</title>
-    <link rel="stylesheet" href="style.css" />
-</head>
-<body>
-    <h1>Hello World</h1>
-    <main>
-        <h1>Data into Information</h1>
+---
+title: Hello World
+layout: "base.njk"
+---
+<h1>Data into Information</h1>
 <p>Welcome to Data Frog. My personal notes and learning journey for data science and machine learning.</p>
 <h2>Computer Setup</h2>
 <ul>
@@ -72,13 +66,3 @@
         <a href="./start_numpy">Starter for NumPy</a>
     </li>
 </ul>
-    </main>
-    <footer>
-        <div>
-            <div>Sponsored by Frog Protection Services</div>
-            <div>Do you have Frog Protection?</div>
-        </div>
-        <div>a <code class="logo">hello world</code> production</div>
-    </footer>
-</body>
-</html>
