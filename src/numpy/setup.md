@@ -1,5 +1,5 @@
 ---
-title: Day One, Figuring Things Out
+title: NumPy Setup
 layout: "article_type_two.njk"
 ---
 [Go home](/index.html)
@@ -22,10 +22,6 @@ See me. See me finally get curious about this `source` command I've been using t
 Side note:
 '`source` is a bash shell built-in command that executes the content of the file passed as argument, in the current shell. It's similar to the . (period).'
 
-I would tell you the difference. But um, what? I read the explanation and don't really get it. 
-
-Whatever.
-
 I started my Python environment and did a `pip install numpy`
 
 I got the error:
@@ -37,7 +33,7 @@ ERROR: Could not build wheels for numpy which use PEP 517 and cannot be installe
 
 I have no idea what this means. So things don't work as I thought.
 
-## Try Something Else
+## Choosing Between Anaconda and Conda
 
 The next step is to learn a little bit more about what I should install. (And delete my virtual environment where I rried to install numpy)
 
@@ -73,7 +69,7 @@ Anaconda is successfully installed. And at the end of the installation there's t
 I have no idea what Anaconda Nucleus is. I don't think I need it right away or if ever. It looks like it's used for cloud sharing data. But that is just a guess.
 [Anaconda Nucleus](https://anaconda.cloud/tutorials/getting-started-with-anaconda-individual-edition?source=osx_installer)
 
-## Oh, I Get It
+## Anaconda is the Winner
 Anaconda has both a command line prompt use and GUI called Navigator. The Navigator is the GUI way of using Anaconda. With my Mac, the way to use the command line is to open a terminal and type the command `python`.
 
 That switches the terminal to be a Python command terminal with access to all the Anaconda libraries/tools.

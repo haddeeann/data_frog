@@ -1,46 +1,21 @@
 ---
-title: NumPy for Absolute Beginners (cont.)
+title: NumPy for Absolute Beginners (part one)
 layout: "article_type_two.njk"
 ---
 [Go home](/index.html)
 
-This is an explanation on how you can run NumPy code from the command line.
-
-Open up a command line and start by importing NumPy first at the prompt.
-
-# The standard way to import NumPy:
-`import numpy as np`
-
-# Create a 2-D array, set every second element in
-# some rows and find max per row:
-
-x = np.arange(15, dtype=np.int64).reshape(3, 5)
-x[1:, ::2] = -99
-x
-# array([[  0,   1,   2,   3,   4],
-#        [-99,   6, -99,   8, -99],
-#        [-99,  11, -99,  13, -99]])
-
-x.max(axis=1)
-# array([ 4,  8, 13])
-
-# Generate normally distributed random numbers:
-rng = np.random.default_rng()
-samples = rng.normal(size=2500)
-samples
-```
-
 ## NumPy: Absolute Basics for Beginners
-I started with the beginners docs for NumPy
-[NumPy for beginners](https://numpy.org/doc/stable/user/absolute_beginners.html)
+This and the next few articles are my summary of the article for absolute beginners.
 
-NumPy stands for Numerical Python. And apparently it's used in a lot of science and engineering. 
+[NumPy Article for beginners](https://numpy.org/doc/stable/user/absolute_beginners.html)
+
+NumPy stands for Numerical Python. It's used in a lot of science and engineering.
 
 It's the universal standard for working with numerical data in Python and it's in many other libraries and Python packages.
 
 ### NumPy and Arrays
 
-In NumPy there are multidimensional arrays, matrix data structures, an ndarray. Ndarray is a homogeneous n-dimentional array object. 
+The main way I see of manipulating data in NumPy is through various kinds of arrays. There are smultidimensional arrays, matrix data structures, an ndarray. Ndarray is a homogeneous n-dimentional array object.
 
 One of the differences in Python list and NumPy array is that a NumPy array should contain all the same data. NumPy arrays are more memory efficient and allow the data types to be specified.
 
@@ -50,7 +25,7 @@ This grid of info that is called an array can be indexed in different ways. The 
 
 Multidimensional arrays can have more than one index per axis and those indices are given in a tuple.
 
-A NumPy array can be made from a Python list. To make it into a two or more higher dimensional data then use a nested list. 
+A NumPy array can be made from a Python list. To make it into a two or more higher dimensional data then use a nested list.
 
 `a = np.array([1, 2, 3, 4, 5])`
 
@@ -63,14 +38,14 @@ The type of data is referred to as the dtype.
 ### More About Arrays: ndarray
 An ndarray is shorthand for "N-dimensional array". You can have more than one dimension in the array. Which is a little bit difficult to imagine as a new person. But a great place to start thinking about the literal difference in two and three dimensions.
 
-Compare in your mind a flat piece of paper with a grid drawn on it to a cube. 
+Compare in your mind a flat piece of paper with a grid drawn on it to a cube.
 
 A vector is an array with a single dimension, a matrix has two dimensions. And for three dimensions or more it's commonly called a tensor.
 
 A NumPy ndarray class can represent matrices and vectors.
 
 ### Array Attributes
-The attributes of an array describe the aspects of the array. In NumPy the dimensions are called axes. 
+The attributes of an array describe the aspects of the array. In NumPy the dimensions are called axes.
 
 The array itself is usually fixed sized, has to have the same type of data and size of data. The shape of the array itself determines the number of dimensions. The shape of the array is a tuple.
 
@@ -117,4 +92,45 @@ To specify the data point, you can pass the data type into the dtype variable:
 x = np.ones(2, dtype=np.int64)
 # result array([1, 1])
 ```
+
+## Adding Removing and Sorting Elements
+
+You can sort elements in an array with np.sort(). 
+
+You can specify the axis, kind, and order when you call the function.
+
+``` 
+arr = np.array([2, 1, 5, 3, 7, 4, 8, 10])
+np.sort(arr)
+# result array([1, 2, 3, 4, 5, 7, 8, 10])
+```
+
+You can concatenate two arrays using np.concatenate()
+``` 
+a = np.array([1, 2, 3, 4])
+b = np.array([2, 3, 4, 5])
+np.concatenate((a, b))
+result array([1, 2, 3, 4, 2, 3, 4, 5])
+```
+
+## Overview of Basic Terms
+ndarray.ndim
+    the number of axes or dimensions of the array
+
+ndarray.shape
+    the dimensions of the array.
+
+ndarray.size
+    the total elements of the array
+
+ndarray.dtype
+    an object that describes the data type of the elements in the array
+
+ndarray.itemsize
+    the size in byes of each element in the array
+
+ndarray.data
+    the buffer containing the actual elements of the array
+
+
 [Go home](/index.html)

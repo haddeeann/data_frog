@@ -1,38 +1,41 @@
 ---
-title: Hello World
+title: Turning Data Into Information
 layout: "base.njk"
 ---
-<h1>Data into Information</h1>
+<h1>Data Frog</h1>
 <p>Welcome to Data Frog. My personal notes and learning journey for data science and machine learning.</p>
-<h2>Computer Setup</h2>
+<h2>Numpy Library</h2>
 <ul>
-    <h3>Numpy Library</h3>
     <li>
-        <h4><a href="./numpy/day_one">Numpy Setup</a></h4>
+        <h4><a href="./numpy/setup">Setup</a></h4>
     </li>
     <li>
-        <h4><a href="./numpy/day_two">Command Line and Numpy For Beginners (start)</a></h4>
+        <h4><a href="./numpy/command_line">Command Line</a></h4>
         <p>Learn to run commands from the command line</p>
+    </li>
+    <li>
+        <h4><a href="./numpy/beginners_one">Numpy For Beginners (part one)</a></h4>
         <p>Numpy and arrays</p>
         <p>ndarray</p>
         <p>Array attributes</p>
         <p>Create a basic array</p>
-    </li>
-    <li>
-        <h4><a href="./numpy/beginners_part_one">Numpy For Beginners (part one)</a></h4>
         <p>Adding, removing, sorting, arrays</p>
         <p>Overview of basic terms</p>
     </li>
     <li>
-        <h4><a href="./numpy/beginners_part_two">Numpy For Beginners (part two)</a></h4>
+        <h4><a href="./numpy/beginners_two">Numpy For Beginners (part two)</a></h4>
         <p>Adding, removing, sorting, arrays</p>
         <p>Finding the size of the array</p>
         <p>Reshape an array</p>
     </li>
     <li>
-        <h4><a href="./numpy/beginners_part_three">Numpy For Beginners (part three)</a></h4>
+        <h4><a href="./numpy/beginners_three">Numpy For Beginners (part three)</a></h4>
         <p>Convert a 1D to 2D Array</p>
         <p>Indexing and Slicing</p>
+    </li>
+    <li>
+        <h4><a href="./numpy/beginners_four">Numpy For Beginners (part four)</a></h4>
+        <p>Create an array from existing data</p>
     </li>
 </ul>
 <h2>General List</h2>

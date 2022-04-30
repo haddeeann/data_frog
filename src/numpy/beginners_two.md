@@ -1,10 +1,10 @@
 ---
-title: NumPy for Absolute Beginners (cont.)
+title: NumPy for Absolute Beginners  (part two)
 layout: "article_type_two.njk"
 ---
 [Go home](/index.html)
 
-[NumPy Starter](https://numpy.org/doc/stable/user/absolute_beginners.html)
+[NumPy Article for beginners](https://numpy.org/doc/stable/user/absolute_beginners.html)
 
 ## Adding, Removing, Sorting Arrays
 Sorting an array is simple with np.sort() method. The sort method can specify the axis, kind and order of the array.

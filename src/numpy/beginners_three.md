@@ -1,10 +1,10 @@
 ---
-title: NumPy for Absolute Beginners (cont.)
+title: NumPy for Absolute Beginners  (part three)
 layout: "article_type_two.njk"
 ---
 [Go home](/index.html)
 
-[NumPy Starter](https://numpy.org/doc/stable/user/absolute_beginners.html)
+[NumPy Article for beginners](https://numpy.org/doc/stable/user/absolute_beginners.html)
 
 ## How to Convert a 1D Array into a 2D Array
 
