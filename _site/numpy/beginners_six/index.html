@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Data Frog</title>
+    <link rel="stylesheet" href="../../style.css" />
+</head>
+<body>
+<h1>NumPy for Absolute Beginners (part six)</h1>
+    <main>
+        <p><a href="/index.html">Go home</a></p>
+        <p><a href="https://numpy.org/doc/stable/user/absolute_beginners.html">NumPy Article for beginners</a></p>
+        <h2>Broadcasting</h2>
+        <p>
+            When you want to carry out an operation between an array and a single operation.
+            Also, known as carrying out an operation between a vector and a scalar.
+            You can also carry out an operation between arrays of different sizes.
+        </p>
+        `
+        data = np.array([1.0, 2.0])
+        data * 1.5
+        // output
+        array([1.6, 3.2])
+        `
+        <p>NumPy understands that it should multiply each value in the array by the scalar. This is called Broadcasting and it allows NumPy to perform repeated operations on each cell. And on arrays of different shapes.</p>
+        <h2>Aggregate Function</h2>
+        <p>In addition to min, max and sum, you can also do aggregation on arrays like *mean* to the the average and *prod* to get the result of multiplying the elements together. *std* can be used to get the standard deviation.</p>
+        <h2>Generate Random Numbers</h2>
+        <p>Using NumPy's random generation on creating arrays is very useful.
+            For example you can randomly generate the initial data for an artificial neural network. You can split the data into random sets.
+            And you can randomly shuffle your dataset.
+        </p>
+        <p>The *Generator.integers* is used to generate random integers.</p>
+        <h3>Unique</h3>
+        <p>Getting the unique numbers out of an NumPy array is simple with np.unique. Just pass the array into np.unique() and out pops only the unique values from it.</p>
+        <p>Unique values can be gotten from 2 D arrays as well.</p>
+        <h3>Transposing and reshaping a matrix</h3>
+        <p>To reshape and transpose arrays you can use arr.reshape(), arr.transpose(), or arr.T</p>
+        <p>You might need to switch the dimensions of a matrix. You can use the reshape the array.</p>
+        <h3>Reverse An Array</h3>
+        <p>To reverse an array, you can use the np.flip() method.</p>
+        <p>Reversing a 2D array works much the same way as reversing a single dimensional array.</p>
+        `
+        reversed = np.flip(arr_2d)
+        print(reversed)
+        [[12 11 10  9]
+        [ 8  7  6  5]
+        [ 4  3  2  1]]
+        `
+        <p>Reversing a 2D only with the rows</p>
+        `
+        reversed = np.flip(arr_2s, axis=0)
+        print(reversed)
+        [[ 9 10 11 12]
+        [ 5  6  7  8]
+        [ 1  2  3  4]]
+        `
+        <p>Or only the columns:</p>
+        `
+        reversed = np.flip(arr_2d, axis=1)
+        print(reversed)
+        [[ 4  3  2  1]
+        [ 8  7  6  5]
+        [12 11 10  9]]
+        `
+        <p>You can also reverse the contents of just one column or row.</p>
+        `
+        arr_2d[1] = np.flip(arr_2d[1])
+        print(arr_2d)
+        [[ 1  2  3  4]
+        [ 8  7  6  5]
+        [ 9 10 11 12]]
+        `
+        <p>Or even the the second column:</p>
+        `
+        arr_2d[:,1] = np.flip(arr_2d[:,1])
+        print(arr_2d)
+        [[ 1 10  3  4]
+        [ 8  7  6  5]
+        [ 9  2 11 12]]
+        `
+        <h2>Flattening An Array</h2>
+        <p>the two best arrays are .flatten() and ravel()</p>
+        <p>The difference is that ravel() doesn't just create a copy, it's a reference to the parent array. If you change the child array, then the parent arrays changes.</p>
+        `
+        a1 = x.flatten()
+        a1[0] = 99
+        print(x)  # Original array
+        [[ 1  2  3  4]
+        [ 5  6  7  8]
+        [ 9 10 11 12]]
+        print(a1)  # New array
+        [99  2  3  4  5  6  7  8  9 10 11 12]
+        `
+        <p>And then ravel:</p>
+        `
+        a2 = x.ravel()
+        a2[0] = 98
+        print(x)  # Original array
+        [[98  2  3  4]
+        [ 5  6  7  8]
+        [ 9 10 11 12]]
+        print(a2)  # New array
+        [98  2  3  4  5  6  7  8  9 10 11 12]
+        `
+        <h3>Help and DocString</h3>
+        <p>For all of the NumPy's functions a built in help menu is included.</p>
+        `
+        help(max)
+        Help on built-in function max in module builtins:
+
+        max(...)
+        max(iterable, *[, default=obj, key=func]) -> value
+        max(arg1, arg2, *args, *[, key=func]) -> value
+
+        With a single iterable argument, return its biggest item. The
+        default keyword-only argument specifies an object to return if
+        the provided iterable is empty.
+        With two or more arguments, return the largest argument.
+        `
+        <p>A shortcut for the help is the question mark. Like:</p>
+        `
+        max?
+        max(iterable, *[, default=obj, key=func]) -> value
+        max(arg1, arg2, *args, *[, key=func]) -> value
+
+        With a single iterable argument, return its biggest item. The
+        default keyword-only argument specifies an object to return if
+        the provided iterable is empty.
+        With two or more arguments, return the largest argument.
+        Type:      builtin_function_or_method
+        `
+        <p>This can be used on the instances of the arrays, not just the object methods.</p>
+        `
+        a = np.array([1, 2, 3, 4, 5, 6])
+        `
+        <p>Then you can get a lot of information by the question mark on the a instance.</p>
+        `
+        a?
+        Type:            ndarray
+        String form:     [1 2 3 4 5 6]
+        Length:          6
+        File:            ~/anaconda3/lib/python3.9/site-packages/numpy/__init__.py
+        Docstring:       <no docstring>
+        Class docstring:
+        ndarray(shape, dtype=float, buffer=None, offset=0,
+        strides=None, order=None)
+
+        An array object represents a multidimensional, homogeneous array
+        of fixed-size items.  An associated data-type object describes the
+        format of each element in the array (its byte-order, how many bytes it
+        occupies in memory, whether it is an integer, a floating point number,
+        or something else, etc.)
+        `
+    </main>
+</body>
+</html>
