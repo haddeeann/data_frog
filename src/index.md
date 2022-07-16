@@ -14,32 +14,12 @@ layout: "base.njk"
         <p>Learn to run commands from the command line</p>
     </li>
     <li>
-        <h4><a href="./numpy/beginners_one">NumPy For Beginners (part one)</a></h4>
-        <p>Numpy and arrays</p>
-        <p>ndarray</p>
-        <p>Array attributes</p>
-        <p>Create a basic array</p>
-        <p>Adding, removing, sorting, arrays</p>
-        <p>Overview of basic terms</p>
+        <h4><a href="./numpy/beginners">NumPy For Beginners</a></h4>
+        <p>The very beginners version of working with NumPy arrays.</p>
     </li>
     <li>
-        <h4><a href="./numpy/beginners_two">NumPy For Beginners (part two)</a></h4>
-        <p>Adding, removing, sorting, arrays</p>
-        <p>Finding the size of the array</p>
-        <p>Reshape an array</p>
-    </li>
-    <li>
-        <h4><a href="./numpy/beginners_three">NumPy For Beginners (part three)</a></h4>
-        <p>Convert a 1D to 2D Array</p>
-        <p>Indexing and Slicing</p>
-    </li>
-    <li>
-        <h4><a href="./numpy/beginners_four">NumPy For Beginners (part four)</a></h4>
-        <p>Create an array from existing data</p>
-    </li>
-    <li>
-        <h4><a href="./numpy/beginners_five">NumPy for Beginners (part five)</a></h4>
-        <p>Basic array operations</p>
+        <h4><a href="./numpy/basics_1">NumPy Basics</a></h4>
+        <p>To be added soon... the basics. Slightly more advanced than for beginners.</p>
     </li>
 </ul>
 <h2>General List</h2>
