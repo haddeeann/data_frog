@@ -10,7 +10,27 @@
     <main>
         <p><a href="/index.html">Go home</a></p>
 <p><a href="https://numpy.org/doc/stable/user/basics.html">NumPy Article for beginners</a></p>
-<p>(Next--&gt; start with basics and learn that.)</p>
+<h2>Basics of NumPy</h2>
+<h3>Array Creation</h3>
+<ol>
+<li>Conversion from other Python structures</li>
+<li>The built in NumPy array creation functions</li>
+<li>By replicating, joining or mutating existing arrays</li>
+<li>Reading arrays from disk, either standard or custom formats</li>
+<li>From raw bytes thru the use of strings or buffers</li>
+<li>Special library functions, like random</li>
+</ol>
+<h4>Making Arrays from Python sequences</h4>
+<p>The NumPy arrays can be made from lists and tuples. Lists are as [...] and tuples (...).</p>
+<ul>
+<li>a list will make a 1D array</li>
+<li>a list of list will create a 2D array</li>
+<li>any further nested will create higher dimension arrays. The array objects dimension is represented by the concept of ndarray in NumPy.</li>
+</ul>
+<p>When using a <code>numpy.array</code> to make an array it's important to be careful of the dtype or the data type of the array. It's important to not have an overflow. For example, and 8-bit signed integer represents a number from -128 to 127. So if you tried to assign a number like 128 or 129 to a dtype=np.int8.</p>
+<p>When performing operations with two arrays with the same type (dtype) of uint32, for example, the resulting array is hte same type.</p>
+<p>When performing operations that different dtypes, NumPy will assign a new type that satisfies all the array elements involved in the computation. For example, uint32 and int32 can be both represented by int64.</p>
+<p>The default behavior is to create arrays as either 32 or 64 bit signed integers depending on the platform. Or even a double precision floating point number like int32/int64. If you want a specific type otherwise you need to specify the type.</p>
 
     </main>
     <footer>
