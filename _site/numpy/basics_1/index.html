@@ -31,6 +31,18 @@
 <p>When performing operations with two arrays with the same type (dtype) of uint32, for example, the resulting array is hte same type.</p>
 <p>When performing operations that different dtypes, NumPy will assign a new type that satisfies all the array elements involved in the computation. For example, uint32 and int32 can be both represented by int64.</p>
 <p>The default behavior is to create arrays as either 32 or 64 bit signed integers depending on the platform. Or even a double precision floating point number like int32/int64. If you want a specific type otherwise you need to specify the type.</p>
+<h4>Built in NumPy array creation functions</h4>
+<p>There are over 40 built-in functions for creating arrays. There are 3 broad categories of array creator functions.</p>
+<ol>
+<li>1D arrays</li>
+<li>2D arrays</li>
+<li>ndarrays (more than two dimensions)</li>
+</ol>
+<h5>1D Arrays</h5>
+<p>For 1D or 1 dimension arrays there's <code>numpy.linspace</code> and <code>numpy.arange</code>. Generally there needs to be at least two inputs start and stop.</p>
+<p>The <code>numpy.arange</code> creates arrays with regular incrementing values. Best use in <code>numpy.arange</code> is to use a start, end, and step. And if you want to use a non-integer incrementor / step you want to use a <code>dtype</code> of float.</p>
+<h5>2D Arrays</h5>
+<p>(to be continued)</p>
 
     </main>
     <footer>
