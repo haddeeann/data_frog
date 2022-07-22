@@ -48,6 +48,69 @@ The `numpy.arange` creates arrays with regular incrementing values. Best use in 
 
 ##### 2D Arrays
 
+The 2D array creation functions are `numpy.eye`, `numpy.diag`, and `numpy.vander`. 
+
+And example of using the `numpy.eye` creation process is `np.eye(n, m)`. The elements are where `i=j` (that is the row index and column index being equal) and are 1. The rest are equal to 0.
+
+For example:
+
+`
+np.eye(3)
+array([[1., 0., 0.],
+[0., 1., 0.],
+[0., 0., 1.]])
+np.eye(3, 5)
+array([[1., 0., 0., 0., 0.],
+[0., 1., 0., 0., 0.],
+[0., 0., 1., 0., 0.]])
+`
+
+The `numpy.diag` can be defined as a 2D array with the given values along the diagonal. Or if given a 2D array returns a 1D array that is only the diagonal elements.
+
+These two functions can be helpful for doing linear algebra.
+
+`
+np.diag([1, 2, 3])
+array([[1, 0, 0],
+[0, 2, 0],
+[0, 0, 3]])
+np.diag([1, 2, 3], 1)
+array([[0, 1, 0, 0],
+[0, 0, 2, 0],
+[0, 0, 0, 3],
+[0, 0, 0, 0]])
+a = np.array([[1, 2], [3, 4]])
+np.diag(a)
+array([1, 4])
+`
+
+The `vander(x, n)` defines a Vendermonde matrix as a 2D NumPy array.
+
+Each column of the Vandemonde matrix is a decreasing power of the input. That is the 1D array (the list or tuple) that was passed in to make the matrix.
+
+The `x` being where the highest polynomial order as is `n-1`. This array creation routine is useful in generating linear least square models.
+
+`
+np.vander(np.linspace(0, 2, 5), 2)
+array([[0. , 1. ],
+[0.5, 1. ],
+[1. , 1. ],
+[1.5, 1. ],
+[2. , 1. ]])
+np.vander([1, 2, 3, 4], 2)
+array([[1, 1],
+[2, 1],
+[3, 1],
+[4, 1]])
+np.vander((1, 2, 3, 4), 4)
+array([[ 1,  1,  1,  1],
+[ 8,  4,  2,  1],
+[27,  9,  3,  1],
+[64, 16,  4,  1]])
+`
+
+#### general ndarray creation function
+
 (to be continued)
 
 
