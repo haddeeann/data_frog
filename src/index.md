@@ -19,7 +19,11 @@ layout: "base.njk"
     </li>
     <li>
         <h4><a href="./numpy/basics_1">NumPy Basics</a></h4>
-        <p>To be added soon... the basics. Slightly more advanced than for beginners.</p>
+        <p>The basics. Slightly more advanced than for beginners.</p>
+    </li>
+    <li>
+        <h4><a href="./numpy/indexing_ndarrays">Indexing NumPy Arrays</a></h4>
+        <p>To be added soon...</p>
     </li>
 </ul>
 <h2>General List</h2>

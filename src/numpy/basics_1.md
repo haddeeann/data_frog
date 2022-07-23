@@ -1,14 +1,14 @@
 ---
-title: NumPy for Basics (part one)
+title: NumPy for Basics
 layout: "article_type_two.njk"
 ---
 [Go home](/index.html)
 
 [NumPy Article for beginners](https://numpy.org/doc/stable/user/basics.html)
 
-## Basics of NumPy
+# Basics of NumPy
 
-### Array Creation
+## Array Creation
 
 1. Conversion from other Python structures
 2. The built in NumPy array creation functions
@@ -17,7 +17,7 @@ layout: "article_type_two.njk"
 5. From raw bytes thru the use of strings or buffers
 6. Special library functions, like random
 
-#### Making Arrays from Python sequences
+## Making Arrays from Python sequences
 The NumPy arrays can be made from lists and tuples. Lists are as [...] and tuples (...).
 
 - a list will make a 1D array
@@ -32,7 +32,7 @@ When performing operations that different dtypes, NumPy will assign a new type t
 
 The default behavior is to create arrays as either 32 or 64 bit signed integers depending on the platform. Or even a double precision floating point number like int32/int64. If you want a specific type otherwise you need to specify the type.
 
-#### Built in NumPy array creation functions
+## Built in NumPy array creation functions
 
 There are over 40 built-in functions for creating arrays. There are 3 broad categories of array creator functions. 
 
@@ -40,13 +40,13 @@ There are over 40 built-in functions for creating arrays. There are 3 broad cate
 2. 2D arrays
 3. ndarrays (more than two dimensions)
 
-##### 1D Arrays
+## 1D Arrays
 
 For 1D or 1 dimension arrays there's `numpy.linspace` and `numpy.arange`. Generally there needs to be at least two inputs start and stop.
 
 The `numpy.arange` creates arrays with regular incrementing values. Best use in `numpy.arange` is to use a start, end, and step. And if you want to use a non-integer incrementor / step you want to use a `dtype` of float.
 
-##### 2D Arrays
+## 2D Arrays
 
 The 2D array creation functions are `numpy.eye`, `numpy.diag`, and `numpy.vander`. 
 
@@ -109,9 +109,76 @@ array([[ 1,  1,  1,  1],
 [64, 16,  4,  1]])
 `
 
-#### general ndarray creation function
+## general ndarray creation function
 
-(to be continued)
+To create an ndarry with filled in values, you can use `numpy.ones`, `numpy.zeroes`, and `random`. These all fill the created arrays with various values depending on which you use. These arrays create any dimension of arrays by specifying how how dimensions or length along a tuple or list.
+
+The `numpy.zeros` will craete an array filled with zeroes. The default dtype is `float64`. The `numpy.ones` will create an array filled with the value of 1. The `random` method will fill the array with random numbers between 0 and 1.
+
+The `numpy.indices` will create a set of arrays. They will be stacked as a one-higher dimensioned array. This is useful for evaluating functions of multiple dimensions on a regular grid.
+
+## Replicating, joining or mutation existing arrays
+
+One arrays have been created you can replicate, join, or mutate those existing arrays to make new arrays.
+
+If you assign an array to a new variable, the original array is edited when the new array is edited. 
+
+To do otherwise, make a new array that doesn't change the original array, use `numpy.copy`. Here is an example of an array that gets edited after being passed.
+
+`
+a = np.array([1, 2, 3, 4, 5, 6])
+b = a[:2]
+b += 1
+print('a = ', a)
+print('b = ', b)
+a = [2 3 3 4 5 6]
+b = [2 3]
+`
+
+Here's an example of how when you copy an array it doens't change the original.
+
+`
+a = np.array([1, 2, 3, 4])
+b = a[:2].copy()
+b += 1
+print('a = ', a)
+print('b = ', b)
+a = [1 2 3 4]
+b = [2 3]
+`
+
+Some other routines that can be used to join existing arrays: `numpy.vstack`, `numpy.hstack`, and `numpy.block`.
+
+## Reading Arrays from Disk
+
+This is the most common case for creating large arrays is from existing data.
+
+### Standard Binary Formats
+
+Various fields have stand formats for the array data.
+
+HD5: h5py
+FITS: Astropy
+
+Some formats cannot be read directly, but those can be converted to a format supported by libraries like PIL.
+
+### Common ASCII Formats
+
+Files such as csv and tsv files are delimited data. Those type of files that can be opened with programs like Excel and LabView. the two standard routines for importing a file with delimted data is `numpy.loadtxt` and `numpy.genfromtxt`. Other ways of importing data are `scipy.io` and `Pandas`.
+
+## Creating Arrays from raw bytes
+
+If the file has a relatively simple format then a simple I/O library can be written that used the NumPy `fromfile()` function and the `.tofile()` methods to read and write to NumPy arrays directly.
+
+## Other libraries
+
+NumPy is a fundamental library where other libraries can be added ona dn used. Some of the libraries are SciPy, Pandas, and OpenCV.
+
+
+
+
+
+
 
 
 
