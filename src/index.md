@@ -23,7 +23,8 @@ layout: "base.njk"
     </li>
     <li>
         <h4><a href="./numpy/indexing_ndarrays">Indexing NumPy Arrays</a></h4>
-        <p>To be added soon...</p>
+        <p>How indexing works in ndarrays</p>
+        <p>In progress</p>
     </li>
 </ul>
 <h2>General List</h2>
