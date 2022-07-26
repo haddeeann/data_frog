@@ -47,3 +47,20 @@ In NumPy there are 24 fundamental Python types to describe the different types o
 All the rules of slicing sequences in Python apply on a per dimension basis. 
 
 The basics are that `i:j:k` will step through the array where i starts, j ends, and k is the step amount through the array where k != 0. that is, k can not equal zero.
+
+## Dimensional indexing tools
+
+The ellipsis is a tool to help with matching the array shapes with expressions in an assignment.
+
+There can be only one ellipsis present in slicing. The length of the expanded selection tuple is `x.ndim`
+
+Each `newaxis` object in the selection tuple serves to expand the dimensions of the the result by one unit length dimension.
+
+## Importing data with `genfromtxt`
+
+[using genfromtxt](https://numpy.org/doc/stable/user/basics.io.genfromtxt.html#defining-the-input)
+
+There are several ways NumPy can create arrays from tabular data. `genfromtxt` is one such useful way.
+
+
+

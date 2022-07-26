@@ -27,6 +27,13 @@
 <p>In NumPy there are 24 fundamental Python types to describe the different types of scalars.</p>
 <p>All the rules of slicing sequences in Python apply on a per dimension basis.</p>
 <p>The basics are that <code>i:j:k</code> will step through the array where i starts, j ends, and k is the step amount through the array where k != 0. that is, k can not equal zero.</p>
+<h2>Dimensional indexing tools</h2>
+<p>The ellipsis is a tool to help with matching the array shapes with expressions in an assignment.</p>
+<p>There can be only one ellipsis present in slicing. The length of the expanded selection tuple is <code>x.ndim</code></p>
+<p>Each <code>newaxis</code> object in the selection tuple serves to expand the dimensions of the the result by one unit length dimension.</p>
+<h2>Importing data with <code>genfromtxt</code></h2>
+<p><a href="https://numpy.org/doc/stable/user/basics.io.genfromtxt.html#defining-the-input">using genfromtxt</a></p>
+<p>There are several ways NumPy can create arrays from tabular data. <code>genfromtxt</code> is one such useful way.</p>
 
     </main>
     <footer>
