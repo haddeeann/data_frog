@@ -34,6 +34,12 @@
 <h2>Importing data with <code>genfromtxt</code></h2>
 <p><a href="https://numpy.org/doc/stable/user/basics.io.genfromtxt.html#defining-the-input">using genfromtxt</a></p>
 <p>There are several ways NumPy can create arrays from tabular data. <code>genfromtxt</code> is one such useful way.</p>
+<p>The only mandatory argument of <code>genfromtxt</code> is the data source. It can be a string, a list of strings or a file read into NumPy.</p>
+<p>If a single string is given, then it's assumed to be the name of a local or remote file.</p>
+<p>If a list of string is given then each string is treated as one line of a file. When the URL of a remote file is passed the file is automatically downloaded to the current directory and opened.</p>
+<p>The different types of archives recognized are gzip and dbz2. If the file extension is '.gz' then a gzip is expected. If it ends with a 'bz2' then a bzip2 file is assumed.</p>
+<h2>Splitting the lines into columns</h2>
+<p>(to be continued)</p>
 
     </main>
     <footer>

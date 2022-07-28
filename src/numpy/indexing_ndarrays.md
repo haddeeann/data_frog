@@ -62,5 +62,17 @@ Each `newaxis` object in the selection tuple serves to expand the dimensions of 
 
 There are several ways NumPy can create arrays from tabular data. `genfromtxt` is one such useful way.
 
+The only mandatory argument of `genfromtxt` is the data source. It can be a string, a list of strings or a file read into NumPy.
+
+If a single string is given, then it's assumed to be the name of a local or remote file.
+
+If a list of string is given then each string is treated as one line of a file. When the URL of a remote file is passed the file is automatically downloaded to the current directory and opened.
+
+The different types of archives recognized are gzip and dbz2. If the file extension is '.gz' then a gzip is expected. If it ends with a 'bz2' then a bzip2 file is assumed.
+
+## Splitting the lines into columns
+
+(to be continued)
+
 
 
