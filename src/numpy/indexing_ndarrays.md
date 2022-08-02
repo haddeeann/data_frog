@@ -72,6 +72,14 @@ The different types of archives recognized are gzip and dbz2. If the file extens
 
 ## Splitting the lines into columns
 
+Once the file if open for reading the 'genfromtxt' splits each line to a sequence of strings. Whatever delimiter is chosen will split the characters into lines. That can be a comma (,) semicolon (;) or even the '\t' - the tab character.
+
+The delimiter chosen isn't limited to a single character. Also, the file may be fixed width. Then the columns are going to be defined as a given number of characters. By default, the white spacing at the end and beginning of values are not stripped. But a parameter of autostrip can be set to True and the leading and trailing white spaces will be stripped from the values.
+
+Comments from the files will be ignored from processing and comment s are marked with a #.
+
+## Skipping Lines and choosing columns
+
 (to be continued)
 
 
