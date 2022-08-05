@@ -24,6 +24,10 @@ layout: "base.njk"
     <li>
         <h4><a href="./numpy/indexing_ndarrays">Indexing NumPy Arrays</a></h4>
         <p>How indexing works in ndarrays</p>
+    </li>
+    <li>
+        <h4><a href="./numpy/byte_ordering">Byte Ordering</a></h4>
+        <p>A refresher on Endianness</p>
         <p>In progress</p>
     </li>
 </ul>
