@@ -34,3 +34,23 @@ The big reason this is important is because processors use different ways to sto
 For example, one processor might use a little-endian way of storing the data and another might use big-endian.
 
 With little-endian we don't arbitrarily store any 8 bytes in little-endian order, but it stores individual values in little endian based on the size they take up. So if we had an 8 byte number that would be stored as the whole number reversed and if we had two 4 byte numbers each of those would be reversed.
+
+## Back to NumPy
+
+So with NumPy arrays we might be working with a computer that is little endian, like Intel Pentium, but loading data from a file written on a computer that is big endian.
+
+In our example, we've loaded 4 bytes of data from a file in a big endian computer. These four bytes represent tw 15 bit integers. In the big endian system the two byte integer is store with the Most Significant Byte first (MSB) and the Least Significant byte last.
+
+We pass in a '>' in front of the dtype to indicate that the data type is big endian and we pass in a buffer of a type of 'big_end_buffer'.
+
+`big_end_arr = np.ndarray(shape=(2,),dtype='>i2', buffer=big_end_buffer)
+big_end_arr[0]`
+
+## Changing Byte Ordering
+
+There are two ways to affect the relationship betweent eh byte ordering of the array and the underlying memory.
+
+1. change the byte ordering info in hte array dtype. Using such as `arr.newbyteorder()`
+2. change the byte ordering of the underlying data and don't change the dtype interpretation. Such as `arr.byteswap()`
+
+

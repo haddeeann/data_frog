@@ -25,6 +25,17 @@
 <p>The big reason this is important is because processors use different ways to store data. So knowing how the computer stores data across the internet communication is important.</p>
 <p>For example, one processor might use a little-endian way of storing the data and another might use big-endian.</p>
 <p>With little-endian we don't arbitrarily store any 8 bytes in little-endian order, but it stores individual values in little endian based on the size they take up. So if we had an 8 byte number that would be stored as the whole number reversed and if we had two 4 byte numbers each of those would be reversed.</p>
+<h2>Back to NumPy</h2>
+<p>So with NumPy arrays we might be working with a computer that is little endian, like Intel Pentium, but loading data from a file written on a computer that is big endian.</p>
+<p>In our example, we've loaded 4 bytes of data from a file in a big endian computer. These four bytes represent tw 15 bit integers. In the big endian system the two byte integer is store with the Most Significant Byte first (MSB) and the Least Significant byte last.</p>
+<p>We pass in a '&gt;' in front of the dtype to indicate that the data type is big endian and we pass in a buffer of a type of 'big_end_buffer'.</p>
+<p><code>big_end_arr = np.ndarray(shape=(2,),dtype='&gt;i2', buffer=big_end_buffer) big_end_arr[0]</code></p>
+<h2>Changing Byte Ordering</h2>
+<p>There are two ways to affect the relationship betweent eh byte ordering of the array and the underlying memory.</p>
+<ol>
+<li>change the byte ordering info in hte array dtype. Using such as <code>arr.newbyteorder()</code></li>
+<li>change the byte ordering of the underlying data and don't change the dtype interpretation. Such as <code>arr.byteswap()</code></li>
+</ol>
 
     </main>
     <footer>
