@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Data Frog</title>
+    <link rel="stylesheet" href="../../style.css" />
+</head>
+<body>
+    <h1>Structured Arrays</h1>
+    <main>
+        <p><a href="/index.html">Go home</a></p>
+<p><a href="https://numpy.org/doc/stable/user/basics.rec.html">Structured Arrays</a></p>
+<h2>Structured Arrays</h2>
+<p>Structured arrays are ndarrays whose datatype are a composition of simpler datatypes organized as a sequence of named fields.</p>
+<p><code>x = np.array([('Bob', 9, 81.0), ('Fido', 3, 27.0)], dtype=[('name', 'U10'), ('age', 'i4'), ('weight', 'f4')])</code></p>
+<p><code>x array([('Bob', 9, 81.), ('Fido', 3, 27.)], dtype=[('name', '&lt;U10'), ('age', '&lt;i4'), ('weight', '&lt;f4')]) </code></p>
+<p>It's similar to a regular ndarray, but each of the fields has a name. Then you can access the individual fields aof a structured array by using the name.</p>
+<p><code>x['age'] array([9, 3], dtype=int32) x['age'] = 5</code></p>
+<p><code>x array([('Rex', 5, 81.), ('Fido', 5, 27.)], dtype=[('name', '&lt;U10'), ('age', '&lt;i4'), ('weight', '&lt;f4')]) </code></p>
+<p>Structured data types have a similar memory layout as 'structs' in the C language. These helps us be able to do low level manipulation, like for interpreting binary blobs. One of the draw backs to using this for manipulation of tabular data like that stored in csv files is that it can lead to poor cache behavior.</p>
+<p>Other pydata projects could be better suited such as xarray, pandas, or DataArray.</p>
+<h2>Structured Datatypes</h2>
+<p>To be continued...</p>
+
+    </main>
+    <footer>
+        <div>
+            <div>Sponsored by Frog Protection Services</div>
+            <div>Do you have Frog Protection?</div>
+        </div>
+        <div>a <code class="logo">hello world</code> production</div>
+    </footer>
+</body>
+</html>
