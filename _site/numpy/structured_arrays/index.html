@@ -20,7 +20,24 @@
 <p>Structured data types have a similar memory layout as 'structs' in the C language. These helps us be able to do low level manipulation, like for interpreting binary blobs. One of the draw backs to using this for manipulation of tabular data like that stored in csv files is that it can lead to poor cache behavior.</p>
 <p>Other pydata projects could be better suited such as xarray, pandas, or DataArray.</p>
 <h2>Structured Datatypes</h2>
-<p>To be continued...</p>
+<p>A structured datatype can be thought of as a sequence of bytes of a certain length which is interpreted as a collection of fields.</p>
+<p>Each of those fields has a name, a datatype, and a byte offset.</p>
+<p>The datatype can be any kind of datatype within NumPy, but can also be a subarray data type. Subarray data types behave like an ndarray of a specific shape.</p>
+<p>The structured datatypes can be created using a function <code>numpy.dtype</code>.</p>
+<p>There are four forms of creating the numpy.dtype:</p>
+<ol>
+<li>by a list of tuples. One tuple per field.</li>
+<li>a string of comma seperated dtype specifications.</li>
+<li>a dictionary of field parameter arrays.</li>
+<li>a dictionary of field names.</li>
+</ol>
+<p>The list of field names of a structured datatype can be found int eh names attribute of the dtype of the object.</p>
+<p>The dtype object also has a dictionary-like attribute, fields, whose keys are the field names.</p>
+<p>NumPy uses of two methods to determine the field byte offsets and the overall itemsize of a structured datatype.</p>
+<p>This depends on whether align=True was given as a keyword argument to numpy.dtype.</p>
+<p>In addition to the field names, the fields can also have titles.</p>
+<h2>Indexing and Assignment to Structured Arrays</h2>
+<p>to be continued</p>
 
     </main>
     <footer>
