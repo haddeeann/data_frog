@@ -4,6 +4,15 @@ layout: "article_type_two.njk"
 ---
 [Go home](/index.html)
 
+## Command Line
+
+This is an explanation on how you can run NumPy code from the command line.
+
+Open up a command line and start by importing NumPy first at the prompt.
+
+## The standard way to import NumPy:
+`import numpy as np`
+
 ## False Start
 I don't know. I thought since there was a script example on the Numpy page that it would be as easy as downloading Numpy into a virtual python environment. 
 

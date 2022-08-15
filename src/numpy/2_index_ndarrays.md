@@ -1,12 +1,12 @@
 ---
-title: Indexing on ndarrays
+title: Indexing NumPy Arrays
 layout: "article_type_two.njk"
 ---
 [Go home](/index.html)
 
 [Indexing NumPy arrays](https://numpy.org/doc/stable/user/basics.indexing.html)
 
-# Indexing 
+# Indexing
 
 The `ndarrays` can be indexed using the stand Python object x[obj] syntax, same as normal dictionary access notation. There's different kinds of indexing available depending on the object. There is basic indexing and advanced indexing, and field access.
 
@@ -44,7 +44,7 @@ The `ellipses` and `newaxis` objects can be in this notation as well as integers
 
 In NumPy there are 24 fundamental Python types to describe the different types of scalars.
 
-All the rules of slicing sequences in Python apply on a per dimension basis. 
+All the rules of slicing sequences in Python apply on a per dimension basis.
 
 The basics are that `i:j:k` will step through the array where i starts, j ends, and k is the step amount through the array where k != 0. that is, k can not equal zero.
 
@@ -61,6 +61,12 @@ Each `newaxis` object in the selection tuple serves to expand the dimensions of 
 [using genfromtxt](https://numpy.org/doc/stable/user/basics.io.genfromtxt.html#defining-the-input)
 
 There are several ways NumPy can create arrays from tabular data. `genfromtxt` is one such useful way.
+
+In a nutshell the `genfromtxt` runs two main loops. The first loop converts each line of the file.
+
+The second loop converts each string to the right data type.
+
+the mechanism of using two loops take more time but it gives more flexibility.
 
 The only mandatory argument of `genfromtxt` is the data source. It can be a string, a list of strings or a file read into NumPy.
 

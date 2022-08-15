@@ -1,12 +1,12 @@
 ---
-title: NumPy for Basics
+title: Byteswapping
 layout: "article_type_two.njk"
 ---
 [Go home](/index.html)
 
 [NumPy Byte swapping](https://numpy.org/doc/stable/user/basics.byteswapping.html)
 
-# Basics byte swapping
+## Basics byte swapping
 
 The ndarray is an object that provides an interface to data in memory. So it sometimes happens that the memory that you want to view in the array is not of the same byte ordering as the computer than you're running Python on.
 

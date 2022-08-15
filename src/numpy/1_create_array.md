@@ -1,20 +1,20 @@
 ---
-title: NumPy for Basics
+title: NumPy Array Creation
 layout: "article_type_two.njk"
 ---
 [Go home](/index.html)
 
-[NumPy Article for beginners](https://numpy.org/doc/stable/user/basics.html)
+[NumPy Article for beginners](https://numpy.org/doc/stable/user/basics.html) and 
+[Create an Array](https://numpy.org/doc/stable/user/basics.creation.html)
 
-# Basics of NumPy
 
 ## Array Creation
 
 1. Conversion from other Python structures
-2. The built in NumPy array creation functions
+2. The built-in NumPy array creation functions
 3. By replicating, joining or mutating existing arrays
 4. Reading arrays from disk, either standard or custom formats
-5. From raw bytes thru the use of strings or buffers
+5. From raw bytes through the use of strings or buffers
 6. Special library functions, like random
 
 ## Making Arrays from Python sequences
@@ -34,7 +34,7 @@ The default behavior is to create arrays as either 32 or 64 bit signed integers 
 
 ## Built in NumPy array creation functions
 
-There are over 40 built-in functions for creating arrays. There are 3 broad categories of array creator functions. 
+There are over 40 built-in functions for creating arrays. There are 3 broad categories of array creator functions.
 
 1. 1D arrays
 2. 2D arrays
@@ -48,7 +48,7 @@ The `numpy.arange` creates arrays with regular incrementing values. Best use in 
 
 ## 2D Arrays
 
-The 2D array creation functions are `numpy.eye`, `numpy.diag`, and `numpy.vander`. 
+The 2D array creation functions are `numpy.eye`, `numpy.diag`, and `numpy.vander`.
 
 And example of using the `numpy.eye` creation process is `np.eye(n, m)`. The elements are where `i=j` (that is the row index and column index being equal) and are 1. The rest are equal to 0.
 
@@ -121,7 +121,7 @@ The `numpy.indices` will create a set of arrays. They will be stacked as a one-h
 
 One arrays have been created you can replicate, join, or mutate those existing arrays to make new arrays.
 
-If you assign an array to a new variable, the original array is edited when the new array is edited. 
+If you assign an array to a new variable, the original array is edited when the new array is edited.
 
 To do otherwise, make a new array that doesn't change the original array, use `numpy.copy`. Here is an example of an array that gets edited after being passed.
 
@@ -164,7 +164,7 @@ Some formats cannot be read directly, but those can be converted to a format sup
 
 ### Common ASCII Formats
 
-Files such as csv and tsv files are delimited data. Those type of files that can be opened with programs like Excel and LabView. the two standard routines for importing a file with delimted data is `numpy.loadtxt` and `numpy.genfromtxt`. Other ways of importing data are `scipy.io` and `Pandas`.
+Files such as csv and tsv files are delimited data. Those type of files that can be opened with programs like Excel and LabView. the two standard routines for importing a file with delimted data is `numpy.loadtxt` and `numpy.genfromtxt`. Other ways of importing data are `scipy.ioFf` and `Pandas`.
 
 ## Creating Arrays from raw bytes
 
@@ -173,7 +173,6 @@ If the file has a relatively simple format then a simple I/O library can be writ
 ## Other libraries
 
 NumPy is a fundamental library where other libraries can be added ona dn used. Some of the libraries are SciPy, Pandas, and OpenCV.
-
 
 
 

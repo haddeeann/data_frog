@@ -8,7 +8,7 @@ layout: "article_type_two.njk"
 
 ## Structured Arrays
 
-Structured arrays are ndarrays whose datatype are a composition of simpler datatypes organized as a sequence of named fields. 
+Structured arrays are ndarrays whose datatype are a composition of simpler datatypes organized as a sequence of named fields.
 
 `
 x = np.array([('Bob', 9, 81.0), ('Fido', 3, 27.0)],
@@ -78,11 +78,11 @@ When assigning to fields which are subarrays, teh assigned value will be first b
 
 To access individual fields, the fields may be modified by indexing the array with the field name. The resulting array shares the same memory location as the original array.
 
-The view will have the same dype and itemsize as the indexed field. It will be a non-structured array, except in case of nested structures. 
+The view will have the same dype and itemsize as the indexed field. It will be a non-structured array, except in case of nested structures.
 
 One can index and assign to a structured array with a multi-field index. The index being a list of field names.
 
-The resul of it will be indexing with a multi-field index as a vew  into the original array. 
+The resul of it will be indexing with a multi-field index as a vew  into the original array.
 
 Assignment to the view modifies the original array. The view's fields will be in the order they were indexed.
 

@@ -1,5 +1,5 @@
 ---
-title: Subclassing Ndarray
+title: Subclassing
 layout: "article_type_two.njk"
 ---
 [Go home](/index.html)

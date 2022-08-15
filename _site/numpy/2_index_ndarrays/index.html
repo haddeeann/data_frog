@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Data Frog</title>
+    <link rel="stylesheet" href="../../style.css" />
+</head>
+<body>
+    <h1>Indexing NumPy Arrays</h1>
+    <main>
+        <p><a href="/index.html">Go home</a></p>
+<p><a href="https://numpy.org/doc/stable/user/basics.indexing.html">Indexing NumPy arrays</a></p>
+<h1>Indexing</h1>
+<p>The <code>ndarrays</code> can be indexed using the stand Python object x[obj] syntax, same as normal dictionary access notation. There's different kinds of indexing available depending on the object. There is basic indexing and advanced indexing, and field access.</p>
+<h2>Basic and single element indexing</h2>
+<p>the single element indexing work the same as in other standard Python sequences. It's 0-based and accepts negative indices to reference from the end of an array.</p>
+<p>A single <code>ndarray</code> can be turned into a multidimentional array.</p>
+<p><code>x = n.arange(10) x.shape(2, 5) x[1, 3] 8</code></p>
+<p>The opposite can be said. Accessing a multidimensional array with one dimensional access reduces it and a subdimensional array is returned.</p>
+<p><code>x[0] array([0, 1, 2, 3, 4])</code></p>
+<p>The returned array is a view, it's not a copy of the original but point to the exact same values in memory as the original array.</p>
+<p>The syntax <code>x[0, 2] == x[0][2]</code> is equivalent. The second syntax created a new temporary array after the first index that is subsequently indexed by 2.</p>
+<h2>Slicing and Striding</h2>
+<p>The basic slicing extends Python's basic concept of slicing to the N dimensions. Basic slicing occurs when the obj is a slice object.</p>
+<p>It works like slicing an array in Python with start:stop:step notation in the brackets.</p>
+<p>The <code>ellipses</code> and <code>newaxis</code> objects can be in this notation as well as integers. The simplest way of indexing with N integers returns an array scalar representing a corresponding item.</p>
+<p>In NumPy there are 24 fundamental Python types to describe the different types of scalars.</p>
+<p>All the rules of slicing sequences in Python apply on a per dimension basis.</p>
+<p>The basics are that <code>i:j:k</code> will step through the array where i starts, j ends, and k is the step amount through the array where k != 0. that is, k can not equal zero.</p>
+<h2>Dimensional indexing tools</h2>
+<p>The ellipsis is a tool to help with matching the array shapes with expressions in an assignment.</p>
+<p>There can be only one ellipsis present in slicing. The length of the expanded selection tuple is <code>x.ndim</code></p>
+<p>Each <code>newaxis</code> object in the selection tuple serves to expand the dimensions of the the result by one unit length dimension.</p>
+<h2>Importing data with <code>genfromtxt</code></h2>
+<p><a href="https://numpy.org/doc/stable/user/basics.io.genfromtxt.html#defining-the-input">using genfromtxt</a></p>
+<p>There are several ways NumPy can create arrays from tabular data. <code>genfromtxt</code> is one such useful way.</p>
+<p>In a nutshell the <code>genfromtxt</code> runs two main loops. The first loop converts each line of the file.</p>
+<p>The second loop converts each string to the right data type.</p>
+<p>the mechanism of using two loops take more time but it gives more flexibility.</p>
+<p>The only mandatory argument of <code>genfromtxt</code> is the data source. It can be a string, a list of strings or a file read into NumPy.</p>
+<p>If a single string is given, then it's assumed to be the name of a local or remote file.</p>
+<p>If a list of string is given then each string is treated as one line of a file. When the URL of a remote file is passed the file is automatically downloaded to the current directory and opened.</p>
+<p>The different types of archives recognized are gzip and dbz2. If the file extension is '.gz' then a gzip is expected. If it ends with a 'bz2' then a bzip2 file is assumed.</p>
+<h2>Splitting the lines into columns</h2>
+<p>Once the file if open for reading the 'genfromtxt' splits each line to a sequence of strings. Whatever delimiter is chosen will split the characters into lines. That can be a comma (,) semicolon (;) or even the '\t' - the tab character.</p>
+<p>The delimiter chosen isn't limited to a single character. Also, the file may be fixed width. Then the columns are going to be defined as a given number of characters. By default, the white spacing at the end and beginning of values are not stripped. But a parameter of autostrip can be set to True and the leading and trailing white spaces will be stripped from the values.</p>
+<p>Comments from the files will be ignored from processing and comment s are marked with a #.</p>
+<h2>Skipping Lines and choosing columns</h2>
+<p>(to be continued)</p>
+
+    </main>
+    <footer>
+        <div>
+            <div>Sponsored by Frog Protection Services</div>
+            <div>Do you have Frog Protection?</div>
+        </div>
+        <div>a <code class="logo">hello world</code> production</div>
+    </footer>
+</body>
+</html>

@@ -1,5 +1,5 @@
 ---
-title: NumPy for Absolute Beginners
+title: NumPy for Beginners
 layout: "article_type_two.njk"
 ---
 [Go home](/index.html)
@@ -18,7 +18,7 @@ It's the universal standard for working with numerical data in Python and it's i
 
 ### NumPy and Arrays
 
-The main way I see of manipulating data in NumPy is through various kinds of arrays. There are smultidimensional arrays, matrix data structures, an ndarray. Ndarray is a homogeneous n-dimentional array object.
+The main way I see of manipulating data in NumPy is through various kinds of arrays. There are multidimensional arrays, matrix data structures, an ndarray. Ndarray is a homogeneous n-dimensional array object.
 
 One of the differences in Python list and NumPy array is that a NumPy array should contain all the same data. NumPy arrays are more memory efficient and allow the data types to be specified.
 
