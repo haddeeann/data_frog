@@ -56,37 +56,3 @@ There can be only one ellipsis present in slicing. The length of the expanded se
 
 Each `newaxis` object in the selection tuple serves to expand the dimensions of the the result by one unit length dimension.
 
-## Importing data with `genfromtxt`
-
-[using genfromtxt](https://numpy.org/doc/stable/user/basics.io.genfromtxt.html#defining-the-input)
-
-There are several ways NumPy can create arrays from tabular data. `genfromtxt` is one such useful way.
-
-In a nutshell the `genfromtxt` runs two main loops. The first loop converts each line of the file.
-
-The second loop converts each string to the right data type.
-
-the mechanism of using two loops take more time but it gives more flexibility.
-
-The only mandatory argument of `genfromtxt` is the data source. It can be a string, a list of strings or a file read into NumPy.
-
-If a single string is given, then it's assumed to be the name of a local or remote file.
-
-If a list of string is given then each string is treated as one line of a file. When the URL of a remote file is passed the file is automatically downloaded to the current directory and opened.
-
-The different types of archives recognized are gzip and dbz2. If the file extension is '.gz' then a gzip is expected. If it ends with a 'bz2' then a bzip2 file is assumed.
-
-## Splitting the lines into columns
-
-Once the file if open for reading the 'genfromtxt' splits each line to a sequence of strings. Whatever delimiter is chosen will split the characters into lines. That can be a comma (,) semicolon (;) or even the '\t' - the tab character.
-
-The delimiter chosen isn't limited to a single character. Also, the file may be fixed width. Then the columns are going to be defined as a given number of characters. By default, the white spacing at the end and beginning of values are not stripped. But a parameter of autostrip can be set to True and the leading and trailing white spaces will be stripped from the values.
-
-Comments from the files will be ignored from processing and comment s are marked with a #.
-
-## Skipping Lines and choosing columns
-
-(to be continued)
-
-
-

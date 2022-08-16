@@ -60,6 +60,13 @@ layout: "base.njk"
     <li>
         <a href="./data_science_software_list">Data Science Libraries in Python</a>
     </li>
+    <li>
+        <a href="https://www.youtube.com/watch?v=o64FV-ez6Gw">Idea for first project</a>
+    </li>
+    <li>
+        <a href="https://www.reddit.com/r/Python/comments/a925bi/projects_for_numpypandas_novice/">Ideas for a beginner project</a>
+        <p>Try implementing a neural network from scratch in pure NumPy using a basic optimization algorithm like vanilla gradient descent/SGD. This necessitates manually writing out a backward pass, which TensorFlow/PyTorch/Keras will spare you from but it familiarizes you with backprop and update rules at a granular level and will make you more comfortable with NumPy operations.</p>
+    </li>
 </ul>
 <h2>More Complete Programs?</h2>
 <ul>
