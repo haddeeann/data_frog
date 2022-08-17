@@ -69,9 +69,87 @@ When the dtype is None the type of each column is determined iteratively from th
 
 The dtype=None is significantly slower. 
 
-## Setting the names with teh names argument
+## Setting the names with the names argument
 
-to be continued
+The natural approach when dealing with tabular data is to allocate a name to each column. When creating the NumPy aray from the file we can pass in a names parameter.
+
+We may sometime sneed to define the columns names from the data itself.
+
+Then we can use hte names keyword with a value of True. The names will be read from the first line, even if the line is commented out.
+
+We can pass in an array as a list. If we do, any names passed in from the dtype functionality is overridden.
+
+`
+data = StringIO("1 2 3\n 4 5 6")
+ndtype = [('a', int), ('b', float), ('c', int)]
+names = ["A", "B", "C"]
+np.genfromtext(data, names=names, dtype=ndtype)
+`
+
+The `defaultfmt` argument. If names is None but a structured dtype is expected, then names are defined with the standard NumPy default of "f%i", yielding names like f0, f1, and so forth.
+
+In the same way, if we don't give enough names to match the length of the dype the missing names will be defined with the default template. We can overwrite this default with the `defaultfmt` argument, that takes any format string.
+
+## Validating names
+
+NumPy arrays with a structured dtype can also be viewed as a recarray, where a field can be accessed as if it were an attribute.
+
+Therefore, we need to make sure that the field name doesn't contain any space or invalid character, and that it's not the name of a standard attribute.
+
+`genfromtxt` accepts three optional arguments that provide a finer control on the names.
+
+1. `deletechars` gives a string combining all the characters that must be deleted from the name.
+2. `excludelist` gives a list of the names to exclude, such as return, file, print. If one of the input name is part of this list, an underscore character will be appended to it.
+3. `case_sensitive` whether the names should be case-sensitive, converted to upper case, or to lower case.
+
+## Tweaking the conversion
+
+Usually when defining a dtype, it's enough to define how the sequence of string must be converted. But some additional control may be sometimes required. 
+
+We may want to make sure that a date in a format like YYYY/MM/DD is converted to a datetime object, or that a string like xx% is properly converted to a float between 0 and 1. 
+
+In such cases, we should define a conversion function with a converters argument.
+
+The value of the argument is usually a dictionary with column indices or column names as keys and a conversion function as values.
+
+The restrictions are that they should accept only a string as input and output only a single element of the wanted type.
+
+Converters can also be used to provide a default for missing entries. 
+
+## Using Missing and Filling Values
+
+Some entries may be missing in the dataset we are trying to import. User defined converted may become cumbersome in that case to manage.
+
+The `genfromtxt` function provides two other complementary mechanism in that case. The `missing_values` argument is used to recognize missing data and a second argument, `filling_values` is used to process these missing data.
+
+### missing_values
+
+By default any empty string is marked as missing. Additionally, more complex strings such as "N/A" or "???" translate into missing or invalid data.
+
+### filling_values 
+
+We know how to recognize missing data, but to provide value for filling in those missing entries is done automatically with the following as guide:
+
+expected type | default
+bool | False
+int | -1
+float | np.nan
+complex | np.nan+0j
+string | '???'
+
+To get finer control over the conversion of missing values we use the `filling_values` optional argument. Like `missing_values`, this accepts different kinds of values:
+
+- a single value
+- a sequence of values
+- a dictionary
+
+## Shortcut Functions
+Additionally `genfromtxt` provides several convenience functions derived from `genfromtxt`.
+
+They work in the same way as the original function, but provide different default values.
+
+- numpy.lib.npyio.recfromtxt
+- numpy.lib.npyio.recfromcsv
 
 
 

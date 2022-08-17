@@ -46,8 +46,56 @@
 <p>In all the above cases, except the data type object or the special value of None will create a 1D array with structured dtype. This has as many fields as items in the sequence. The field names are defined with the names keyword.</p>
 <p>When the dtype is None the type of each column is determined iteratively from the data itself. In order, NumPy checks if a string can be converted to a boolean, then whether it can be converted to an integer, the to a float, then to a complex, then eventually just a string.</p>
 <p>The dtype=None is significantly slower.</p>
-<h2>Setting the names with teh names argument</h2>
-<p>to be continued</p>
+<h2>Setting the names with the names argument</h2>
+<p>The natural approach when dealing with tabular data is to allocate a name to each column. When creating the NumPy aray from the file we can pass in a names parameter.</p>
+<p>We may sometime sneed to define the columns names from the data itself.</p>
+<p>Then we can use hte names keyword with a value of True. The names will be read from the first line, even if the line is commented out.</p>
+<p>We can pass in an array as a list. If we do, any names passed in from the dtype functionality is overridden.</p>
+<p><code>data = StringIO(&quot;1 2 3\n 4 5 6&quot;) ndtype = [('a', int), ('b', float), ('c', int)] names = [&quot;A&quot;, &quot;B&quot;, &quot;C&quot;] np.genfromtext(data, names=names, dtype=ndtype)</code></p>
+<p>The <code>defaultfmt</code> argument. If names is None but a structured dtype is expected, then names are defined with the standard NumPy default of &quot;f%i&quot;, yielding names like f0, f1, and so forth.</p>
+<p>In the same way, if we don't give enough names to match the length of the dype the missing names will be defined with the default template. We can overwrite this default with the <code>defaultfmt</code> argument, that takes any format string.</p>
+<h2>Validating names</h2>
+<p>NumPy arrays with a structured dtype can also be viewed as a recarray, where a field can be accessed as if it were an attribute.</p>
+<p>Therefore, we need to make sure that the field name doesn't contain any space or invalid character, and that it's not the name of a standard attribute.</p>
+<p><code>genfromtxt</code> accepts three optional arguments that provide a finer control on the names.</p>
+<ol>
+<li><code>deletechars</code> gives a string combining all the characters that must be deleted from the name.</li>
+<li><code>excludelist</code> gives a list of the names to exclude, such as return, file, print. If one of the input name is part of this list, an underscore character will be appended to it.</li>
+<li><code>case_sensitive</code> whether the names should be case-sensitive, converted to upper case, or to lower case.</li>
+</ol>
+<h2>Tweaking the conversion</h2>
+<p>Usually when defining a dtype, it's enough to define how the sequence of string must be converted. But some additional control may be sometimes required.</p>
+<p>We may want to make sure that a date in a format like YYYY/MM/DD is converted to a datetime object, or that a string like xx% is properly converted to a float between 0 and 1.</p>
+<p>In such cases, we should define a conversion function with a converters argument.</p>
+<p>The value of the argument is usually a dictionary with column indices or column names as keys and a conversion function as values.</p>
+<p>The restrictions are that they should accept only a string as input and output only a single element of the wanted type.</p>
+<p>Converters can also be used to provide a default for missing entries.</p>
+<h2>Using Missing and Filling Values</h2>
+<p>Some entries may be missing in the dataset we are trying to import. User defined converted may become cumbersome in that case to manage.</p>
+<p>The <code>genfromtxt</code> function provides two other complementary mechanism in that case. The <code>missing_values</code> argument is used to recognize missing data and a second argument, <code>filling_values</code> is used to process these missing data.</p>
+<h3>missing_values</h3>
+<p>By default any empty string is marked as missing. Additionally, more complex strings such as &quot;N/A&quot; or &quot;???&quot; translate into missing or invalid data.</p>
+<h3>filling_values</h3>
+<p>We know how to recognize missing data, but to provide value for filling in those missing entries is done automatically with the following as guide:</p>
+<p>expected type | default
+bool | False
+int | -1
+float | np.nan
+complex | np.nan+0j
+string | '???'</p>
+<p>To get finer control over the conversion of missing values we use the <code>filling_values</code> optional argument. Like <code>missing_values</code>, this accepts different kinds of values:</p>
+<ul>
+<li>a single value</li>
+<li>a sequence of values</li>
+<li>a dictionary</li>
+</ul>
+<h2>Shortcut Functions</h2>
+<p>Additionally <code>genfromtxt</code> provides several convenience functions derived from <code>genfromtxt</code>.</p>
+<p>They work in the same way as the original function, but provide different default values.</p>
+<ul>
+<li>numpy.lib.npyio.recfromtxt</li>
+<li>numpy.lib.npyio.recfromcsv</li>
+</ul>
 
     </main>
     <footer>
