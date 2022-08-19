@@ -3,7 +3,7 @@ html {
     color: #666;
 }
 
-li {
+ul li {
     list-style-type: none;
 }
 li p {

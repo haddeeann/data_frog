@@ -1,10 +1,10 @@
 ---
-title: Turning Data Into Information
+title: Data Frog
 layout: "base.njk"
 ---
-<h1>Data Frog</h1>
-<p>Welcome to Data Frog. My personal notes and learning journey for data science and machine learning.</p>
-<h2>Starter Articles</h2>
+## Learning NumPy
+Welcome to Data Frog. My personal notes and learning journey for data science and machine learning.
+### Starter Articles
 <ul>
     <li>
         <h4><a href="./numpy/setup">NumPy Setup</a></h4>
@@ -14,49 +14,34 @@ layout: "base.njk"
         <p>The very beginners version of working with NumPy arrays.</p>
     </li>
 </ul>
-<h2>NumPy</h2>
-<ol>
-    <li>
-        <h4><a href="./numpy/1_create_array">NumPy Array Creation</a></h4>
-    </li>
-    <li>
-        <h4><a href="./numpy/2_index_ndarrays">Indexing NumPy Arrays</a></h4>
-        <p>How indexing works in ndarrays</p>
-    </li>
-    <li>
-        <h4><a href="./numpy/3_io_numpy">I/O with NumPy</a></h4>
-        <p>Creating arrays from tabular data</p>
-    </li>
-    <li>
-        <h4><a href="./numpy/4_data_types">Data Types in NumPy</a></h4>
-    </li>
-    <li>
-        <h4><a href="./numpy/5_broadcasting">Broadcasting</a></h4>
-    </li>
-    <li>
-        <h4><a href="./numpy/6_byte_swapping">Byte Swapping</a></h4>
-    </li>
-    <li>
-        <h4><a href="./numpy/7_structured_arrays">Structured Arrays</a></h4>
-    </li>
-    <li>
-        <h4><a href="./numpy/8_custom_array_containers">Custom Array Containers</a></h4>
-    </li>
-    <li>
-        <h4><a href="./numpy/9_subclassing">Subclassing</a></h4>
-    </li>
-    <li>
-        <h4><a href="./numpy/10_universal_functions">Universal Functions</a></h4>
-    </li>
-    <li>
-        <h4><a href="./numpy/11_copies_views">Copies and Views</a></h4>
-    </li>
-    <li>
-        <h4><a href="./numpy/12_interoperability">Interoperability</a></h4>
-    </li>
-</ol>
 
-<h2>General List</h2>
+### Learn More
+
+1. [NumPy Array Creation](./numpy/1_create_array)
+
+2. [Indexing NumPy Arrays](./numpy/2_index_ndarrays)
+
+3. [I/O with NumPy](./numpy/3_io_numpy)
+
+4. [Data Types in NumPy](./numpy/4_data_types)
+
+5. [Broadcasting](./numpy/5_broadcasting)
+
+6. [Byte Swapping](./numpy/6_byte_swapping)
+
+7. [Structured Arrays](./numpy/7_structured_arrays)
+
+8. [Custom Array Containers](./numpy/8_custom_array_containers)
+
+9. [Subclassing](./numpy/9_subclassing)
+
+10. [Universal Functions](./numpy/10_universal_functions)
+
+11. [Copies and Views](./numpy/11_copies_views)
+
+12. [Interoperability](./numpy/12_interoperability)
+
+### General List
 <ul>
     <li>
         <a href="./data_science_software_list">Data Science Libraries in Python</a>
@@ -69,7 +54,8 @@ layout: "base.njk"
         <p>Try implementing a neural network from scratch in pure NumPy using a basic optimization algorithm like vanilla gradient descent/SGD. This necessitates manually writing out a backward pass, which TensorFlow/PyTorch/Keras will spare you from but it familiarizes you with backprop and update rules at a granular level and will make you more comfortable with NumPy operations.</p>
     </li>
 </ul>
-<h2>More Complete Programs?</h2>
+
+### More Complete Programs?
 <ul>
     <li>
         <a href="./start_tensor_flow">Starter for Tensor Flow</a>
@@ -81,7 +67,8 @@ layout: "base.njk"
         <a href="./start_scikit_learn">Starter for Scikit-learn</a>
     </li>
 </ul>
-<h2>More of an underlying technology?</h2>
+
+### More of an underlying technology?
 <p>Maybe like building blocks?</p>
 <ul>
     <li>
