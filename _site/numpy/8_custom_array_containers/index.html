@@ -12,6 +12,14 @@
 <p><a href="https://numpy.org/doc/stable/user/basics.dispatch.html">Custom Array Containers</a></p>
 <h2>Writing Custom Array Containers</h2>
 <p>NumPy's dispatch mechanism, is the recommended way to writing custom N-dimensional array containers. This way makes them compatible with the NumPy API and that provides custom implementations of NumPy functionality.</p>
+<p>NumPy allows a class to indicate that it would like to handle computations in a custom defined way through the interfaces <strong>arrayufun</strong> and <strong>array_function</strong>.</p>
+<p>The first <em>array_ufunc</em>_ covers Universal functions (ufunc), a class of functions that include, for example, <code>numpy.multiply</code> and <code>numpy.sin</code></p>
+<p>The _<em>array_ufunc</em> receives:</p>
+<ul>
+<li>ufunc, a function like numpy.multiply</li>
+<li>method, a string, differentiating between numpy.multiply and other numpy multiply</li>
+<li>inputs, which could be a mixture of different types</li>
+</ul>
 
     </main>
     <footer>

@@ -18,6 +18,22 @@
 <li>methods of deferring execution from NumPy function to another array library</li>
 <li>methods that use NumPy functions and return and instance of a foreign object.</li>
 </ol>
+<h2>Arbitrary Objects in NumPy</h2>
+<p>The first set of interoperability features from teh NumPy API allows foreign objects to be treated as NumPy arrays whenever possible.</p>
+<p>Whe NumPy functions encounter a foreign object, they will try in order:</p>
+<ol>
+<li>the buffer protocol</li>
+<li>the <strong>array_interface</strong> protocol</li>
+<li>the <strong>array</strong>() method</li>
+</ol>
+<h2>Operation on Foreign Objects</h2>
+<p>A second set of methods defined by the NumPy API allows us to defer the execution from a NumPY function to another array library.</p>
+<h2>Returning Foreign Objects</h2>
+<p>A third set of features is meant to use the NumPy function implementation and then convert the return value back inot an instance of the foreign object. The <strong>array_finalize</strong> and <strong>array_wrap</strong> methods act behind the scenes and return the type of a NumPY function that can be specified as needed.</p>
+<h2>PyTorch Tensors</h2>
+<p>PyTorch is an optimized tensor library for deep learning using GPUs and CPUs. PyTorch arrays are commonly called tensors.</p>
+<p>Tensors are similar to NumPy's ndarrays except that tensors can run on GPUs or other hardware accelerators.</p>
+<p>NumpPy arrays and tensors often share the same underlying memory, and that eliminates the need to copy the data.</p>
 
     </main>
     <footer>
