@@ -10,14 +10,31 @@ layout: "article_type_two.njk"
 
 ## Array Creation
 
-1. Conversion from other Python structures
+1. Conversion from other Python structures, like lists and tuples
 2. The built-in NumPy array creation functions
 3. By replicating, joining or mutating existing arrays
 4. Reading arrays from disk, either standard or custom formats
 5. From raw bytes through the use of strings or buffers
-6. Special library functions, like random
+6. Special library functions
 
-## Making Arrays from Python sequences
+
+You can use these methods to create ndarrays or Structured arrays. 
+
+Structured arrays are ndarrays whose datatype is a composition of simpler datatypes.
+
+These simpler datatypes are organized as a sequence of named fields.
+
+`
+x = np.array(['Bob' 9, 110], dtype=[('firstname', 'U10'), ('age', 'i4'), ('weight', 'f4')])
+`
+X is a one dimensional array. The length of the array is two. The datatype is a structure with three fields:
+
+
+1. a string of length 10 or less, named 'firstname'
+2. a 32 bit integer named 'age'
+3. a 32 bit float, named 'weight'
+
+## Conversion from other Python structures
 The NumPy arrays can be made from lists and tuples. Lists are as [...] and tuples (...).
 
 - a list will make a 1D array

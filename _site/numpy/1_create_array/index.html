@@ -13,14 +13,24 @@
 <a href="https://numpy.org/doc/stable/user/basics.creation.html">Create an Array</a></p>
 <h2>Array Creation</h2>
 <ol>
-<li>Conversion from other Python structures</li>
+<li>Conversion from other Python structures, like lists and tuples</li>
 <li>The built-in NumPy array creation functions</li>
 <li>By replicating, joining or mutating existing arrays</li>
 <li>Reading arrays from disk, either standard or custom formats</li>
 <li>From raw bytes through the use of strings or buffers</li>
-<li>Special library functions, like random</li>
+<li>Special library functions</li>
 </ol>
-<h2>Making Arrays from Python sequences</h2>
+<p>You can use these methods to create ndarrays or Structured arrays.</p>
+<p>Structured arrays are ndarrays whose datatype is a composition of simpler datatypes.</p>
+<p>These simpler datatypes are organized as a sequence of named fields.</p>
+<p><code>x = np.array(['Bob' 9, 110], dtype=[('firstname', 'U10'), ('age', 'i4'), ('weight', 'f4')])</code>
+X is a one dimensional array. The length of the array is two. The datatype is a structure with three fields:</p>
+<ol>
+<li>a string of length 10 or less, named 'firstname'</li>
+<li>a 32 bit integer named 'age'</li>
+<li>a 32 bit float, named 'weight'</li>
+</ol>
+<h2>Conversion from other Python structures</h2>
 <p>The NumPy arrays can be made from lists and tuples. Lists are as [...] and tuples (...).</p>
 <ul>
 <li>a list will make a 1D array</li>
