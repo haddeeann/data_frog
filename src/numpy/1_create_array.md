@@ -27,7 +27,8 @@ These simpler datatypes are organized as a sequence of named fields.
 `
 x = np.array(['Bob' 9, 110], dtype=[('firstname', 'U10'), ('age', 'i4'), ('weight', 'f4')])
 `
-X is a one dimensional array. The length of the array is two. The datatype is a structure with three fields:
+
+x is a one dimensional array. The length of the array is two. The datatype is a structure with three fields:
 
 
 1. a string of length 10 or less, named 'firstname'
@@ -37,21 +38,39 @@ X is a one dimensional array. The length of the array is two. The datatype is a 
 ## Conversion from other Python structures
 The NumPy arrays can be made from lists and tuples. Lists are as [...] and tuples (...).
 
-- a list will make a 1D array
-- a list of list will create a 2D array
-- any further nested will create higher dimension arrays. The array objects dimension is represented by the concept of ndarray in NumPy.
+A list of numbers will create a 1D array. To create a 2D array, you can use a list of lists. If you want to create higher dimensional arrays you can nest lists even further.
 
-When using a `numpy.array` to make an array it's important to be careful of the dtype or the data type of the array. It's important to not have an overflow. For example, and 8-bit signed integer represents a number from -128 to 127. So if you tried to assign a number like 128 or 129 to a dtype=np.int8.
+An easy way to create an array from a list or tuple is with the `np.array` function.
 
-When performing operations with two arrays with the same type (dtype) of uint32, for example, the resulting array is hte same type.
+`
+one_dimensional_array = np.array([127, 182, 100])
+`
 
-When performing operations that different dtypes, NumPy will assign a new type that satisfies all the array elements involved in the computation. For example, uint32 and int32 can be both represented by int64.
+You can specify the data type of the information in the NumPy arrays, by adding a parameter of the dtype. If you don't pass in a data type (dtype) then it will assign a default dtype.
 
-The default behavior is to create arrays as either 32 or 64 bit signed integers depending on the platform. Or even a double precision floating point number like int32/int64. If you want a specific type otherwise you need to specify the type.
+If the data in the array is outside what is available for that type you can end up with an overflow on the data. 
+
+For example, an 8-bit signed integer represents a number from -128 to 127. So if you tried to assign a number like 128 or 129 to a `dtype=np.int8`, you'd have an overflow. This is because an 8-bit signed integer can only represent numbers from -128 to 127.
+
+`
+overflow_array = np.array([127, 128, 129], dtype=np.int8)
+overflow_array
+array([127, -128, -127], dtype=int8)
+`
+
+When performing operations with two arrays with the same data type the resulting array is the same data type.
+
+When performing operations that different data types, NumPy will assign a new type that satisfies all the array elements involved in the computation. 
+
+The default behavior is to create arrays as either 32 or 64 bit signed integers depending on the platform. Or even a double precision floating point number like int32/int64. 
+
+If you want a specific data type in the result, it's best to specify the data type.
 
 ## Built in NumPy array creation functions
 
-There are over 40 built-in functions for creating arrays. There are 3 broad categories of array creator functions.
+There are over 40 built-in functions for creating arrays. 
+
+There are 3 broad categories of array creator functions. In general, the categories are based on how many dimensions the resulting array is.
 
 1. 1D arrays
 2. 2D arrays
@@ -59,9 +78,15 @@ There are over 40 built-in functions for creating arrays. There are 3 broad cate
 
 ## 1D Arrays
 
-For 1D or 1 dimension arrays there's `numpy.linspace` and `numpy.arange`. Generally there needs to be at least two inputs start and stop.
+For  one dimension arrays there's `numpy.linspace` and `numpy.arange`. Both of these functions use the two inputs: start and stop.
 
-The `numpy.arange` creates arrays with regular incrementing values. Best use in `numpy.arange` is to use a start, end, and step. And if you want to use a non-integer incrementor / step you want to use a `dtype` of float.
+The `numpy.arange` creates arrays with regular incrementing values. The best practice for `numpy.arange` is to use an integer start, end, and step values. The step values indicates the spacing between values.
+
+Smaller or more precise start, end, and step values can be used with float data type inputs. In order to do that an array can be created with the dtype of float.
+
+The `numpy.linspace` will create arrays with a specified number of elements. They will be spaced equally between the specific beginning and end values. They're spaced according to the third input, the number of values to generate.
+
+The difference? The `numpy.linspace` allows you to specify the number of steps. The `numpy.arange` allows you to specify the size of the steps.
 
 ## 2D Arrays
 
