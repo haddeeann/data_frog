@@ -59,7 +59,9 @@
 <p>The difference? The <code>numpy.linspace</code> allows you to specify the number of steps. The <code>numpy.arange</code> allows you to specify the size of the steps.</p>
 <h2>2D Arrays</h2>
 <p>The 2D array creation functions are <code>numpy.eye</code>, <code>numpy.diag</code>, and <code>numpy.vander</code>.</p>
-<p>And example of using the <code>numpy.eye</code> creation process is <code>np.eye(n, m)</code>. The elements are where <code>i=j</code> (that is the row index and column index being equal) and are 1. The rest are equal to 0.</p>
+<p>And example of using the <code>numpy.eye</code> creation process is <code>np.eye(n, m)</code>.</p>
+<p>The eye tool returns a 2D array with 1's as the diagonal and 0's elsewhere. If only one parameter is passed in, then it's used to make the length of each array and the number of arrays.</p>
+<p>If both n and m parameters are passed in then the n parameter is the number of rows. And the m parameter is the length of each row.</p>
 <p>For example:</p>
 <p><code>np.eye(3) array([[1., 0., 0.], [0., 1., 0.], [0., 0., 1.]]) np.eye(3, 5) array([[1., 0., 0., 0., 0.], [0., 1., 0., 0., 0.], [0., 0., 1., 0., 0.]])</code></p>
 <p>The <code>numpy.diag</code> can be defined as a 2D array with the given values along the diagonal. Or if given a 2D array returns a 1D array that is only the diagonal elements.</p>

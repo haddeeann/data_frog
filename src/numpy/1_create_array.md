@@ -92,7 +92,11 @@ The difference? The `numpy.linspace` allows you to specify the number of steps. 
 
 The 2D array creation functions are `numpy.eye`, `numpy.diag`, and `numpy.vander`.
 
-And example of using the `numpy.eye` creation process is `np.eye(n, m)`. The elements are where `i=j` (that is the row index and column index being equal) and are 1. The rest are equal to 0.
+And example of using the `numpy.eye` creation process is `np.eye(n, m)`. 
+
+The eye tool returns a 2D array with 1's as the diagonal and 0's elsewhere. If only one parameter is passed in, then it's used to make the length of each array and the number of arrays.
+
+If both n and m parameters are passed in then the n parameter is the number of rows. And the m parameter is the length of each row.
 
 For example:
 
