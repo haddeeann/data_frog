@@ -92,6 +92,8 @@ The difference? The `numpy.linspace` allows you to specify the number of steps. 
 
 The 2D array creation functions are `numpy.eye`, `numpy.diag`, and `numpy.vander`.
 
+### numpy.eye
+
 And example of using the `numpy.eye` creation process is `np.eye(n, m)`. 
 
 The eye tool returns a 2D array with 1's as the diagonal and 0's elsewhere. If only one parameter is passed in, then it's used to make the length of each array and the number of arrays.
@@ -111,9 +113,15 @@ array([[1., 0., 0., 0., 0.],
 [0., 0., 1., 0., 0.]])
 `
 
-The `numpy.diag` can be defined as a 2D array with the given values along the diagonal. Or if given a 2D array returns a 1D array that is only the diagonal elements.
+### numpy.diag
 
-These two functions can be helpful for doing linear algebra.
+The `numpy.diag` can be used to define a 2D array with the given values along the diagonal. You can pass two parameters, an input array and k. The k is an integer and it's value decides the main diagonal.
+
+If k is positive, then the diagonal is above the main diagonal. And if k is negative then the diagonal is below the main diagonal.
+
+Or if the input array is a 2D array, it returns a 1D array that is only the diagonal elements.
+
+The `numpy.eye` and `numpy.diag` functions can be helpful for doing linear algebra.
 
 `
 np.diag([1, 2, 3])
@@ -129,6 +137,8 @@ a = np.array([[1, 2], [3, 4]])
 np.diag(a)
 array([1, 4])
 `
+
+### numpy.vander
 
 The `vander(x, n)` defines a Vendermonde matrix as a 2D NumPy array.
 
