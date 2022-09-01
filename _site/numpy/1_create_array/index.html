@@ -72,10 +72,14 @@
 <p>The <code>numpy.eye</code> and <code>numpy.diag</code> functions can be helpful for doing linear algebra.</p>
 <p><code>np.diag([1, 2, 3]) array([[1, 0, 0], [0, 2, 0], [0, 0, 3]]) np.diag([1, 2, 3], 1) array([[0, 1, 0, 0], [0, 0, 2, 0], [0, 0, 0, 3], [0, 0, 0, 0]]) a = np.array([[1, 2], [3, 4]]) np.diag(a) array([1, 4])</code></p>
 <h3>numpy.vander</h3>
-<p>The <code>vander(x, n)</code> defines a Vendermonde matrix as a 2D NumPy array.</p>
+<p>The <code>vander(x, n)</code> defines a Vandermonde matrix as a 2D NumPy array.</p>
+<p>In linear algebra, a Vandemonde matrix, named after Alexandre-Théophile Vandermonde, is a matrix with the terms of geometric progression in each row. A geometric progression also known as a geometric sequence is a sequence of non-zero numbers. Each term after the first is found by multiplying the previous one by a fixed, non-zero number called the common ratio.</p>
+<p>For example, the sequence, 2, 6, 18, 54... is a geometric progression with a common ratio of 3.</p>
 <p>Each column of the Vandemonde matrix is a decreasing power of the input. That is the 1D array (the list or tuple) that was passed in to make the matrix.</p>
 <p>The <code>x</code> being where the highest polynomial order as is <code>n-1</code>. This array creation routine is useful in generating linear least square models.</p>
 <p><code>np.vander(np.linspace(0, 2, 5), 2) array([[0. , 1. ], [0.5, 1. ], [1. , 1. ], [1.5, 1. ], [2. , 1. ]]) np.vander([1, 2, 3, 4], 2) array([[1, 1], [2, 1], [3, 1], [4, 1]]) np.vander((1, 2, 3, 4), 4) array([[ 1,  1,  1,  1], [ 8,  4,  2,  1], [27,  9,  3,  1], [64, 16,  4,  1]])</code></p>
+<p>The method of least squares is a standard approach in regression analysis. It's used to approximate the solution of overdetermined systems. An overdetermined system is a set of equations in which there are more equations than unknowns.</p>
+<p>The solution is determined by minimizing the sum of the squares of the residuals. A residual is the difference between the observed value and the fitted value provided by the model.</p>
 <h2>general ndarray creation function</h2>
 <p>To create an ndarry with filled in values, you can use <code>numpy.ones</code>, <code>numpy.zeroes</code>, and <code>random</code>. These all fill the created arrays with various values depending on which you use. These arrays create any dimension of arrays by specifying how how dimensions or length along a tuple or list.</p>
 <p>The <code>numpy.zeros</code> will craete an array filled with zeroes. The default dtype is <code>float64</code>. The <code>numpy.ones</code> will create an array filled with the value of 1. The <code>random</code> method will fill the array with random numbers between 0 and 1.</p>

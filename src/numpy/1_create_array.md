@@ -140,7 +140,11 @@ array([1, 4])
 
 ### numpy.vander
 
-The `vander(x, n)` defines a Vendermonde matrix as a 2D NumPy array.
+The `vander(x, n)` defines a Vandermonde matrix as a 2D NumPy array.
+
+In linear algebra, a Vandemonde matrix, named after Alexandre-Théophile Vandermonde, is a matrix with the terms of geometric progression in each row. A geometric progression also known as a geometric sequence is a sequence of non-zero numbers. Each term after the first is found by multiplying the previous one by a fixed, non-zero number called the common ratio.
+
+For example, the sequence, 2, 6, 18, 54... is a geometric progression with a common ratio of 3.
 
 Each column of the Vandemonde matrix is a decreasing power of the input. That is the 1D array (the list or tuple) that was passed in to make the matrix.
 
@@ -164,6 +168,10 @@ array([[ 1,  1,  1,  1],
 [27,  9,  3,  1],
 [64, 16,  4,  1]])
 `
+
+The method of least squares is a standard approach in regression analysis. It's used to approximate the solution of overdetermined systems. An overdetermined system is a set of equations in which there are more equations than unknowns.
+
+The solution is determined by minimizing the sum of the squares of the residuals. A residual is the difference between the observed value and the fitted value provided by the model.
 
 ## general ndarray creation function
 
