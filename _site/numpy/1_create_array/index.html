@@ -75,17 +75,18 @@
 <p>The <code>vander(x, n)</code> defines a Vandermonde matrix as a 2D NumPy array.</p>
 <p>In linear algebra, a Vandemonde matrix, named after Alexandre-Théophile Vandermonde, is a matrix with the terms of geometric progression in each row. A geometric progression also known as a geometric sequence is a sequence of non-zero numbers. Each term after the first is found by multiplying the previous one by a fixed, non-zero number called the common ratio.</p>
 <p>For example, the sequence, 2, 6, 18, 54... is a geometric progression with a common ratio of 3.</p>
-<p>Each column of the Vandemonde matrix is a decreasing power of the input. That is the 1D array (the list or tuple) that was passed in to make the matrix.</p>
-<p>The <code>x</code> being where the highest polynomial order as is <code>n-1</code>. This array creation routine is useful in generating linear least square models.</p>
+<p>In the representation <code>vander(x, n)</code> where x is the input, then each column of the matrix is a decreasing power of the input.</p>
+<p>The input can only be the highest polynomial order of <code>n-1</code>, where <code>n</code> is the second parameter passed into the <code>vander</code> equation.</p>
+<p>This array creation routine is useful in generating linear least square models.</p>
 <p><code>np.vander(np.linspace(0, 2, 5), 2) array([[0. , 1. ], [0.5, 1. ], [1. , 1. ], [1.5, 1. ], [2. , 1. ]]) np.vander([1, 2, 3, 4], 2) array([[1, 1], [2, 1], [3, 1], [4, 1]]) np.vander((1, 2, 3, 4), 4) array([[ 1,  1,  1,  1], [ 8,  4,  2,  1], [27,  9,  3,  1], [64, 16,  4,  1]])</code></p>
-<p>The method of least squares is a standard approach in regression analysis. It's used to approximate the solution of overdetermined systems. An overdetermined system is a set of equations in which there are more equations than unknowns.</p>
+<p>The method of least-squares is a standard approach in regression analysis. It's used to approximate the solution of overdetermined systems. An overdetermined system is a set of equations in which there are more equations than unknowns.</p>
 <p>The solution is determined by minimizing the sum of the squares of the residuals. A residual is the difference between the observed value and the fitted value provided by the model.</p>
-<h2>general ndarray creation function</h2>
-<p>To create an ndarry with filled in values, you can use <code>numpy.ones</code>, <code>numpy.zeroes</code>, and <code>random</code>. These all fill the created arrays with various values depending on which you use. These arrays create any dimension of arrays by specifying how how dimensions or length along a tuple or list.</p>
-<p>The <code>numpy.zeros</code> will craete an array filled with zeroes. The default dtype is <code>float64</code>. The <code>numpy.ones</code> will create an array filled with the value of 1. The <code>random</code> method will fill the array with random numbers between 0 and 1.</p>
+<h2>General ndarray Creation Functions</h2>
+<p>To create an ndarry with filled in values, you can use <code>numpy.ones</code>, <code>numpy.zeroes</code>, and <code>random</code>. These all fill the created arrays with various values depending on which you use. These arrays create any dimension of arrays by specifying how many dimensions or the length of the tuple or list.</p>
+<p>The <code>numpy.zeros</code> will create an array filled with zeroes. The default dtype is <code>float64</code>. The <code>numpy.ones</code> will create an array filled with the value of 1. The <code>random</code> method will fill the array with random numbers between 0 and 1.</p>
 <p>The <code>numpy.indices</code> will create a set of arrays. They will be stacked as a one-higher dimensioned array. This is useful for evaluating functions of multiple dimensions on a regular grid.</p>
-<h2>Replicating, joining or mutation existing arrays</h2>
-<p>One arrays have been created you can replicate, join, or mutate those existing arrays to make new arrays.</p>
+<h2>Replicating, Joining or Mutation</h2>
+<p>Once arrays have been created you can replicate, join, or mutate those existing arrays to make new arrays.</p>
 <p>If you assign an array to a new variable, the original array is edited when the new array is edited.</p>
 <p>To do otherwise, make a new array that doesn't change the original array, use <code>numpy.copy</code>. Here is an example of an array that gets edited after being passed.</p>
 <p><code>a = np.array([1, 2, 3, 4, 5, 6]) b = a[:2] b += 1 print('a = ', a) print('b = ', b) a = [2 3 3 4 5 6] b = [2 3]</code></p>

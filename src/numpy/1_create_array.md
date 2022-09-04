@@ -146,9 +146,11 @@ In linear algebra, a Vandemonde matrix, named after Alexandre-Théophile Vanderm
 
 For example, the sequence, 2, 6, 18, 54... is a geometric progression with a common ratio of 3.
 
-Each column of the Vandemonde matrix is a decreasing power of the input. That is the 1D array (the list or tuple) that was passed in to make the matrix.
+In the representation `vander(x, n)` where x is the input, then each column of the matrix is a decreasing power of the input. 
 
-The `x` being where the highest polynomial order as is `n-1`. This array creation routine is useful in generating linear least square models.
+The input can only be the highest polynomial order of `n-1`, where `n` is the second parameter passed into the `vander` equation.
+
+This array creation routine is useful in generating linear least square models.
 
 `
 np.vander(np.linspace(0, 2, 5), 2)
@@ -169,21 +171,21 @@ array([[ 1,  1,  1,  1],
 [64, 16,  4,  1]])
 `
 
-The method of least squares is a standard approach in regression analysis. It's used to approximate the solution of overdetermined systems. An overdetermined system is a set of equations in which there are more equations than unknowns.
+The method of least-squares is a standard approach in regression analysis. It's used to approximate the solution of overdetermined systems. An overdetermined system is a set of equations in which there are more equations than unknowns.
 
 The solution is determined by minimizing the sum of the squares of the residuals. A residual is the difference between the observed value and the fitted value provided by the model.
 
-## general ndarray creation function
+## General ndarray Creation Functions
 
-To create an ndarry with filled in values, you can use `numpy.ones`, `numpy.zeroes`, and `random`. These all fill the created arrays with various values depending on which you use. These arrays create any dimension of arrays by specifying how how dimensions or length along a tuple or list.
+To create an ndarry with filled in values, you can use `numpy.ones`, `numpy.zeroes`, and `random`. These all fill the created arrays with various values depending on which you use. These arrays create any dimension of arrays by specifying how many dimensions or the length of the tuple or list.
 
-The `numpy.zeros` will craete an array filled with zeroes. The default dtype is `float64`. The `numpy.ones` will create an array filled with the value of 1. The `random` method will fill the array with random numbers between 0 and 1.
+The `numpy.zeros` will create an array filled with zeroes. The default dtype is `float64`. The `numpy.ones` will create an array filled with the value of 1. The `random` method will fill the array with random numbers between 0 and 1.
 
 The `numpy.indices` will create a set of arrays. They will be stacked as a one-higher dimensioned array. This is useful for evaluating functions of multiple dimensions on a regular grid.
 
-## Replicating, joining or mutation existing arrays
+## Replicating, Joining or Mutation
 
-One arrays have been created you can replicate, join, or mutate those existing arrays to make new arrays.
+Once arrays have been created you can replicate, join, or mutate those existing arrays to make new arrays.
 
 If you assign an array to a new variable, the original array is edited when the new array is edited.
 
