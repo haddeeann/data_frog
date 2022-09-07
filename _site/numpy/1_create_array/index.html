@@ -87,12 +87,12 @@
 <p>The <code>numpy.indices</code> will create a set of arrays. They will be stacked as a one-higher dimensioned array. This is useful for evaluating functions of multiple dimensions on a regular grid.</p>
 <h2>Replicating, Joining or Mutation</h2>
 <p>Once arrays have been created you can replicate, join, or mutate those existing arrays to make new arrays.</p>
-<p>If you assign an array to a new variable, the original array is edited when the new array is edited.</p>
-<p>To do otherwise, make a new array that doesn't change the original array, use <code>numpy.copy</code>. Here is an example of an array that gets edited after being passed.</p>
+<p>If you assign an array to a new variable, the original array is edited when the new array is edited. To me, that is similar to passing data by values or by the underlying structure in programming languages.</p>
+<p>If you want to make a new array that doesn't change the original array, use <code>numpy.copy</code>. Here is an example of an array that gets edited after being passed.</p>
 <p><code>a = np.array([1, 2, 3, 4, 5, 6]) b = a[:2] b += 1 print('a = ', a) print('b = ', b) a = [2 3 3 4 5 6] b = [2 3]</code></p>
-<p>Here's an example of how when you copy an array it doens't change the original.</p>
+<p>Here's an example of how when you copy an array it doesn't change the original.</p>
 <p><code>a = np.array([1, 2, 3, 4]) b = a[:2].copy() b += 1 print('a = ', a) print('b = ', b) a = [1 2 3 4] b = [2 3]</code></p>
-<p>Some other routines that can be used to join existing arrays: <code>numpy.vstack</code>, <code>numpy.hstack</code>, and <code>numpy.block</code>.</p>
+<p>Some functions that can be used to join existing arrays: <code>numpy.vstack</code>, <code>numpy.hstack</code>, and <code>numpy.block</code>.</p>
 <h2>Reading Arrays from Disk</h2>
 <p>This is the most common case for creating large arrays is from existing data.</p>
 <h3>Standard Binary Formats</h3>

@@ -187,9 +187,9 @@ The `numpy.indices` will create a set of arrays. They will be stacked as a one-h
 
 Once arrays have been created you can replicate, join, or mutate those existing arrays to make new arrays.
 
-If you assign an array to a new variable, the original array is edited when the new array is edited.
+If you assign an array to a new variable, the original array is edited when the new array is edited. To me, that is similar to passing data by values or by the underlying structure in programming languages.
 
-To do otherwise, make a new array that doesn't change the original array, use `numpy.copy`. Here is an example of an array that gets edited after being passed.
+If you want to make a new array that doesn't change the original array, use `numpy.copy`. Here is an example of an array that gets edited after being passed.
 
 `
 a = np.array([1, 2, 3, 4, 5, 6])
@@ -201,7 +201,7 @@ a = [2 3 3 4 5 6]
 b = [2 3]
 `
 
-Here's an example of how when you copy an array it doens't change the original.
+Here's an example of how when you copy an array it doesn't change the original.
 
 `
 a = np.array([1, 2, 3, 4])
@@ -213,7 +213,7 @@ a = [1 2 3 4]
 b = [2 3]
 `
 
-Some other routines that can be used to join existing arrays: `numpy.vstack`, `numpy.hstack`, and `numpy.block`.
+Some functions that can be used to join existing arrays: `numpy.vstack`, `numpy.hstack`, and `numpy.block`.
 
 ## Reading Arrays from Disk
 
