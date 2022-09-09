@@ -215,6 +215,23 @@ b = [2 3]
 
 Some functions that can be used to join existing arrays: `numpy.vstack`, `numpy.hstack`, and `numpy.block`.
 
+### numpy.vstack
+Credit to [PythonTutorial.net](https://www.pythontutorial.net/python-numpy/numpy-vstack/)
+
+With `numpy.vstack` you can vertically join elements of two or more arrays into a single array. To join two or more arrays into an array _vertically_ means to join them row-wise.
+
+For example:
+
+`
+numpy.vstack((a1,a2,...))
+`
+
+The `a1,a2,...` is a sequence of arrays with an `ndarray` type.
+
+All of those input arrays must have the same shape along all but the first axis. So if they are 1D arrays, then they have to have the same length.
+
+
+
 ## Reading Arrays from Disk
 
 This is the most common case for creating large arrays is from existing data.
