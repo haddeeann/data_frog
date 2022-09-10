@@ -9,8 +9,7 @@
     <h1>NumPy Array Creation</h1>
     <main>
         <p><a href="/index.html">Go home</a></p>
-<p><a href="https://numpy.org/doc/stable/user/basics.html">NumPy Article for beginners</a> and
-<a href="https://numpy.org/doc/stable/user/basics.creation.html">Create an Array</a></p>
+<p><a href="https://numpy.org/doc/stable/user/basics.creation.html">Create an Array</a></p>
 <h2>Array Creation</h2>
 <ol>
 <li>Conversion from other Python structures, like lists and tuples</li>
@@ -20,8 +19,8 @@
 <li>From raw bytes through the use of strings or buffers</li>
 <li>Special library functions</li>
 </ol>
-<p>You can use these methods to create ndarrays or Structured arrays.</p>
-<p>Structured arrays are ndarrays whose datatype is a composition of simpler datatypes.</p>
+<p>You can use these methods to create <code>ndarrays</code> or structured arrays.</p>
+<p>Structured arrays are <code>ndarrays</code> whose datatype is a composition of simpler datatypes.</p>
 <p>These simpler datatypes are organized as a sequence of named fields.</p>
 <p><code>x = np.array(['Bob' 9, 110], dtype=[('firstname', 'U10'), ('age', 'i4'), ('weight', 'f4')])</code></p>
 <p>x is a one dimensional array. The length of the array is two. The datatype is a structure with three fields:</p>
@@ -49,7 +48,7 @@
 <ol>
 <li>1D arrays</li>
 <li>2D arrays</li>
-<li>ndarrays (more than two dimensions)</li>
+<li><code>ndarrays</code> (more than two dimensions)</li>
 </ol>
 <h2>1D Arrays</h2>
 <p>For  one dimension arrays there's <code>numpy.linspace</code> and <code>numpy.arange</code>. Both of these functions use the two inputs: start and stop.</p>
@@ -131,11 +130,11 @@
 FITS: Astropy</p>
 <p>Some formats cannot be read directly, but those can be converted to a format supported by libraries like PIL.</p>
 <h3>Common ASCII Formats</h3>
-<p>Files such as csv and tsv files are delimited data. Those type of files that can be opened with programs like Excel and LabView. the two standard routines for importing a file with delimted data is <code>numpy.loadtxt</code> and <code>numpy.genfromtxt</code>. Other ways of importing data are <code>scipy.ioFf</code> and <code>Pandas</code>.</p>
-<h2>Creating Arrays from raw bytes</h2>
-<p>If the file has a relatively simple format then a simple I/O library can be written that used the NumPy <code>fromfile()</code> function and the <code>.tofile()</code> methods to read and write to NumPy arrays directly.</p>
-<h2>Other libraries</h2>
-<p>NumPy is a fundamental library where other libraries can be added ona dn used. Some of the libraries are SciPy, Pandas, and OpenCV.</p>
+<p>Files such as csv (comma separated values) and tsv (tab separated values) files are delimited data. Those type of files that can be opened with programs like Excel and LabView. the two standard routines for importing a file with delimited data is <code>numpy.loadtxt</code> and <code>numpy.genfromtxt</code>. Other ways of importing data are <code>scipy.ioFf</code> and <code>Pandas</code>.</p>
+<p>An example of loading a text file in the format of csv:</p>
+<p><code>np.loadtxt('simple_example.csv', delimiter = ',', skiprows = 1)</code></p>
+<p>That result in:</p>
+<p><code>array([[0., 0.], [1., 1.], [2., 4.], [3., 9.]])</code></p>
 
     </main>
     <footer>

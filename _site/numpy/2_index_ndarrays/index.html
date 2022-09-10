@@ -13,10 +13,10 @@
 <h1>Indexing</h1>
 <p>The <code>ndarrays</code> can be indexed using the stand Python object x[obj] syntax, same as normal dictionary access notation. There's different kinds of indexing available depending on the object. There is basic indexing and advanced indexing, and field access.</p>
 <h2>Basic and single element indexing</h2>
-<p>the single element indexing work the same as in other standard Python sequences. It's 0-based and accepts negative indices to reference from the end of an array.</p>
-<p>A single <code>ndarray</code> can be turned into a multidimentional array.</p>
+<p>The single element indexing work the same as in other standard Python sequences. It's 0-based and accepts negative indices to reference from the end of an array.</p>
+<p>A single <code>ndarray</code> can be turned into a multidimensional array.</p>
 <p><code>x = n.arange(10) x.shape(2, 5) x[1, 3] 8</code></p>
-<p>The opposite can be said. Accessing a multidimensional array with one dimensional access reduces it and a subdimensional array is returned.</p>
+<p>The opposite can be said. Accessing a multidimensional array with one dimensional access reduces it and a sub dimensional array is returned.</p>
 <p><code>x[0] array([0, 1, 2, 3, 4])</code></p>
 <p>The returned array is a view, it's not a copy of the original but point to the exact same values in memory as the original array.</p>
 <p>The syntax <code>x[0, 2] == x[0][2]</code> is equivalent. The second syntax created a new temporary array after the first index that is subsequently indexed by 2.</p>
@@ -25,12 +25,12 @@
 <p>It works like slicing an array in Python with start:stop:step notation in the brackets.</p>
 <p>The <code>ellipses</code> and <code>newaxis</code> objects can be in this notation as well as integers. The simplest way of indexing with N integers returns an array scalar representing a corresponding item.</p>
 <p>In NumPy there are 24 fundamental Python types to describe the different types of scalars.</p>
-<p>All the rules of slicing sequences in Python apply on a per dimension basis.</p>
+<p>All the rules of slicing sequences in Python apply on a per-dimension basis.</p>
 <p>The basics are that <code>i:j:k</code> will step through the array where i starts, j ends, and k is the step amount through the array where k != 0. that is, k can not equal zero.</p>
 <h2>Dimensional indexing tools</h2>
 <p>The ellipsis is a tool to help with matching the array shapes with expressions in an assignment.</p>
 <p>There can be only one ellipsis present in slicing. The length of the expanded selection tuple is <code>x.ndim</code></p>
-<p>Each <code>newaxis</code> object in the selection tuple serves to expand the dimensions of the the result by one unit length dimension.</p>
+<p>Each <code>newaxis</code> object in the selection tuple serves to expand the dimensions of the result by one unit length dimension.</p>
 
     </main>
     <footer>

@@ -4,7 +4,6 @@ layout: "article_type_two.njk"
 ---
 [Go home](/index.html)
 
-[NumPy Article for beginners](https://numpy.org/doc/stable/user/basics.html) and 
 [Create an Array](https://numpy.org/doc/stable/user/basics.creation.html)
 
 
@@ -18,9 +17,9 @@ layout: "article_type_two.njk"
 6. Special library functions
 
 
-You can use these methods to create ndarrays or Structured arrays. 
+You can use these methods to create `ndarrays` or structured arrays. 
 
-Structured arrays are ndarrays whose datatype is a composition of simpler datatypes.
+Structured arrays are `ndarrays` whose datatype is a composition of simpler datatypes.
 
 These simpler datatypes are organized as a sequence of named fields.
 
@@ -74,7 +73,7 @@ There are 3 broad categories of array creator functions. In general, the categor
 
 1. 1D arrays
 2. 2D arrays
-3. ndarrays (more than two dimensions)
+3. `ndarrays` (more than two dimensions)
 
 ## 1D Arrays
 
@@ -342,15 +341,22 @@ Some formats cannot be read directly, but those can be converted to a format sup
 
 ### Common ASCII Formats
 
-Files such as csv and tsv files are delimited data. Those type of files that can be opened with programs like Excel and LabView. the two standard routines for importing a file with delimted data is `numpy.loadtxt` and `numpy.genfromtxt`. Other ways of importing data are `scipy.ioFf` and `Pandas`.
+Files such as csv (comma separated values) and tsv (tab separated values) files are delimited data. Those type of files that can be opened with programs like Excel and LabView. the two standard routines for importing a file with delimited data is `numpy.loadtxt` and `numpy.genfromtxt`. Other ways of importing data are `scipy.ioFf` and `Pandas`.
 
-## Creating Arrays from raw bytes
+An example of loading a text file in the format of csv:
 
-If the file has a relatively simple format then a simple I/O library can be written that used the NumPy `fromfile()` function and the `.tofile()` methods to read and write to NumPy arrays directly.
+`
+np.loadtxt('simple_example.csv', delimiter = ',', skiprows = 1)
+`
 
-## Other libraries
+That result in:
 
-NumPy is a fundamental library where other libraries can be added ona dn used. Some of the libraries are SciPy, Pandas, and OpenCV.
+`
+array([[0., 0.],
+[1., 1.],
+[2., 4.],
+[3., 9.]])
+`
 
 
 
