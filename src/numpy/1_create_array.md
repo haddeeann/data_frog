@@ -216,7 +216,6 @@ b = [2 3]
 Some functions that can be used to join existing arrays: `numpy.vstack`, `numpy.hstack`, and `numpy.block`.
 
 ### numpy.vstack
-Credit to [PythonTutorial.net](https://www.pythontutorial.net/python-numpy/numpy-vstack/)
 
 With `numpy.vstack` you can vertically join elements of two or more arrays into a single array. To join two or more arrays into an array _vertically_ means to join them row-wise.
 
@@ -230,7 +229,103 @@ The `a1,a2,...` is a sequence of arrays with an `ndarray` type.
 
 All of those input arrays must have the same shape along all but the first axis. So if they are 1D arrays, then they have to have the same length.
 
+Joining a 1D array with `numpy.vstack` works a bit like this:
 
+`
+a = np.array([1, 2])
+b = np.array([3, 4])
+c = np.vstack((a, b))
+`
+
+That result would be:
+
+`
+[[1, 2], [3, 4]]
+`
+
+Joining a 2D array with `numpy.vstack` work like this:
+
+`
+a = np.array([
+    [1, 2],
+    [3, 4]
+])
+b = np.array([
+    [5, 6],
+    [7, 8]
+])
+c = np.vstack((a, b))
+`
+
+The result:
+
+`
+[
+    [1, 2],
+    [3, 4],
+    [5, 6],
+    [7, 8]
+]
+`
+
+### numpy.hstack
+
+With `numpy.vstack` you can horizontally join elements of two or more arrays into a single array. To join two or more arrays into an array _horizontally_ means to join them column-wise.
+
+Joining a 1D array with `numpy.hstack` works like this:
+
+`
+a = np.array([1, 2])
+b = np.array([3, 4])
+c = np.hstack((a, b))
+`
+
+That result would be:
+
+`
+[[1, 2, 3, 4]]
+`
+
+Joining a 2D array with `numpy.hstack` works like this:
+
+`
+a = np.array([
+    [1, 2],
+    [3, 4]
+])
+b = np.array([
+    [5, 6],
+    [7, 8]
+])
+c = np.hstack((a, b))
+`
+
+The result would be:
+
+`
+[
+    [1, 2, 5, 6],
+    [3, 4, 7, 8]
+]
+`
+
+### numpy.block
+
+The `numpy.block` also joins arrays. 
+
+For a 1D array, it works like this:
+
+`
+a = np.array([5, 6, 7])
+b = np.array([8, 9, 10])
+c = np.block((a, b))
+`
+
+The result is:
+
+`
+[5, 6, 7, 8, 9, 10]
+`
 
 ## Reading Arrays from Disk
 

@@ -94,12 +94,35 @@
 <p><code>a = np.array([1, 2, 3, 4]) b = a[:2].copy() b += 1 print('a = ', a) print('b = ', b) a = [1 2 3 4] b = [2 3]</code></p>
 <p>Some functions that can be used to join existing arrays: <code>numpy.vstack</code>, <code>numpy.hstack</code>, and <code>numpy.block</code>.</p>
 <h3>numpy.vstack</h3>
-<p>Credit to <a href="https://www.pythontutorial.net/python-numpy/numpy-vstack/">PythonTutorial.net</a></p>
 <p>With <code>numpy.vstack</code> you can vertically join elements of two or more arrays into a single array. To join two or more arrays into an array <em>vertically</em> means to join them row-wise.</p>
 <p>For example:</p>
 <p><code>numpy.vstack((a1,a2,...))</code></p>
 <p>The <code>a1,a2,...</code> is a sequence of arrays with an <code>ndarray</code> type.</p>
 <p>All of those input arrays must have the same shape along all but the first axis. So if they are 1D arrays, then they have to have the same length.</p>
+<p>Joining a 1D array with <code>numpy.vstack</code> works a bit like this:</p>
+<p><code>a = np.array([1, 2]) b = np.array([3, 4]) c = np.vstack((a, b))</code></p>
+<p>That result would be:</p>
+<p><code>[[1, 2], [3, 4]]</code></p>
+<p>Joining a 2D array with <code>numpy.vstack</code> work like this:</p>
+<p><code>a = np.array([     [1, 2],     [3, 4] ]) b = np.array([     [5, 6],     [7, 8] ]) c = np.vstack((a, b))</code></p>
+<p>The result:</p>
+<p><code>[     [1, 2],     [3, 4],     [5, 6],     [7, 8] ]</code></p>
+<h3>numpy.hstack</h3>
+<p>With <code>numpy.vstack</code> you can horizontally join elements of two or more arrays into a single array. To join two or more arrays into an array <em>horizontally</em> means to join them column-wise.</p>
+<p>Joining a 1D array with <code>numpy.hstack</code> works like this:</p>
+<p><code>a = np.array([1, 2]) b = np.array([3, 4]) c = np.hstack((a, b))</code></p>
+<p>That result would be:</p>
+<p><code>[[1, 2, 3, 4]]</code></p>
+<p>Joining a 2D array with <code>numpy.hstack</code> works like this:</p>
+<p><code>a = np.array([     [1, 2],     [3, 4] ]) b = np.array([     [5, 6],     [7, 8] ]) c = np.hstack((a, b))</code></p>
+<p>The result would be:</p>
+<p><code>[     [1, 2, 5, 6],     [3, 4, 7, 8] ]</code></p>
+<h3>numpy.block</h3>
+<p>The <code>numpy.block</code> also joins arrays.</p>
+<p>For a 1D array, it works like this:</p>
+<p><code>a = np.array([5, 6, 7]) b = np.array([8, 9, 10]) c = np.block((a, b))</code></p>
+<p>The result is:</p>
+<p><code>[5, 6, 7, 8, 9, 10]</code></p>
 <h2>Reading Arrays from Disk</h2>
 <p>This is the most common case for creating large arrays is from existing data.</p>
 <h3>Standard Binary Formats</h3>
