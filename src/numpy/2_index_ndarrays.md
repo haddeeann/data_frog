@@ -8,7 +8,11 @@ layout: "article_type_two.njk"
 
 # Indexing
 
-The `ndarrays` can be indexed using the stand Python object x[obj] syntax, same as normal dictionary access notation. There's different kinds of indexing available depending on the object. There is basic indexing and advanced indexing, and field access.
+The `ndarrays` can be indexed using the stand Python object x[obj] syntax. This syntax indicates where x is the array in NumPy and obj is the thing you are selecting.
+
+This type of indexing works the similar to lists and tuples in Python. In the sense that Python lists, tuples, and the `ndarray` in NumPy are all collection of data that can access individual values using indexes beginning with 0 at the start of the data collection. 
+
+In NumPy, there's different types of indexing that varies in complexity. There's basic indexing, advanced indexing, and field access.
 
 ## Basic and single element indexing
 
