@@ -4,12 +4,14 @@ layout: "article_type_one.njk"
 ---
 [Go home](/index.html)
 
-I ended up using NumPy by downloading and installing Anaconda.
+NumPy can be used through the command line or through Anaconda. To use NumPy through the command line, open a terminal.
 
-I import like:
+Then enter `python` to start a Python session. Then you can import NumPy and start using.
+
+To import:
 `import numpy as np`
 
-Then I use the code like this:
+A random sample of NumPy to executes:
 
 ```
 # The standard way to import NumPy:
@@ -33,10 +35,6 @@ rng = np.random.default_rng()
 samples = rng.normal(size=2500)
 samples
 ```
-
-Cool, right?
-
-Here's the next step. Install and start using.
 
 [NumPy Install](https://numpy.org/install/)
 

@@ -18,23 +18,34 @@ In NumPy, there's different types of indexing that varies in complexity. There's
 
 The single element indexing work the same as in other standard Python sequences. It's 0-based and accepts negative indices to reference from the end of an array.
 
-A single `ndarray` can be turned into a multidimensional array.
+A single `ndarray` can be turned into a multidimensional array using the `shape` function.
 
-`
+```python
 x = n.arange(10)
-x.shape(2, 5)
+# array([0, 1, 2, 3, 4, 5, 6, 7, 8, 9])
+x.shape = (2, 5)
+# array([[0, 1, 2, 3, 4],
+       [5, 6, 7, 8, 9]])
 x[1, 3]
-8
-`
+# 8
+```
 
-The opposite can be said. Accessing a multidimensional array with one dimensional access reduces it and a sub dimensional array is returned.
+A multidimensional `ndarray` can be accessed as a single dimensional `ndarray`. The `shape` function does this by accessing a multidimensional `ndarray` with fewer dimensions than the original `ndarray`. This will return a sub dimensional `ndarray`.
 
-`
+```python
+x
+# array([[0, 1, 2, 3, 4],
+       [5, 6, 7, 8, 9]])
+       
 x[0]
-array([0, 1, 2, 3, 4])
-`
+# array([0, 1, 2, 3, 4])
 
-The returned array is a view, it's not a copy of the original but point to the exact same values in memory as the original array.
+x
+# array([[0, 1, 2, 3, 4],
+       [5, 6, 7, 8, 9]])
+```
+
+The returned array is a view, it's not a copy of the original, but it points to the exact same values in memory as the original array. When you see the original value again it remains unchanged.
 
 The syntax `x[0, 2] == x[0][2]` is equivalent. The second syntax created a new temporary array after the first index that is subsequently indexed by 2.
 

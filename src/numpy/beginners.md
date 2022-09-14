@@ -6,29 +6,23 @@ layout: "article_type_two.njk"
 
 [NumPy Article for beginners](https://numpy.org/doc/stable/user/absolute_beginners.html)
 
-
-## NumPy: Absolute Basics for Beginners
-This and the next few articles are my summary of the article for absolute beginners.
-
-[NumPy Article for beginners](https://numpy.org/doc/stable/user/absolute_beginners.html)
-
 NumPy stands for Numerical Python. It's used in a lot of science and engineering.
 
-It's the universal standard for working with numerical data in Python and it's in many other libraries and Python packages.
+NumPy is the universal standard for working with numerical data in Python. It's used in many other libraries and Python packages.
 
 ### NumPy and Arrays
 
-The main way I see of manipulating data in NumPy is through various kinds of arrays. There are multidimensional arrays, matrix data structures, an ndarray. Ndarray is a homogeneous n-dimensional array object.
+The main way of manipulating data in NumPy is through various kinds of arrays. There are multidimensional arrays, matrix data structures, and ndarray. Ndarray is a homogeneous n-dimensional array object.
 
-One of the differences in Python list and NumPy array is that a NumPy array should contain all the same data. NumPy arrays are more memory efficient and allow the data types to be specified.
+One of the differences between a Python list and NumPy array is that a NumPy array contains all the same data. NumPy arrays are also more memory efficient and allow the data types to be specified.
 
 The array in NumPy is the central data type used. The array contains meta information about the array. It's a grid of values and has info about the raw data, how to locate the element, and how to interpret an element.
 
-This grid of info that is called an array can be indexed in different ways. The one dimensional array can be indexed, sliced, and iterated over like other Python enumrable sequences.
+This grid of info that is called an array can be indexed in different ways. The one dimensional array can be indexed, sliced, and iterated over like other Python enumerable sequences.
 
 Multidimensional arrays can have more than one index per axis and those indices are given in a tuple.
 
-A NumPy array can be made from a Python list. To make it into a two or more higher dimensional data then use a nested list.
+A NumPy array can be made from a Python list. To make a Python list into a two or higher dimensional data then use a nested list.
 
 `a = np.array([1, 2, 3, 4, 5])`
 
@@ -38,10 +32,10 @@ To access the data in an NumPy array you can do it like a Python list:
 
 The type of data is referred to as the dtype.
 
-### More About Arrays: ndarray
-An ndarray is shorthand for "N-dimensional array". You can have more than one dimension in the array. Which is a little bit difficult to imagine as a new person. But a great place to start thinking about the literal difference in two and three dimensions.
+### The ndarray
+A ndarray is shorthand for "N-dimensional array". You can have more than one dimension in the array. Which is difficult to imagine as a new person. 
 
-Compare in your mind a flat piece of paper with a grid drawn on it to a cube.
+To think about the differences between one and two-dimensional arrays consider the difference between a flat piece of paper with a grid drawn on it to a cube.
 
 A vector is an array with a single dimension, a matrix has two dimensions. And for three dimensions or more it's commonly called a tensor.
 
@@ -75,7 +69,7 @@ np.ones(2)
 Or even an empty array, it's filled with random data:
 ```
 np.empty(3)
-# result array(3.13, 42., 1.3])
+# result array([3., 2., 1.])
 ```
 
 Or an evenly spaced array, giving it the first number, last number, and the step size:
@@ -94,26 +88,6 @@ To specify the data point, you can pass the data type into the dtype variable:
 ``` 
 x = np.ones(2, dtype=np.int64)
 # result array([1, 1])
-```
-
-## Adding Removing and Sorting Elements
-
-You can sort elements in an array with np.sort().
-
-You can specify the axis, kind, and order when you call the function.
-
-``` 
-arr = np.array([2, 1, 5, 3, 7, 4, 8, 10])
-np.sort(arr)
-# result array([1, 2, 3, 4, 5, 7, 8, 10])
-```
-
-You can concatenate two arrays using np.concatenate()
-``` 
-a = np.array([1, 2, 3, 4])
-b = np.array([2, 3, 4, 5])
-np.concatenate((a, b))
-result array([1, 2, 3, 4, 2, 3, 4, 5])
 ```
 
 ## Overview of Basic Terms
@@ -139,12 +113,11 @@ the buffer containing the actual elements of the array
 ## Adding, Removing, Sorting Arrays
 Sorting an array is simple with np.sort() method. The sort method can specify the axis, kind and order of the array.
 
-``` 
+```python
 arr = np.array([4, 3, 2, 1, 0, 100, 101])
 np.sort(arr)
 
-[//]: # (result)
-array([0, 1, 2, 3, 4, 100, 101])
+# result array([0, 1, 2, 3, 4, 100, 101])
 ```
 
 Other types of arrays sorts include:
@@ -158,8 +131,7 @@ To concatenate arrays use np.concatenate()
 a = np.array([1, 2, 3, 4])
 b = np.array([5, 6, 7, 8])
 
-[//]: # (result)
-array([1, 2, 3, 4, 5, 6, 7, 8])
+# result array([1, 2, 3, 4, 5, 6, 7, 8])
 ```
 
 ## Find Size of Array
@@ -303,8 +275,7 @@ a = np.array([1, 2, 3, 4, 5, 6, 7])
 
 ```python
 arr1 = a[2:5]
-// results:
-array([3, 4, 5])
+# result array([3, 4, 5])
 ```
 
 Arrays can be stacked. If you have two arrays like:
@@ -316,15 +287,13 @@ a2 = np.array([[3, 3], [4, 4]])
 Then use vstack to stack them vertically:
 ```python
 np.vstack(a1, a2)
-// result
-array([[1, 1], [2, 2], [3, 3], [4, 4]])
+# result array([[1, 1], [2, 2], [3, 3], [4, 4]])
 ```
 
 Arrays can be stacked horizontally as well with hstack:
 ```python
 np.hstack((a1, a2))
-// result
-array([[1, 1, 3, 3], [2, 2, 4, 4]])
+# result array([[1, 1, 3, 3], [2, 2, 4, 4]])
 ```
 
 Arrays can be split in several smaller parts by using hsplit.
@@ -334,17 +303,17 @@ The arrays can be split into the number of equally shaped arrays.
 Or return the columns after the division should occur.
 
 ```python
->>> x = np.arange(1, 25)
->>> x
-array([ 1,  2,  3,  4,  5,  6,  7,  8,  9, 10, 11, 12, 13, 14, 15, 16, 17,
-       18, 19, 20, 21, 22, 23, 24])
->>> np.split(x, 3)
-[array([1, 2, 3, 4, 5, 6, 7, 8]), array([ 9, 10, 11, 12, 13, 14, 15, 16]), array([17, 18, 19, 20, 21, 22, 23, 24])]
+x = np.arange(1, 25)
+
+# result array([ 1,  2,  3,  4,  5,  6,  7,  8,  9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24])
+
+np.split(x, 3)
+# result [array([1, 2, 3, 4, 5, 6, 7, 8]), array([ 9, 10, 11, 12, 13, 14, 15, 16]), array([17, 18, 19, 20, 21, 22, 23, 24])]
 ```
 
 A shallow copy can be made with the view method.
 
-NumPy functions and operations will return views whenever possible. This saves memory and is faster. If the data in the view is modified then so is the original array.
+NumPy function's and operations will return views whenever possible. This saves memory and is faster. If the data in the view is modified then so is the original array.
 
 In that way it's a bit like passing information/parameters by reference.
 
@@ -359,8 +328,8 @@ Two arrays can be added together with the addition signs. This adds the values i
 data = np.array([1, 2])
 ones = np.ones(2, dtype=int)
 data + ones
-// result
-array([2, 3])
+
+# result array([2, 3])
 ```
 
 Here's an example of other types of math that can be done with arrays. Like subtraction, multiplication, and division.
@@ -369,24 +338,21 @@ data = np.array([1, 2])
 ones = np.ones(2, dtype=int)
 
 data - ones
-// result
-array([0, 1])
+# result array([0, 1])
 
 data * data
-// result
-array([1, 4])
+# result array([1, 4])
 
 data / data
-// result
-array([1., 1.])
+# result array([1., 1.])
 ```
 
 To sum up all the values in an array, use the sum array.
 ```python
 a = np.array([1, 2, 3, 4])
 a.sum()
-// result
-10
+
+# result 10
 ```
 
 Then 2D arrays can be summed over the axis.
@@ -394,56 +360,54 @@ Then 2D arrays can be summed over the axis.
 ```python
 b = np.array([[1, 1], [2, 2]])
 b.sum(axis=0)
-// result
-array([3, 3])
+# result array([3, 3])
 ```
 
 Or sum over the columns:
 
 ```python
 b.sum(axis=1)
-// result
-array([2, 4])
+# result array([2, 4])
 ```
 
 
-** Broadcasting
+### Broadcasting
 
 When you want to carry out an operation between an array and a single operation.
 Also, known as carrying out an operation between a vector and a scalar.
 You can also carry out an operation between arrays of different sizes.
 
-`
+```python
 data = np.array([1.0, 2.0])
 data * 1.5
-// output
-array([1.6, 3.2])
-`
+
+# result array([1.6, 3.2])
+```
 NumPy understands that it should multiply each value in the array by the scalar. This is called Broadcasting and it allows NumPy to perform repeated operations on each cell. And on arrays of different shapes.
 
-** Aggregate Function
+### Aggregate Function
 
-In addition to min, max and sum, you can also do aggregation on arrays like *mean* to the the average and *prod* to get the result of multiplying the elements together. *std* can be used to get the standard deviation.
+In addition to min, max and sum, you can also do aggregation on arrays like *mean* to the average and *prod* to get the result of multiplying the elements together. *std* can be used to get the standard deviation.
 
-** Generate Random Numbers
+### Generate Random Numbers
 
 Using NumPy's random generation on creating arrays is very useful.
-For example you can randomly generate the initial data for an artificial neural network. You can split the data into random sets.
+For example, you can randomly generate the initial data for an artificial neural network. You can split the data into random sets.
 And you can randomly shuffle your dataset.
 
 The *Generator.integers* is used to generate random integers.
 
-*** Unique
+### Unique
 
 Getting the unique numbers out of an NumPy array is simple with np.unique. Just pass the array into np.unique() and out pops only the unique values from it.
 Unique values can be gotten from 2 D arrays as well.
 
-*** Transposing and reshaping a matrix
+### Transposing and reshaping a matrix
 
 To reshape and transpose arrays you can use arr.reshape(), arr.transpose(), or arr.T
-You might need to switch the dimensions of a matrix. You can use the reshape the array.
+You might need to switch the dimensions of a matrix. You can use the reshape function to alter the array.
 
-*** Reverse An Array
+### Reverse An Array
 
 To reverse an array, you can use the np.flip() method.
 Reversing a 2D array works much the same way as reversing a single dimensional array.
@@ -495,7 +459,7 @@ print(arr_2d)
 [ 9  2 11 12]]
 `
 
-** Flattening An Array
+### Flattening An Array
 
 The two best arrays are .flatten() and ravel()
 
@@ -525,7 +489,7 @@ print(a2)  # New array
 [98  2  3  4  5  6  7  8  9 10 11 12]
 `
 
-*** Help and DocString
+### Help and DocString
 
 For all of the NumPy's functions a built in help menu is included.
 
@@ -583,7 +547,7 @@ occupies in memory, whether it is an integer, a floating point number,
 or something else, etc.)
 
 
-** Math Formulas
+### Math Formulas
 One of the good things about working with NumPy that makes it so useful is being able to work with mathematical formulas. You can use formulas that work on arrays.
 Statics is a great use case and the mean square formula is an often used formula in supervised machine leaning models that deal with regression.
 
@@ -594,7 +558,7 @@ Using this formula with number might go something like this:
 Predictions and labels can be any size, small to large. As long as they are the same size as each other.
 
 
-** Saving and Loading NumPy objects
+### Saving and Loading NumPy objects
 
 Saving and loading NumPy arrays without having to re-run the code is a useful thing to do. The ndarray objects can be saved and loaded from the disk files with `loadtxt` and `savetxt` function.
 
@@ -606,7 +570,7 @@ Another reason this is useful is using the data from machine to machine even whe
 
 A user can store a single ndarray object as an .npy file using an np.save.  More than one ndarray objects can be saved as file extension .npz by using the `np.savez`.
 
-Then if a user wants to store a lot of info/array objects, it might be useful to use a compressed npz format with savez_compressed.
+Then, if a user wants to store a lot of info/array objects, it might be useful to use a compressed npz format with savez_compressed.
 
 Here's an example of saving an array with `np.save()`:
 
@@ -641,85 +605,3 @@ np.savetxt('np.csv', a, fmt='%.2f', delimiter=',', header='1,  2,  3,  4')
 `
 
 When there is missing data or more sophisticated handling of data is needed the `genfromtxt` function is useful.
-
-*** Pandas and CSV
-
-To to read in an existing CSV the easiest and best way is to use Pandas.
-
-`
-import pandas as pd
-
-# if all the columns are the same type
-x = pd.read_csv('music.csv', header=0).values
-
-# select columns needed specifically by name
-y = pd.read_csv('music.csv', usecols=['Artist', 'Plays']).values
-`
-
-You can also use Pandas to export the data as well. One way to do it is to create a Pandas dataframe from the values in the array. Then write the data frame to a CSV file with the Pandas.
-
-`
-a = np.array([[1, 3, 5], [2, 3, 4]])
-df = pd.DataFrame(a)
-df.to_csv('pd.csv')
-`
-
-Then read back the CSV with:
-
-`
-data = pd.read_csv('pd.csv')
-`
-
-From the command line you can also `cat` out the contents of a csv to see what is in the file:
-
-`cat np.csv
-# 1, 2, 3
-2, 3, 4
-`
-
-Keep in mind that CSV can also just be opened with any text editor.
-
-### Plotting Arrays with Matplotlib
-
-Generating a plot from data with Matplotlib is easy. If you have an array simply use the `plot` function from the Matplotlib library to do it.
-
-`
-import matplotlib.pyplot as plt
-# If you're using Jupyter Notebook, you may also want to run the following
-# line of code to display your code in the notebook:
-
-%matplotlib inline
-
-a = np.array([2, 3, 4, 5])
-
-plt.plot(a)
-
-# if running from a command line, you might need to run the show command
-plt.show()
-`
-
-Plotting a 1D array looks like this:
-
-`
-x = np.linspace(0, 7, 20)
-y = np.linspace(0, 10, 15)
-plt.plot(x, y, 'purple') # line
-plt.plot(x, y, 'o') # dots
-`
-
-With Matplotlib you can choose from a lot of different visualization options:
-
-`
-fig = plt.figure()
-ax = fig.add_subpolot(projection='3d')
-
-x = np.arange(0, 2, 4)
-y = np.arange(0, 2, 4)
-
-x, y = np.meshgrid(x, y)
-
-r = np.sqrt(x**2, y**2)
-z = np.sin(r)
-
-ax.plot_surface(x, y. z, rstride=1, cstride=1, cmap='viridis')
-`
