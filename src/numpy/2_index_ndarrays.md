@@ -53,9 +53,9 @@ The syntax `x[0, 2] == x[0][2]` is equivalent. The second syntax created a new t
 
 The basic slicing extends Python's basic concept of slicing to the N dimensions. Basic slicing occurs when the obj is a slice object.
 
-It works like slicing an array in Python with start:stop:step notation in the brackets.
+It works like slicing an array in Python with `start:stop:step` notation in the brackets.
 
-The `ellipses` and `newaxis` objects can be in this notation as well as integers. The simplest way of indexing with N integers returns an array scalar representing a corresponding item.
+The `ellipses` and `newaxis` objects can be in this notation as well as integers. 
 
 In NumPy there are 24 fundamental Python types to describe the different types of scalars.
 

@@ -41,8 +41,8 @@ x
 <p>The syntax <code>x[0, 2] == x[0][2]</code> is equivalent. The second syntax created a new temporary array after the first index that is subsequently indexed by 2.</p>
 <h2>Slicing and Striding</h2>
 <p>The basic slicing extends Python's basic concept of slicing to the N dimensions. Basic slicing occurs when the obj is a slice object.</p>
-<p>It works like slicing an array in Python with start:stop:step notation in the brackets.</p>
-<p>The <code>ellipses</code> and <code>newaxis</code> objects can be in this notation as well as integers. The simplest way of indexing with N integers returns an array scalar representing a corresponding item.</p>
+<p>It works like slicing an array in Python with <code>start:stop:step</code> notation in the brackets.</p>
+<p>The <code>ellipses</code> and <code>newaxis</code> objects can be in this notation as well as integers.</p>
 <p>In NumPy there are 24 fundamental Python types to describe the different types of scalars.</p>
 <p>All the rules of slicing sequences in Python apply on a per-dimension basis.</p>
 <p>The basics are that <code>i:j:k</code> will step through the array where i starts, j ends, and k is the step amount through the array where k != 0. that is, k can not equal zero.</p>
