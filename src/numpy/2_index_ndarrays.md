@@ -49,9 +49,9 @@ The returned array is a view, it's not a copy of the original, but it points to 
 
 The syntax `x[0, 2] == x[0][2]` is equivalent. The second syntax created a new temporary array after the first index that is subsequently indexed by 2.
 
-## Slicing and Striding
+## Slicing 
 
-The basic slicing extends Python's basic concept of slicing to the N dimensions. Basic slicing occurs when the obj is a slice object.
+The basic slicing extends Python's basic concept of slicing to the N dimensions. 
 
 It works like slicing an array in Python with `start:stop:step` notation in the brackets.
 
@@ -62,6 +62,11 @@ In NumPy there are 24 fundamental Python types to describe the different types o
 All the rules of slicing sequences in Python apply on a per-dimension basis.
 
 The basics are that `i:j:k` will step through the array where i starts, j ends, and k is the step amount through the array where k != 0. that is, k can not equal zero.
+
+## Striding
+[Credit: Kathryn](https://medium.com/analytics-vidhya/a-thorough-understanding-of-numpy-strides-and-its-application-in-data-processing-e40eab1c82fe)
+
+Striding is like taking steps in the dta with a window of a fixed size. The window is the amount of data that you are looking at. And the stride is the measure of how much you step each time you move forward in the data.
 
 ## Dimensional indexing tools
 
