@@ -27,6 +27,11 @@ a:active {
     color: #ed5339;
     font-size: 2em;
 }
+pre {
+    background: #444;
+    padding: 20px 15px;
+    color: white;
+}
 footer {
     background-color: #eee;
     padding: 15px;

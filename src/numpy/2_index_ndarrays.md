@@ -66,13 +66,54 @@ The basics are that `i:j:k` will step through the array where i starts, j ends, 
 ## Striding
 [Credit: Kathryn](https://medium.com/analytics-vidhya/a-thorough-understanding-of-numpy-strides-and-its-application-in-data-processing-e40eab1c82fe)
 
-Striding is like taking steps in the dta with a window of a fixed size. The window is the amount of data that you are looking at. And the stride is the measure of how much you step each time you move forward in the data.
+Striding is taking steps through the data with a window and stride of a fixed size. The window is the amount of data that you are looking at. And the stride is the measure of how much you step each time you move forward in the data.
 
-## Dimensional indexing tools
+## Ellipses
 
-The ellipsis is a tool to help with matching the array shapes with expressions in an assignment.
+The ellipsis (...) or the Ellipsis object is used to slice higher-dimensional structures. It's designed to mean, at this point, insert as many full slices (:) to extend the multidimensional slice to all dimensions.
 
-There can be only one ellipsis present in slicing. The length of the expanded selection tuple is `x.ndim`
+There can be only one ellipsis present in slicing. 
 
-Each `newaxis` object in the selection tuple serves to expand the dimensions of the result by one unit length dimension.
+To make a four dimensional matrix of order 2x2x2x2 you could do the following.
+
+```python
+from numpy import arange
+a = arange(16).
+# result array([ 0,  1,  2,  3,  4,  5,  6,  7,  8,  9, 10, 11, 12, 13, 14, 15])
+a.reshape(2,2,2,2)
+# result array([[[[ 0,  1],
+         [ 2,  3]],
+        [[ 4,  5],
+         [ 6,  7]]],
+       [[[ 8,  9],
+         [10, 11]],
+        [[12, 13],
+         [14, 15]]]])
+```
+
+Then to select all the first elements in the 4th dimension, you can use the ellipsis notation.
+
+```python
+a[..., 0].flatten()
+# result array([0, 2, 4, 6, 8, 10, 12, 14])
+```
+
+Which is the same as using the following notation.
+
+```python
+a[:,:,:,0].flatten()
+# result array([0, 2, 4, 6, 8, 10, 12, 14])
+```
+
+## Number of Dimensions
+
+The `numpy.ndarray.ndim` function returns the number of dimensions of an array.
+
+
+```python
+a = np.array([1, 2, 3, 4])
+arr.ndim
+# result 1
+```
+
 

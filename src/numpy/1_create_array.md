@@ -23,9 +23,9 @@ Structured arrays are `ndarrays` whose datatype is a composition of simpler data
 
 These simpler datatypes are organized as a sequence of named fields.
 
-`
+```python
 x = np.array(['Bob' 9, 110], dtype=[('firstname', 'U10'), ('age', 'i4'), ('weight', 'f4')])
-`
+```
 
 x is a one dimensional array. The length of the array is two. The datatype is a structure with three fields:
 
@@ -41,9 +41,9 @@ A list of numbers will create a 1D array. To create a 2D array, you can use a li
 
 An easy way to create an array from a list or tuple is with the `np.array` function.
 
-`
+```python
 one_dimensional_array = np.array([127, 182, 100])
-`
+```
 
 You can specify the data type of the information in the NumPy arrays, by adding a parameter of the dtype. If you don't pass in a data type (dtype) then it will assign a default dtype.
 
@@ -51,11 +51,11 @@ If the data in the array is outside what is available for that type you can end 
 
 For example, an 8-bit signed integer represents a number from -128 to 127. So if you tried to assign a number like 128 or 129 to a `dtype=np.int8`, you'd have an overflow. This is because an 8-bit signed integer can only represent numbers from -128 to 127.
 
-`
+```python
 overflow_array = np.array([127, 128, 129], dtype=np.int8)
 overflow_array
 array([127, -128, -127], dtype=int8)
-`
+```
 
 When performing operations with two arrays with the same data type the resulting array is the same data type.
 
@@ -114,7 +114,7 @@ array([[1., 0., 0., 0., 0.],
 
 ### numpy.diag
 
-The `numpy.diag` can be used to define a 2D array with the given values along the diagonal. You can pass two parameters, an input array and k. The k is an integer and it's value decides the main diagonal.
+The `numpy.diag` can be used to define a 2D array with the given values along the diagonal. You can pass two parameters, an input array and k. The k is an integer, and it's value decides the main diagonal.
 
 If k is positive, then the diagonal is above the main diagonal. And if k is negative then the diagonal is below the main diagonal.
 
@@ -122,7 +122,7 @@ Or if the input array is a 2D array, it returns a 1D array that is only the diag
 
 The `numpy.eye` and `numpy.diag` functions can be helpful for doing linear algebra.
 
-`
+```python
 np.diag([1, 2, 3])
 array([[1, 0, 0],
 [0, 2, 0],
@@ -135,7 +135,7 @@ array([[0, 1, 0, 0],
 a = np.array([[1, 2], [3, 4]])
 np.diag(a)
 array([1, 4])
-`
+```
 
 ### numpy.vander
 
@@ -151,7 +151,7 @@ The input can only be the highest polynomial order of `n-1`, where `n` is the se
 
 This array creation routine is useful in generating linear least square models.
 
-`
+```python
 np.vander(np.linspace(0, 2, 5), 2)
 array([[0. , 1. ],
 [0.5, 1. ],
@@ -168,7 +168,7 @@ array([[ 1,  1,  1,  1],
 [ 8,  4,  2,  1],
 [27,  9,  3,  1],
 [64, 16,  4,  1]])
-`
+```
 
 The method of least-squares is a standard approach in regression analysis. It's used to approximate the solution of overdetermined systems. An overdetermined system is a set of equations in which there are more equations than unknowns.
 
@@ -190,7 +190,7 @@ If you assign an array to a new variable, the original array is edited when the 
 
 If you want to make a new array that doesn't change the original array, use `numpy.copy`. Here is an example of an array that gets edited after being passed.
 
-`
+```python
 a = np.array([1, 2, 3, 4, 5, 6])
 b = a[:2]
 b += 1
@@ -198,11 +198,11 @@ print('a = ', a)
 print('b = ', b)
 a = [2 3 3 4 5 6]
 b = [2 3]
-`
+```
 
 Here's an example of how when you copy an array it doesn't change the original.
 
-`
+```python
 a = np.array([1, 2, 3, 4])
 b = a[:2].copy()
 b += 1
@@ -210,7 +210,7 @@ print('a = ', a)
 print('b = ', b)
 a = [1 2 3 4]
 b = [2 3]
-`
+```
 
 Some functions that can be used to join existing arrays: `numpy.vstack`, `numpy.hstack`, and `numpy.block`.
 
@@ -220,9 +220,9 @@ With `numpy.vstack` you can vertically join elements of two or more arrays into 
 
 For example:
 
-`
+```python
 numpy.vstack((a1,a2,...))
-`
+```
 
 The `a1,a2,...` is a sequence of arrays with an `ndarray` type.
 
@@ -230,21 +230,21 @@ All of those input arrays must have the same shape along all but the first axis.
 
 Joining a 1D array with `numpy.vstack` works a bit like this:
 
-`
+```python
 a = np.array([1, 2])
 b = np.array([3, 4])
 c = np.vstack((a, b))
-`
+```
 
 That result would be:
 
-`
+```python
 [[1, 2], [3, 4]]
-`
+```
 
 Joining a 2D array with `numpy.vstack` work like this:
 
-`
+```python
 a = np.array([
     [1, 2],
     [3, 4]
@@ -254,18 +254,18 @@ b = np.array([
     [7, 8]
 ])
 c = np.vstack((a, b))
-`
+```
 
 The result:
 
-`
+```python
 [
     [1, 2],
     [3, 4],
     [5, 6],
     [7, 8]
 ]
-`
+```
 
 ### numpy.hstack
 
@@ -273,21 +273,21 @@ With `numpy.vstack` you can horizontally join elements of two or more arrays int
 
 Joining a 1D array with `numpy.hstack` works like this:
 
-`
+```python
 a = np.array([1, 2])
 b = np.array([3, 4])
 c = np.hstack((a, b))
-`
+```
 
 That result would be:
 
-`
+```python
 [[1, 2, 3, 4]]
-`
+```
 
 Joining a 2D array with `numpy.hstack` works like this:
 
-`
+```python
 a = np.array([
     [1, 2],
     [3, 4]
@@ -297,16 +297,16 @@ b = np.array([
     [7, 8]
 ])
 c = np.hstack((a, b))
-`
+```
 
 The result would be:
 
-`
+```python
 [
     [1, 2, 5, 6],
     [3, 4, 7, 8]
 ]
-`
+```
 
 ### numpy.block
 
@@ -314,17 +314,17 @@ The `numpy.block` also joins arrays.
 
 For a 1D array, it works like this:
 
-`
+```python
 a = np.array([5, 6, 7])
 b = np.array([8, 9, 10])
 c = np.block((a, b))
-`
+```
 
 The result is:
 
-`
+```python
 [5, 6, 7, 8, 9, 10]
-`
+```
 
 ## Reading Arrays from Disk
 
@@ -345,18 +345,18 @@ Files such as csv (comma separated values) and tsv (tab separated values) files 
 
 An example of loading a text file in the format of csv:
 
-`
+```python
 np.loadtxt('simple_example.csv', delimiter = ',', skiprows = 1)
-`
+```
 
 That result in:
 
-`
+```python
 array([[0., 0.],
 [1., 1.],
 [2., 4.],
 [3., 9.]])
-`
+```
 
 
 

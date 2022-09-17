@@ -41,7 +41,7 @@ Welcome to Data Frog. My personal notes and learning journey for data science an
 
 12. [Interoperability](./numpy/12_interoperability)
 
-### General List
+### Ideas for Next Steps
 <ul>
     <li>
         <a href="./data_science_software_list">Data Science Libraries in Python</a>
@@ -52,32 +52,5 @@ Welcome to Data Frog. My personal notes and learning journey for data science an
     <li>
         <a href="https://www.reddit.com/r/Python/comments/a925bi/projects_for_numpypandas_novice/">Ideas for a beginner project</a>
         <p>Try implementing a neural network from scratch in pure NumPy using a basic optimization algorithm like vanilla gradient descent/SGD. This necessitates manually writing out a backward pass, which TensorFlow/PyTorch/Keras will spare you from but it familiarizes you with backprop and update rules at a granular level and will make you more comfortable with NumPy operations.</p>
-    </li>
-</ul>
-
-### More Complete Programs?
-<ul>
-    <li>
-        <a href="./start_tensor_flow">Starter for Tensor Flow</a>
-    </li>
-    <li>
-        <a href="./start_pytorch">Starter for Pytorch</a>
-    </li>
-    <li>
-        <a href="./start_scikit_learn">Starter for Scikit-learn</a>
-    </li>
-</ul>
-
-### More of an underlying technology?
-<p>Maybe like building blocks?</p>
-<ul>
-    <li>
-        <a href="./start_anaconda">Starter for Anaconda</a>
-    </li>
-    <li>
-        <a href="./start_pandas">Starter for Pandas</a>
-    </li>
-    <li>
-        <a href="./start_numpy">Starter for NumPy</a>
     </li>
 </ul>

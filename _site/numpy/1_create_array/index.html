@@ -22,7 +22,8 @@
 <p>You can use these methods to create <code>ndarrays</code> or structured arrays.</p>
 <p>Structured arrays are <code>ndarrays</code> whose datatype is a composition of simpler datatypes.</p>
 <p>These simpler datatypes are organized as a sequence of named fields.</p>
-<p><code>x = np.array(['Bob' 9, 110], dtype=[('firstname', 'U10'), ('age', 'i4'), ('weight', 'f4')])</code></p>
+<pre><code class="language-python">x = np.array(['Bob' 9, 110], dtype=[('firstname', 'U10'), ('age', 'i4'), ('weight', 'f4')])
+</code></pre>
 <p>x is a one dimensional array. The length of the array is two. The datatype is a structure with three fields:</p>
 <ol>
 <li>a string of length 10 or less, named 'firstname'</li>
@@ -33,11 +34,15 @@
 <p>The NumPy arrays can be made from lists and tuples. Lists are as [...] and tuples (...).</p>
 <p>A list of numbers will create a 1D array. To create a 2D array, you can use a list of lists. If you want to create higher dimensional arrays you can nest lists even further.</p>
 <p>An easy way to create an array from a list or tuple is with the <code>np.array</code> function.</p>
-<p><code>one_dimensional_array = np.array([127, 182, 100])</code></p>
+<pre><code class="language-python">one_dimensional_array = np.array([127, 182, 100])
+</code></pre>
 <p>You can specify the data type of the information in the NumPy arrays, by adding a parameter of the dtype. If you don't pass in a data type (dtype) then it will assign a default dtype.</p>
 <p>If the data in the array is outside what is available for that type you can end up with an overflow on the data.</p>
 <p>For example, an 8-bit signed integer represents a number from -128 to 127. So if you tried to assign a number like 128 or 129 to a <code>dtype=np.int8</code>, you'd have an overflow. This is because an 8-bit signed integer can only represent numbers from -128 to 127.</p>
-<p><code>overflow_array = np.array([127, 128, 129], dtype=np.int8) overflow_array array([127, -128, -127], dtype=int8)</code></p>
+<pre><code class="language-python">overflow_array = np.array([127, 128, 129], dtype=np.int8)
+overflow_array
+array([127, -128, -127], dtype=int8)
+</code></pre>
 <p>When performing operations with two arrays with the same data type the resulting array is the same data type.</p>
 <p>When performing operations that different data types, NumPy will assign a new type that satisfies all the array elements involved in the computation.</p>
 <p>The default behavior is to create arrays as either 32 or 64 bit signed integers depending on the platform. Or even a double precision floating point number like int32/int64.</p>
@@ -65,11 +70,23 @@
 <p>For example:</p>
 <p><code>np.eye(3) array([[1., 0., 0.], [0., 1., 0.], [0., 0., 1.]]) np.eye(3, 5) array([[1., 0., 0., 0., 0.], [0., 1., 0., 0., 0.], [0., 0., 1., 0., 0.]])</code></p>
 <h3>numpy.diag</h3>
-<p>The <code>numpy.diag</code> can be used to define a 2D array with the given values along the diagonal. You can pass two parameters, an input array and k. The k is an integer and it's value decides the main diagonal.</p>
+<p>The <code>numpy.diag</code> can be used to define a 2D array with the given values along the diagonal. You can pass two parameters, an input array and k. The k is an integer, and it's value decides the main diagonal.</p>
 <p>If k is positive, then the diagonal is above the main diagonal. And if k is negative then the diagonal is below the main diagonal.</p>
 <p>Or if the input array is a 2D array, it returns a 1D array that is only the diagonal elements.</p>
 <p>The <code>numpy.eye</code> and <code>numpy.diag</code> functions can be helpful for doing linear algebra.</p>
-<p><code>np.diag([1, 2, 3]) array([[1, 0, 0], [0, 2, 0], [0, 0, 3]]) np.diag([1, 2, 3], 1) array([[0, 1, 0, 0], [0, 0, 2, 0], [0, 0, 0, 3], [0, 0, 0, 0]]) a = np.array([[1, 2], [3, 4]]) np.diag(a) array([1, 4])</code></p>
+<pre><code class="language-python">np.diag([1, 2, 3])
+array([[1, 0, 0],
+[0, 2, 0],
+[0, 0, 3]])
+np.diag([1, 2, 3], 1)
+array([[0, 1, 0, 0],
+[0, 0, 2, 0],
+[0, 0, 0, 3],
+[0, 0, 0, 0]])
+a = np.array([[1, 2], [3, 4]])
+np.diag(a)
+array([1, 4])
+</code></pre>
 <h3>numpy.vander</h3>
 <p>The <code>vander(x, n)</code> defines a Vandermonde matrix as a 2D NumPy array.</p>
 <p>In linear algebra, a Vandemonde matrix, named after Alexandre-Théophile Vandermonde, is a matrix with the terms of geometric progression in each row. A geometric progression also known as a geometric sequence is a sequence of non-zero numbers. Each term after the first is found by multiplying the previous one by a fixed, non-zero number called the common ratio.</p>
@@ -77,7 +94,23 @@
 <p>In the representation <code>vander(x, n)</code> where x is the input, then each column of the matrix is a decreasing power of the input.</p>
 <p>The input can only be the highest polynomial order of <code>n-1</code>, where <code>n</code> is the second parameter passed into the <code>vander</code> equation.</p>
 <p>This array creation routine is useful in generating linear least square models.</p>
-<p><code>np.vander(np.linspace(0, 2, 5), 2) array([[0. , 1. ], [0.5, 1. ], [1. , 1. ], [1.5, 1. ], [2. , 1. ]]) np.vander([1, 2, 3, 4], 2) array([[1, 1], [2, 1], [3, 1], [4, 1]]) np.vander((1, 2, 3, 4), 4) array([[ 1,  1,  1,  1], [ 8,  4,  2,  1], [27,  9,  3,  1], [64, 16,  4,  1]])</code></p>
+<pre><code class="language-python">np.vander(np.linspace(0, 2, 5), 2)
+array([[0. , 1. ],
+[0.5, 1. ],
+[1. , 1. ],
+[1.5, 1. ],
+[2. , 1. ]])
+np.vander([1, 2, 3, 4], 2)
+array([[1, 1],
+[2, 1],
+[3, 1],
+[4, 1]])
+np.vander((1, 2, 3, 4), 4)
+array([[ 1,  1,  1,  1],
+[ 8,  4,  2,  1],
+[27,  9,  3,  1],
+[64, 16,  4,  1]])
+</code></pre>
 <p>The method of least-squares is a standard approach in regression analysis. It's used to approximate the solution of overdetermined systems. An overdetermined system is a set of equations in which there are more equations than unknowns.</p>
 <p>The solution is determined by minimizing the sum of the squares of the residuals. A residual is the difference between the observed value and the fitted value provided by the model.</p>
 <h2>General ndarray Creation Functions</h2>
@@ -88,40 +121,95 @@
 <p>Once arrays have been created you can replicate, join, or mutate those existing arrays to make new arrays.</p>
 <p>If you assign an array to a new variable, the original array is edited when the new array is edited. To me, that is similar to passing data by values or by the underlying structure in programming languages.</p>
 <p>If you want to make a new array that doesn't change the original array, use <code>numpy.copy</code>. Here is an example of an array that gets edited after being passed.</p>
-<p><code>a = np.array([1, 2, 3, 4, 5, 6]) b = a[:2] b += 1 print('a = ', a) print('b = ', b) a = [2 3 3 4 5 6] b = [2 3]</code></p>
+<pre><code class="language-python">a = np.array([1, 2, 3, 4, 5, 6])
+b = a[:2]
+b += 1
+print('a = ', a)
+print('b = ', b)
+a = [2 3 3 4 5 6]
+b = [2 3]
+</code></pre>
 <p>Here's an example of how when you copy an array it doesn't change the original.</p>
-<p><code>a = np.array([1, 2, 3, 4]) b = a[:2].copy() b += 1 print('a = ', a) print('b = ', b) a = [1 2 3 4] b = [2 3]</code></p>
+<pre><code class="language-python">a = np.array([1, 2, 3, 4])
+b = a[:2].copy()
+b += 1
+print('a = ', a)
+print('b = ', b)
+a = [1 2 3 4]
+b = [2 3]
+</code></pre>
 <p>Some functions that can be used to join existing arrays: <code>numpy.vstack</code>, <code>numpy.hstack</code>, and <code>numpy.block</code>.</p>
 <h3>numpy.vstack</h3>
 <p>With <code>numpy.vstack</code> you can vertically join elements of two or more arrays into a single array. To join two or more arrays into an array <em>vertically</em> means to join them row-wise.</p>
 <p>For example:</p>
-<p><code>numpy.vstack((a1,a2,...))</code></p>
+<pre><code class="language-python">numpy.vstack((a1,a2,...))
+</code></pre>
 <p>The <code>a1,a2,...</code> is a sequence of arrays with an <code>ndarray</code> type.</p>
 <p>All of those input arrays must have the same shape along all but the first axis. So if they are 1D arrays, then they have to have the same length.</p>
 <p>Joining a 1D array with <code>numpy.vstack</code> works a bit like this:</p>
-<p><code>a = np.array([1, 2]) b = np.array([3, 4]) c = np.vstack((a, b))</code></p>
+<pre><code class="language-python">a = np.array([1, 2])
+b = np.array([3, 4])
+c = np.vstack((a, b))
+</code></pre>
 <p>That result would be:</p>
-<p><code>[[1, 2], [3, 4]]</code></p>
+<pre><code class="language-python">[[1, 2], [3, 4]]
+</code></pre>
 <p>Joining a 2D array with <code>numpy.vstack</code> work like this:</p>
-<p><code>a = np.array([     [1, 2],     [3, 4] ]) b = np.array([     [5, 6],     [7, 8] ]) c = np.vstack((a, b))</code></p>
+<pre><code class="language-python">a = np.array([
+    [1, 2],
+    [3, 4]
+])
+b = np.array([
+    [5, 6],
+    [7, 8]
+])
+c = np.vstack((a, b))
+</code></pre>
 <p>The result:</p>
-<p><code>[     [1, 2],     [3, 4],     [5, 6],     [7, 8] ]</code></p>
+<pre><code class="language-python">[
+    [1, 2],
+    [3, 4],
+    [5, 6],
+    [7, 8]
+]
+</code></pre>
 <h3>numpy.hstack</h3>
 <p>With <code>numpy.vstack</code> you can horizontally join elements of two or more arrays into a single array. To join two or more arrays into an array <em>horizontally</em> means to join them column-wise.</p>
 <p>Joining a 1D array with <code>numpy.hstack</code> works like this:</p>
-<p><code>a = np.array([1, 2]) b = np.array([3, 4]) c = np.hstack((a, b))</code></p>
+<pre><code class="language-python">a = np.array([1, 2])
+b = np.array([3, 4])
+c = np.hstack((a, b))
+</code></pre>
 <p>That result would be:</p>
-<p><code>[[1, 2, 3, 4]]</code></p>
+<pre><code class="language-python">[[1, 2, 3, 4]]
+</code></pre>
 <p>Joining a 2D array with <code>numpy.hstack</code> works like this:</p>
-<p><code>a = np.array([     [1, 2],     [3, 4] ]) b = np.array([     [5, 6],     [7, 8] ]) c = np.hstack((a, b))</code></p>
+<pre><code class="language-python">a = np.array([
+    [1, 2],
+    [3, 4]
+])
+b = np.array([
+    [5, 6],
+    [7, 8]
+])
+c = np.hstack((a, b))
+</code></pre>
 <p>The result would be:</p>
-<p><code>[     [1, 2, 5, 6],     [3, 4, 7, 8] ]</code></p>
+<pre><code class="language-python">[
+    [1, 2, 5, 6],
+    [3, 4, 7, 8]
+]
+</code></pre>
 <h3>numpy.block</h3>
 <p>The <code>numpy.block</code> also joins arrays.</p>
 <p>For a 1D array, it works like this:</p>
-<p><code>a = np.array([5, 6, 7]) b = np.array([8, 9, 10]) c = np.block((a, b))</code></p>
+<pre><code class="language-python">a = np.array([5, 6, 7])
+b = np.array([8, 9, 10])
+c = np.block((a, b))
+</code></pre>
 <p>The result is:</p>
-<p><code>[5, 6, 7, 8, 9, 10]</code></p>
+<pre><code class="language-python">[5, 6, 7, 8, 9, 10]
+</code></pre>
 <h2>Reading Arrays from Disk</h2>
 <p>This is the most common case for creating large arrays is from existing data.</p>
 <h3>Standard Binary Formats</h3>
@@ -132,9 +220,14 @@ FITS: Astropy</p>
 <h3>Common ASCII Formats</h3>
 <p>Files such as csv (comma separated values) and tsv (tab separated values) files are delimited data. Those type of files that can be opened with programs like Excel and LabView. the two standard routines for importing a file with delimited data is <code>numpy.loadtxt</code> and <code>numpy.genfromtxt</code>. Other ways of importing data are <code>scipy.ioFf</code> and <code>Pandas</code>.</p>
 <p>An example of loading a text file in the format of csv:</p>
-<p><code>np.loadtxt('simple_example.csv', delimiter = ',', skiprows = 1)</code></p>
+<pre><code class="language-python">np.loadtxt('simple_example.csv', delimiter = ',', skiprows = 1)
+</code></pre>
 <p>That result in:</p>
-<p><code>array([[0., 0.], [1., 1.], [2., 4.], [3., 9.]])</code></p>
+<pre><code class="language-python">array([[0., 0.],
+[1., 1.],
+[2., 4.],
+[3., 9.]])
+</code></pre>
 
     </main>
     <footer>
