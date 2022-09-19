@@ -26,9 +26,21 @@ Recognized file types are text files and archives. The different types of archiv
 
 ## Splitting the lines into columns
 
-Once the file if open for reading the 'genfromtxt' splits each line to a sequence of strings. Whatever delimiter is chosen will split the characters into lines. That can be a comma (,) semicolon (;) or even the '\t' - the tab character.
+Once the file is open for reading, the `genfromtxt` splits each line to a sequence of strings. Whatever delimiter is chosen will split the characters into lines. That can be a comma (,) semicolon (;) or even the '\t' - the tab character.
 
-The delimiter chosen isn't limited to a single character. Also, the file may be fixed width. Then the columns are going to be defined as a given number of characters. By default, the white spacing at the end and beginning of values are not stripped. But a parameter of autostrip can be set to True and the leading and trailing white spaces will be stripped from the values.
+```python
+import numpy as np
+from io import StringIO
+
+data = u"1, 2, 3\n4, 5, 6"
+np.genfromtxt(StringIO(data), delimiter=",")
+# result array([[1., 2., 3.],
+       [4., 5., 6.]])
+```
+
+The delimiter chosen isn't limited to a single character. It's just the most common ones to use. By default, the `genfromtxt` assumes a delimiter of `None`, which means that the line is split along the white spaces (including tabs). And consecutive white spaces in this case are considered a single white space.
+
+Also, the file may be fixed width. Then the columns are going to be defined as a given number of characters. By default, the white spacing at the end and beginning of values are not stripped. But a parameter of auto strip can be set to True and the leading and trailing white spaces will be stripped from the values.
 
 Comments from the files will be ignored from processing and comment s are marked with a #.
 
