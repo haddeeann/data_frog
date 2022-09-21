@@ -14,7 +14,7 @@ In a nutshell the `genfromtxt` runs two main loops. The first loop converts each
 
 The second loop converts each string to the right data type.
 
-the mechanism of using two loops take more time, but it gives more flexibility. In particular, the `genfromtxt` is able to take missing data into account, where faster and simpler methods like `loadtxt` can't.
+The mechanism of using two loops take more time, but it gives more flexibility. In particular, the `genfromtxt` is able to take missing data into account, where faster and simpler methods like `loadtxt` can't.
 
 The only mandatory argument of `genfromtxt` is the file or data source. It can be a string, a list of strings or a file read into NumPy. The file read into NumPy creates an open file like object from a read method.
 
@@ -40,7 +40,25 @@ np.genfromtxt(StringIO(data), delimiter=",")
 
 The delimiter chosen isn't limited to a single character. It's just the most common ones to use. By default, the `genfromtxt` assumes a delimiter of `None`, which means that the line is split along the white spaces (including tabs). And consecutive white spaces in this case are considered a single white space.
 
-Also, the file may be fixed width. Then the columns are going to be defined as a given number of characters. By default, the white spacing at the end and beginning of values are not stripped. But a parameter of auto strip can be set to True and the leading and trailing white spaces will be stripped from the values.
+Alternately, the file may be fixed width. That means the columns are defined as a given number of characters. In that case, we need to set a delimiter to a single integer if all the columns have the same size. Or set the delimiter to a sequence of integers if the columns have different sizes.
+
+By default, the white spacing at the end and beginning of values are not stripped. But a parameter of auto strip can be set to `True` and the leading and trailing white spaces will be stripped from the values.
+
+```python
+data = u"1, abc , 2\n 3, xxx, 4"
+
+# without autostrip
+np.genfromtxt(StringIO(data), delimiter=",", dtype="|U5")
+
+# result array([['1', ' abc ', ' 2'],
+       ['3', ' xxx', ' 4']], dtype='<U5')
+
+# with autostrip
+np.genfromtxt(StringIO(data), delimiter=",", dtype="|U5", autostrip=True)
+
+# result array([['1', 'abc', '2'],
+       ['3', 'xxx', '4']], dtype='<U5')
+```
 
 Comments from the files will be ignored from processing and comment s are marked with a #.
 
@@ -54,13 +72,13 @@ From default settings, `genfromtxt` assumes a delimiter=None. This separates val
 
 Instead, we could have a fixed width file. That's where the columns are defined as a given number of characters. If so, we set the delimiter to either a single integer or a sequence of integers (if the columns have a different size).
 
-Leading and trailing white space characters are not stripped automatically. That can be overwritten by passing in an optional argument to a value of True.
+Leading and trailing white space characters are not stripped automatically. That can be overwritten by passing in an optional argument to a value of `True`.
 
 By default, the character that signifies comments is the '#'. But that can be changed to a different character by passing in the comment argument. Any character passed in as such will then become the marker for comments in the code.
 
 If we have a header or footer in the file, we can skip those lines by using the `skip_header` or `skip_footer` arguments. 
 
-If we want to use only some of the columns and not all of the data, we can pass in the `usecols` argument. That argument can take a single argument or a sequence of integers. The columns indices begin at zero. If the columns have names you can use the column names instead.
+If we want to use only some columns and not all the data, we can pass in the `usecols` argument. That argument can take a single argument or a sequence of integers. The columns indices begin at zero. If the columns have names you can use the column names instead.
 
 ## Choosing the Data Type
 
