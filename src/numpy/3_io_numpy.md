@@ -74,11 +74,35 @@ Instead, we could have a fixed width file. That's where the columns are defined 
 
 Leading and trailing white space characters are not stripped automatically. That can be overwritten by passing in an optional argument to a value of `True`.
 
+## The Comments Argument
+
 By default, the character that signifies comments is the '#'. But that can be changed to a different character by passing in the comment argument. Any character passed in as such will then become the marker for comments in the code.
+
+```python
+np.genfromtxt(StrinIO(data), comment="#", delimiter=",")
+```
+
+## Skip Header or Skip Footer Argument
 
 If we have a header or footer in the file, we can skip those lines by using the `skip_header` or `skip_footer` arguments. 
 
+```python
+np.genfromtxt(StringIO(data), skip_header=3, skip_footer=5)
+```
+
+## The usecols argument
+
 If we want to use only some columns and not all the data, we can pass in the `usecols` argument. That argument can take a single argument or a sequence of integers. The columns indices begin at zero. If the columns have names you can use the column names instead.
+
+```python
+np.genfromtxt(StringIO(data), usecols=(0, -1))
+```
+
+If the columns have names you can use that instead.
+
+```python
+np.genfromtxt(StringIO(data), names="a, b, c", usecols=("a, c"))
+```
 
 ## Choosing the Data Type
 
