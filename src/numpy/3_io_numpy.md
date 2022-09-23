@@ -106,21 +106,24 @@ np.genfromtxt(StringIO(data), names="a, b, c", usecols=("a, c"))
 
 ## Choosing the Data Type
 
-You can choose how the data is imported, that is what type of data it's imported as by setting the dtype argument. Some dtypes are:
+You can choose the format of the data when it's imported. To do this, set the `dtype` parameter/argument on import. Some `dtypes` are:
 
 1. a single type, like `dtype=float`
 2. a sequence of types, such as `dtype=(int, float, float)`
 3. a comma separated string, like `dtype="i4, f8, |U3"`
-4. a dictionary with two keys, 'names' and 'formats'
-5. a sequence of types (name, type), such as dtype=[('A', int), ('B', float)]
-6. an existing data type object
+4. a dictionary with two keys, `'names'` and `'formats'`
+5. a sequence of types (name, type), such as `dtype=[('A', int), ('B', float)]`
+6. an existing `numpy.dtype` object
 7. the special value of None
 
-In all the above cases, except the data type object or the special value of None will create a 1D array with structured dtype. This has as many fields as items in the sequence. The field names are defined with the names keyword.
+In all the above cases (except the first case and the None value), the data created will be a 1D array with structured dtype. This dtype has as many fields as items in the sequence. The field names are defined with the `names` keyword.
 
-When the dtype is None the type of each column is determined iteratively from the data itself. In order, NumPy checks if a string can be converted to a boolean, then whether it can be converted to an integer, the to a float, then to a complex, then eventually just a string.
+When the `dtype=None`, the type of each column is determined iteratively from the data itself. First, NumPy checks if a string can be converted to a boolean datatype. Then NumPy checks whether the data can be converted to an integer. 
 
-The dtype=None is significantly slower. 
+
+Finally, NumPy will check if the data can be converted to a float, then to a complex, then eventually just a string.
+
+If you pass in the parameter of a `dtype=None`, then importing the data will be significantly slower. 
 
 ## Setting the names with the names argument
 
