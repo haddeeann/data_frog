@@ -50,7 +50,7 @@ np.genfromtxt(StringIO(data), delimiter=&quot;,&quot;, dtype=&quot;|U5&quot;, au
 <h2>Skipping Lines and choosing columns</h2>
 <p>Once the file is defined and open for reading the <code>genfromtxt</code> splits each non-empty line into a sequence of string.</p>
 <p>The delimiter keyword is used to define how the splitting should take place. Most of the time, a single delimiter will mark the separation. Like with CSV, comma separated values it can use a comma or semicolon as a delimiter. The tab character, the '\t' is another common separator. However, it doesn't have to be a single character, any string of characters will do.</p>
-<p>From default settings, <code>genfromtxt</code> assumes a delimiter=None. This separates values along white spaces. Consecutive white spaces are considered as a single white space.</p>
+<p>From default settings, <code>genfromtxt</code> assumes a <code>delimiter=None</code>. This separates values along white spaces. Consecutive white spaces are considered as a single white space.</p>
 <p>Instead, we could have a fixed width file. That's where the columns are defined as a given number of characters. If so, we set the delimiter to either a single integer or a sequence of integers (if the columns have a different size).</p>
 <p>Leading and trailing white space characters are not stripped automatically. That can be overwritten by passing in an optional argument to a value of <code>True</code>.</p>
 <h2>The Comments Argument</h2>
@@ -83,14 +83,24 @@ np.genfromtxt(StringIO(data), delimiter=&quot;,&quot;, dtype=&quot;|U5&quot;, au
 <p>When the <code>dtype=None</code>, the type of each column is determined iteratively from the data itself. First, NumPy checks if a string can be converted to a boolean datatype. Then NumPy checks whether the data can be converted to an integer.</p>
 <p>Finally, NumPy will check if the data can be converted to a float, then to a complex, then eventually just a string.</p>
 <p>If you pass in the parameter of a <code>dtype=None</code>, then importing the data will be significantly slower.</p>
-<h2>Setting the names with the names argument</h2>
-<p>The natural approach when dealing with tabular data is to allocate a name to each column. When creating the NumPy aray from the file we can pass in a names parameter.</p>
-<p>We may sometime sneed to define the columns names from the data itself.</p>
-<p>Then we can use hte names keyword with a value of True. The names will be read from the first line, even if the line is commented out.</p>
-<p>We can pass in an array as a list. If we do, any names passed in from the dtype functionality is overridden.</p>
-<p><code>data = StringIO(&quot;1 2 3\n 4 5 6&quot;) ndtype = [('a', int), ('b', float), ('c', int)] names = [&quot;A&quot;, &quot;B&quot;, &quot;C&quot;] np.genfromtext(data, names=names, dtype=ndtype)</code></p>
-<p>The <code>defaultfmt</code> argument. If names is None but a structured dtype is expected, then names are defined with the standard NumPy default of &quot;f%i&quot;, yielding names like f0, f1, and so forth.</p>
-<p>In the same way, if we don't give enough names to match the length of the dype the missing names will be defined with the default template. We can overwrite this default with the <code>defaultfmt</code> argument, that takes any format string.</p>
+<h2>Names Argument</h2>
+<p>The natural approach when dealing with tabular data is to allocate a name to each column. When creating the NumPy array from the file we can pass in a <code>names</code> parameter.</p>
+<p>We may sometime need to define the columns names from the data itself.</p>
+<p>Then we can use the <code>names</code> keyword with a value of <code>True</code>. The names will be read from the first line, even if the line is commented out.</p>
+<p>The default value of <code>names</code> is <code>None</code>. If we give any other value to the keyword, the new names will overwrite the field names we may have defined with the <code>dtype</code>.</p>
+<pre><code class="language-python">from io import StringIO
+
+data = StringIO(&quot;1 2 3\n 4 5 6&quot;)
+
+ndtype = [('a', int), ('b', float), ('c', int)]
+names = [&quot;A&quot;, &quot;B&quot;, &quot;C&quot;]
+np.genfromtxt(data, names=names, dtype=ndtype)
+# result array([(1, 2., 3), (4, 5., 6)],
+      dtype=[('A', '&lt;i8'), ('B', '&lt;f8'), ('C', '&lt;i8')])
+</code></pre>
+<h3>The <code>defaultfmt</code> Argument.</h3>
+<p>If names is None but a structured dtype is expected, then names are defined with the standard NumPy default of &quot;f%i&quot;, yielding names like f0, f1, and so forth.</p>
+<p>In the same way, if we don't give enough names to match the length of the dtype the missing names will be defined with the default template. We can overwrite this default with the <code>defaultfmt</code> argument, that takes any format string.</p>
 <h2>Validating names</h2>
 <p>NumPy arrays with a structured dtype can also be viewed as a recarray, where a field can be accessed as if it were an attribute.</p>
 <p>Therefore, we need to make sure that the field name doesn't contain any space or invalid character, and that it's not the name of a standard attribute.</p>
@@ -111,7 +121,7 @@ np.genfromtxt(StringIO(data), delimiter=&quot;,&quot;, dtype=&quot;|U5&quot;, au
 <p>Some entries may be missing in the dataset we are trying to import. User defined converted may become cumbersome in that case to manage.</p>
 <p>The <code>genfromtxt</code> function provides two other complementary mechanism in that case. The <code>missing_values</code> argument is used to recognize missing data and a second argument, <code>filling_values</code> is used to process these missing data.</p>
 <h3>missing_values</h3>
-<p>By default any empty string is marked as missing. Additionally, more complex strings such as &quot;N/A&quot; or &quot;???&quot; translate into missing or invalid data.</p>
+<p>By default, any empty string is marked as missing. Additionally, more complex strings such as &quot;N/A&quot; or &quot;???&quot; translate into missing or invalid data.</p>
 <h3>filling_values</h3>
 <p>We know how to recognize missing data, but to provide value for filling in those missing entries is done automatically with the following as guide:</p>
 <p>expected type | default

@@ -68,7 +68,7 @@ Once the file is defined and open for reading the `genfromtxt` splits each non-e
 
 The delimiter keyword is used to define how the splitting should take place. Most of the time, a single delimiter will mark the separation. Like with CSV, comma separated values it can use a comma or semicolon as a delimiter. The tab character, the '\t' is another common separator. However, it doesn't have to be a single character, any string of characters will do. 
 
-From default settings, `genfromtxt` assumes a delimiter=None. This separates values along white spaces. Consecutive white spaces are considered as a single white space.
+From default settings, `genfromtxt` assumes a `delimiter=None`. This separates values along white spaces. Consecutive white spaces are considered as a single white space.
 
 Instead, we could have a fixed width file. That's where the columns are defined as a given number of characters. If so, we set the delimiter to either a single integer or a sequence of integers (if the columns have a different size).
 
@@ -118,33 +118,39 @@ You can choose the format of the data when it's imported. To do this, set the `d
 
 In all the above cases (except the first case and the None value), the data created will be a 1D array with structured dtype. This dtype has as many fields as items in the sequence. The field names are defined with the `names` keyword.
 
-When the `dtype=None`, the type of each column is determined iteratively from the data itself. First, NumPy checks if a string can be converted to a boolean datatype. Then NumPy checks whether the data can be converted to an integer. 
-
+When the `dtype=None`, the type of each column is determined iteratively from the data itself. First, NumPy checks if a string can be converted to a boolean datatype. Then NumPy checks whether the data can be converted to an integer.
 
 Finally, NumPy will check if the data can be converted to a float, then to a complex, then eventually just a string.
 
 If you pass in the parameter of a `dtype=None`, then importing the data will be significantly slower. 
 
-## Setting the names with the names argument
+## Names Argument
 
-The natural approach when dealing with tabular data is to allocate a name to each column. When creating the NumPy aray from the file we can pass in a names parameter.
+The natural approach when dealing with tabular data is to allocate a name to each column. When creating the NumPy array from the file we can pass in a `names` parameter.
 
-We may sometime sneed to define the columns names from the data itself.
+We may sometime need to define the columns names from the data itself.
 
-Then we can use hte names keyword with a value of True. The names will be read from the first line, even if the line is commented out.
+Then we can use the `names` keyword with a value of `True`. The names will be read from the first line, even if the line is commented out.
 
-We can pass in an array as a list. If we do, any names passed in from the dtype functionality is overridden.
+The default value of `names` is `None`. If we give any other value to the keyword, the new names will overwrite the field names we may have defined with the `dtype`.
 
-`
+```python
+from io import StringIO
+
 data = StringIO("1 2 3\n 4 5 6")
+
 ndtype = [('a', int), ('b', float), ('c', int)]
 names = ["A", "B", "C"]
-np.genfromtext(data, names=names, dtype=ndtype)
-`
+np.genfromtxt(data, names=names, dtype=ndtype)
+# result array([(1, 2., 3), (4, 5., 6)],
+      dtype=[('A', '<i8'), ('B', '<f8'), ('C', '<i8')])
+```
 
-The `defaultfmt` argument. If names is None but a structured dtype is expected, then names are defined with the standard NumPy default of "f%i", yielding names like f0, f1, and so forth.
+### The `defaultfmt` Argument. 
 
-In the same way, if we don't give enough names to match the length of the dype the missing names will be defined with the default template. We can overwrite this default with the `defaultfmt` argument, that takes any format string.
+If names is None but a structured dtype is expected, then names are defined with the standard NumPy default of "f%i", yielding names like f0, f1, and so forth.
+
+In the same way, if we don't give enough names to match the length of the dtype the missing names will be defined with the default template. We can overwrite this default with the `defaultfmt` argument, that takes any format string.
 
 ## Validating names
 
@@ -180,7 +186,7 @@ The `genfromtxt` function provides two other complementary mechanism in that cas
 
 ### missing_values
 
-By default any empty string is marked as missing. Additionally, more complex strings such as "N/A" or "???" translate into missing or invalid data.
+By default, any empty string is marked as missing. Additionally, more complex strings such as "N/A" or "???" translate into missing or invalid data.
 
 ### filling_values 
 
