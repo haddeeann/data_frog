@@ -99,10 +99,13 @@ np.genfromtxt(data, names=names, dtype=ndtype)
       dtype=[('A', '&lt;i8'), ('B', '&lt;f8'), ('C', '&lt;i8')])
 </code></pre>
 <h3>The <code>defaultfmt</code> Argument.</h3>
-<p>If names is None but a structured dtype is expected, then names are defined with the standard NumPy default of &quot;f%i&quot;, yielding names like f0, f1, and so forth.</p>
-<p>In the same way, if we don't give enough names to match the length of the dtype the missing names will be defined with the default template. We can overwrite this default with the <code>defaultfmt</code> argument, that takes any format string.</p>
-<h2>Validating names</h2>
-<p>NumPy arrays with a structured dtype can also be viewed as a recarray, where a field can be accessed as if it were an attribute.</p>
+<p>The default format, <code>defaultfmt</code> can be thought of as the <code>dtype</code> that will be chosen as default.</p>
+<p>If <code>names</code> is <code>None</code> but a structured <code>dtype</code> is expected, then <code>names</code> are defined with the standard NumPy default of <code>&quot;f%i&quot;</code>, yielding names like <code>f0</code>, <code>f1</code>, and so forth.</p>
+<p>In the same way, if we don't give enough names to match the length of the <code>dtype</code> the missing names will be defined with the default template.</p>
+<p>We can overwrite this default template with the <code>defaultfmt</code> argument, that takes any format string. Keep in mind that <code>defaultfmt</code> is used only if some names are expected, but not defined.</p>
+<h2>Validating Names</h2>
+<p>NumPy arrays with a structured dtype can also be viewed as a <code>recarray</code>.</p>
+<p>Where a field can be accessed as if it were an attribute.</p>
 <p>Therefore, we need to make sure that the field name doesn't contain any space or invalid character, and that it's not the name of a standard attribute.</p>
 <p><code>genfromtxt</code> accepts three optional arguments that provide a finer control on the names.</p>
 <ol>
