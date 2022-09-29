@@ -158,13 +158,13 @@ We can overwrite this default template with the `defaultfmt` argument, that take
 
 ## Validating Names
 
-NumPy arrays with a structured dtype can also be viewed as a `recarray`. 
+Record arrays are similar to structured arrays. The record arrays are structured arrays wrapped in the `numpy.rec.arrays`. We can use the `numpy.recarray` for constructing record arrays.
 
-Where a field can be accessed as if it were an attribute.
+This means where the fields in the array can be accessed as if they were attributes instead of array indexes. The fields have special `datatypes` where are `numpy.record`.
 
 Therefore, we need to make sure that the field name doesn't contain any space or invalid character, and that it's not the name of a standard attribute.
 
-`genfromtxt` accepts three optional arguments that provide a finer control on the names.
+The `genfromtxt` function accepts three optional arguments that provide a finer control on the names.
 
 1. `deletechars` gives a string combining all the characters that must be deleted from the name.
 2. `excludelist` gives a list of the names to exclude, such as return, file, print. If one of the input name is part of this list, an underscore character will be appended to it.

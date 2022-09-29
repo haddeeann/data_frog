@@ -104,10 +104,10 @@ np.genfromtxt(data, names=names, dtype=ndtype)
 <p>In the same way, if we don't give enough names to match the length of the <code>dtype</code> the missing names will be defined with the default template.</p>
 <p>We can overwrite this default template with the <code>defaultfmt</code> argument, that takes any format string. Keep in mind that <code>defaultfmt</code> is used only if some names are expected, but not defined.</p>
 <h2>Validating Names</h2>
-<p>NumPy arrays with a structured dtype can also be viewed as a <code>recarray</code>.</p>
-<p>Where a field can be accessed as if it were an attribute.</p>
+<p>Record arrays are similar to structured arrays. The record arrays are structured arrays wrapped in the <code>numpy.rec.arrays</code>. We can use the <code>numpy.recarray</code> for constructing record arrays.</p>
+<p>This means where the fields in the array can be accessed as if they were attributes instead of array indexes. The fields have special <code>datatypes</code> where are <code>numpy.record</code>.</p>
 <p>Therefore, we need to make sure that the field name doesn't contain any space or invalid character, and that it's not the name of a standard attribute.</p>
-<p><code>genfromtxt</code> accepts three optional arguments that provide a finer control on the names.</p>
+<p>The <code>genfromtxt</code> function accepts three optional arguments that provide a finer control on the names.</p>
 <ol>
 <li><code>deletechars</code> gives a string combining all the characters that must be deleted from the name.</li>
 <li><code>excludelist</code> gives a list of the names to exclude, such as return, file, print. If one of the input name is part of this list, an underscore character will be appended to it.</li>
