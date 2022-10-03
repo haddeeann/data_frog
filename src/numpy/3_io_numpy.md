@@ -156,54 +156,52 @@ In the same way, if we don't give enough names to match the length of the `dtype
 
 We can overwrite this default template with the `defaultfmt` argument, that takes any format string. Keep in mind that `defaultfmt` is used only if some names are expected, but not defined.
 
-## Validating Names
+## Record arrays
 
-Record arrays are similar to structured arrays. The record arrays are structured arrays wrapped in the `numpy.rec.arrays`. We can use the `numpy.recarray` for constructing record arrays.
+Record arrays are similar to structured arrays. The difference is that record arrays are wrapped in the `numpy.rec.arrays`. We can use the `numpy.recarray` for constructing a record array.
 
-This means where the fields in the array can be accessed as if they were attributes instead of array indexes. The fields have special `datatypes` where are `numpy.record`.
+The fields in the record array can be accessed as if they were attributes instead of array indexes. The fields are a special `datatype` of `numpy.record`.
 
-Therefore, we need to make sure that the field name doesn't contain any space or invalid character, and that it's not the name of a standard attribute.
+Because the fields being a special `datatype`, we need to make sure that the field name doesn't contain any space or invalid character, and that it's not the name of a standard attribute.
 
-The `genfromtxt` function accepts three optional arguments that provide a finer control on the names.
+The `genfromtxt` function accepts three optional arguments that provide a finer control on the names of the field name.
 
 1. `deletechars` gives a string combining all the characters that must be deleted from the name.
-2. `excludelist` gives a list of the names to exclude, such as return, file, print. If one of the input name is part of this list, an underscore character will be appended to it.
-3. `case_sensitive` whether the names should be case-sensitive, converted to upper case, or to lower case.
+2. `excludelist` gives a list of the names to exclude, such as return, file, print. If one of the input names is part of this list, an underscore character will be appended to it.
+3. `case_sensitive` whether the names should be case-sensitive (`case_sensitive=True`), converted to upper case (`case_sensitive=False` or `case_sensitive='upper'`), or to lower case (`case_sensitive='lower'`).
 
-## Tweaking the conversion
+## Tweaking the Conversion
 
-Usually when defining a dtype, it's enough to define how the sequence of string must be converted. But some additional control may be sometimes required. 
+Usually when defining a `dtype`, it's enough to define how the sequence of string must be converted. But some additional control may be sometimes required. 
 
-We may want to make sure that a date in a format like YYYY/MM/DD is converted to a datetime object, or that a string like xx% is properly converted to a float between 0 and 1. 
+We may want to make sure that a date in a format like `YYYY/MM/DD` is converted to a `datetime` object, or that a string like `xx%` is properly converted to a float between 0 and 1. 
 
-In such cases, we should define a conversion function with a converters argument.
+In such cases, we should define a conversion function with a `converters` argument.
 
-The value of the argument is usually a dictionary with column indices or column names as keys and a conversion function as values.
-
-The restrictions are that they should accept only a string as input and output only a single element of the wanted type.
+The value of the argument is usually a dictionary with column indices or column names as keys and a conversion function as values. These conversion functions can be actual functions or lambda functions. Either way, they accept only a string as an input, and they output only a single element of the wanted type.
 
 Converters can also be used to provide a default for missing entries. 
 
 ## Using Missing and Filling Values
 
-Some entries may be missing in the dataset we are trying to import. User defined converted may become cumbersome in that case to manage.
+Some entries may be missing in the dataset we are trying to import. It's possible to use a converter to transform an empty string to a float. But the user defined converters may become cumbersome to manage.
 
-The `genfromtxt` function provides two other complementary mechanism in that case. The `missing_values` argument is used to recognize missing data and a second argument, `filling_values` is used to process these missing data.
+The `genfromtxt` function provides two other complementary mechanism. The `missing_values` argument is used to recognize missing data and a second argument, `filling_values` is used to process these missing data.
 
 ### missing_values
 
-By default, any empty string is marked as missing. Additionally, more complex strings such as "N/A" or "???" translate into missing or invalid data.
+By default, any empty string is marked as missing. Additionally, more complex strings such as `"N/A"` or `"???"` translate into missing or invalid data.
 
 ### filling_values 
 
-We know how to recognize missing data, but to provide value for filling in those missing entries is done automatically with the following as guide:
+The `filling_values` parameters goes one step beyond just recognizing missing data and allows us to automatically fill in the data. It uses the expected `dtype` to fill in an automatic value.
 
 expected type | default
-bool | False
-int | -1
-float | np.nan
-complex | np.nan+0j
-string | '???'
+`bool` | `False`
+`int` | `-1`
+`float` | `np.nan`
+`complex` | `np.nan+0j`
+`string` | `'???'`
 
 To get finer control over the conversion of missing values we use the `filling_values` optional argument. Like `missing_values`, this accepts different kinds of values:
 
@@ -212,12 +210,14 @@ To get finer control over the conversion of missing values we use the `filling_v
 - a dictionary
 
 ## Shortcut Functions
-Additionally `genfromtxt` provides several convenience functions derived from `genfromtxt`.
+
+
+In addition to `genfromtxt`, the `numpy.lib.npyio` module provides several convenience functions derived from `genfromtxt`.
 
 They work in the same way as the original function, but provide different default values.
 
-- numpy.lib.npyio.recfromtxt
-- numpy.lib.npyio.recfromcsv
+- `numpy.lib.npyio.recfromtxt`
+- `numpy.lib.npyio.recfromcsv`
 
 
 

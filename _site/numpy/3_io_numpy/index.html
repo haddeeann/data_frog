@@ -103,36 +103,35 @@ np.genfromtxt(data, names=names, dtype=ndtype)
 <p>If <code>names</code> is <code>None</code> but a structured <code>dtype</code> is expected, then <code>names</code> are defined with the standard NumPy default of <code>&quot;f%i&quot;</code>, yielding names like <code>f0</code>, <code>f1</code>, and so forth.</p>
 <p>In the same way, if we don't give enough names to match the length of the <code>dtype</code> the missing names will be defined with the default template.</p>
 <p>We can overwrite this default template with the <code>defaultfmt</code> argument, that takes any format string. Keep in mind that <code>defaultfmt</code> is used only if some names are expected, but not defined.</p>
-<h2>Validating Names</h2>
-<p>Record arrays are similar to structured arrays. The record arrays are structured arrays wrapped in the <code>numpy.rec.arrays</code>. We can use the <code>numpy.recarray</code> for constructing record arrays.</p>
-<p>This means where the fields in the array can be accessed as if they were attributes instead of array indexes. The fields have special <code>datatypes</code> where are <code>numpy.record</code>.</p>
-<p>Therefore, we need to make sure that the field name doesn't contain any space or invalid character, and that it's not the name of a standard attribute.</p>
-<p>The <code>genfromtxt</code> function accepts three optional arguments that provide a finer control on the names.</p>
+<h2>Record arrays</h2>
+<p>Record arrays are similar to structured arrays. The difference is that record arrays are wrapped in the <code>numpy.rec.arrays</code>. We can use the <code>numpy.recarray</code> for constructing a record array.</p>
+<p>The fields in the record array can be accessed as if they were attributes instead of array indexes. The fields are a special <code>datatype</code> of <code>numpy.record</code>.</p>
+<p>Because the fields being a special <code>datatype</code>, we need to make sure that the field name doesn't contain any space or invalid character, and that it's not the name of a standard attribute.</p>
+<p>The <code>genfromtxt</code> function accepts three optional arguments that provide a finer control on the names of the field name.</p>
 <ol>
 <li><code>deletechars</code> gives a string combining all the characters that must be deleted from the name.</li>
-<li><code>excludelist</code> gives a list of the names to exclude, such as return, file, print. If one of the input name is part of this list, an underscore character will be appended to it.</li>
-<li><code>case_sensitive</code> whether the names should be case-sensitive, converted to upper case, or to lower case.</li>
+<li><code>excludelist</code> gives a list of the names to exclude, such as return, file, print. If one of the input names is part of this list, an underscore character will be appended to it.</li>
+<li><code>case_sensitive</code> whether the names should be case-sensitive (<code>case_sensitive=True</code>), converted to upper case (<code>case_sensitive=False</code> or <code>case_sensitive='upper'</code>), or to lower case (<code>case_sensitive='lower'</code>).</li>
 </ol>
-<h2>Tweaking the conversion</h2>
-<p>Usually when defining a dtype, it's enough to define how the sequence of string must be converted. But some additional control may be sometimes required.</p>
-<p>We may want to make sure that a date in a format like YYYY/MM/DD is converted to a datetime object, or that a string like xx% is properly converted to a float between 0 and 1.</p>
-<p>In such cases, we should define a conversion function with a converters argument.</p>
-<p>The value of the argument is usually a dictionary with column indices or column names as keys and a conversion function as values.</p>
-<p>The restrictions are that they should accept only a string as input and output only a single element of the wanted type.</p>
+<h2>Tweaking the Conversion</h2>
+<p>Usually when defining a <code>dtype</code>, it's enough to define how the sequence of string must be converted. But some additional control may be sometimes required.</p>
+<p>We may want to make sure that a date in a format like <code>YYYY/MM/DD</code> is converted to a <code>datetime</code> object, or that a string like <code>xx%</code> is properly converted to a float between 0 and 1.</p>
+<p>In such cases, we should define a conversion function with a <code>converters</code> argument.</p>
+<p>The value of the argument is usually a dictionary with column indices or column names as keys and a conversion function as values. These conversion functions can be actual functions or lambda functions. Either way, they accept only a string as an input, and they output only a single element of the wanted type.</p>
 <p>Converters can also be used to provide a default for missing entries.</p>
 <h2>Using Missing and Filling Values</h2>
-<p>Some entries may be missing in the dataset we are trying to import. User defined converted may become cumbersome in that case to manage.</p>
-<p>The <code>genfromtxt</code> function provides two other complementary mechanism in that case. The <code>missing_values</code> argument is used to recognize missing data and a second argument, <code>filling_values</code> is used to process these missing data.</p>
+<p>Some entries may be missing in the dataset we are trying to import. It's possible to use a converter to transform an empty string to a float. But the user defined converters may become cumbersome to manage.</p>
+<p>The <code>genfromtxt</code> function provides two other complementary mechanism. The <code>missing_values</code> argument is used to recognize missing data and a second argument, <code>filling_values</code> is used to process these missing data.</p>
 <h3>missing_values</h3>
-<p>By default, any empty string is marked as missing. Additionally, more complex strings such as &quot;N/A&quot; or &quot;???&quot; translate into missing or invalid data.</p>
+<p>By default, any empty string is marked as missing. Additionally, more complex strings such as <code>&quot;N/A&quot;</code> or <code>&quot;???&quot;</code> translate into missing or invalid data.</p>
 <h3>filling_values</h3>
-<p>We know how to recognize missing data, but to provide value for filling in those missing entries is done automatically with the following as guide:</p>
+<p>The <code>filling_values</code> parameters goes one step beyond just recognizing missing data and allows us to automatically fill in the data. It uses the expected <code>dtype</code> to fill in an automatic value.</p>
 <p>expected type | default
-bool | False
-int | -1
-float | np.nan
-complex | np.nan+0j
-string | '???'</p>
+<code>bool</code> | <code>False</code>
+<code>int</code> | <code>-1</code>
+<code>float</code> | <code>np.nan</code>
+<code>complex</code> | <code>np.nan+0j</code>
+<code>string</code> | <code>'???'</code></p>
 <p>To get finer control over the conversion of missing values we use the <code>filling_values</code> optional argument. Like <code>missing_values</code>, this accepts different kinds of values:</p>
 <ul>
 <li>a single value</li>
@@ -140,11 +139,11 @@ string | '???'</p>
 <li>a dictionary</li>
 </ul>
 <h2>Shortcut Functions</h2>
-<p>Additionally <code>genfromtxt</code> provides several convenience functions derived from <code>genfromtxt</code>.</p>
+<p>In addition to <code>genfromtxt</code>, the <code>numpy.lib.npyio</code> module provides several convenience functions derived from <code>genfromtxt</code>.</p>
 <p>They work in the same way as the original function, but provide different default values.</p>
 <ul>
-<li>numpy.lib.npyio.recfromtxt</li>
-<li>numpy.lib.npyio.recfromcsv</li>
+<li><code>numpy.lib.npyio.recfromtxt</code></li>
+<li><code>numpy.lib.npyio.recfromcsv</code></li>
 </ul>
 
     </main>
