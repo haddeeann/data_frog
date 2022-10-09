@@ -97,8 +97,8 @@
 <p>Since many of these have platform dependent definitions, a set of fixed size aliases are provided.</p>
 <p>NumPy number types are instances of dtype objects (data-type) each having a unique characteristic. Once you've imported the NumPy using the <code>&gt;&gt;&gt; import numpy as np</code> you can use any of the data types with <code>np.bool_</code>, <code>np.float32</code>, etc.</p>
 <p>There are 5 basic numerical types. There's booleans, integers, unsigned integers, floating point values and complex.</p>
-<p>If the data type has a number in the name it indicates the bitsize of the type. That's how many bits are needed to represent a single value in memory.</p>
-<p>Some of the data types have different bitsizes that depends on the platform. That can be important when interfacing with low level code - like with C or Fortran where the raw memory is addressed.</p>
+<p>If the data type has a number in the name it indicates the <code>bitsize</code> of the type. That's how many bits are needed to represent a single value in memory.</p>
+<p>Some data types have different <code>bitsizes</code> that depends on the platform. That can be important when interfacing with low level code - like with C or Fortran where the raw memory is addressed.</p>
 <h2>Array Scalars</h2>
 <p>NumPy generally returns elements of arrays as array scalars, a scalar with associated dtype.</p>
 <p>Array scalars differ from Python scalars, but for the most part they are interchangeable.</p>

@@ -37,9 +37,9 @@ NumPy number types are instances of dtype objects (data-type) each having a uniq
 
 There are 5 basic numerical types. There's booleans, integers, unsigned integers, floating point values and complex.
 
-If the data type has a number in the name it indicates the bitsize of the type. That's how many bits are needed to represent a single value in memory.
+If the data type has a number in the name it indicates the `bitsize` of the type. That's how many bits are needed to represent a single value in memory.
 
-Some of the data types have different bitsizes that depends on the platform. That can be important when interfacing with low level code - like with C or Fortran where the raw memory is addressed.
+Some data types have different `bitsizes` that depends on the platform. That can be important when interfacing with low level code - like with C or Fortran where the raw memory is addressed.
 
 ## Array Scalars
 
