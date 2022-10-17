@@ -14,7 +14,7 @@
 <p>The smaller array is &quot;broadcast&quot; across the larger array so that they have compatible shapes. Broadcasting provides a means of vectorizing array operations so that looping occurs in C instead of Python.</p>
 <p>It does this without making needless copies of data and usually leads to efficient algorithm implementations.</p>
 <p>It can sometimes lead to inefficient use of memory that slows down computation.</p>
-<p>NumPy operations are usually done on pairs of arrays on an element-by-element basis. In the simplest case, the two arrays must have exactly the same shape.</p>
+<p>NumPy's operations are usually done on pairs of arrays on an element-by-element basis. In the simplest case, the two arrays must have exactly the same shape.</p>
 <p>NumPy's broadcasting rule relaxes this constraint when the arrays' shapes meet certain constraints. The simples broadcasting example occurs when an array and a scalar value are combined in an operation.</p>
 <pre><code class="language-python">a = np.array([1.0, 2.0, 3.0])
 b = 2.0
@@ -40,8 +40,8 @@ a * b
 <p>Broadcasting provides a convenient way of taking the outer product of two arrays.</p>
 <h2>Practical Example</h2>
 <p>Broadcasting comes up in real world problems. For example, the vector quantization algorithm used in information theory, classification, and other related areas.</p>
-<p>A large number of observations, perhaps read from a  database are compared to a set of codes. The three dimensional array, diff is a consequence of broadcasting not a necessity for the calculation.</p>
-<p>Broadcasting is a powerful tool for writing short and usually intuitive code that does it's computations very efficiently in C.</p>
+<p>A large number of observations, perhaps read from a  database are compared to a set of codes. The three-dimensional array, diff is a consequence of broadcasting not a necessity for the calculation.</p>
+<p>Broadcasting is a powerful tool for writing short and usually intuitive code that does its computations very efficiently in C.</p>
 
     </main>
     <footer>

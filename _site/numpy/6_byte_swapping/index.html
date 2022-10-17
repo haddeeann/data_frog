@@ -6,25 +6,27 @@
     <link rel="stylesheet" href="../../style.css" />
 </head>
 <body>
-    <h1>Byteswapping</h1>
+    <h1>Byte Swapping</h1>
     <main>
         <p><a href="/index.html">Go home</a></p>
 <p><a href="https://numpy.org/doc/stable/user/basics.byteswapping.html">NumPy Byte swapping</a></p>
-<h2>Basics byte swapping</h2>
-<p>The ndarray is an object that provides an interface to data in memory. So it sometimes happens that the memory that you want to view in the array is not of the same byte ordering as the computer than you're running Python on.</p>
-<h2>A side journey in to endianness</h2>
+<h2>Basics Byte Swapping</h2>
+<p>The <code>ndarray</code> is an object that provides an interface to data in memory. So it sometimes happens that the memory that you want to view in the array is not of the same byte ordering as the computer than you're running Python on.</p>
+<h2>Endianness</h2>
 <p><a href="https://www.section.io/engineering-education/what-is-little-endian-and-big-endian/">Endianness</a></p>
-<p>For example, if I was working on a computer with a little endian CPU and I had loaded some data from a file writtern by a computer than is big endian.</p>
-<p>Computer store their data in memory in binary. And the way that the computer formats the data at the byte level is called it's endianness and it refers to the ordering of the bytes.</p>
-<p>Little-endian is when the least significant bytes are stored before the more significant bytes. And big-endian is when the most significant bytes are stored before the less significant bytes. The way we write normal numbers in the real world could be considered big-endian, because we write the most important numbers first. For example, if I were to write the number 123, the one and two would be the more significant numbers.</p>
-<p>When we talk about the endianness of the number in computer science this is only referring to how we store the numbers and isn't important to what the number is. Let's take a hexadecimal number like 0x12345678. If we were to store that number in little-endian we would get the following:</p>
+<p>An example of when this type of data storage matters, if I was working on a computer with a little endian CPU (way of storing the data) and I had loaded some data from a file written by a computer than is big endian (different way of storing the data).</p>
+<p>Computers store their data in memory in binary. And the way that the computer formats the data at the byte level is called it's endianness. This refers to the ordering of the bytes.</p>
+<p>Little endian is when the LEAST significant bytes are stored before the more significant bytes.</p>
+<p>Big endian is when the MOST significant bytes are stored before the less significant bytes.</p>
+<p>The way we write normal numbers in the real world could be considered big endian, because we write the most important numbers first. For example, if I were to write the number 123 (one hundred and twenty-three), the one and two would be the more significant numbers.</p>
+<p>When we talk about the endianness of the number in computer science this is referring to how we store the numbers and isn't important to what the number type is. Let's take a hexadecimal number like 0x12345678. If we were to store that number in little-endian we would get the following:</p>
 <p><code>78 56 34 12</code></p>
 <p>And if we were to store that same number in big-endian we would get:</p>
 <p><code>12 34 56 78</code></p>
 <p>Note that each 2 hex letters represent one byte.</p>
-<p>The big reason this is important is because processors use different ways to store data. So knowing how the computer stores data across the internet communication is important.</p>
-<p>For example, one processor might use a little-endian way of storing the data and another might use big-endian.</p>
-<p>With little-endian we don't arbitrarily store any 8 bytes in little-endian order, but it stores individual values in little endian based on the size they take up. So if we had an 8 byte number that would be stored as the whole number reversed and if we had two 4 byte numbers each of those would be reversed.</p>
+<p>The reason this is important is that processors use different ways to store data. So knowing how the computer stores the data across the internet communication is important.</p>
+<p>For example, one processor might use a little endian way of storing the data and another might use big endian.</p>
+<p>With little endian we don't arbitrarily store any 8 bytes in little endian order, but it stores individual values in little endian based on the size they take up. So if we had an 8 byte number that would be stored as the whole number reversed and if we had two 4 byte numbers each of those would be reversed.</p>
 <h2>Back to NumPy</h2>
 <p>So with NumPy arrays we might be working with a computer that is little endian, like Intel Pentium, but loading data from a file written on a computer that is big endian.</p>
 <p>In our example, we've loaded 4 bytes of data from a file in a big endian computer. These four bytes represent tw 15 bit integers. In the big endian system the two byte integer is store with the Most Significant Byte first (MSB) and the Least Significant byte last.</p>

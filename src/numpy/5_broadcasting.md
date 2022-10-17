@@ -14,7 +14,7 @@ It does this without making needless copies of data and usually leads to efficie
 
 It can sometimes lead to inefficient use of memory that slows down computation.
 
-NumPy operations are usually done on pairs of arrays on an element-by-element basis. In the simplest case, the two arrays must have exactly the same shape. 
+NumPy's operations are usually done on pairs of arrays on an element-by-element basis. In the simplest case, the two arrays must have exactly the same shape. 
 
 NumPy's broadcasting rule relaxes this constraint when the arrays' shapes meet certain constraints. The simples broadcasting example occurs when an array and a scalar value are combined in an operation.
 
@@ -56,6 +56,6 @@ Broadcasting provides a convenient way of taking the outer product of two arrays
 ## Practical Example
 Broadcasting comes up in real world problems. For example, the vector quantization algorithm used in information theory, classification, and other related areas.
 
- A large number of observations, perhaps read from a  database are compared to a set of codes. The three dimensional array, diff is a consequence of broadcasting not a necessity for the calculation.
+ A large number of observations, perhaps read from a  database are compared to a set of codes. The three-dimensional array, diff is a consequence of broadcasting not a necessity for the calculation.
 
-Broadcasting is a powerful tool for writing short and usually intuitive code that does it's computations very efficiently in C.
+Broadcasting is a powerful tool for writing short and usually intuitive code that does its computations very efficiently in C.
