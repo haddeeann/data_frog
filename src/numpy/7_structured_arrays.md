@@ -8,34 +8,36 @@ layout: "article_type_two.njk"
 
 ## Structured Arrays
 
-Structured arrays are ndarrays whose datatype are a composition of simpler datatypes organized as a sequence of named fields.
+Structured arrays are `ndarrays` whose datatype are a composition of simpler `datatypes`.
 
-`
+These `datatypes` are organized as a sequence of named fields.
+
+In a `structured data type` each subtype is called a field. The field has a name (a string), a type (any valid `dtype`), and an optional _title_.
+
+```python
 x = np.array([('Bob', 9, 81.0), ('Fido', 3, 27.0)],
 dtype=[('name', 'U10'), ('age', 'i4'), ('weight', 'f4')])
-`
 
-`x
+# result x
 array([('Bob', 9, 81.), ('Fido', 3, 27.)],
 dtype=[('name', '<U10'), ('age', '<i4'), ('weight', '<f4')])
-`
+```
 
-It's similar to a regular ndarray, but each of the fields has a name. Then you can access the individual fields aof a structured array by using the name.
+It's similar to a regular `ndarray`, but each of the fields has a name. You can access the individual fields of a structured array by using the name.
 
-`
+```python
 x['age']
 array([9, 3], dtype=int32)
 x['age'] = 5
-`
 
-`x
+# result x
 array([('Rex', 5, 81.), ('Fido', 5, 27.)],
 dtype=[('name', '<U10'), ('age', '<i4'), ('weight', '<f4')])
-`
+```
 
-Structured data types have a similar memory layout as 'structs' in the C language. These helps us be able to do low level manipulation, like for interpreting binary blobs. One of the draw backs to using this for manipulation of tabular data like that stored in csv files is that it can lead to poor cache behavior.
+Structured data types have a similar memory layout as 'structs' in the C language. These helps us be able to do low level manipulation, like for interpreting binary blobs. One of the draw backs to using this for manipulation of tabular data (like that stored in csv files) is that it can lead to poor cache behavior.
 
-Other pydata projects could be better suited such as xarray, pandas, or DataArray.
+Other `pydata` projects could be better suited for this type of data manipulation such as `xarray`, `pandas`, or `DataArray`.
 
 ## Structured Datatypes
 
@@ -43,30 +45,30 @@ A structured datatype can be thought of as a sequence of bytes of a certain leng
 
 Each of those fields has a name, a datatype, and a byte offset.
 
-The datatype can be any kind of datatype within NumPy, but can also be a subarray data type. Subarray data types behave like an ndarray of a specific shape.
+The datatype can be any kind of datatype within NumPy, but can also be a subarray data type. Subarray data types behave like an `ndarray` of a specific shape.
 
-The structured datatypes can be created using a function `numpy.dtype`.
+The structured `datatypes` can be created using a function `numpy.dtype`.
 
-There are four forms of creating the numpy.dtype:
+There are four forms of creating the `numpy.dtype`:
 
-1. by a list of tuples. One tuple per field.
-2. a string of comma seperated dtype specifications.
-3. a dictionary of field parameter arrays.
-4. a dictionary of field names.
+1. A list of tuples. One tuple per field.
+2. A string of comma seperated dtype specifications.
+3. A dictionary of field parameter arrays.
+4. A dictionary of field names.
 
-The list of field names of a structured datatype can be found int eh names attribute of the dtype of the object.
+The list of field names of a structured `datatype` can be found in the names attribute of the `dtype` of the object.
 
-The dtype object also has a dictionary-like attribute, fields, whose keys are the field names.
+The `dtype` object also has a dictionary-like attribute, fields, whose keys are the field names.
 
-NumPy uses of two methods to determine the field byte offsets and the overall itemsize of a structured datatype.
+NumPy uses of two methods to determine the field byte offsets and the overall item size of a structured datatype.
 
-This depends on whether align=True was given as a keyword argument to numpy.dtype.
+This depends on whether `align=True` was given as a keyword argument to `numpy.dtype`.
 
 In addition to the field names, the fields can also have titles.
 
 ## Indexing and Assignment to Structured Arrays
 
-The simplest way to assign values to a structured array is using python tuples. Each assigned value should be a tuple of length equal to the number of fields in the array.
+The simplest way to assign values to a structured array is using Python tuples. Each assigned value should be a tuple of length equal to the number of fields in the array.
 
 A scalar assigned to a structured element will be assigned to all fields. This is when a scalar is assigned to a structured array. Structured arrays can also be assigned to a unstructured arrays, but only if the structured datatype has just a single field.
 
@@ -74,7 +76,7 @@ You can also have assignment between two structured arrays. This occurs if the s
 
 Structured arrays with a different number of fields can't be assigned to each other.
 
-When assigning to fields which are subarrays, teh assigned value will be first broadcast to the shape of the subarray.
+When assigning to fields which are `subarrays`, the assigned value will be first broadcast to the shape of the subarray.
 
 To access individual fields, the fields may be modified by indexing the array with the field name. The resulting array shares the same memory location as the original array.
 

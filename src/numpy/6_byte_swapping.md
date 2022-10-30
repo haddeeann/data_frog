@@ -8,7 +8,9 @@ layout: "article_type_two.njk"
 
 ## Basics Byte Swapping
 
-The `ndarray` is an object that provides an interface to data in memory. So it sometimes happens that the memory that you want to view in the array is not of the same byte ordering as the computer than you're running Python on.
+The `ndarray` is an object that provides an interface to data in memory. 
+
+So it sometimes happens that the memory that you want to view in the array is not of the same byte ordering as the computer than you're running Python on.
 
 ## Endianness
 [Endianness](https://www.section.io/engineering-education/what-is-little-endian-and-big-endian/)
