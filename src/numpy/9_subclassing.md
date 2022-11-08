@@ -10,13 +10,15 @@ layout: "article_type_two.njk"
 
 Subclassing can be done in three basic ways:
 
-1. Explicit constructor call, `MySubClass(params)`
+1. Explicit constructor call, `MySubClass(params)`. This is the usual route to Python instance creation.
 2. View casting, casting an existing ndarray as a given subclass
-3. New from template, creating a new instance from a template instance.
+3. New from template, creating a new instance from a template instance. Examples include returning slices from a subclassed array, creating return types from ufuncs, and copying arrays.
+
+The last two are characteristics of `ndarrays`. In order to support things like array slicing. The complications of subclassing the `ndarray` are due to the mechanisms NumPy has to support these latter two routes of an instance creation.
 
 ## When to use subclassing
 
-Besides the addtional complexities of subclassing a NumPy array, subclasses can run into unexpected behavior because of some functions may convert to the subclass to a baseclass and "forget" any additional information associated with the subclass.
+Besides the additional complexities of subclassing a NumPy array, subclasses can run into unexpected behavior because of some functions may convert to the subclass to a baseclass and "forget" any additional information associated with the subclass.
 
 This can result in surprising behavior if you use NumPy methods or functions you have not explicitly tested. 
 
