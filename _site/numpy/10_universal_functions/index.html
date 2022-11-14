@@ -11,8 +11,9 @@
         <p><a href="/index.html">Go home</a></p>
 <p><a href="https://numpy.org/doc/stable/user/basics.ufuncs.html">Structured Arrays</a></p>
 <h2>Universal Functions</h2>
-<p>A universal function (or a ufunc for short) is a function that operates on ndarrays in an element by element fashion.</p>
-<p>This supports array broadcasting, type casting, and several other features.</p>
+<p>A universal function (or a <code>ufunc</code> for short) is a function that operates on <code>ndarrays</code> in an element by element fashion.</p>
+<p>This supports array broadcasting, type casting, and several other standard features.</p>
+<p>That is, a <code>ufunc</code> is a &quot;vectorized&quot; wrapper for a function that takes a fixed number of specific inputs and produces a fixed number of specific outputs.</p>
 <h2>Ufunc methods</h2>
 <p>All ufuncs have four methods. These methods only make sense on scalar ufuncs that take tow input arguments and return one output argument.</p>
 <p>Attempting to call these methods on other ufuncs will case a ValueError.</p>

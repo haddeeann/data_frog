@@ -8,9 +8,11 @@ layout: "article_type_two.njk"
 
 ## Universal Functions
 
-A universal function (or a ufunc for short) is a function that operates on ndarrays in an element by element fashion.
+A universal function (or a `ufunc` for short) is a function that operates on `ndarrays` in an element by element fashion.
 
-This supports array broadcasting, type casting, and several other features.
+This supports array broadcasting, type casting, and several other standard features.
+
+That is, a `ufunc` is a "vectorized" wrapper for a function that takes a fixed number of specific inputs and produces a fixed number of specific outputs.
 
 ## Ufunc methods
 All ufuncs have four methods. These methods only make sense on scalar ufuncs that take tow input arguments and return one output argument. 
