@@ -35,6 +35,7 @@ x is a one dimensional array. The length of the array is two. The datatype is a 
 3. a 32 bit float, named 'weight'
 
 ## Conversion from other Python structures
+
 The NumPy arrays can be made from lists and tuples. Lists are as [...] and tuples (...).
 
 A list of numbers will create a 1D array. To create a 2D array, you can use a list of lists. If you want to create higher dimensional arrays you can nest lists even further.
@@ -61,7 +62,7 @@ When performing operations with two arrays with the same data type the resulting
 
 When performing operations that different data types, NumPy will assign a new type that satisfies all the array elements involved in the computation. 
 
-The default behavior is to create arrays as either 32 or 64 bit signed integers depending on the platform. Or even a double precision floating point number like int32/int64. 
+The default behavior is to create arrays as either 32 or 64-bit signed integers depending on the platform. Or even a double precision floating point number like int32/int64. 
 
 If you want a specific data type in the result, it's best to specify the data type.
 
@@ -101,7 +102,7 @@ If both n and m parameters are passed in then the n parameter is the number of r
 
 For example:
 
-`
+```python
 np.eye(3)
 array([[1., 0., 0.],
 [0., 1., 0.],
@@ -110,7 +111,7 @@ np.eye(3, 5)
 array([[1., 0., 0., 0., 0.],
 [0., 1., 0., 0., 0.],
 [0., 0., 1., 0., 0.]])
-`
+```
 
 ### numpy.diag
 
