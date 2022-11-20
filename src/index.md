@@ -3,17 +3,15 @@ title: Data Frog
 layout: "base.njk"
 ---
 ## Learning NumPy
+
 Welcome to Data Frog. My personal notes and learning journey for data science and machine learning.
+
 ### Starter Articles
-<ul>
-    <li>
-        <h4><a href="./numpy/setup">NumPy Setup</a></h4>
-    </li>
-    <li>
-        <h4><a href="./numpy/beginners">NumPy For Beginners</a></h4>
-        <p>The very beginners version of working with NumPy arrays.</p>
-    </li>
-</ul>
+
+- [NumPy Setup](./numpy/setup)
+
+- [NumPy For Beginners](./numpy/beginners)
+    - The very beginners version of working with NumPy arrays.
 
 ### Learn More
 
@@ -41,16 +39,15 @@ Welcome to Data Frog. My personal notes and learning journey for data science an
 
 12. [Interoperability](./numpy/12_interoperability)
 
+### Beginner Youtube Video
+
+[FreeCodeCamp's Python NumPy Tutorial for Beginners](https://www.youtube.com/watch?v=QUT1VHiLmmI)
+
 ### Ideas for Next Steps
-<ul>
-    <li>
-        <a href="./data_science_software_list">Data Science Libraries in Python</a>
-    </li>
-    <li>
-        <a href="https://www.youtube.com/watch?v=o64FV-ez6Gw">Idea for first project</a>
-    </li>
-    <li>
-        <a href="https://www.reddit.com/r/Python/comments/a925bi/projects_for_numpypandas_novice/">Ideas for a beginner project</a>
-        <p>Try implementing a neural network from scratch in pure NumPy using a basic optimization algorithm like vanilla gradient descent/SGD. This necessitates manually writing out a backward pass, which TensorFlow/PyTorch/Keras will spare you from but it familiarizes you with backprop and update rules at a granular level and will make you more comfortable with NumPy operations.</p>
-    </li>
-</ul>
+
+- [Data Science Libraries in Python](./data_science_software_list)
+
+- [Idea for first project](https://www.youtube.com/watch?v=o64FV-ez6Gw)
+
+- [Ideas for a beginner project](https://www.reddit.com/r/Python/comments/a925bi/projects_for_numpypandas_novice/)
+  - Try implementing a neural network from scratch in pure NumPy using a basic optimization algorithm like vanilla gradient descent/SGD. This necessitates manually writing out a backward pass, which TensorFlow/PyTorch/Keras will spare you from but it familiarizes you with backprop and update rules at a granular level and will make you more comfortable with NumPy operations.
