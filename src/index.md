@@ -43,6 +43,9 @@ Welcome to Data Frog. My personal notes and learning journey for data science an
 
 [FreeCodeCamp's Python NumPy Tutorial for Beginners](https://www.youtube.com/watch?v=QUT1VHiLmmI)
 
+My notes (draft version):
+[NumPy Notes](./numpy/13_fcc)
+
 ### Ideas for Next Steps
 
 - [Data Science Libraries in Python](./data_science_software_list)
