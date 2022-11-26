@@ -12,7 +12,7 @@
 <p><a href="https://www.youtube.com/watch?v=QUT1VHiLmmI">FreeCodeCamp tutorial</a></p>
 <h2>Learning NumPy with FreeCodeCamp</h2>
 <p>Welcome to Data Frog. My personal notes and learning journey for data science and machine learning.</p>
-<h2>Start</h2>
+<h2>NumPys</h2>
 <p>NumPy is a multidimensional library. Why use NumPy over Lists.</p>
 <p>The main benefit is speed. Native Python Lists are slow. But, NumPy is faster because it uses a fixed type for the data.</p>
 <p>Computer see binary when they are looking at data. For example, the number 5 would be binary form. And NumPy would cast it to an Int32 format.</p>
@@ -26,8 +26,31 @@
 </ol>
 <p>So if you break it up into the bits that are stored it takes a lot more space to store even a single value in the List. So, in summary because NumPy uses less bytes of memory, so it's faster.</p>
 <p>It's also faster because you don't need type checking with objects.</p>
-<p>NumPy also uses contiguous memory. Where Lists don't need to be stored in contiguous memory. That makes it faster for the computer to access the NumPy data.</p>
+<p>NumPy also uses contiguous memory. Where Lists don't need to be stored in contiguous memory. That makes it faster for the computer to access the NumPy data. That means that NumPy uses blocks of memory next to each other.</p>
 <p>With list of data in Python, the storage in memory is actually just pointing to pointers in memory.</p>
+<p>The benefits:</p>
+<ol>
+<li>SIMD Vector Processing in the CPU makes this faster. Because we can perform computations simultaneously.</li>
+<li>Effective Cache Utilization, because it's contiguous</li>
+</ol>
+<p>List can do insertion, deletion, appending, concatenating. NumPy can do all that and more. For example. You can multiply two arrays at once really quickly. Single value item computations.</p>
+<p>Useful things about NumPy:</p>
+<ul>
+<li>
+<p>Application of NumPy are numerous. Like Matlab replacements, because of all the math that NumPy can do.</p>
+</li>
+<li>
+<p>Useful in plotting.</p>
+</li>
+<li>
+<p>Backend in many other things like Pandas. You can store images through NumPy.</p>
+</li>
+<li>
+<p>Good for learning machine learning applications. Tensor libraries are pretty similar to NumPy libraries.</p>
+</li>
+</ul>
+<p>You can make mult dimensions by nesting lists.</p>
+<p>a.ndim gets the dimension. b.shape gives us the shape of the array. a.dtype gives us the type of the data in the array. You can also pass in the dtype when making the array. To see the size, a.itemsize. a.nbytes also gives us the size in bytes.</p>
 
     </main>
     <footer>
