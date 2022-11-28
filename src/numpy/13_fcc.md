@@ -53,3 +53,26 @@ Useful things about NumPy:
 You can make mult dimensions by nesting lists.
 
 a.ndim gets the dimension. b.shape gives us the shape of the array. a.dtype gives us the type of the data in the array. You can also pass in the dtype when making the array. To see the size, a.itemsize. a.nbytes also gives us the size in bytes. 
+
+To access specific columns, rows. 
+
+For example, take a two dimensional array
+
+```python
+a = np.array([1,2,3], [4,5,6])
+# row and column [r, c]
+a[1, 5]
+# or negative from the end
+a[1, -2]
+# get the whole row
+a[0, :]
+# get the whole column
+a[:, 2]
+# more detailed [startindex:endindex:stepsize]
+a[0, 1:6:2]
+# to assign a new value to a certain element
+a[1, 5] = 20
+# replace a column with more than one value
+a[:, 2] = [1, 2]
+```
+
