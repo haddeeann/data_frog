@@ -50,13 +50,13 @@ Useful things about NumPy:
 
 - Good for learning machine learning applications. Tensor libraries are pretty similar to NumPy libraries.
 
-You can make mult dimensions by nesting lists.
+You can make multi dimensions by nesting lists.
 
-a.ndim gets the dimension. b.shape gives us the shape of the array. a.dtype gives us the type of the data in the array. You can also pass in the dtype when making the array. To see the size, a.itemsize. a.nbytes also gives us the size in bytes. 
+`a.ndim` gets the dimension. `b.shape` gives us the shape of the array. a.dtype gives us the type of the data in the array. You can also pass in the dtype when making the array. To see the size, `a.itemsize`. `a.nbytes` also gives us the size in bytes. 
 
 To access specific columns, rows. 
 
-For example, take a two dimensional array
+For example, take a two-dimensional array
 
 ```python
 a = np.array([1,2,3], [4,5,6])
@@ -75,4 +75,30 @@ a[1, 5] = 20
 # replace a column with more than one value
 a[:, 2] = [1, 2]
 ```
+
+You can quickly replace columns of values or rows:
+
+```python
+a[:,2] = 5
+a[:,2] = [1,2]
+```
+
+To get a specific element try working outside in to calc what you need.
+
+All 0's. 
+```python
+np.zeros(5)
+np.zeros((2,3))
+```
+
+All 1's.
+```python
+np.ones((4,2,2))
+```
+
+All any other number, the first parenthesis hold the shape of the data.
+```python
+np.full((2,2), 99, dtype=float32)
+```
+
 
