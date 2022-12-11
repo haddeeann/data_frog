@@ -101,4 +101,51 @@ All any other number, the first parenthesis hold the shape of the data.
 np.full((2,2), 99, dtype=float32)
 ```
 
+There is also a full_like method that allows us to take a shape that has already been built, and pass in and make an array that is the same size.
+
+```python
+np.full_like(a, 4)
+```
+
+Initialize an array of random numbers:
+```python
+np.random.rand(4,2)
+```
+
+or you can use random_sample:
+```python
+np.random.random_sample(a.shape)
+```
+
+Or random integer values, passing in a start value and size.
+```python
+np.random.randint(7, size=(3,3))
+```
+
+You can do an identiy matrix:
+```python
+np.identity(5)
+```
+
+You can repeat an array a few times:
+```python
+arr = np.array([[1,2,3]])
+r1 = np.repeat(arr, 3, axis=0)
+```
+
+Be careful when copying arrays, because copies can change the original data.
+
+One of the fundamental uses of NumPy is element wise addition and subtraction.
+```python
+a = np.array([1,2,3,4])
+a - 2
+a * 2
+a / 2
+np.sin(a)
+np.cos(a)
+```
+
+
+
+
 
