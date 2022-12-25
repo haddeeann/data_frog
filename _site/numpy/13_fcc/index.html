@@ -96,7 +96,7 @@ np.zeros((2,3))
 <p>Or random integer values, passing in a start value and size.</p>
 <pre><code class="language-python">np.random.randint(7, size=(3,3))
 </code></pre>
-<p>You can do an identiy matrix:</p>
+<p>You can do an identity matrix:</p>
 <pre><code class="language-python">np.identity(5)
 </code></pre>
 <p>You can repeat an array a few times:</p>
@@ -111,6 +111,51 @@ a * 2
 a / 2
 np.sin(a)
 np.cos(a)
+</code></pre>
+<p>All the different things that you can do:</p>
+<p>NumPy vs Lists: https://www.youtube.com/channel/UC_mm...
+🔗 Indexing: https://docs.scipy.org/doc/numpy-1.13...
+🔗 Array Creation Routines: https://docs.scipy.org/doc/numpy/refe...
+🔗 Math Routines Docs: https://docs.scipy.org/doc/numpy/refe...
+🔗 Linear Algebra Docs: https://docs.scipy.org/doc/numpy/refe...</p>
+<p>Linear Algebra:
+multiplying matrices is a different process.</p>
+<pre><code class="language-python">a = np.ones((2,3))
+b = np.full((3,2), 2)
+np.matmul(a,b)
+</code></pre>
+<p>The columns of the first matrix has to be equal to the rows of the second matrices. <code>matmul</code> is a matrix multiplier</p>
+<pre><code class="language-python">c = np.identity(3)
+np.linalg.det(c)
+</code></pre>
+<p>Find the determinant of the identity matrix.</p>
+<p>This code in complete can be found:</p>
+<p><a href="https://github.com/KeithGalli/NumPy">Code</a></p>
+<h3>Statistics with NumPy</h3>
+<p>Things like mean, min, max</p>
+<pre><code class="language-python">np.min(stats, axis=0)
+np.max(status, axis=1)
+np.sum(stats, axis=0)
+</code></pre>
+<h3>Reorganizing Arrays</h3>
+<pre><code class="language-python">before = np.array([1,2,3,4], [5,6,7,8])
+print(before)
+
+after = before.reshape((8,1))
+after = before.reshape((4,4))
+after = before.reshape((2,2,2))
+</code></pre>
+<p>If you get an error it's likely due to a mismatch in size.</p>
+<h3>Stacking vectors</h3>
+<p>Vertical stacking</p>
+<pre><code class="language-python">v1 = np.array([1,2,3,4])
+v2 = np.array([5,6,7,8])
+np.vstack([v1,v2,v1,v2])
+</code></pre>
+<p>Horizontal stacking</p>
+<pre><code class="language-python">h1 = np.ones((2,4))
+h2 = np.zeroes((2,4))
+np.hstack((h1, h2))
 </code></pre>
 
     </main>

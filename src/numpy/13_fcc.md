@@ -122,7 +122,7 @@ Or random integer values, passing in a start value and size.
 np.random.randint(7, size=(3,3))
 ```
 
-You can do an identiy matrix:
+You can do an identity matrix:
 ```python
 np.identity(5)
 ```
@@ -145,7 +145,69 @@ np.sin(a)
 np.cos(a)
 ```
 
+All the different things that you can do:
 
+NumPy vs Lists: https://www.youtube.com/channel/UC_mm...
+🔗 Indexing: https://docs.scipy.org/doc/numpy-1.13...
+🔗 Array Creation Routines: https://docs.scipy.org/doc/numpy/refe...
+🔗 Math Routines Docs: https://docs.scipy.org/doc/numpy/refe...
+🔗 Linear Algebra Docs: https://docs.scipy.org/doc/numpy/refe...
+
+Linear Algebra:
+multiplying matrices is a different process. 
+```python
+a = np.ones((2,3))
+b = np.full((3,2), 2)
+np.matmul(a,b)
+```
+
+The columns of the first matrix has to be equal to the rows of the second matrices. `matmul` is a matrix multiplier
+
+```python
+c = np.identity(3)
+np.linalg.det(c)
+```
+
+Find the determinant of the identity matrix.
+
+This code in complete can be found: 
+
+[Code](https://github.com/KeithGalli/NumPy)
+
+### Statistics with NumPy
+Things like mean, min, max
+```python
+np.min(stats, axis=0)
+np.max(status, axis=1)
+np.sum(stats, axis=0)
+```
+
+### Reorganizing Arrays
+```python
+before = np.array([1,2,3,4], [5,6,7,8])
+print(before)
+
+after = before.reshape((8,1))
+after = before.reshape((4,4))
+after = before.reshape((2,2,2))
+```
+If you get an error it's likely due to a mismatch in size.
+
+### Stacking vectors
+
+Vertical stacking
+```python
+v1 = np.array([1,2,3,4])
+v2 = np.array([5,6,7,8])
+np.vstack([v1,v2,v1,v2])
+```
+
+Horizontal stacking
+```python
+h1 = np.ones((2,4))
+h2 = np.zeroes((2,4))
+np.hstack((h1, h2))
+```
 
 
 
