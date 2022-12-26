@@ -16,4 +16,30 @@ A categorical variable is a variable (thing we are talking about, analyzing) tha
 
 ### Reading Pictographs
 
-Up Next
+A pictograph is really a way to represent the data with pictures that show the amount of data in comparison.
+
+Each of the pictures is going to represent an amount of something.
+
+## Reading Bar Graphs
+
+The bars will represent amounts of data being compared.
+
+A two column bar graph will have data grouped in two columns each on the x-axis.
+
+Comparing two sets of data is clear with a two column bar graph. Each bar of the two bars grouped together would represent a different set of data.
+
+## Bar Charts: Central Tendency
+
+We can look at a bar chart and find median (middle) value, by ordering the values and finding the center value.
+
+The midrange of the scores is the mean of the highest and lowest values. It's the average of the highest and lowest values.
+
+The average (mean) is found by adding all the scores and dividing by the number of scores.
+
+To find the mode, you find the most common value.
+
+To find the range, you find the difference between the highest and lowest score.
+
+## Reading Pie Graphs
+
+Up next
