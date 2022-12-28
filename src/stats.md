@@ -42,4 +42,10 @@ To find the range, you find the difference between the highest and lowest score.
 
 ## Reading Pie Graphs
 
+A pie graph is a diagram, a pie chart or graph (sometimes a circle graph). Each slice of the circle represents a percent of data out of a 100%.
+
+Pie charts are a great way to easily visualize data in terms of percent, when talking about data that adds up to 100%.
+
+## Picture graphs (pictographs) review
+
 Up next
