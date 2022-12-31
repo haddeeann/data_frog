@@ -5,8 +5,7 @@ layout: "article_type_two.njk"
 
 My notes on the Khan class that you can sign up for at [Khan](https://www.khanacademy.org/). 
 
-# Unit 1
-## Lesson 1
+## Analyzing One Categorical Variable
 
 ### Identifying individuals, variables, and categorical variables in a data set.
 
@@ -46,6 +45,8 @@ A pie graph is a diagram, a pie chart or graph (sometimes a circle graph). Each 
 
 Pie charts are a great way to easily visualize data in terms of percent, when talking about data that adds up to 100%.
 
-## Picture graphs (pictographs) review
+# Two-way Tables
 
-Up next
+## Two-way frequency tables and Venn Diagramss
+
+To be continued...
