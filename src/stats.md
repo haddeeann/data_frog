@@ -47,6 +47,10 @@ Pie charts are a great way to easily visualize data in terms of percent, when ta
 
 # Two-way Tables
 
-## Two-way frequency tables and Venn Diagramss
+## Two-way frequency tables and Venn Diagrams
 
-To be continued...
+A two-way frequency table is a way to represent a venn diagram in a table format. Venn diagrams are good when you have sets of data with overlapping categorical data.
+
+## Two-way relative frequency tables
+
+Up Next..
