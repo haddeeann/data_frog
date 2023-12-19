@@ -1,6 +1,30 @@
+:root {
+    --text-strong: #2c0e28;
+}
 html {
     background-color: #f7f7f7;
     color: #666;
+}
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Set minimum height to ensure the footer stays at the bottom */
+}
+main {
+    flex-grow: 1; /* Allow content to grow and push footer to the bottom */
+    padding: 20px; /* Adjust as needed */
+}
+h1, h2, h3, h4, h5, h6 {
+    color: var(--text-strong);
+    opacity: .9;
+}
+footer {
+    background-color: #333; /* Footer background color */
+    color: #fff; /* Footer text color */
+    text-align: center;
+    padding: 2em 1em;
 }
 
 ul li {
@@ -12,6 +36,7 @@ li p {
 a:link {
     text-decoration: none;
     color: var(--text-strong);
+    opacity: .9;
 }
 a:visited {
     text-decoration: none;
@@ -31,8 +56,4 @@ pre {
     background: #444;
     padding: 20px 15px;
     color: white;
-}
-footer {
-    background-color: #eee;
-    padding: 15px;
 }
