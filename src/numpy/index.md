@@ -1,17 +1,14 @@
 ---
 layout: "article_type_two.njk"
 ---
-# NumPy
-[Go home](/index.html)
-
-### Starter Articles
+## NumPy Starter Articles
 
 - [NumPy Setup](/numpy/setup)
 
 - [NumPy For Beginners](/numpy/beginners)
     - The very beginners version of working with NumPy arrays.
 
-### Learn More
+## NumPy Learn More
 
 1. [NumPy Array Creation](./1_create_array)
 
@@ -45,9 +42,9 @@ My notes: [NumPy Notes](./13_fcc)
 
 ### Ideas for Next Steps
 
-- [Data Science Libraries in Python](./data_science_software_list)
+[Data Science Libraries in Python](./data_science_software_list)
 
-- [Idea for first project](https://www.youtube.com/watch?v=o64FV-ez6Gw)
+[Idea for first project](https://www.youtube.com/watch?v=o64FV-ez6Gw)
 
-- [Ideas for a beginner project](https://www.reddit.com/r/Python/comments/a925bi/projects_for_numpypandas_novice/)
-    - Try implementing a neural network from scratch in pure NumPy using a basic optimization algorithm like vanilla gradient descent/SGD. This necessitates manually writing out a backward pass, which TensorFlow/PyTorch/Keras will spare you from but it familiarizes you with backprop and update rules at a granular level and will make you more comfortable with NumPy operations.
+[Ideas for a beginner project](https://www.reddit.com/r/Python/comments/a925bi/projects_for_numpypandas_novice/)
+  - Try implementing a neural network from scratch in pure NumPy using a basic optimization algorithm like vanilla gradient descent/SGD. This necessitates manually writing out a backward pass, which TensorFlow/PyTorch/Keras will spare you from but it familiarizes you with backprop and update rules at a granular level and will make you more comfortable with NumPy operations.
