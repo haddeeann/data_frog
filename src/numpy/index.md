@@ -3,9 +3,9 @@ layout: "article_type_two.njk"
 ---
 ## NumPy Starter Articles
 
-- [NumPy Setup](/numpy/setup)
+[NumPy Setup](/numpy/setup)
 
-- [NumPy For Beginners](/numpy/beginners)
+[NumPy For Beginners](/numpy/beginners)
     - The very beginners version of working with NumPy arrays.
 
 ## NumPy Learn More
