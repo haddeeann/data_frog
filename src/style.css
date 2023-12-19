@@ -11,11 +11,11 @@ li p {
 }
 a:link {
     text-decoration: none;
-    color: #232348;
+    color: var(--text-strong);
 }
 a:visited {
     text-decoration: none;
-    color: #232348;
+    color: var(--text-strong);
 }
 a:hover {
     color: #6e2363;
