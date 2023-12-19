@@ -18,9 +18,8 @@
     </header>
     <main>
         <h1>NumPy Array Creation</h1>
-<p><a href="/index.html">Go home</a></p>
-<p><a href="https://numpy.org/doc/stable/user/basics.creation.html">Create an Array</a></p>
-<h2>Array Creation</h2>
+<p><a href="https://numpy.org/doc/stable/user/basics.creation.html"><strong>Reference Article</strong>: Create an Array</a></p>
+<h2>Array Creation Methods</h2>
 <ol>
 <li>Conversion from other Python structures, like lists and tuples</li>
 <li>The built-in NumPy array creation functions</li>
@@ -29,25 +28,26 @@
 <li>From raw bytes through the use of strings or buffers</li>
 <li>Special library functions</li>
 </ol>
-<p>You can use these methods to create <code>ndarrays</code> or structured arrays.</p>
-<p>Structured arrays are <code>ndarrays</code> whose datatype is a composition of simpler datatypes.</p>
-<p>These simpler datatypes are organized as a sequence of named fields.</p>
-<pre><code class="language-python">x = np.array(['Bob' 9, 110], dtype=[('firstname', 'U10'), ('age', 'i4'), ('weight', 'f4')])
+<p>The above methods can be used to create <code>ndarrays</code>.</p>
+<p><code>Ndarrays</code> are structured arrays whose data type is a composition of simpler data types.</p>
+<p>These simpler data types are organized as a sequence of named fields.</p>
+<pre><code class="language-python">bob_array = np.array([('Bob', 9, 110)], dtype=[('firstname', 'U10'), ('age', 'i4'), ('weight', 'f4')])
 </code></pre>
-<p>x is a one dimensional array. The length of the array is two. The datatype is a structure with three fields:</p>
+<p><code>bob_array</code> is a one dimensional array. The data types are structures with three fields:</p>
 <ol>
 <li>a string of length 10 or less, named 'firstname'</li>
 <li>a 32 bit integer named 'age'</li>
 <li>a 32 bit float, named 'weight'</li>
 </ol>
 <h2>Conversion from other Python structures</h2>
-<p>The NumPy arrays can be made from lists and tuples. Lists are as [...] and tuples (...).</p>
-<p>A list of numbers will create a 1D array. To create a 2D array, you can use a list of lists. If you want to create higher dimensional arrays you can nest lists even further.</p>
+<p>The NumPy arrays can be made from lists and tuples. In Python, lists are denoted as <code>[...]</code> and tuples as <code>(...)</code>.</p>
+<p>A list of numbers will create a 1D (one-dimensional) array.</p>
+<p>To create a 2D (two-dimensional) array, you can use a list of lists. If you want to create higher dimensional arrays you can nest lists even further.</p>
 <p>An easy way to create an array from a list or tuple is with the <code>np.array</code> function.</p>
-<pre><code class="language-python">one_dimensional_array = np.array([127, 182, 100])
+<pre><code class="language-python">one_d_array = np.array([127, 182, 100])
 </code></pre>
-<p>You can specify the data type of the information in the NumPy arrays, by adding a parameter of the dtype. If you don't pass in a data type (dtype) then it will assign a default dtype.</p>
-<p>If the data in the array is outside what is available for that type you can end up with an overflow on the data.</p>
+<p>You can specify the data type of the information in the NumPy arrays by adding a parameter of the dtype. If you don't pass in a data type (dtype) then it will assign a default dtype.</p>
+<p>There can be data overflow if the value that is passed into the array is outside the allowed values for that data type.</p>
 <p>For example, an 8-bit signed integer represents a number from -128 to 127. So if you tried to assign a number like 128 or 129 to a <code>dtype=np.int8</code>, you'd have an overflow. This is because an 8-bit signed integer can only represent numbers from -128 to 127.</p>
 <pre><code class="language-python">overflow_array = np.array([127, 128, 129], dtype=np.int8)
 overflow_array

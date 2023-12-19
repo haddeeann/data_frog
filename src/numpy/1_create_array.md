@@ -2,12 +2,11 @@
 layout: "article_type_two.njk"
 ---
 # NumPy Array Creation
-[Go home](/index.html)
 
-[Create an Array](https://numpy.org/doc/stable/user/basics.creation.html)
+[**Reference Article**: Create an Array](https://numpy.org/doc/stable/user/basics.creation.html)
 
 
-## Array Creation
+## Array Creation Methods
 
 1. Conversion from other Python structures, like lists and tuples
 2. The built-in NumPy array creation functions
@@ -17,17 +16,17 @@ layout: "article_type_two.njk"
 6. Special library functions
 
 
-You can use these methods to create `ndarrays` or structured arrays. 
+The above methods can be used to create `ndarrays`. 
 
-Structured arrays are `ndarrays` whose datatype is a composition of simpler datatypes.
+`Ndarrays` are structured arrays whose data type is a composition of simpler data types.
 
-These simpler datatypes are organized as a sequence of named fields.
+These simpler data types are organized as a sequence of named fields.
 
 ```python
-x = np.array(['Bob' 9, 110], dtype=[('firstname', 'U10'), ('age', 'i4'), ('weight', 'f4')])
+bob_array = np.array([('Bob', 9, 110)], dtype=[('firstname', 'U10'), ('age', 'i4'), ('weight', 'f4')])
 ```
 
-x is a one dimensional array. The length of the array is two. The datatype is a structure with three fields:
+`bob_array` is a one dimensional array. The data types are structures with three fields:
 
 
 1. a string of length 10 or less, named 'firstname'
@@ -36,19 +35,21 @@ x is a one dimensional array. The length of the array is two. The datatype is a 
 
 ## Conversion from other Python structures
 
-The NumPy arrays can be made from lists and tuples. Lists are as [...] and tuples (...).
+The NumPy arrays can be made from lists and tuples. In Python, lists are denoted as `[...]` and tuples as `(...)`.
 
-A list of numbers will create a 1D array. To create a 2D array, you can use a list of lists. If you want to create higher dimensional arrays you can nest lists even further.
+A list of numbers will create a 1D (one-dimensional) array. 
+
+To create a 2D (two-dimensional) array, you can use a list of lists. If you want to create higher dimensional arrays you can nest lists even further.
 
 An easy way to create an array from a list or tuple is with the `np.array` function.
 
 ```python
-one_dimensional_array = np.array([127, 182, 100])
+one_d_array = np.array([127, 182, 100])
 ```
 
-You can specify the data type of the information in the NumPy arrays, by adding a parameter of the dtype. If you don't pass in a data type (dtype) then it will assign a default dtype.
+You can specify the data type of the information in the NumPy arrays by adding a parameter of the dtype. If you don't pass in a data type (dtype) then it will assign a default dtype.
 
-If the data in the array is outside what is available for that type you can end up with an overflow on the data. 
+There can be data overflow if the value that is passed into the array is outside the allowed values for that data type.
 
 For example, an 8-bit signed integer represents a number from -128 to 127. So if you tried to assign a number like 128 or 129 to a `dtype=np.int8`, you'd have an overflow. This is because an 8-bit signed integer can only represent numbers from -128 to 127.
 
