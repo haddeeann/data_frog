@@ -71,11 +71,7 @@ If you want a specific data type in the result, it's best to specify the data ty
 
 There are over 40 built-in functions for creating arrays. 
 
-There are 3 broad categories of array creator functions. In general, the categories are based on how many dimensions the resulting array is.
-
-1. 1D arrays
-2. 2D arrays
-3. `ndarrays` (more than two dimensions)
+There are three broad categories of array creator functions based on the number of dimensions in the array. There are one-dimensional (1D arrays), two-dimensional (2D arrays), and more than two-dimensional (ndarrays). NumPy provides different methods to create arrays depending on how many dimensions the array will be.
 
 ## 1D Arrays
 
