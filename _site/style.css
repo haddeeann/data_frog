@@ -36,6 +36,7 @@ li p {
 a:link {
     text-decoration: none;
     color: var(--text-strong);
+    opacity: .9;
 }
 a:visited {
     text-decoration: none;
@@ -55,8 +56,4 @@ pre {
     background: #444;
     padding: 20px 15px;
     color: white;
-}
-footer {
-    background-color: #eee;
-    padding: 15px;
 }
