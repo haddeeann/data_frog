@@ -1,7 +1,7 @@
 ---
-title: NumPy for Beginners
 layout: "article_type_two.njk"
 ---
+#  NumPy for Beginners
 [Go home](/index.html)
 
 [NumPy Article for beginners](https://numpy.org/doc/stable/user/absolute_beginners.html)

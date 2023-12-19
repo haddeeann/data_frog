@@ -1,7 +1,7 @@
 ---
-title: Subclassing
 layout: "article_type_two.njk"
 ---
+# Subclassing
 [Go home](/index.html)
 
 [Custom Array Containers](https://numpy.org/doc/stable/user/basics.subclassing.html)

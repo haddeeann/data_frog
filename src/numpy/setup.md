@@ -1,7 +1,7 @@
 ---
-title: NumPy Setup
 layout: "article_type_two.njk"
 ---
+# NumPy Setup
 [Go home](/index.html)
 
 ## Command Line

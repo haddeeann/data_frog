@@ -1,7 +1,7 @@
 ---
-title: NumPy
 layout: "article_type_two.njk"
 ---
+# NumPy
 [Go home](/index.html)
 
 ### Starter Articles

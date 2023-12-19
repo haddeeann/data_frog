@@ -1,7 +1,7 @@
 ---
-title: Data Types with NumPy
 layout: "article_type_two.njk"
 ---
+# Data Types with NumPy
 [Go home](/index.html)
 
 [Data Types with NumPy](https://numpy.org/doc/stable/user/basics.types.html)

@@ -1,7 +1,7 @@
 ---
-title: Structured Arrays
 layout: "article_type_two.njk"
 ---
+# Structured Arrays
 [Go home](/index.html)
 
 [Structured Arrays](https://numpy.org/doc/stable/user/basics.rec.html)

@@ -1,7 +1,7 @@
 ---
-title: Universal Functions
 layout: "article_type_two.njk"
 ---
+# Universal Functions
 [Go home](/index.html)
 
 [Structured Arrays](https://numpy.org/doc/stable/user/basics.ufuncs.html)

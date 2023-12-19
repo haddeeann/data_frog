@@ -1,7 +1,7 @@
 ---
-title: Custom Array Containers
 layout: "article_type_two.njk"
 ---
+# Custom Array Containers
 [Go home](/index.html)
 
 [Custom Array Containers](https://numpy.org/doc/stable/user/basics.dispatch.html)

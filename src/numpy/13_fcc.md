@@ -1,7 +1,7 @@
 ---
-title: Data Frog
 layout: "article_type_two.njk"
 ---
+# Data Frog
 [Go home](/index.html)
 
 [FreeCodeCamp tutorial](https://www.youtube.com/watch?v=QUT1VHiLmmI)

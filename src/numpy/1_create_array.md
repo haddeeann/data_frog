@@ -1,7 +1,7 @@
 ---
-title: NumPy Array Creation
 layout: "article_type_two.njk"
 ---
+# NumPy Array Creation
 [Go home](/index.html)
 
 [Create an Array](https://numpy.org/doc/stable/user/basics.creation.html)

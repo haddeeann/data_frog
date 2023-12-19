@@ -1,7 +1,7 @@
 ---
-title: Byte Swapping
 layout: "article_type_two.njk"
 ---
+# Byte Swapping
 [Go home](/index.html)
 
 [NumPy Byte swapping](https://numpy.org/doc/stable/user/basics.byteswapping.html)

@@ -1,7 +1,7 @@
 ---
-title: Copies and Views
 layout: "article_type_two.njk"
 ---
+# Copies and Views
 [Go home](/index.html)
 
 [Structured Arrays](https://numpy.org/doc/stable/user/basics.copies.html)

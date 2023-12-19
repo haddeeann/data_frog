@@ -1,7 +1,7 @@
 ---
-title: Interoperability
 layout: "article_type_two.njk"
 ---
+# Interoperability
 [Go home](/index.html)
 
 [Structured Arrays](https://numpy.org/doc/stable/user/basics.interoperability.html)

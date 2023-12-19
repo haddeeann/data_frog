@@ -1,7 +1,7 @@
 ---
-title: Data List
 layout: "article_type_one.njk"
 ---
+# Data List
 [Go home](/index.html)
 ## Overview of Data Science Libraries
 

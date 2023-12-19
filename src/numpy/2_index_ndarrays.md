@@ -1,7 +1,7 @@
 ---
-title: Indexing NumPy Arrays
 layout: "article_type_two.njk"
 ---
+# Indexing NumPy Arrays
 [Go home](/index.html)
 
 [Indexing NumPy arrays](https://numpy.org/doc/stable/user/basics.indexing.html)
