@@ -6,42 +6,42 @@ layout: "article_type_two.njk"
 
 ### Starter Articles
 
-- [NumPy Setup](./numpy/setup)
+- [NumPy Setup](/numpy/setup)
 
-- [NumPy For Beginners](./numpy/beginners)
+- [NumPy For Beginners](/numpy/beginners)
     - The very beginners version of working with NumPy arrays.
 
 ### Learn More
 
-1. [NumPy Array Creation](./numpy/1_create_array)
+1. [NumPy Array Creation](./1_create_array)
 
-2. [Indexing NumPy Arrays](./numpy/2_index_ndarrays)
+2. [Indexing NumPy Arrays](./2_index_ndarrays)
 
-3. [I/O with NumPy](./numpy/3_io_numpy)
+3. [I/O with NumPy](./3_io_numpy)
 
-4. [Data Types in NumPy](./numpy/4_data_types)
+4. [Data Types in NumPy](./4_data_types)
 
-5. [Broadcasting](./numpy/5_broadcasting)
+5. [Broadcasting](./5_broadcasting)
 
-6. [Byte Swapping](./numpy/6_byte_swapping)
+6. [Byte Swapping](./6_byte_swapping)
 
-7. [Structured Arrays](./numpy/7_structured_arrays)
+7. [Structured Arrays](./7_structured_arrays)
 
-8. [Custom Array Containers](./numpy/8_custom_array_containers)
+8. [Custom Array Containers](./8_custom_array_containers)
 
-9. [Subclassing](./numpy/9_subclassing)
+9. [Subclassing](./9_subclassing)
 
-10. [Universal Functions](./numpy/10_universal_functions)
+10. [Universal Functions](./10_universal_functions)
 
-11. [Copies and Views](./numpy/11_copies_views)
+11. [Copies and Views](./11_copies_views)
 
-12. [Interoperability](./numpy/12_interoperability)
+12. [Interoperability](./12_interoperability)
 
 ### Beginner Youtube Video
 
 [FreeCodeCamp's Python NumPy Tutorial for Beginners](https://www.youtube.com/watch?v=QUT1VHiLmmI)
 
-My notes: [NumPy Notes](./numpy/13_fcc)
+My notes: [NumPy Notes](./13_fcc)
 
 ### Ideas for Next Steps
 
