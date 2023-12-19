@@ -1,5 +1,5 @@
 :root {
-    --text-strong: #232348;
+    --text-strong: #2c0e28;
 }
 html {
     background-color: #f7f7f7;
@@ -13,20 +13,20 @@ body {
     min-height: 100vh; /* Set minimum height to ensure the footer stays at the bottom */
 }
 main {
-    flex-grow: 1;
-    padding: 20px;
-}
-footer {
-    background-color: #eee;
-    background-color: #333; /* Footer background color */
-    color: #fff; /* Footer text color */
-    text-align: center;
-    padding: 2em 10px; /* Adjust padding as needed */
+    flex-grow: 1; /* Allow content to grow and push footer to the bottom */
+    padding: 20px; /* Adjust as needed */
 }
 h1, h2, h3, h4, h5, h6 {
     color: var(--text-strong);
     opacity: .9;
 }
+footer {
+    background-color: #333; /* Footer background color */
+    color: #fff; /* Footer text color */
+    text-align: center;
+    padding: 2em 1em;
+}
+
 ul li {
     list-style-type: none;
 }
