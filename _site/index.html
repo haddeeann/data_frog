@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Data Frog</title>
-    <link rel="stylesheet" href="./static/style.css" />
+    <link rel="stylesheet" href="/static/style.css" />
     <link rel="icon" href="/static/favicon.ico" type="image/x-icon">
 </head>
 <body>
@@ -41,6 +41,16 @@
 <a href="https://www.google.com/publicdata/directory#!">Google data</a></p>
 <p><a href="https://aws.amazon.com/marketplace/search/results?trk=868d8747-614e-4d4d-9fb6-fd5ac02947a8&amp;sc_channel=el&amp;FULFILLMENT_OPTION_TYPE=DATA_EXCHANGE&amp;CONTRACT_TYPE=OPEN_DATA_LICENSES&amp;filters=FULFILLMENT_OPTION_TYPE%2CCONTRACT_TYPE">AWS marketplace</a></p>
 <p><a href="https://registry.opendata.aws/">AWS opendata</a></p>
+<p>Web API's and web scraping are great for getting data as well. For scraping data the following tools are great:</p>
+<ul>
+<li>import.io</li>
+<li>ScraperWiki
+Tabular</li>
+<li>Google Sheets</li>
+<li>Excel</li>
+</ul>
+<p>When using Google sheets, you can pull in tables very easily from around the web. Open up Google sheets, in the A1 cell, paste this type of formula (an example):</p>
+<p><code>=IMPORTHTML('https://en.wikipedia.org/wiki/Iron_Chef_America', 'table', 2)</code></p>
 <h2><a href="./numpy">NumPy</a></h2>
 <p>Installing NumPy can be done with pip:</p>
 <p><code>pip install numpy</code></p>

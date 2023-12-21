@@ -7,25 +7,10 @@
     <link rel="icon" href="/static/favicon.ico" type="image/x-icon">
 </head>
 <body>
-    <header>
-        <div class="logo">
-            <a href="/">
-                <img src="/static/frog_logo.png" alt="Frog Protection">
-            </a>
-        </div>
-        <div class="logo-text-small">
-            <div>Data Science Personal Journey</div>
-        </div>
-    </header>
+    {% include "header.html" %}
     <main>
         {{ content | safe }}
     </main>
-    <footer>
-        <div>
-            <div>Sponsored by Frog Protection Services</div>
-            <div>Do you have Frog Protection?</div>
-        </div>
-        <div><code class="logo-text">hello world</code> production</div>
-    </footer>
+    {% include "footer.njk" %}
 </body>
 </html>

@@ -41,6 +41,18 @@ Large data:
 
 [AWS opendata](https://registry.opendata.aws/)
 
+Web API's and web scraping are great for getting data as well. For scraping data the following tools are great:
+
+- import.io
+- ScraperWiki
+Tabular
+- Google Sheets
+- Excel
+
+When using Google sheets, you can pull in tables very easily from around the web. Open up Google sheets, in the A1 cell, paste this type of formula (an example):
+
+`=IMPORTHTML('https://en.wikipedia.org/wiki/Iron_Chef_America', 'table', 2)`
+
 ## [NumPy](./numpy)
 Installing NumPy can be done with pip:
 
@@ -60,4 +72,4 @@ That will put you in a Python environment. Then you can start using NumPy with:
 
 Then you have a numpy prompt and can start working inputting and manipulating arrays and data.
 
-## [Statistics](./stats)
+## [Statistics](./stats/)

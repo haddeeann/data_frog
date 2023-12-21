@@ -3,33 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <title>Data Frog</title>
-    <link rel="stylesheet" href="./static/style.css" />
+    <link rel="stylesheet" href="/static/style.css" />
     <link rel="icon" href="/static/favicon.ico" type="image/x-icon">
 </head>
 <body>
-    <header>
-        <div class="logo">
-            <a href="/">
-                <img src="/static/frog_logo.png" alt="Frog Protection">
-            </a>
-        </div>
-        <div class="logo-text-small">
-            <div>Data Science Personal Journey</div>
-        </div>
-    </header>
+    {% include "header.njk" %}
     <main>
         {{ content | safe }}
     </main>
-    <footer>
-        <div>
-            <div>Sponsored by Frog Protection Services</div>
-            <div>Do you have Frog Protection?</div>
-        </div>
-        <hr />
-        <div>
-            <span class="logo-text-large">hello world</span>
-            <span class="logo-text-small">production</span>
-        </div>
-    </footer>
+    {% include "footer.njk" %}
 </body>
 </html>

@@ -1,0 +1,10 @@
+<header>
+    <div class="logo">
+        <a href="/">
+            <img src="/static/frog_logo.png" alt="Frog Protection">
+        </a>
+    </div>
+    <div class="logo-text-small">
+        <div>Data Science Personal Journey</div>
+    </div>
+</header>
