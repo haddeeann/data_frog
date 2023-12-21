@@ -1,11 +1,6 @@
 ---
 layout: "article_type_two.njk"
 ---
-# IO with NumPy
-[Go home](/index.html)
-
-[IO with NumPy](https://numpy.org/doc/stable/user/basics.io.html)
-
 ## Using genfromtxt
 
 There are several ways NumPy can create arrays from tabular data. `genfromtxt` is one such useful way.

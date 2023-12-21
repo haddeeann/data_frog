@@ -1,11 +1,6 @@
 ---
 layout: "article_type_two.njk"
 ---
-# NumPy Array Creation
-
-[**Reference Article**: Create an Array](https://numpy.org/doc/stable/user/basics.creation.html)
-
-
 ## Array Creation Methods
 
 1. Conversion from other Python structures, like lists and tuples

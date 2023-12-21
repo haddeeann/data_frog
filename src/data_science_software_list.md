@@ -48,9 +48,9 @@ This is a useful library for scraping data from websites. It provides a user-fri
 
 ## Scikit-learn
 [Scikit-learn](https://scikit-learn.org/stable/)
-This popular machine learning library is a one-stop-shop for all of your machine learning needs with support for both supervised and unsupervised tasks. Some of the machine learning algorithms available are logistic regression, k-nearest neighbors, support vector machine, random forest, gradient boosting, k-means, DBSCAN, and principal component analysis.
+This popular machine learning library is a one-stop-shop for all of your machine learning needs with support for both supervised and unsupervised tasks. Some machine learning algorithms available are logistic regression, k-nearest neighbors, support vector machine, random forest, gradient boosting, k-means, DBSCAN, and principal component analysis.
 
-For machine learning because it has all of the algorithms you'll want to use for regression, classification, and unsupervised learning. When you’re deep in the Immersive Data Science Bootcamp, you’ll be leveraging Scikit-Learn pretty heavily.
+For machine learning because it has all the algorithms you'll want to use for regression, classification, and unsupervised learning. When you’re deep in the Immersive Data Science Bootcamp, you’ll be leveraging Scikit-Learn pretty heavily.
 
 ## Tensorflow
 [Tensor Flow](https://www.tensorflow.org/)

@@ -26,10 +26,7 @@
     </div>
 </header>
     <main>
-        <h1>Structured Arrays</h1>
-<p><a href="/index.html">Go home</a></p>
-<p><a href="https://numpy.org/doc/stable/user/basics.rec.html">Structured Arrays</a></p>
-<h2>Structured Arrays</h2>
+        <h2>Structured Arrays</h2>
 <p>Structured arrays are <code>ndarrays</code> whose datatype are a composition of simpler <code>datatypes</code>.</p>
 <p>These <code>datatypes</code> are organized as a sequence of named fields.</p>
 <p>In a <code>structured data type</code> each subtype is called a field. The field has a name (a string), a type (any valid <code>dtype</code>), and an optional <em>title</em>.</p>
@@ -49,7 +46,7 @@ x['age'] = 5
 array([('Rex', 5, 81.), ('Fido', 5, 27.)],
 dtype=[('name', '&lt;U10'), ('age', '&lt;i4'), ('weight', '&lt;f4')])
 </code></pre>
-<p>Structured data types have a similar memory layout as 'structs' in the C language. These helps us be able to do low level manipulation, like for interpreting binary blobs. One of the draw backs to using this for manipulation of tabular data (like that stored in csv files) is that it can lead to poor cache behavior.</p>
+<p>Structured data types have a similar memory layout as 'structs' in the C language. These helps us be able to do low level manipulation, like for interpreting binary blobs. One of the drawbacks to using this for manipulation of tabular data (like that stored in csv files) is that it can lead to poor cache behavior.</p>
 <p>Other <code>pydata</code> projects could be better suited for this type of data manipulation such as <code>xarray</code>, <code>pandas</code>, or <code>DataArray</code>.</p>
 <h2>Structured Datatypes</h2>
 <p>A structured datatype can be thought of as a sequence of bytes of a certain length which is interpreted as a collection of fields.</p>
@@ -94,7 +91,7 @@ dtype=[('name', '&lt;U10'), ('age', '&lt;i4'), ('weight', '&lt;f4')])
 <p>The resulting dtype from promotion is also guaranteed to be packed, which means that all fields are ordered contiguously and any padding is removed.</p>
 <h2>Record Arrays</h2>
 <p>As an optional convenience NumPy provides an ndarray subclass <code>numpy.recarray</code>. This allows access to fields of structured arrays by attribute instead of only by index.</p>
-<p>Record arrays use a special datatype, <code>numpy.record</code> that allows field access by attribute on the structured scalars. the numpy.rec module provides functions for creating recarrays from various objects. Additional helper functions for creating and manipulating structured arrasy can be found in <code>numpy.lib.recfunctions</code>.</p>
+<p>Record arrays use a special datatype, <code>numpy.record</code> that allows field access by attribute on the structured scalars. the numpy.rec module provides functions for creating recarrays from various objects. Additional helper functions for creating and manipulating structured arrays can be found in <code>numpy.lib.recfunctions</code>.</p>
 <p>The easiest way to create a record array is with <code>numpy.rec.array</code>. It can convert structured arrays along with other kinds of arguments into record arrays.</p>
 <p>There's also a lot of other convenience functions for creating record arrays.</p>
 

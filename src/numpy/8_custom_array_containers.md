@@ -1,11 +1,6 @@
 ---
 layout: "article_type_two.njk"
 ---
-# Custom Array Containers
-[Go home](/index.html)
-
-[Custom Array Containers](https://numpy.org/doc/stable/user/basics.dispatch.html)
-
 ## Writing Custom Array Containers
 
 NumPy's dispatch mechanism, is the recommended way to write custom N-dimensional array containers that are compatible with the NumPy API.

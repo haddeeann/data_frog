@@ -1,16 +1,11 @@
 ---
 layout: "article_type_two.njk"
 ---
-# Indexing NumPy Arrays
-[Go home](/index.html)
-
-[Indexing NumPy arrays](https://numpy.org/doc/stable/user/basics.indexing.html)
-
-# Indexing
+## Indexing NumPy Arrays
 
 The `ndarrays` can be indexed using the stand Python object x[obj] syntax. This syntax indicates where x is the array in NumPy and obj is the thing you are selecting.
 
-This type of indexing works the similar to lists and tuples in Python. In the sense that Python lists, tuples, and the `ndarray` in NumPy are all collection of data that can access individual values using indexes beginning with 0 at the start of the data collection. 
+This type of indexing works the similar to lists and tuples in Python. They are similar in that Python lists, tuples, and the `ndarray` in NumPy are all collection of data that can access individual values using indexes beginning with 0 at the start of the data collection. 
 
 In NumPy, there's different types of indexing that varies in complexity. There's basic indexing, advanced indexing, and field access.
 

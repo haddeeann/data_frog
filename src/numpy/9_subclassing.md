@@ -1,11 +1,6 @@
 ---
 layout: "article_type_two.njk"
 ---
-# Subclassing
-[Go home](/index.html)
-
-[Custom Array Containers](https://numpy.org/doc/stable/user/basics.subclassing.html)
-
 ## Subclassing ndarray
 
 Subclassing can be done in three basic ways:
@@ -16,7 +11,7 @@ Subclassing can be done in three basic ways:
 
 The last two are characteristics of `ndarrays`. In order to support things like array slicing. The complications of subclassing the `ndarray` are due to the mechanisms NumPy has to support these latter two routes of an instance creation.
 
-## When to use subclassing
+## When to Use Subclassing
 
 Besides the additional complexities of subclassing a NumPy array, subclasses can run into unexpected behavior because of some functions may convert to the subclass to a baseclass and "forget" any additional information associated with the subclass.
 
@@ -41,6 +36,7 @@ Note that subclass authors may wish to study Interoperability with NumPy to supp
 Astropy's Quantity is an example which uses a dual approach of both subclassing and interoperability protocols.
 
 ## View Casting
+
 View casting is the standard `ndarray` mechanism by which you take an `ndarray` of any subclass, and return a view of the array as another (specified) subclass.
 
 A new instance of an `ndarray` subclass can also come about by a very similar mechanism to `View Casting`. When NumPy finds it needs to create a new instance from a template instance. The most obvious place this has to happen is when you are taking slices of subclassed arrays.

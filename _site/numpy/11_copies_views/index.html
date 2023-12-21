@@ -26,12 +26,9 @@
     </div>
 </header>
     <main>
-        <h1>Copies and Views</h1>
-<p><a href="/index.html">Go home</a></p>
-<p><a href="https://numpy.org/doc/stable/user/basics.copies.html">Structured Arrays</a></p>
-<h2>Copies and Views</h2>
-<p>When operating on NumPy arrays, it's possible to access the internal data buffer directly using a vew, without copying the data around. So it's important to know the difference between what returns a copy and what returns a view.</p>
-<p>The NumPy array is a data structure consisting of two parts: the contiguous data butter with the actual data elements and the metadata that contains information about the data buffer. The metadata includes data type, strides, and other important information that helps manipulate the <code>ndarray</code> easily.</p>
+        <h2>Copies and Views</h2>
+<p>When operating on NumPy arrays, it's possible to access the internal data buffer directly using a view, without copying the data around. So it's important to know the difference between what returns a copy and what returns a view.</p>
+<p>The NumPy array is a data structure consisting of two parts: the contiguous data buffer with the actual data elements and the metadata that contains information about the data buffer. The metadata includes data type, strides, and other important information that helps manipulate the <code>ndarray</code> easily.</p>
 <h2>Views</h2>
 <p>It's also possible to access the array differently by just changing the certain metadata like <code>stride</code> and <code>dtype</code> without changing the data buffer. This creates a new way of looking at the data and there new arrays are called views.</p>
 <p>The data buffer remains the same, so any changes made to a view reflects in the original copy. A view can be forced through the <code>ndarray.view</code> method.</p>

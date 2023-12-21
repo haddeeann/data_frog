@@ -1,10 +1,7 @@
 ---
 layout: "article_type_two.njk"
 ---
-# Broadcasting with NumPy
-[Go home](/index.html)
-
-[Broadcasting with NumPy](https://numpy.org/doc/stable/user/basics.broadcasting.html)
+## Broadcasting with NumPy
 
 The term broadcasting describes how NumPY treats arrays with different shapes during arithmetic operations. 
 

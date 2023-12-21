@@ -1,8 +1,7 @@
 ---
 layout: "article_type_two.njk"
 ---
-# Statistics
-My notes on the Khan class that you can sign up for at [Khan](https://www.khanacademy.org/). 
+My notes on the statistics Khan class that you can sign up for at [Khan](https://www.khanacademy.org/). 
 
 ## Analyzing One Categorical Variable
 

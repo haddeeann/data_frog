@@ -1,10 +1,7 @@
 ---
 layout: "article_type_two.njk"
 ---
-# Data Types with NumPy
-[Go home](/index.html)
-
-[Data Types with NumPy](https://numpy.org/doc/stable/user/basics.types.html)
+## Data Types with NumPy
 
 NumPy supports a greater variety of number types than Python does. 
 

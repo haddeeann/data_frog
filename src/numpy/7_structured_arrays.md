@@ -1,11 +1,6 @@
 ---
 layout: "article_type_two.njk"
 ---
-# Structured Arrays
-[Go home](/index.html)
-
-[Structured Arrays](https://numpy.org/doc/stable/user/basics.rec.html)
-
 ## Structured Arrays
 
 Structured arrays are `ndarrays` whose datatype are a composition of simpler `datatypes`.
@@ -35,7 +30,7 @@ array([('Rex', 5, 81.), ('Fido', 5, 27.)],
 dtype=[('name', '<U10'), ('age', '<i4'), ('weight', '<f4')])
 ```
 
-Structured data types have a similar memory layout as 'structs' in the C language. These helps us be able to do low level manipulation, like for interpreting binary blobs. One of the draw backs to using this for manipulation of tabular data (like that stored in csv files) is that it can lead to poor cache behavior.
+Structured data types have a similar memory layout as 'structs' in the C language. These helps us be able to do low level manipulation, like for interpreting binary blobs. One of the drawbacks to using this for manipulation of tabular data (like that stored in csv files) is that it can lead to poor cache behavior.
 
 Other `pydata` projects could be better suited for this type of data manipulation such as `xarray`, `pandas`, or `DataArray`.
 
@@ -118,7 +113,7 @@ The resulting dtype from promotion is also guaranteed to be packed, which means 
 
 As an optional convenience NumPy provides an ndarray subclass `numpy.recarray`. This allows access to fields of structured arrays by attribute instead of only by index.
 
-Record arrays use a special datatype, `numpy.record` that allows field access by attribute on the structured scalars. the numpy.rec module provides functions for creating recarrays from various objects. Additional helper functions for creating and manipulating structured arrasy can be found in `numpy.lib.recfunctions`.
+Record arrays use a special datatype, `numpy.record` that allows field access by attribute on the structured scalars. the numpy.rec module provides functions for creating recarrays from various objects. Additional helper functions for creating and manipulating structured arrays can be found in `numpy.lib.recfunctions`.
 
 The easiest way to create a record array is with `numpy.rec.array`. It can convert structured arrays along with other kinds of arguments into record arrays.
 

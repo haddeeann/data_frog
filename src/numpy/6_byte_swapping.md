@@ -1,18 +1,13 @@
 ---
 layout: "article_type_two.njk"
 ---
-# Byte Swapping
-[Go home](/index.html)
-
-[NumPy Byte swapping](https://numpy.org/doc/stable/user/basics.byteswapping.html)
-
-## Basics Byte Swapping
+## Basics of Byte Swapping
 
 The `ndarray` is an object that provides an interface to data in memory. 
 
 So it sometimes happens that the memory that you want to view in the array is not of the same byte ordering as the computer than you're running Python on.
 
-## Endianness
+## Side Note on Endianness
 [Endianness](https://www.section.io/engineering-education/what-is-little-endian-and-big-endian/)
 
 An example of when this type of data storage matters, if I was working on a computer with a little endian CPU (way of storing the data) and I had loaded some data from a file written by a computer than is big endian (different way of storing the data).
