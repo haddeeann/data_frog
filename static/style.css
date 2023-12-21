@@ -1,5 +1,7 @@
 :root {
     --text-strong: #2c0e28;
+    --accent-color: #6e2363;
+    --light-accent: #cf67bf;
 }
 html {
     background-color: #f7f7f7;
@@ -25,10 +27,31 @@ header {
     background-color: #333; /* Header background color */
     color: #fff; /* Header text color */
     display: flex;
+    flex-flow: wrap;
     align-items: center;
     padding: 1em; /* Adjust padding as needed */
+    justify-content: space-between;
+}
+#logo-container {
+    display: flex;
+    align-items: center;
 }
 
+#nav-container {
+    padding-right: .5em;
+}
+header a, header a:visited {
+    color: #fff;
+}
+header a:hover {
+    color: var(--light-accent);
+}
+header a:active {
+    color: var(--light-accent);
+}
+#nav-container span {
+    padding-right: .5em;
+}
 .logo img {
     width: 5em;
     height: auto; /* Maintain aspect ratio */
@@ -81,10 +104,10 @@ a:visited {
     color: var(--text-strong);
 }
 a:hover {
-    color: #6e2363;
+    color: var(--accent-color);
 }
 a:active {
-    color: #6e2363;
+    color: var(--accent-color);
 }
 pre {
     background: #444;
