@@ -104,6 +104,9 @@ np.eye(3)
 array([[1., 0., 0.],
 [0., 1., 0.],
 [0., 0., 1.]])
+```
+
+```python
 np.eye(3, 5)
 array([[1., 0., 0., 0., 0.],
 [0., 1., 0., 0., 0.],
@@ -112,7 +115,9 @@ array([[1., 0., 0., 0., 0.],
 
 ### numpy.diag
 
-The `numpy.diag` can be used to define a 2D array with the given values along the diagonal. You can pass two parameters, an input array and k. The k is an integer, and it's value decides the main diagonal.
+The `numpy.diag` is used for the extracted diagonal or constructed diagonal array. It can be used to define a 2D array with the given values along the diagonal. You can pass two parameters, an input array and k. The k is an integer, and it's value decides the main diagonal. 
+
+If the input array, then `numpy.diag` will return a copy of its k-th diagonal. If it is a 1D array, then it will return a 2D array with the array on the k-th diagonal.
 
 If k is positive, then the diagonal is above the main diagonal. And if k is negative then the diagonal is below the main diagonal.
 
@@ -125,11 +130,17 @@ np.diag([1, 2, 3])
 array([[1, 0, 0],
 [0, 2, 0],
 [0, 0, 3]])
+```
+
+```python
 np.diag([1, 2, 3], 1)
 array([[0, 1, 0, 0],
 [0, 0, 2, 0],
 [0, 0, 0, 3],
 [0, 0, 0, 0]])
+```
+
+```python
 a = np.array([[1, 2], [3, 4]])
 np.diag(a)
 array([1, 4])
@@ -139,7 +150,9 @@ array([1, 4])
 
 The `vander(x, n)` defines a Vandermonde matrix as a 2D NumPy array.
 
-In linear algebra, a Vandemonde matrix, named after Alexandre-Théophile Vandermonde, is a matrix with the terms of geometric progression in each row. A geometric progression also known as a geometric sequence is a sequence of non-zero numbers. Each term after the first is found by multiplying the previous one by a fixed, non-zero number called the common ratio.
+In linear algebra, a Vandermonde matrix, named after Alexandre-Théophile Vandermonde, is a matrix with the terms of geometric progression in each row. 
+
+A geometric progression (also known as a geometric sequence) is a sequence of non-zero numbers. Each term after the first is found by multiplying the previous one by a fixed, non-zero number called the common ratio.
 
 For example, the sequence, 2, 6, 18, 54... is a geometric progression with a common ratio of 3.
 
@@ -156,11 +169,17 @@ array([[0. , 1. ],
 [1. , 1. ],
 [1.5, 1. ],
 [2. , 1. ]])
+```
+
+```python
 np.vander([1, 2, 3, 4], 2)
 array([[1, 1],
 [2, 1],
 [3, 1],
 [4, 1]])
+```
+
+```python
 np.vander((1, 2, 3, 4), 4)
 array([[ 1,  1,  1,  1],
 [ 8,  4,  2,  1],

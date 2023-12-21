@@ -78,13 +78,15 @@ array([127, -128, -127], dtype=int8)
 array([[1., 0., 0.],
 [0., 1., 0.],
 [0., 0., 1.]])
-np.eye(3, 5)
+</code></pre>
+<pre><code class="language-python">np.eye(3, 5)
 array([[1., 0., 0., 0., 0.],
 [0., 1., 0., 0., 0.],
 [0., 0., 1., 0., 0.]])
 </code></pre>
 <h3>numpy.diag</h3>
-<p>The <code>numpy.diag</code> can be used to define a 2D array with the given values along the diagonal. You can pass two parameters, an input array and k. The k is an integer, and it's value decides the main diagonal.</p>
+<p>The <code>numpy.diag</code> is used for the extracted diagonal or constructed diagonal array. It can be used to define a 2D array with the given values along the diagonal. You can pass two parameters, an input array and k. The k is an integer, and it's value decides the main diagonal.</p>
+<p>If the input array, then <code>numpy.diag</code> will return a copy of its k-th diagonal. If it is a 1D array, then it will return a 2D array with the array on the k-th diagonal.</p>
 <p>If k is positive, then the diagonal is above the main diagonal. And if k is negative then the diagonal is below the main diagonal.</p>
 <p>Or if the input array is a 2D array, it returns a 1D array that is only the diagonal elements.</p>
 <p>The <code>numpy.eye</code> and <code>numpy.diag</code> functions can be helpful for doing linear algebra.</p>
@@ -92,18 +94,21 @@ array([[1., 0., 0., 0., 0.],
 array([[1, 0, 0],
 [0, 2, 0],
 [0, 0, 3]])
-np.diag([1, 2, 3], 1)
+</code></pre>
+<pre><code class="language-python">np.diag([1, 2, 3], 1)
 array([[0, 1, 0, 0],
 [0, 0, 2, 0],
 [0, 0, 0, 3],
 [0, 0, 0, 0]])
-a = np.array([[1, 2], [3, 4]])
+</code></pre>
+<pre><code class="language-python">a = np.array([[1, 2], [3, 4]])
 np.diag(a)
 array([1, 4])
 </code></pre>
 <h3>numpy.vander</h3>
 <p>The <code>vander(x, n)</code> defines a Vandermonde matrix as a 2D NumPy array.</p>
-<p>In linear algebra, a Vandemonde matrix, named after Alexandre-Théophile Vandermonde, is a matrix with the terms of geometric progression in each row. A geometric progression also known as a geometric sequence is a sequence of non-zero numbers. Each term after the first is found by multiplying the previous one by a fixed, non-zero number called the common ratio.</p>
+<p>In linear algebra, a Vandermonde matrix, named after Alexandre-Théophile Vandermonde, is a matrix with the terms of geometric progression in each row.</p>
+<p>A geometric progression (also known as a geometric sequence) is a sequence of non-zero numbers. Each term after the first is found by multiplying the previous one by a fixed, non-zero number called the common ratio.</p>
 <p>For example, the sequence, 2, 6, 18, 54... is a geometric progression with a common ratio of 3.</p>
 <p>In the representation <code>vander(x, n)</code> where x is the input, then each column of the matrix is a decreasing power of the input.</p>
 <p>The input can only be the highest polynomial order of <code>n-1</code>, where <code>n</code> is the second parameter passed into the <code>vander</code> equation.</p>
@@ -114,12 +119,14 @@ array([[0. , 1. ],
 [1. , 1. ],
 [1.5, 1. ],
 [2. , 1. ]])
-np.vander([1, 2, 3, 4], 2)
+</code></pre>
+<pre><code class="language-python">np.vander([1, 2, 3, 4], 2)
 array([[1, 1],
 [2, 1],
 [3, 1],
 [4, 1]])
-np.vander((1, 2, 3, 4), 4)
+</code></pre>
+<pre><code class="language-python">np.vander((1, 2, 3, 4), 4)
 array([[ 1,  1,  1,  1],
 [ 8,  4,  2,  1],
 [27,  9,  3,  1],
