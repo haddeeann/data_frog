@@ -62,7 +62,7 @@ Web API's and web scraping are great for getting data as well. For scraping data
 
 - import.io
 - ScraperWiki
-Tabular
+- Tabular
 - Google Sheets
 - Excel
 
