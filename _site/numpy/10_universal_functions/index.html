@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Data Frog</title>
+    <link rel="stylesheet" href="/static/style.css" />
+    <link rel="icon" href="/static/favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <header>
+    <div class="logo">
+        <a href="/">
+            <img src="/static/frog_logo.png" alt="Frog Protection">
+        </a>
+    </div>
+    <div class="logo-text-small">
+        <div>Data Science Personal Journey</div>
+    </div>
+</header>
+    <main>
+        <h1>Universal Functions</h1>
+<p><a href="/index.html">Go home</a></p>
+<p><a href="https://numpy.org/doc/stable/user/basics.ufuncs.html">Structured Arrays</a></p>
+<h2>Universal Functions</h2>
+<p>A universal function (or a <code>ufunc</code> for short) is a function that operates on <code>ndarrays</code> in an element by element fashion.</p>
+<p>This supports array broadcasting, type casting, and several other standard features.</p>
+<p>That is, a <code>ufunc</code> is a &quot;vectorized&quot; wrapper for a function that takes a fixed number of specific inputs and produces a fixed number of specific outputs.</p>
+<h2>Ufunc methods</h2>
+<p>All ufuncs have four methods. These methods only make sense on scalar ufuncs that take tow input arguments and return one output argument.</p>
+<p>Attempting to call these methods on other ufuncs will case a ValueError.</p>
+<p>The reduce like methods all take an axis keyword, a dtype keyword, and an out keyword, and the arrays must all have the dimension &gt;= 1.</p>
+<p>The axis keyword specifies the axis of the array over whihc the reduction will take place.</p>
+<p>Generally, it is an integer, though for <code>numpy.ufunc.reduce</code>, it can also be a tupe of an int to reduce over several axes at once, or None, to reduce over all axes.</p>
+<p>The dtype keyword allows you to manage a very common problem that arises when naively using <code>ufunc.reduce</code>.</p>
+<p>Sometimes you may have an array of a certain data type and wish to add up all of it's elements, but the result does not fit into the data type of the array.</p>
+<p>This commonly happens if you have an array of single-byte integers.</p>
+<p>The dtype keyword allows you to alter the data type over which the reduction takes place.</p>
+<p>Therefore, you can ensure that the output is the datatype with the precision large enough to handle your output. The responsibility of altering the reduce type is mostly up to you.</p>
+<p>There's one exception, if no dtype is given for a reduction ont eh 'add' or 'multiply' operations, then if the input type is an integer or boolean type and it's smaller than the size of the <code>nupy.itn_</code> data type, it will be internally upcast to the <code>int_ or </code>numpy.uint` data-type.</p>
+
+    </main>
+    <footer>
+    <div>
+        <div>Sponsored by Frog Protection Services</div>
+        <div>Do you have Frog Protection?</div>
+    </div>
+    <hr />
+    <div>
+        <span class="logo-text-large">hello world</span>
+        <span class="logo-text-small">production</span>
+    </div>
+</footer>
+</body>
+</html>

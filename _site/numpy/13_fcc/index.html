@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Data Frog</title>
+    <link rel="stylesheet" href="/static/style.css" />
+    <link rel="icon" href="/static/favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <header>
+    <div class="logo">
+        <a href="/">
+            <img src="/static/frog_logo.png" alt="Frog Protection">
+        </a>
+    </div>
+    <div class="logo-text-small">
+        <div>Data Science Personal Journey</div>
+    </div>
+</header>
+    <main>
+        <h1>Data Frog</h1>
+<p><a href="/index.html">Go home</a></p>
+<p><a href="https://www.youtube.com/watch?v=QUT1VHiLmmI">FreeCodeCamp tutorial</a></p>
+<h2>Learning NumPy with FreeCodeCamp</h2>
+<p>Welcome to Data Frog. My personal notes and learning journey for data science and machine learning.</p>
+<h2>NumPys</h2>
+<p>NumPy is a multidimensional library. Why use NumPy over Lists.</p>
+<p>The main benefit is speed. Native Python Lists are slow. But, NumPy is faster because it uses a fixed type for the data.</p>
+<p>Computer see binary when they are looking at data. For example, the number 5 would be binary form. And NumPy would cast it to an Int32 format.</p>
+<p>But you can specify to a single byte that would be Int8.</p>
+<p>But with Lists, you'd need to store a lot more things with Python. Internally each List consists of:</p>
+<ol>
+<li>Sizes</li>
+<li>Reference Count</li>
+<li>Object Type</li>
+<li>Object Value</li>
+</ol>
+<p>So if you break it up into the bits that are stored it takes a lot more space to store even a single value in the List. So, in summary because NumPy uses less bytes of memory, so it's faster.</p>
+<p>It's also faster because you don't need type checking with objects.</p>
+<p>NumPy also uses contiguous memory. Where Lists don't need to be stored in contiguous memory. That makes it faster for the computer to access the NumPy data. That means that NumPy uses blocks of memory next to each other.</p>
+<p>With list of data in Python, the storage in memory is actually just pointing to pointers in memory.</p>
+<p>The benefits:</p>
+<ol>
+<li>SIMD Vector Processing in the CPU makes this faster. Because we can perform computations simultaneously.</li>
+<li>Effective Cache Utilization, because it's contiguous</li>
+</ol>
+<p>List can do insertion, deletion, appending, concatenating. NumPy can do all that and more. For example. You can multiply two arrays at once really quickly. Single value item computations.</p>
+<p>Useful things about NumPy:</p>
+<ul>
+<li>
+<p>Application of NumPy are numerous. Like Matlab replacements, because of all the math that NumPy can do.</p>
+</li>
+<li>
+<p>Useful in plotting.</p>
+</li>
+<li>
+<p>Backend in many other things like Pandas. You can store images through NumPy.</p>
+</li>
+<li>
+<p>Good for learning machine learning applications. Tensor libraries are pretty similar to NumPy libraries.</p>
+</li>
+</ul>
+<p>You can make multi dimensions by nesting lists.</p>
+<p><code>a.ndim</code> gets the dimension. <code>b.shape</code> gives us the shape of the array. a.dtype gives us the type of the data in the array. You can also pass in the dtype when making the array. To see the size, <code>a.itemsize</code>. <code>a.nbytes</code> also gives us the size in bytes.</p>
+<p>To access specific columns, rows.</p>
+<p>For example, take a two-dimensional array</p>
+<pre><code class="language-python">a = np.array([1,2,3], [4,5,6])
+# row and column [r, c]
+a[1, 5]
+# or negative from the end
+a[1, -2]
+# get the whole row
+a[0, :]
+# get the whole column
+a[:, 2]
+# more detailed [startindex:endindex:stepsize]
+a[0, 1:6:2]
+# to assign a new value to a certain element
+a[1, 5] = 20
+# replace a column with more than one value
+a[:, 2] = [1, 2]
+</code></pre>
+<p>You can quickly replace columns of values or rows:</p>
+<pre><code class="language-python">a[:,2] = 5
+a[:,2] = [1,2]
+</code></pre>
+<p>To get a specific element try working outside in to calc what you need.</p>
+<p>All 0's.</p>
+<pre><code class="language-python">np.zeros(5)
+np.zeros((2,3))
+</code></pre>
+<p>All 1's.</p>
+<pre><code class="language-python">np.ones((4,2,2))
+</code></pre>
+<p>All any other number, the first parenthesis hold the shape of the data.</p>
+<pre><code class="language-python">np.full((2,2), 99, dtype=float32)
+</code></pre>
+<p>There is also a full_like method that allows us to take a shape that has already been built, and pass in and make an array that is the same size.</p>
+<pre><code class="language-python">np.full_like(a, 4)
+</code></pre>
+<p>Initialize an array of random numbers:</p>
+<pre><code class="language-python">np.random.rand(4,2)
+</code></pre>
+<p>or you can use random_sample:</p>
+<pre><code class="language-python">np.random.random_sample(a.shape)
+</code></pre>
+<p>Or random integer values, passing in a start value and size.</p>
+<pre><code class="language-python">np.random.randint(7, size=(3,3))
+</code></pre>
+<p>You can do an identity matrix:</p>
+<pre><code class="language-python">np.identity(5)
+</code></pre>
+<p>You can repeat an array a few times:</p>
+<pre><code class="language-python">arr = np.array([[1,2,3]])
+r1 = np.repeat(arr, 3, axis=0)
+</code></pre>
+<p>Be careful when copying arrays, because copies can change the original data.</p>
+<p>One of the fundamental uses of NumPy is element wise addition and subtraction.</p>
+<pre><code class="language-python">a = np.array([1,2,3,4])
+a - 2
+a * 2
+a / 2
+np.sin(a)
+np.cos(a)
+</code></pre>
+<p>All the different things that you can do:</p>
+<p>NumPy vs Lists: https://www.youtube.com/channel/UC_mm...
+🔗 Indexing: https://docs.scipy.org/doc/numpy-1.13...
+🔗 Array Creation Routines: https://docs.scipy.org/doc/numpy/refe...
+🔗 Math Routines Docs: https://docs.scipy.org/doc/numpy/refe...
+🔗 Linear Algebra Docs: https://docs.scipy.org/doc/numpy/refe...</p>
+<p>Linear Algebra:
+multiplying matrices is a different process.</p>
+<pre><code class="language-python">a = np.ones((2,3))
+b = np.full((3,2), 2)
+np.matmul(a,b)
+</code></pre>
+<p>The columns of the first matrix has to be equal to the rows of the second matrices. <code>matmul</code> is a matrix multiplier</p>
+<pre><code class="language-python">c = np.identity(3)
+np.linalg.det(c)
+</code></pre>
+<p>Find the determinant of the identity matrix.</p>
+<p>This code in complete can be found:</p>
+<p><a href="https://github.com/KeithGalli/NumPy">Code</a></p>
+<h3>Statistics with NumPy</h3>
+<p>Things like mean, min, max</p>
+<pre><code class="language-python">np.min(stats, axis=0)
+np.max(status, axis=1)
+np.sum(stats, axis=0)
+</code></pre>
+<h3>Reorganizing Arrays</h3>
+<pre><code class="language-python">before = np.array([1,2,3,4], [5,6,7,8])
+print(before)
+
+after = before.reshape((8,1))
+after = before.reshape((4,4))
+after = before.reshape((2,2,2))
+</code></pre>
+<p>If you get an error it's likely due to a mismatch in size.</p>
+<h3>Stacking vectors</h3>
+<p>Vertical stacking</p>
+<pre><code class="language-python">v1 = np.array([1,2,3,4])
+v2 = np.array([5,6,7,8])
+np.vstack([v1,v2,v1,v2])
+</code></pre>
+<p>Horizontal stacking</p>
+<pre><code class="language-python">h1 = np.ones((2,4))
+h2 = np.zeroes((2,4))
+np.hstack((h1, h2))
+</code></pre>
+
+    </main>
+    <footer>
+    <div>
+        <div>Sponsored by Frog Protection Services</div>
+        <div>Do you have Frog Protection?</div>
+    </div>
+    <hr />
+    <div>
+        <span class="logo-text-large">hello world</span>
+        <span class="logo-text-small">production</span>
+    </div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Data Frog</title>
+    <link rel="stylesheet" href="/static/style.css" />
+    <link rel="icon" href="/static/favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <header>
+    <div class="logo">
+        <a href="/">
+            <img src="/static/frog_logo.png" alt="Frog Protection">
+        </a>
+    </div>
+    <div class="logo-text-small">
+        <div>Data Science Personal Journey</div>
+    </div>
+</header>
+    <main>
+        <h1>Data Types with NumPy</h1>
+<p><a href="/index.html">Go home</a></p>
+<p><a href="https://numpy.org/doc/stable/user/basics.types.html">Data Types with NumPy</a></p>
+<p>NumPy supports a greater variety of number types than Python does.</p>
+<p>Here's the data types for numbers and how to modify an array's data type.</p>
+<table>
+<thead>
+<tr>
+<th>NumPy type</th>
+<th>C type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>numpy.bool_</td>
+<td>bool</td>
+</tr>
+<tr>
+<td>numpy.byte</td>
+<td>signed char</td>
+</tr>
+<tr>
+<td>numpy.ubyte</td>
+<td>unsigned char</td>
+</tr>
+<tr>
+<td>numpy.short</td>
+<td>short</td>
+</tr>
+<tr>
+<td>numpy.ushort</td>
+<td>unsigned short</td>
+</tr>
+<tr>
+<td>numpy.intc</td>
+<td>int</td>
+</tr>
+<tr>
+<td>numpy.unintc</td>
+<td>unsigned int</td>
+</tr>
+<tr>
+<td>numpy.int_</td>
+<td>long</td>
+</tr>
+<tr>
+<td>numpy.uint</td>
+<td>unsigned long</td>
+</tr>
+<tr>
+<td>numpy.longlong</td>
+<td>long long</td>
+</tr>
+<tr>
+<td>numpy.ulonglong</td>
+<td>unsigned long long</td>
+</tr>
+<tr>
+<td>numpy.half / numpy.float16</td>
+<td></td>
+</tr>
+<tr>
+<td>numpy.single</td>
+<td>float</td>
+</tr>
+<tr>
+<td>numpy.double</td>
+<td>double</td>
+</tr>
+<tr>
+<td>numpy.longdouble</td>
+<td>long double</td>
+</tr>
+<tr>
+<td>numpy.csignle</td>
+<td>float complex</td>
+</tr>
+<tr>
+<td>numpy.cdouble</td>
+<td>double complex</td>
+</tr>
+<tr>
+<td>numpy.clongdouble</td>
+<td>long double complex</td>
+</tr>
+</tbody>
+</table>
+<p>Since many of these have platform dependent definitions, a set of fixed size aliases are provided.</p>
+<p>NumPy number types are instances of dtype objects (data-type) each having a unique characteristic. Once you've imported the NumPy using the <code>&gt;&gt;&gt; import numpy as np</code> you can use any of the data types with <code>np.bool_</code>, <code>np.float32</code>, etc.</p>
+<p>There are 5 basic numerical types. There's booleans, integers, unsigned integers, floating point values and complex.</p>
+<p>If the data type has a number in the name it indicates the <code>bitsize</code> of the type. That's how many bits are needed to represent a single value in memory.</p>
+<p>Some data types have different <code>bitsizes</code> that depends on the platform. That can be important when interfacing with low level code - like with C or Fortran where the raw memory is addressed.</p>
+<h2>Array Scalars</h2>
+<p>NumPy generally returns elements of arrays as array scalars, a scalar with associated dtype.</p>
+<p>Array scalars differ from Python scalars, but for the most part they are interchangeable.</p>
+<p>The primary advantage of using array scalars is that they preserve the array type. So the use of array scalars ensures identical behavior between arrays and scalars. That's independent of whether the value is inside the array or not.</p>
+<h2>Overflow Errors</h2>
+<p>The fixed size of NumPy numeric types may cause overflow errors when a value requires more memory than is available in the data type.</p>
+<p>The behavior of NumPy and Python integer types differs significantly for integer overflows. This could be confusing if users are expecting NumPy integers to behave similar to Python <code>int</code>.</p>
+<p>In Python the <code>int</code> is flexible. So it will expand and not overflow. The size of the int in NumPy is not flexible.</p>
+<p>To verify the minimum or maximum values of NumPy integer and float points, NumPy provides <code>numpy.iinfo</code> and <code>numpy.finfo</code>.</p>
+<h2>Extended Precision</h2>
+<p>Python's floating point numbers are usual 64 bit floating point numbers. Pretty close to the <code>np.float64</code>.</p>
+<p>NumPy does not provide a dtype with more precision than C's long double.</p>
+<p>For efficient memory alignment, the <code>np.longdouble</code> is usually stored padded with zero bits.</p>
+
+    </main>
+    <footer>
+    <div>
+        <div>Sponsored by Frog Protection Services</div>
+        <div>Do you have Frog Protection?</div>
+    </div>
+    <hr />
+    <div>
+        <span class="logo-text-large">hello world</span>
+        <span class="logo-text-small">production</span>
+    </div>
+</footer>
+</body>
+</html>

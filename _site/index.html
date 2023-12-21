@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Data Frog</title>
+    <link rel="stylesheet" href="/static/style.css" />
+    <link rel="icon" href="/static/favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <header>
+    <div class="logo">
+        <a href="/">
+            <img src="/static/frog_logo.png" alt="Frog Protection">
+        </a>
+    </div>
+    <div class="logo-text-small">
+        <div>Data Science Personal Journey</div>
+    </div>
+</header>
+    <main>
+        <h1>Data Frog</h1>
+<p>Welcome to Data Frog. My personal notes and learning journey for data science and machine learning.</p>
+<h2>Data Sourcing</h2>
+<p>When looking for data to start experimenting with, you can think of it in three categories: proprietary, public, and purchased.</p>
+<p>Proprietary can be thought of as 'in house' data. Or data from an organization you are already a part of.</p>
+<p>Public is a category of data that is available to anyone.</p>
+<p><strong>Some resources:</strong></p>
+<p>Data at national level:
+<a href="https://data.gov/">Data.gov data</a></p>
+<p>Data at government state level:
+<a href="https://opendata.utah.gov/">Utah gov data</a></p>
+<p>European data:
+<a href="https://data.europa.eu/en">European data</a></p>
+<p>Non-Profit data:
+<a href="https://data.unicef.org/">Unicef data</a></p>
+<p><a href="https://www.who.int/data/">WHO data</a></p>
+<p>Private organizations' data:
+<a href="https://www.pewresearch.org/">Pew Research Center</a></p>
+<p><a href="https://developer.nytimes.com/">NY Times</a></p>
+<p>Large data:
+<a href="https://www.google.com/publicdata/directory#!">Google data</a></p>
+<p><a href="https://aws.amazon.com/marketplace/search/results?trk=868d8747-614e-4d4d-9fb6-fd5ac02947a8&amp;sc_channel=el&amp;FULFILLMENT_OPTION_TYPE=DATA_EXCHANGE&amp;CONTRACT_TYPE=OPEN_DATA_LICENSES&amp;filters=FULFILLMENT_OPTION_TYPE%2CCONTRACT_TYPE">AWS marketplace</a></p>
+<p><a href="https://registry.opendata.aws/">AWS opendata</a></p>
+<p>Web API's and web scraping are great for getting data as well. For scraping data the following tools are great:</p>
+<ul>
+<li>import.io</li>
+<li>ScraperWiki
+Tabular</li>
+<li>Google Sheets</li>
+<li>Excel</li>
+</ul>
+<p>When using Google sheets, you can pull in tables very easily from around the web. Open up Google sheets, in the A1 cell, paste this type of formula (an example):</p>
+<p><code>=IMPORTHTML('https://en.wikipedia.org/wiki/Iron_Chef_America', 'table', 2)</code></p>
+<h2><a href="./numpy">NumPy</a></h2>
+<p>Installing NumPy can be done with pip:</p>
+<p><code>pip install numpy</code></p>
+<p>NumPy is a multidimensional library, meaning that you can have 1D, 2D or even more dimensions in the arrays. The benefit of using NumPy is that using Python lists are really slow. NumPy is much faster because they have fixed data types. NumPy uses less bytes of memory. Which also makes it faster.</p>
+<p>NumPy uses contiguous memory as well.</p>
+<p>To start using NumPy from the command line, start the command line. Then from there start using Python by entering:</p>
+<p><code>python</code></p>
+<p>That will put you in a Python environment. Then you can start using NumPy with:</p>
+<p><code>import numpy as np</code></p>
+<p>Then you have a numpy prompt and can start working inputting and manipulating arrays and data.</p>
+<h2><a href="./stats/">Statistics</a></h2>
+
+    </main>
+    <footer>
+    <div>
+        <div>Sponsored by Frog Protection Services</div>
+        <div>Do you have Frog Protection?</div>
+    </div>
+    <hr />
+    <div>
+        <span class="logo-text-large">hello world</span>
+        <span class="logo-text-small">production</span>
+    </div>
+</footer>
+</body>
+</html>
