@@ -5,4 +5,4 @@ layout: "article_type_two.njk"
 
 2. [Quantitative Data](./2_quantitative_data)
 
-3. [Summarizing Quantitative Data](./3_summarizing_quantitative_datas)
+3. [Summarizing Quantitative Data](./3_summarizing_quantitative_data)
