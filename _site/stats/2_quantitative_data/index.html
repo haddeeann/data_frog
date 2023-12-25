@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Data Frog</title>
+    <link rel="stylesheet" href="/static/style.css" />
+    <link rel="icon" href="/static/favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <header>
+    <div id="logo-container">
+        <div class="logo">
+            <a href="/">
+                <img src="/static/frog_logo.png" alt="Frog Protection">
+            </a>
+        </div>
+        <div class="logo-text-small">
+            <a href="/">Data Science Personal Journey</a>
+        </div>
+    </div>
+    <div id="nav-container">
+        <div class="logo-text-small">
+            <span><a href="/numpy">NumPy</a></span>
+            <span><a href="/stats">Statistics</a></span>
+        </div>
+    </div>
+</header>
+    <main>
+        <h1>Quantitative Statistics</h1>
+<p>Understanding quantitative statistics involves several key concepts, including frequency tables and plots, histograms, and stem and leaf plots.</p>
+<h2>Frequency Tables and Plots</h2>
+<p>Frequency tables are used to display the number of times (frequency) each value in a set of data occurs. They are a simple way to view and analyze quantitative data.</p>
+<ul>
+<li><strong>Frequency Plot</strong>: This is a graphical representation of a frequency table. The plot shows the frequency of each data point or a range of data, making it easier to see patterns or trends.</li>
+</ul>
+<h2>Histograms</h2>
+<p>A histogram is a type of bar graph that represents the distribution of numerical data. It groups data into bins (ranges) and displays the frequency of data points within each bin.</p>
+<ul>
+<li><strong>How to Interpret a Histogram</strong>:
+<ul>
+<li><strong>Width of Bins</strong>: Each bin represents a range of values. The width of each bin can affect the interpretation.</li>
+<li><strong>Height of Bins</strong>: The height indicates the frequency of data within that range.</li>
+<li><strong>Shape of the Histogram</strong>: The overall shape can give insights into the distribution of the data (e.g., normal, skewed, bimodal).</li>
+<li><strong>Outliers</strong>: Unusually high or low bars might indicate outliers in the data.</li>
+</ul>
+</li>
+</ul>
+<h2>Stem and Leaf Plots</h2>
+<p>Stem and leaf plots are a way of displaying quantitative data that maintains the original data values while showing the distribution. Each data point is split into a &quot;stem&quot; (like the leading digit) and a &quot;leaf&quot; (like the last digit).</p>
+<ul>
+<li><strong>How to Read a Stem and Leaf Plot</strong>:
+<ul>
+<li><strong>Stem</strong>: Usually on the left, representing the higher-order values.</li>
+<li><strong>Leaf</strong>: On the right, showing the lower-order values.</li>
+<li><strong>Reading the Plot</strong>: Each line combines stem and leaf to form the original data points.</li>
+<li><strong>Arrangement</strong>: Data is arranged in ascending order, making it easy to see the distribution and identify the mode, median, and even approximate mean.</li>
+</ul>
+</li>
+</ul>
+<p>Each of these tools provides a different way to visualize and interpret quantitative data, helping in understanding the distribution, central tendency, and spread of the data.</p>
+<h2>Understanding Distributions in Data</h2>
+<p>Analyzing data involves recognizing various patterns or characteristics in distributions. Here's an overview of common distribution shapes and features:</p>
+<h2>Common Shapes of Distributions</h2>
+<ul>
+<li><strong>Normal Distribution</strong>: Often called a &quot;bell curve&quot;, it's symmetric with a single peak in the middle.</li>
+<li><strong>Skewed Distribution</strong>: A distribution is skewed if one tail is longer than the other. It's &quot;skewed left&quot; if the left tail is longer, and &quot;skewed right&quot; if the right tail is longer.</li>
+<li><strong>Uniform Distribution</strong>: Every value has approximately the same frequency, resulting in a flat distribution.</li>
+<li><strong>Bimodal Distribution</strong>: A distribution with two peaks, which might indicate two different groups within the data.</li>
+</ul>
+<h2>Clusters, Peaks, Gaps, and Outliers</h2>
+<ul>
+<li><strong>Clusters</strong>: Groups of data points that are close to each other, indicating a concentration of values.</li>
+<li><strong>Peaks</strong>: High points in the distribution, also known as &quot;modes&quot;.</li>
+<li><strong>Gaps</strong>: Areas in the distribution with a low frequency of data points.</li>
+<li><strong>Outliers</strong>: Data points that are significantly different from the majority of the data. They can indicate variability in the data or errors in data collection.</li>
+</ul>
+<h2>Dot Plots</h2>
+<ul>
+<li>Dot plots are useful for comparing small sets of data. Each data point is represented by a dot.</li>
+<li><strong>Comparing Dot Plots</strong>: Look for differences in the center, spread, and overall range. Also, note any patterns, clusters, or outliers.</li>
+</ul>
+<h2>Histograms</h2>
+<ul>
+<li>Histograms are better for larger data sets. They group data into bins and show frequency per bin.</li>
+<li><strong>Comparing Histograms</strong>: Compare the shapes, center, and spread of distributions. Pay attention to the skewness and the presence of multiple peaks.</li>
+</ul>
+<h2>Box Plots</h2>
+<ul>
+<li>Box plots provide a summary of the distribution's quartiles and median, also indicating outliers.</li>
+<li><strong>Comparing Box Plots</strong>: Look at the range, interquartile range (IQR), median, and any outliers. Box plots are particularly useful for comparing the spread and identifying outliers.</li>
+</ul>
+<p>Each of these graphical methods offers a unique way to analyze and compare distributions, helping to highlight different aspects of the data.</p>
+<h2>Line Graphs: Uses and Potential Misleading Nature</h2>
+<p>Line graphs are a popular tool in statistics and data analysis, known for their ability to show trends over time. Below is an overview of their uses and how they can sometimes be misleading.</p>
+<h3>Common Uses of Line Graphs</h3>
+<ol>
+<li><strong>Trend Analysis</strong>: Line graphs are excellent for showing changes and trends over time.</li>
+<li><strong>Comparing Multiple Series</strong>: They allow for the comparison of multiple data series within the same graph, making it easy to compare trends between different groups or categories.</li>
+<li><strong>Highlighting Continuity</strong>: Line graphs emphasize the continuity of the data, particularly useful in cases where the data is collected over regular intervals.</li>
+</ol>
+<h3>How Line Graphs Can Be Misleading</h3>
+<ol>
+<li><strong>Manipulating Axis Scale</strong>: If the scale of the y-axis is manipulated (either compressed or expanded), it can exaggerate or downplay trends.</li>
+<li><strong>Cherry-Picking Data Points</strong>: Selecting specific data ranges while omitting others can lead to misleading conclusions.</li>
+<li><strong>Not Starting the Y-Axis from Zero</strong>: Starting the y-axis from a value other than zero can dramatically alter the appearance of the graph, making changes seem more significant than they are.</li>
+<li><strong>Using Too Many Data Points</strong>: Overloading a line graph with too many data points or lines can make it cluttered and difficult to interpret.</li>
+<li><strong>Ignoring Confounding Variables</strong>: Not accounting for external factors that might affect the data can lead to incorrect interpretations of trends.</li>
+</ol>
+<p>When using line graphs, it's crucial to present data honestly and clearly, avoiding these pitfalls to ensure accurate and truthful representation of the data.</p>
+
+    </main>
+    <footer>
+    <div>
+        <div>Sponsored by Frog Protection Services</div>
+        <div>Do you have Frog Protection?</div>
+    </div>
+    <hr />
+    <div>
+        <span class="logo-text-large">hello world</span>
+        <span class="logo-text-small">production</span>
+    </div>
+</footer>
+</body>
+</html>
