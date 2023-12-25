@@ -1,8 +1,6 @@
 ---
 layout: "article_type_two.njk"
---- 
-
-# Analyzing Categorical Data
+---
 
 ## Individuals
 

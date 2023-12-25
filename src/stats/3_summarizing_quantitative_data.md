@@ -2,8 +2,6 @@
 layout: "article_type_two.njk"
 ---
 
-# Summarizing Quantitative Data
-
 ## Mean (Average)
 
 - **Calculation**: The mean is calculated by summing all values and then dividing by the number of values.

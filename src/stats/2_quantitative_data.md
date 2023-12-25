@@ -2,10 +2,6 @@
 layout: "article_type_two.njk"
 ---
 
-# Quantitative Statistics
-
-Understanding quantitative statistics involves several key concepts, including frequency tables and plots, histograms, and stem and leaf plots. 
-
 ## Frequency Tables and Plots
 
 Frequency tables are used to display the number of times (frequency) each value in a set of data occurs. They are a simple way to view and analyze quantitative data.
