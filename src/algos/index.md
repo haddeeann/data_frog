@@ -18,4 +18,24 @@ Here's my list of leetcode problems and solutions (in Python):
 
 [Python Solutions](./python/)
 
-[38. count and say](./python/count)
+1. [two sum](./python/1_two_sum)
+
+2. [add two numbers](./python/2_add_two_numbers)
+
+3. [longest substring](./python/3_longest_substring)
+
+4. [median](./python/4_median_two)
+
+5. [long pal](./python/5_long_pal)
+
+6. [zig zag](./python/6_zig_zag)
+
+7. [reverse int](./python/7_reverse_int)
+
+8. [atoi](./python/8_atoi)
+
+9. [paly number](./python/9_paly_number)
+
+10. [reg expression](./python/10_reg_expression)
+
+38. [count and say](./38_count)

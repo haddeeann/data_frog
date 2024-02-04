@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Data Frog</title>
+    <link rel="stylesheet" href="/static/style.css" />
+    <link rel="icon" href="/static/favicon.ico" type="image/x-icon">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-3XCWXXR1VM"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-3XCWXXR1VM');
+    </script>
+</head>
+<body>
+    <header>
+    <div id="logo-container">
+        <div class="logo">
+            <a href="/">
+                <img src="/static/frog_logo.png" alt="Frog Protection">
+            </a>
+        </div>
+        <div class="logo-text-small">
+            <a href="/">Data Science & Computer Programming</a>
+        </div>
+    </div>
+    <div id="nav-container">
+        <div class="logo-text-small">
+            <span><a href="/numpy">NumPy</a></span>
+            <span><a href="/stats">Statistics</a></span>
+            <span><a href="/videos">Videos</a></span>
+            <span><a href="/algos">Algorithms</a></span>
+        </div>
+    </div>
+</header>
+    <main>
+        <p>Given an input string s and a pattern p, implement regular expression matching with support for '.' and '*' where:</p>
+<p>sol = Solution()
+sol.isMatch(&quot;abbbcd&quot;, &quot;ab*cd&quot;)</p>
+<p>'.' Matches any single character.​​​​
+'*' Matches zero or more of the preceding element.
+The matching should cover the entire input string (not partial).</p>
+<p>Example 1:</p>
+<p>Input: s = &quot;aa&quot;, p = &quot;a&quot;
+Output: false
+Explanation: &quot;a&quot; does not match the entire string &quot;aa&quot;.
+Example 2:</p>
+<p>Input: s = &quot;aa&quot;, p = &quot;a*&quot;
+Output: true
+Explanation: '*' means zero or more of the preceding element, 'a'. Therefore, by repeating 'a' once, it becomes &quot;aa&quot;.
+Example 3:</p>
+<p>Input: s = &quot;ab&quot;, p = &quot;.<em>&quot;
+Output: true
+Explanation: &quot;.</em>&quot; means &quot;zero or more (*) of any character (.)&quot;.</p>
+<p>Constraints:</p>
+<p>1 &lt;= s.length &lt;= 20
+1 &lt;= p.length &lt;= 30
+s contains only lowercase English letters.
+p contains only lowercase English letters, '.', and '<em>'.
+It is guaranteed for each appearance of the character '</em>', there will be a previous valid character to match.
+Accepted
+680,479
+Submissions</p>
+<pre><code class="language-python">class Solution(object):
+    def isMatch(self, s, pattern):
+        &quot;&quot;&quot;
+        :type s: str
+        :type p: str
+        :rtype: bool
+        &quot;&quot;&quot;
+        if pattern.find(&quot;*&quot;) == -1 and pattern.find(&quot;.&quot;) == -1:
+            if s == pattern:
+                return True
+            else:
+                return False
+
+        s_i = len(s) - 1
+        star = False
+        star_dot = False
+        star_dot_i = None
+        for i, x in enumerate(pattern[::-1]):
+            str_i = s[s_i]
+            if star_dot:
+                star_dot = False
+                if x != str_i:
+                    while s_i &lt; star_dot_i and x != str_i:
+                        s_i += 1
+                        str_i = s[s_i]
+                    if str_i != x:
+                        return False
+
+            if star:
+                star = False
+
+                if x == &quot;.&quot;:
+                    star_dot = True
+                    star_dot_i = s_i
+                    match = str_i
+                else:
+                    match = x
+                letter = str_i
+                while match == letter and s_i &gt; 0:
+                    s_i -= 1
+                    str_i = s[s_i]
+                    letter = str_i
+
+                # if last elem of pattern and there's more string left
+                if i == len(pattern) - 1 and s_i &gt; 0:
+                    return False
+
+                continue
+
+            if s_i &lt; 0 and x != &quot;*&quot;:
+                return False
+
+            if x == str_i:
+                # if last elem of pattern and there's more string left
+                if i == len(pattern) - 1 and s_i &gt; 0:
+                    return False
+                s_i -= 1
+                str_i = s[s_i]
+            elif x == &quot;*&quot;:
+                star = True
+            elif x == &quot;.&quot;:
+                # if last elem of pattern and there's more string left
+                if i == len(pattern) - 1 and s_i &gt; 0:
+                    return False
+                s_i -= 1
+                str_i = s[s_i]
+            else:
+                s_i -= 1
+                str_i = s[s_i]
+                return False
+
+        return True
+
+m = &quot;aa&quot;
+n = &quot;a&quot;
+answer = False
+
+l = &quot;aab&quot;
+o = &quot;c*a*b&quot;
+answer = True
+
+p = &quot;aa&quot;
+q = &quot;a*&quot;
+answer = True
+
+
+a = &quot;abcd&quot;
+b = &quot;d*&quot;
+answer = False
+
+c = &quot;aaa&quot;
+d = &quot;.a&quot;
+answer = False
+
+e = &quot;aaa&quot;
+f = &quot;ab*a&quot;
+answer = False
+
+g = &quot;a&quot;
+h = &quot;ab*a&quot;
+answer = False
+
+i = &quot;ab&quot;
+j = &quot;.*..&quot;
+
+aa = &quot;aasdfasdfasdfasdfas&quot;
+bb = &quot;aasdf.*asdf.*asdf.*asdf.*s&quot;
+
+cc = &quot;aasdfasdfasdfasdfas&quot;
+dd = &quot;aasdf.*asdf.*asdf.*asdf.*s&quot;
+
+ee = &quot;ab c de de&quot;
+ff = &quot;ab .* de&quot;
+
+
+answer = True
+
+sol = Solution()
+
+if sol.isMatch(cc, dd):
+    print(&quot;ten test passed&quot;)
+else:
+    print(&quot;ten test failed&quot;)
+#
+# if not sol.isMatch(m, n):
+#     print(&quot;first test passed&quot;)
+# else:
+#     print(&quot;first test failed&quot;)
+#
+# if sol.isMatch(l, o):
+#     print(&quot;second test passed&quot;)
+# else:
+#     print(&quot;second test failed&quot;)
+#
+# if sol.isMatch(p, q):
+#     print(&quot;third test passed&quot;)
+# else:
+#     print(&quot;third test failed&quot;)
+#
+# if not sol.isMatch(a, b):
+#     print(&quot;fourth test passed&quot;)
+# else:
+#     print(&quot;fourth test failed&quot;)
+#
+# if not sol.isMatch(c, d):
+#     print(&quot;fifth test passed&quot;)
+# else:
+#     print(&quot;fifth test failed&quot;)
+#
+# if not sol.isMatch(e, f):
+#     print(&quot;sixth test passed&quot;)
+# else:
+#     print(&quot;sixth test failed&quot;)
+#
+# if not sol.isMatch(g, h):
+#     print(&quot;seven test passed&quot;)
+# else:
+#     print(&quot;seven test failed&quot;)
+#
+# if sol.isMatch(i, j):
+#     print(&quot;eight test passed&quot;)
+# else:
+#     print(&quot;eight test failed&quot;)
+#
+# if sol.isMatch(aa, bb):
+#     print(&quot;ninth test passed&quot;)
+# else:
+#     print(&quot;ninth test failed&quot;)
+</code></pre>
+
+    </main>
+    <footer>
+    <div>
+        <div>Sponsored by Frog Protection Services</div>
+        <div>Do you have Frog Protection?</div>
+    </div>
+    <hr />
+    <div>
+        <span class="logo-text-large">hello world</span>
+        <span class="logo-text-small">production</span>
+    </div>
+</footer>
+</body>
+</html>

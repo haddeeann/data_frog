@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Data Frog</title>
+    <link rel="stylesheet" href="/static/style.css" />
+    <link rel="icon" href="/static/favicon.ico" type="image/x-icon">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-3XCWXXR1VM"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-3XCWXXR1VM');
+    </script>
+</head>
+<body>
+    <header>
+    <div id="logo-container">
+        <div class="logo">
+            <a href="/">
+                <img src="/static/frog_logo.png" alt="Frog Protection">
+            </a>
+        </div>
+        <div class="logo-text-small">
+            <a href="/">Data Science & Computer Programming</a>
+        </div>
+    </div>
+    <div id="nav-container">
+        <div class="logo-text-small">
+            <span><a href="/numpy">NumPy</a></span>
+            <span><a href="/stats">Statistics</a></span>
+            <span><a href="/videos">Videos</a></span>
+            <span><a href="/algos">Algorithms</a></span>
+        </div>
+    </div>
+</header>
+    <main>
+        <h2>Add Two Numbers</h2>
+<p>You are given two non-empty linked lists representing two non-negative integers. The digits are stored in reverse order, and each of their nodes contains a single digit. Add the two numbers and return the sum as a linked list.</p>
+<p>You may assume the two numbers do not contain any leading zero, except the number 0 itself.</p>
+<h3>Example 1:</h3>
+<pre><code>Input: l1 = [2,4,3], l2 = [5,6,4]
+Output: [7,0,8]
+Explanation: 342 + 465 = 807.
+</code></pre>
+<h3>Example 2:</h3>
+<pre><code>Input: l1 = [0], l2 = [0]
+Output: [0]
+</code></pre>
+<h3>Example 3:</h3>
+<pre><code>Input: l1 = [9,9,9,9,9,9,9], l2 = [9,9,9,9]
+Output: [8,9,9,9,0,0,0,1]
+Explanation: 9,999,999 + 9,999 = 10,009,998
+</code></pre>
+<h3>Constraints:</h3>
+<p>The number of nodes in each linked list is in the range [1, 100].
+0 &lt;= Node.val &lt;= 9
+It is guaranteed that the list represents a number that does not have leading zeros.</p>
+<pre><code class="language-python"># Definition for singly-linked list.
+# class ListNode(object):
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+class Solution(object):
+    def addTwoNumbers(self, l1, l2):
+        &quot;&quot;&quot;
+        :type l1: ListNode
+        :type l2: ListNode
+        :rtype: ListNode
+        &quot;&quot;&quot;
+        return_list = ListNode()
+        loop = return_list
+
+        l1_list = l1
+        l2_list = l2
+        carry = 0
+
+        while l1_list is not None or l2_list is not None:
+            # find the add in
+            if l1_list is not None and l2_list is not None:
+                addSum = l1_list.val + l2_list.val + carry
+            elif l1_list is not None:
+                addSum = l1_list.val + carry
+            elif l2_list is not None:
+                addSum = l2_list.val + carry
+
+            if addSum &gt; 9:
+                strSum = str(addSum)
+                loop.val = int(strSum[1])
+                carry = int(strSum[0])
+            else:
+                loop.val = addSum
+                carry = 0
+
+            if (l1_list is not None and l1_list.next is not None) or (l2_list is not None and l2_list.next is not None):
+                loop.next = ListNode()
+
+            # loop replacements
+            l1_list = l1_list.next if l1_list is not None else None
+            l2_list = l2_list.next if l2_list is not None else None
+
+            if l1_list is None and l2_list is None and carry != 0:
+                new_node = ListNode()
+                new_node.val = 1
+                loop.next = new_node
+            else:
+                loop = loop.next
+
+        return return_list
+</code></pre>
+
+    </main>
+    <footer>
+    <div>
+        <div>Sponsored by Frog Protection Services</div>
+        <div>Do you have Frog Protection?</div>
+    </div>
+    <hr />
+    <div>
+        <span class="logo-text-large">hello world</span>
+        <span class="logo-text-small">production</span>
+    </div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Data Frog</title>
+    <link rel="stylesheet" href="/static/style.css" />
+    <link rel="icon" href="/static/favicon.ico" type="image/x-icon">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-3XCWXXR1VM"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-3XCWXXR1VM');
+    </script>
+</head>
+<body>
+    <header>
+    <div id="logo-container">
+        <div class="logo">
+            <a href="/">
+                <img src="/static/frog_logo.png" alt="Frog Protection">
+            </a>
+        </div>
+        <div class="logo-text-small">
+            <a href="/">Data Science & Computer Programming</a>
+        </div>
+    </div>
+    <div id="nav-container">
+        <div class="logo-text-small">
+            <span><a href="/numpy">NumPy</a></span>
+            <span><a href="/stats">Statistics</a></span>
+            <span><a href="/videos">Videos</a></span>
+            <span><a href="/algos">Algorithms</a></span>
+        </div>
+    </div>
+</header>
+    <main>
+        <p>The string &quot;PAYPALISHIRING&quot; is written in a zigzag pattern on a given number of rows like this: (you may want to display this pattern in a fixed font for better legibility)</p>
+<p>P   A   H   N
+A P L S I I G
+Y   I   R
+And then read line by line: &quot;PAHNAPLSIIGYIR&quot;</p>
+<p>Write the code that will take a string and make this conversion given a number of rows:</p>
+<p>string convert(string s, int numRows);</p>
+<p>Example 1:</p>
+<p>Input: s = &quot;PAYPALISHIRING&quot;, numRows = 3
+Output: &quot;PAHNAPLSIIGYIR&quot;
+Example 2:</p>
+<p>Input: s = &quot;PAYPALISHIRING&quot;, numRows = 4
+Output: &quot;PINALSIGYAHRPI&quot;
+Explanation:
+P     I    N
+A   L S  I G
+Y A   H R
+P     I
+Example 3:</p>
+<p>Input: s = &quot;A&quot;, numRows = 1
+Output: &quot;A&quot;</p>
+<p>Constraints:</p>
+<p>1 &lt;= s.length &lt;= 1000
+s consists of English letters (lower-case and upper-case), ',' and '.'.
+1 &lt;= numRows &lt;= 1000</p>
+<pre><code class="language-python">class Solution(object):
+    def fill(self, numRows, arr):
+        col = len(arr)
+        arr.append([])
+        for x in range(numRows):
+            arr[col].append('')
+
+    def convert(self, s, numRows):
+        &quot;&quot;&quot;
+        :type s: str
+        :type numRows: int
+        :rtype: str
+        &quot;&quot;&quot;
+        # set up once
+        arr = []
+        z = 0
+        i = 0
+
+        s_length = len(s)
+
+        while z &lt; s_length:
+            # pattern one
+            self.fill(numRows, arr)
+            y = 0
+            while y &lt; numRows:
+                if z == s_length:
+                    break
+                arr[i][y] = s[z]
+                y += 1
+                z += 1
+
+            # pattern two
+            i += 1
+            j = numRows - 2
+            while j &gt; 0:
+                if z == s_length:
+                    break
+                self.fill(numRows, arr)
+                arr[i][j] = s[z]
+                i += 1
+                j -= 1
+                z += 1
+
+        row = 0
+        build_string = ''
+        while row &lt; numRows:
+            col = 0
+            while col &lt; len(arr):
+                if arr[col][row] != '':
+                    build_string += arr[col][row]
+                col += 1
+            row += 1
+
+        return build_string
+
+
+sol = Solution()
+sol.convert(&quot;PAYPALISHIRING&quot;, 3)
+</code></pre>
+
+    </main>
+    <footer>
+    <div>
+        <div>Sponsored by Frog Protection Services</div>
+        <div>Do you have Frog Protection?</div>
+    </div>
+    <hr />
+    <div>
+        <span class="logo-text-large">hello world</span>
+        <span class="logo-text-small">production</span>
+    </div>
+</footer>
+</body>
+</html>

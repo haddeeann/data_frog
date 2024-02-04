@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Data Frog</title>
+    <link rel="stylesheet" href="/static/style.css" />
+    <link rel="icon" href="/static/favicon.ico" type="image/x-icon">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-3XCWXXR1VM"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-3XCWXXR1VM');
+    </script>
+</head>
+<body>
+    <header>
+    <div id="logo-container">
+        <div class="logo">
+            <a href="/">
+                <img src="/static/frog_logo.png" alt="Frog Protection">
+            </a>
+        </div>
+        <div class="logo-text-small">
+            <a href="/">Data Science & Computer Programming</a>
+        </div>
+    </div>
+    <div id="nav-container">
+        <div class="logo-text-small">
+            <span><a href="/numpy">NumPy</a></span>
+            <span><a href="/stats">Statistics</a></span>
+            <span><a href="/videos">Videos</a></span>
+            <span><a href="/algos">Algorithms</a></span>
+        </div>
+    </div>
+</header>
+    <main>
+        <p>Given a string s, find the length of the longest substring without repeating characters.</p>
+<p>Example 1:</p>
+<p>Input: s = &quot;abcabcbb&quot;
+Output: 3
+Explanation: The answer is &quot;abc&quot;, with the length of 3.
+Example 2:</p>
+<p>Input: s = &quot;bbbbb&quot;
+Output: 1
+Explanation: The answer is &quot;b&quot;, with the length of 1.
+Example 3:</p>
+<p>Input: s = &quot;pwwkew&quot;
+Output: 3
+Explanation: The answer is &quot;wke&quot;, with the length of 3.
+Notice that the answer must be a substring, &quot;pwke&quot; is a subsequence and not a substring.</p>
+<p>Constraints:</p>
+<p>0 &lt;= s.length &lt;= 5 * 104
+s consists of English letters, digits, symbols and spaces.</p>
+<pre><code class="language-python">class Solution(object):
+    def lengthOfLongestSubstring(self, s):
+        &quot;&quot;&quot;
+        :type s: str
+        :rtype: int
+        &quot;&quot;&quot;
+        if len(s) == 0:
+            return 0
+
+        longest = 1
+        for index, str in enumerate(s):
+            str_dict = {}
+            found = s.find(str, index + 1)
+            if found != -1:
+                substring = s[index:found]
+            else:
+                substring = s[index:]
+            if len(substring) &gt; longest:
+                for x in substring:
+                    if str_dict.get(x) is not None:
+                        break
+
+                    if str_dict.get(x) is None:
+                        str_dict[x] = 1
+
+                    if len(str_dict) &gt; longest:
+                        longest = len(str_dict)
+
+        print(longest)
+        return longest
+
+
+sol = Solution()
+sol.lengthOfLongestSubstring('pwwkew')
+</code></pre>
+
+    </main>
+    <footer>
+    <div>
+        <div>Sponsored by Frog Protection Services</div>
+        <div>Do you have Frog Protection?</div>
+    </div>
+    <hr />
+    <div>
+        <span class="logo-text-large">hello world</span>
+        <span class="logo-text-small">production</span>
+    </div>
+</footer>
+</body>
+</html>

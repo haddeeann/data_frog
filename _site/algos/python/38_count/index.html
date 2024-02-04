@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Data Frog</title>
+    <link rel="stylesheet" href="/static/style.css" />
+    <link rel="icon" href="/static/favicon.ico" type="image/x-icon">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-3XCWXXR1VM"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-3XCWXXR1VM');
+    </script>
+</head>
+<body>
+    <header>
+    <div id="logo-container">
+        <div class="logo">
+            <a href="/">
+                <img src="/static/frog_logo.png" alt="Frog Protection">
+            </a>
+        </div>
+        <div class="logo-text-small">
+            <a href="/">Data Science & Computer Programming</a>
+        </div>
+    </div>
+    <div id="nav-container">
+        <div class="logo-text-small">
+            <span><a href="/numpy">NumPy</a></span>
+            <span><a href="/stats">Statistics</a></span>
+            <span><a href="/videos">Videos</a></span>
+            <span><a href="/algos">Algorithms</a></span>
+        </div>
+    </div>
+</header>
+    <main>
+        <p>The count-and-say sequence is a sequence of digit strings defined by the recursive formula:</p>
+<p>countAndSay(1) = &quot;1&quot;
+countAndSay(n) is the way you would &quot;say&quot; the digit string from countAndSay(n-1), which is then converted into a different digit string.
+To determine how you &quot;say&quot; a digit string, split it into the minimal number of substrings such that each substring contains exactly one unique digit. Then for each substring, say the number of digits, then say the digit. Finally, concatenate every said digit.</p>
+<p>For example, the saying and conversion for digit string &quot;3322251&quot;:</p>
+<p>Given a positive integer n, return the nth term of the count-and-say sequence.</p>
+<p>23 32 15 11</p>
+<p>Example 1:</p>
+<p>Input: n = 1
+Output: &quot;1&quot;
+Explanation: This is the base case.
+Example 2:</p>
+<p>Input: n = 4
+Output: &quot;1211&quot;
+Explanation:
+countAndSay(1) = &quot;1&quot;
+countAndSay(2) = say &quot;1&quot; = one 1 = &quot;11&quot;
+countAndSay(3) = say &quot;11&quot; = two 1's = &quot;21&quot;
+countAndSay(4) = say &quot;21&quot; = one 2 + one 1 = &quot;12&quot; + &quot;11&quot; = &quot;1211&quot;</p>
+<pre><code class="language-python">class Solution(object):
+    def countAndSay(self, n):
+        &quot;&quot;&quot;
+        :type n: int
+        :rtype: str
+        :type current int
+        &quot;&quot;&quot;
+        if n == 1:
+            return n
+        counter = 1
+        build = ''
+        while counter &lt; n:
+            if build == '':
+                test = str(counter)
+            else:
+                test = build
+            add = ''
+            count = 1
+            while len(test) &gt; 0:
+                first = test[:1]
+                test = test[1:]
+                while len(test) &gt; 0 and first == test[0]:
+                    count += 1
+                    test = test[1:]
+                add += str(count) + first
+            counter += 1
+            build = add
+        return build
+
+
+input = 4
+sol = Solution()
+answer = sol.countAndSay(input)
+print(answer == &quot;1211&quot;)
+</code></pre>
+
+    </main>
+    <footer>
+    <div>
+        <div>Sponsored by Frog Protection Services</div>
+        <div>Do you have Frog Protection?</div>
+    </div>
+    <hr />
+    <div>
+        <span class="logo-text-large">hello world</span>
+        <span class="logo-text-small">production</span>
+    </div>
+</footer>
+</body>
+</html>

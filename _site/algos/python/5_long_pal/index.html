@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Data Frog</title>
+    <link rel="stylesheet" href="/static/style.css" />
+    <link rel="icon" href="/static/favicon.ico" type="image/x-icon">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-3XCWXXR1VM"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-3XCWXXR1VM');
+    </script>
+</head>
+<body>
+    <header>
+    <div id="logo-container">
+        <div class="logo">
+            <a href="/">
+                <img src="/static/frog_logo.png" alt="Frog Protection">
+            </a>
+        </div>
+        <div class="logo-text-small">
+            <a href="/">Data Science & Computer Programming</a>
+        </div>
+    </div>
+    <div id="nav-container">
+        <div class="logo-text-small">
+            <span><a href="/numpy">NumPy</a></span>
+            <span><a href="/stats">Statistics</a></span>
+            <span><a href="/videos">Videos</a></span>
+            <span><a href="/algos">Algorithms</a></span>
+        </div>
+    </div>
+</header>
+    <main>
+        <p>Given a string s, return the longest palindromic substring in s.</p>
+<p>Example 1:</p>
+<p>Input: s = &quot;babad&quot;
+Output: &quot;bab&quot;
+Explanation: &quot;aba&quot; is also a valid answer.
+Example 2:</p>
+<p>Input: s = &quot;cbbd&quot;
+Output: &quot;bb&quot;</p>
+<p>Constraints:</p>
+<p>1 &lt;= s.length &lt;= 1000
+s consist of only digits and English letters.
+Accepted
+1,778,696
+Submissions</p>
+<pre><code class="language-python">import math
+
+
+class Solution(object):
+    def longestPalindrome(self, s):
+        &quot;&quot;&quot;
+        :type s: str
+        :rtype: str
+        &quot;&quot;&quot;
+        def testLetterPalindrome(word):
+            # abc
+            middle = int(math.floor(len(word) / 2))
+            paly_builder = word[middle]
+            i_right = middle + 1
+            i_left = middle - 1
+
+            while i_left &gt;= 0 and i_right &lt; len(word):
+                if word[i_left] != word[i_right]:
+                    return paly_builder
+                else:
+                    paly_builder = word[i_left] + paly_builder + word[i_right]
+                i_left -= 1
+                i_right += 1
+
+            return paly_builder
+
+        def testComboPalindrome(word):
+            # abcd
+            middle_right = int(len(word) / 2)
+            middle_left = middle_right - 1
+            paly_builder = word[middle_left] + word[middle_right]
+            i_right = middle_right + 1
+            i_left = middle_left - 1
+
+            while i_left &gt;= 0 and i_right &lt; len(word):
+                if word[i_left] != word[i_right]:
+                    return paly_builder
+                else:
+                    paly_builder = word[i_left] + paly_builder + word[i_right]
+                i_left -= 1
+                i_right += 1
+
+            return paly_builder
+
+        longest = 1
+        palindrome = s[0]
+
+        # find the longest possible pal
+        # for each letter
+        for i, letter in enumerate(s[1:], start=1):
+            # find the possible substrings
+            end_index = len(s) - 1
+
+            # single letter combo
+            if i != end_index:
+                right = end_index - i
+                left = i
+                length = right if right &lt;= left else left
+                substring = s[i - length: i + length + 1]
+                test_paly = testLetterPalindrome(substring)
+                if len(test_paly) &gt; longest:
+                    longest = len(test_paly)
+                    palindrome = test_paly
+
+            # double letter combo
+            if s[i - 1] == s[i]:
+                combo = s[i - 1] + s[i]
+                if i != 1 and i != end_index:
+                    right = end_index - i
+                    left = i - 1
+                    length = right if right &lt;= left else left
+                    left_start = i - length - 1
+                    right_end = i + length + 1
+                    left_substring = s[left_start: i - 1]
+                    right_substring = s[i + 1: right_end]
+                    substring = left_substring + combo + right_substring
+                    test_paly = testComboPalindrome(substring)
+                    if len(test_paly) &gt; longest:
+                        longest = len(test_paly)
+                        palindrome = test_paly
+                else:
+                    if len(combo) &gt; longest:
+                        longest = len(combo)
+                        palindrome = combo
+
+        return palindrome
+
+
+sol = Solution()
+sol.longestPalindrome(&quot;cccccccc&quot;)
+</code></pre>
+
+    </main>
+    <footer>
+    <div>
+        <div>Sponsored by Frog Protection Services</div>
+        <div>Do you have Frog Protection?</div>
+    </div>
+    <hr />
+    <div>
+        <span class="logo-text-large">hello world</span>
+        <span class="logo-text-small">production</span>
+    </div>
+</footer>
+</body>
+</html>
