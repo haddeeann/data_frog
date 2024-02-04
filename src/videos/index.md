@@ -1,5 +1,5 @@
 ---
-layout: "article_type_two.njk"
+layout: "html_wrapper.njk"
 ---
 
 This is a great beginner course for the overview of data science. Can be found [here](https://www.youtube.com/watch?v=ua-CiDNNj30&t=20462s)

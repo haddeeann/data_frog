@@ -1,8 +1,8 @@
 ---
-layout: "base.njk"
+layout: "html_wrapper.njk"
 ---
 
-Welcome to Data Frog. My personal notes and learning journey for data science and machine learning.
+Welcome to Data Frog. My personal notes and learning journey for data science, machine learning, and computer programming.
 
 ## Data Sourcing
 

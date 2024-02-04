@@ -1,5 +1,5 @@
 ---
-layout: "article_type_two.njk"
+layout: "html_wrapper.njk"
 ---
 NumPy stands for Numerical Python. It's used in a lot of data science and engineering.
 

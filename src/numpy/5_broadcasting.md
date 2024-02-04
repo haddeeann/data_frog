@@ -1,5 +1,5 @@
 ---
-layout: "article_type_two.njk"
+layout: "html_wrapper.njk"
 ---
 ## Broadcasting with NumPy
 

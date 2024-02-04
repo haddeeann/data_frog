@@ -1,5 +1,5 @@
 ---
-layout: "article_type_one.njk"
+layout: "html_wrapper.njk"
 ---
 # Overview of Data Science Libraries
 

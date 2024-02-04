@@ -1,5 +1,5 @@
 ---
-layout: "article_type_two.njk"
+layout: "html_wrapper.njk"
 ---
 1. [Categorical Data](./1_categorical_data)
 
