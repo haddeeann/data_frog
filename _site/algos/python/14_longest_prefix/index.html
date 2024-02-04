@@ -37,7 +37,69 @@
     </div>
 </header>
     <main>
-        
+        <p>Write a function to find the longest common prefix string amongst an array of strings.</p>
+<p>If there is no common prefix, return an empty string &quot;&quot;.</p>
+<p>Example 1:</p>
+<p>Input: strs = [&quot;flower&quot;,&quot;flow&quot;,&quot;flight&quot;]
+Output: &quot;fl&quot;
+Example 2:</p>
+<p>Input: strs = [&quot;dog&quot;,&quot;racecar&quot;,&quot;car&quot;]
+Output: &quot;&quot;
+Explanation: There is no common prefix among the input strings.</p>
+<p>Constraints:</p>
+<p>1 &lt;= strs.length &lt;= 200
+0 &lt;= strs[i].length &lt;= 200
+strs[i] consists of only lowercase English letters.
+Accepted
+1,739,613
+Submissions
+4,337,275</p>
+<pre><code class="language-python">class Solution(object):
+    def longestCommonPrefix(self, strs):
+        &quot;&quot;&quot;
+        :type strs: List[str]
+        :rtype: str
+        &quot;&quot;&quot;
+        pattern = ''
+        word_1 = ''
+        word_2 = ''
+        overall_min_length = None
+        word_pattern = ''
+        if len(strs) == 1:
+            return strs[0]
+        for i, word in enumerate(strs):
+            if i != len(strs) - 1:
+                word_1 = strs[i]
+                word_2 = strs[i+1]
+                short_word_length = min(len(word_1), len(word_2))
+                if overall_min_length is None:
+                    overall_min_length = short_word_length
+                else:
+                    overall_min_length = min(overall_min_length, short_word_length)
+                if pattern == '' and i == 0:
+                    for x in range(short_word_length):
+                        if word_1[x] == word_2[x]:
+                            pattern += word_1[x]
+                        else:
+                            break
+                elif pattern != '':
+                    overall_min_length = min(overall_min_length, len(pattern))
+                    word_pattern = ''
+                    for x in range(overall_min_length):
+                        if word_1[x] == word_2[x] == pattern[x]:
+                            word_pattern += word_1[x]
+                        else:
+                            break
+
+                    if len(word_pattern) &lt; len(pattern):
+                        pattern = word_pattern
+
+        return pattern
+
+sol = Solution()
+print(sol.longestCommonPrefix([&quot;a&quot;,&quot;aca&quot;,&quot;accb&quot;,&quot;b&quot;]))
+</code></pre>
+
     </main>
     <footer>
     <div>

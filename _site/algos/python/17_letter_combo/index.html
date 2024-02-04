@@ -37,7 +37,77 @@
     </div>
 </header>
     <main>
-        
+        <p>Letter Combinations of a Phone Number</p>
+<p>Given a string containing digits from 2-9 inclusive, return all possible letter combinations that the number could represent. Return the answer in any order.</p>
+<p>A mapping of digits to letters (just like on the telephone buttons) is given below. Note that 1 does not map to any letters.</p>
+<p>Example 1:</p>
+<p>Input: digits = &quot;23&quot;
+Output: [&quot;ad&quot;,&quot;ae&quot;,&quot;af&quot;,&quot;bd&quot;,&quot;be&quot;,&quot;bf&quot;,&quot;cd&quot;,&quot;ce&quot;,&quot;cf&quot;]
+Example 2:</p>
+<p>Input: digits = &quot;&quot;
+Output: []
+Example 3:</p>
+<p>Input: digits = &quot;2&quot;
+Output: [&quot;a&quot;,&quot;b&quot;,&quot;c&quot;]</p>
+<pre><code class="language-python">class Solution(object):
+    def letterCombinations(self, digits):
+        &quot;&quot;&quot;
+        :type digits: str
+        :rtype: List[str]
+        &quot;&quot;&quot;
+        answer = ['']
+        lookup = {
+            &quot;2&quot;: &quot;abc&quot;,
+            &quot;3&quot;: &quot;def&quot;,
+            &quot;4&quot;: &quot;ghi&quot;,
+            &quot;5&quot;: &quot;jkl&quot;,
+            &quot;6&quot;: &quot;mno&quot;,
+            &quot;7&quot;: &quot;pqrs&quot;,
+            &quot;8&quot;: &quot;tuv&quot;,
+            &quot;9&quot;: &quot;wxyz&quot;
+        }
+
+        for s in digits:
+            if s in lookup:
+                build = []
+                for a in answer:
+                    for letter in lookup[s]:
+                        build.append(a + letter)
+                answer = build
+
+        return [a for a in answer if not a == '']
+
+
+sol = Solution()
+
+test_cases = [
+    {
+        &quot;no&quot;: &quot;one&quot;,
+        &quot;input&quot;: &quot;234&quot;,
+        &quot;answer&quot;: [&quot;adg&quot;, &quot;adh&quot;, &quot;adi&quot;, &quot;aeg&quot;, &quot;aeh&quot;, &quot;aei&quot;, &quot;afg&quot;, &quot;afh&quot;, &quot;afi&quot;,
+                   &quot;bdg&quot;, &quot;bdh&quot;, &quot;bdi&quot;, &quot;beg&quot;, &quot;beh&quot;, &quot;bei&quot;, &quot;bfg&quot;, &quot;bfh&quot;, &quot;bfi&quot;,
+                   &quot;cdg&quot;, &quot;cdh&quot;, &quot;cdi&quot;, &quot;ceg&quot;, &quot;ceh&quot;, &quot;cei&quot;, &quot;cfg&quot;, &quot;cfh&quot;, &quot;cfi&quot;]
+    },
+    {
+        &quot;no&quot;: &quot;two&quot;,
+        &quot;input&quot;: &quot;&quot;,
+        &quot;answer&quot;: []
+    },
+    {
+        &quot;no&quot;: &quot;three&quot;,
+        &quot;input&quot;: &quot;2&quot;,
+        &quot;answer&quot;: [&quot;a&quot;, &quot;b&quot;, &quot;c&quot;]
+    }
+]
+
+for test in test_cases:
+    result = sol.letterCombinations(test[&quot;input&quot;])
+    if result == test[&quot;answer&quot;]:
+        print(&quot;answer is RIGHT&quot;)
+    else:
+        print(&quot;failed&quot;)
+</code></pre>
+
     </main>
     <footer>
     <div>
