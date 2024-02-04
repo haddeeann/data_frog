@@ -38,4 +38,18 @@ Here's my list of leetcode problems and solutions (in Python):
 
 10. [reg expression](./python/10_reg_expression)
 
+11. [container water](./python/11_container_water)
+
+12. [roman nums](./python/12_roman_nums)
+
+13. [roman num to int](./python/13_rom_to_int)
+
+14. [longest prefix](./python/14_longest_prefix)
+
+15. [3 sum](./python/15_3_sum)
+
+16. [three sum 2](./python/16_three_sum)
+
+17. [letter combo](./python/17_letter_combo)
+
 38. [count and say](./38_count)

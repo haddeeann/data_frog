@@ -24,4 +24,18 @@ Python is a great language to write algorithms in even if you don't use it as a 
 
 10. [reg expression](./10_reg_expression)
 
+11. [container water](./11_container_water)
+
+12. [roman nums](./12_roman_nums)
+
+13. [roman num to int](./13_rom_to_int)
+
+14. [longest prefix](./14_longest_prefix)
+
+15. [3 sum](./15_3_sum)
+
+16. [three sum 2](./16_three_sum)
+
+17. [letter combo](./17_letter_combo)
+
 38. [count and say](./38_count)
