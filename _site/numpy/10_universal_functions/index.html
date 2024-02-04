@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Data Frog</title>
+    <link rel="stylesheet" href="/static/style.css" />
+    <link rel="icon" href="/static/favicon.ico" type="image/x-icon">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-3XCWXXR1VM"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-3XCWXXR1VM');
+    </script>
+</head>
+<body>
+    <header>
+    <div id="logo-container">
+        <div class="logo">
+            <a href="/">
+                <img src="/static/frog_logo.png" alt="Frog Protection">
+            </a>
+        </div>
+        <div class="logo-text-small">
+            <a href="/">Data Science & Computer Programming</a>
+        </div>
+    </div>
+    <div id="nav-container">
+        <div class="logo-text-small">
+            <span><a href="/numpy">NumPy</a></span>
+            <span><a href="/stats">Statistics</a></span>
+            <span><a href="/videos">Videos</a></span>
+        </div>
+    </div>
+</header>
+    <main>
+        <h2>Universal Functions</h2>
+<p>A universal function (or a <code>ufunc</code> for short) is a function that operates on <code>ndarrays</code> in an element by element fashion.</p>
+<p>This supports array broadcasting, type casting, and several other standard features.</p>
+<p>That is, a <code>ufunc</code> is a &quot;vectorized&quot; wrapper for a function that takes a fixed number of specific inputs and produces a fixed number of specific outputs.</p>
+<h2>Ufunc Methods</h2>
+<p>All <code>ufuncs</code> have four methods. These methods only make sense on scalar <code>ufuncs</code> that take tow input arguments and return one output argument.</p>
+<p>Attempting to call these methods on other <code>ufuncs</code> will case a ValueError.</p>
+<p>The reduce like methods all take an axis keyword, a dtype keyword, and an out keyword, and the arrays must all have the dimension &gt;= 1.</p>
+<p>The axis keyword specifies the axis of the array over which the reduction will take place.</p>
+<p>Generally, it is an integer, though for <code>numpy.ufunc.reduce</code>, it can also be a type of int to reduce over several axes at once, or None, to reduce over all axes.</p>
+<p>The dtype keyword allows you to manage a very common problem that arises when naively using <code>ufunc.reduce</code>.</p>
+<p>Sometimes you may have an array of a certain data type and wish to add up all of its elements, but the result does not fit into the data type of the array.</p>
+<p>This commonly happens if you have an array of single-byte integers.</p>
+<p>The dtype keyword allows you to alter the data type over which the reduction takes place.</p>
+<p>Therefore, you can ensure that the output is the datatype with the precision large enough to handle your output. The responsibility of altering reduce type is mostly up to you.</p>
+<p>There's one exception, if no dtype is given for a reduction on the 'add' or 'multiply' operations, the input type is an integer or boolean type, and it's smaller than the size of the <code>nupy.itn_</code> data type, it will be internally upcast to the <code>int_ or </code>numpy.uint` data-type.</p>
+
+    </main>
+    <footer>
+    <div>
+        <div>Sponsored by Frog Protection Services</div>
+        <div>Do you have Frog Protection?</div>
+    </div>
+    <hr />
+    <div>
+        <span class="logo-text-large">hello world</span>
+        <span class="logo-text-small">production</span>
+    </div>
+</footer>
+</body>
+</html>

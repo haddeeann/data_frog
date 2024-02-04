@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Data Frog</title>
+    <link rel="stylesheet" href="/static/style.css" />
+    <link rel="icon" href="/static/favicon.ico" type="image/x-icon">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-3XCWXXR1VM"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-3XCWXXR1VM');
+    </script>
+</head>
+<body>
+    <header>
+    <div id="logo-container">
+        <div class="logo">
+            <a href="/">
+                <img src="/static/frog_logo.png" alt="Frog Protection">
+            </a>
+        </div>
+        <div class="logo-text-small">
+            <a href="/">Data Science & Computer Programming</a>
+        </div>
+    </div>
+    <div id="nav-container">
+        <div class="logo-text-small">
+            <span><a href="/numpy">NumPy</a></span>
+            <span><a href="/stats">Statistics</a></span>
+            <span><a href="/videos">Videos</a></span>
+        </div>
+    </div>
+</header>
+    <main>
+        <h2>Using genfromtxt</h2>
+<p>There are several ways NumPy can create arrays from tabular data. <code>genfromtxt</code> is one such useful way.</p>
+<p>In a nutshell the <code>genfromtxt</code> runs two main loops. The first loop converts each line of the file into a sequence of strings.</p>
+<p>The second loop converts each string to the right data type.</p>
+<p>The mechanism of using two loops take more time, but it gives more flexibility. In particular, the <code>genfromtxt</code> is able to take missing data into account, where faster and simpler methods like <code>loadtxt</code> can't.</p>
+<p>The only mandatory argument of <code>genfromtxt</code> is the file or data source. It can be a string, a list of strings or a file read into NumPy. The file read into NumPy creates an open file like object from a read method.</p>
+<p>If a single string is given as the arg into <code>genfromtxt</code>, then it's assumed to be the name of a local file or a remote file.</p>
+<p>If a list of strings is provided as the parameter then each string is treated as one line of a file. When the URL of a remote file is passed the file is automatically downloaded to the current directory and opened.</p>
+<p>Recognized file types are text files and archives. The different types of archives recognized are <code>gzip</code> and <code>dbz2</code>. If the file extension is '.gz' then a <code>gzip</code> is expected. If it ends with a <code>.bz2</code> then a <code>bzip2</code> file is assumed.</p>
+<h2>Splitting the lines into columns</h2>
+<p>Once the file is open for reading, the <code>genfromtxt</code> splits each line to a sequence of strings. Whatever delimiter is chosen will split the characters into lines. That can be a comma (,) semicolon (;) or even the '\t' - the tab character.</p>
+<pre><code class="language-python">import numpy as np
+from io import StringIO
+
+data = u&quot;1, 2, 3\n4, 5, 6&quot;
+np.genfromtxt(StringIO(data), delimiter=&quot;,&quot;)
+# result array([[1., 2., 3.],
+       [4., 5., 6.]])
+</code></pre>
+<p>The delimiter chosen isn't limited to a single character. It's just the most common ones to use. By default, the <code>genfromtxt</code> assumes a delimiter of <code>None</code>, which means that the line is split along the white spaces (including tabs). And consecutive white spaces in this case are considered a single white space.</p>
+<p>Alternately, the file may be fixed width. That means the columns are defined as a given number of characters. In that case, we need to set a delimiter to a single integer if all the columns have the same size. Or set the delimiter to a sequence of integers if the columns have different sizes.</p>
+<p>By default, the white spacing at the end and beginning of values are not stripped. But a parameter of auto strip can be set to <code>True</code> and the leading and trailing white spaces will be stripped from the values.</p>
+<pre><code class="language-python">data = u&quot;1, abc , 2\n 3, xxx, 4&quot;
+
+# without autostrip
+np.genfromtxt(StringIO(data), delimiter=&quot;,&quot;, dtype=&quot;|U5&quot;)
+
+# result array([['1', ' abc ', ' 2'],
+       ['3', ' xxx', ' 4']], dtype='&lt;U5')
+
+# with autostrip
+np.genfromtxt(StringIO(data), delimiter=&quot;,&quot;, dtype=&quot;|U5&quot;, autostrip=True)
+
+# result array([['1', 'abc', '2'],
+       ['3', 'xxx', '4']], dtype='&lt;U5')
+</code></pre>
+<p>Comments from the files will be ignored from processing and comment s are marked with a #.</p>
+<h2>Skipping Lines and choosing columns</h2>
+<p>Once the file is defined and open for reading the <code>genfromtxt</code> splits each non-empty line into a sequence of string.</p>
+<p>The delimiter keyword is used to define how the splitting should take place. Most of the time, a single delimiter will mark the separation. Like with CSV, comma separated values it can use a comma or semicolon as a delimiter. The tab character, the '\t' is another common separator. However, it doesn't have to be a single character, any string of characters will do.</p>
+<p>From default settings, <code>genfromtxt</code> assumes a <code>delimiter=None</code>. This separates values along white spaces. Consecutive white spaces are considered as a single white space.</p>
+<p>Instead, we could have a fixed width file. That's where the columns are defined as a given number of characters. If so, we set the delimiter to either a single integer or a sequence of integers (if the columns have a different size).</p>
+<p>Leading and trailing white space characters are not stripped automatically. That can be overwritten by passing in an optional argument to a value of <code>True</code>.</p>
+<h2>The Comments Argument</h2>
+<p>By default, the character that signifies comments is the '#'. But that can be changed to a different character by passing in the comment argument. Any character passed in as such will then become the marker for comments in the code.</p>
+<pre><code class="language-python">np.genfromtxt(StrinIO(data), comment=&quot;#&quot;, delimiter=&quot;,&quot;)
+</code></pre>
+<h2>Skip Header or Skip Footer Argument</h2>
+<p>If we have a header or footer in the file, we can skip those lines by using the <code>skip_header</code> or <code>skip_footer</code> arguments.</p>
+<pre><code class="language-python">np.genfromtxt(StringIO(data), skip_header=3, skip_footer=5)
+</code></pre>
+<h2>The usecols argument</h2>
+<p>If we want to use only some columns and not all the data, we can pass in the <code>usecols</code> argument. That argument can take a single argument or a sequence of integers. The columns indices begin at zero. If the columns have names you can use the column names instead.</p>
+<pre><code class="language-python">np.genfromtxt(StringIO(data), usecols=(0, -1))
+</code></pre>
+<p>If the columns have names you can use that instead.</p>
+<pre><code class="language-python">np.genfromtxt(StringIO(data), names=&quot;a, b, c&quot;, usecols=(&quot;a, c&quot;))
+</code></pre>
+<h2>Choosing the Data Type</h2>
+<p>You can choose the format of the data when it's imported. To do this, set the <code>dtype</code> parameter/argument on import. Some <code>dtypes</code> are:</p>
+<ol>
+<li>a single type, like <code>dtype=float</code></li>
+<li>a sequence of types, such as <code>dtype=(int, float, float)</code></li>
+<li>a comma separated string, like <code>dtype=&quot;i4, f8, |U3&quot;</code></li>
+<li>a dictionary with two keys, <code>'names'</code> and <code>'formats'</code></li>
+<li>a sequence of types (name, type), such as <code>dtype=[('A', int), ('B', float)]</code></li>
+<li>an existing <code>numpy.dtype</code> object</li>
+<li>the special value of None</li>
+</ol>
+<p>In all the above cases (except the first case and the None value), the data created will be a 1D array with structured dtype. This dtype has as many fields as items in the sequence. The field names are defined with the <code>names</code> keyword.</p>
+<p>When the <code>dtype=None</code>, the type of each column is determined iteratively from the data itself. First, NumPy checks if a string can be converted to a boolean datatype. Then NumPy checks whether the data can be converted to an integer.</p>
+<p>Finally, NumPy will check if the data can be converted to a float, then to a complex, then eventually just a string.</p>
+<p>If you pass in the parameter of a <code>dtype=None</code>, then importing the data will be significantly slower.</p>
+<h2>Names Argument</h2>
+<p>The natural approach when dealing with tabular data is to allocate a name to each column. When creating the NumPy array from the file we can pass in a <code>names</code> parameter.</p>
+<p>We may sometime need to define the columns names from the data itself.</p>
+<p>Then we can use the <code>names</code> keyword with a value of <code>True</code>. The names will be read from the first line, even if the line is commented out.</p>
+<p>The default value of <code>names</code> is <code>None</code>. If we give any other value to the keyword, the new names will overwrite the field names we may have defined with the <code>dtype</code>.</p>
+<pre><code class="language-python">from io import StringIO
+
+data = StringIO(&quot;1 2 3\n 4 5 6&quot;)
+
+ndtype = [('a', int), ('b', float), ('c', int)]
+names = [&quot;A&quot;, &quot;B&quot;, &quot;C&quot;]
+np.genfromtxt(data, names=names, dtype=ndtype)
+# result array([(1, 2., 3), (4, 5., 6)],
+      dtype=[('A', '&lt;i8'), ('B', '&lt;f8'), ('C', '&lt;i8')])
+</code></pre>
+<h3>The <code>defaultfmt</code> Argument.</h3>
+<p>The default format, <code>defaultfmt</code> can be thought of as the <code>dtype</code> that will be chosen as default.</p>
+<p>If <code>names</code> is <code>None</code> but a structured <code>dtype</code> is expected, then <code>names</code> are defined with the standard NumPy default of <code>&quot;f%i&quot;</code>, yielding names like <code>f0</code>, <code>f1</code>, and so forth.</p>
+<p>In the same way, if we don't give enough names to match the length of the <code>dtype</code> the missing names will be defined with the default template.</p>
+<p>We can overwrite this default template with the <code>defaultfmt</code> argument, that takes any format string. Keep in mind that <code>defaultfmt</code> is used only if some names are expected, but not defined.</p>
+<h2>Record arrays</h2>
+<p>Record arrays are similar to structured arrays. The difference is that record arrays are wrapped in the <code>numpy.rec.arrays</code>. We can use the <code>numpy.recarray</code> for constructing a record array.</p>
+<p>The fields in the record array can be accessed as if they were attributes instead of array indexes. The fields are a special <code>datatype</code> of <code>numpy.record</code>.</p>
+<p>Because the fields being a special <code>datatype</code>, we need to make sure that the field name doesn't contain any space or invalid character, and that it's not the name of a standard attribute.</p>
+<p>The <code>genfromtxt</code> function accepts three optional arguments that provide a finer control on the names of the field name.</p>
+<ol>
+<li><code>deletechars</code> gives a string combining all the characters that must be deleted from the name.</li>
+<li><code>excludelist</code> gives a list of the names to exclude, such as return, file, print. If one of the input names is part of this list, an underscore character will be appended to it.</li>
+<li><code>case_sensitive</code> whether the names should be case-sensitive (<code>case_sensitive=True</code>), converted to upper case (<code>case_sensitive=False</code> or <code>case_sensitive='upper'</code>), or to lower case (<code>case_sensitive='lower'</code>).</li>
+</ol>
+<h2>Tweaking the Conversion</h2>
+<p>Usually when defining a <code>dtype</code>, it's enough to define how the sequence of string must be converted. But some additional control may be sometimes required.</p>
+<p>We may want to make sure that a date in a format like <code>YYYY/MM/DD</code> is converted to a <code>datetime</code> object, or that a string like <code>xx%</code> is properly converted to a float between 0 and 1.</p>
+<p>In such cases, we should define a conversion function with a <code>converters</code> argument.</p>
+<p>The value of the argument is usually a dictionary with column indices or column names as keys and a conversion function as values. These conversion functions can be actual functions or lambda functions. Either way, they accept only a string as an input, and they output only a single element of the wanted type.</p>
+<p>Converters can also be used to provide a default for missing entries.</p>
+<h2>Using Missing and Filling Values</h2>
+<p>Some entries may be missing in the dataset we are trying to import. It's possible to use a converter to transform an empty string to a float. But the user defined converters may become cumbersome to manage.</p>
+<p>The <code>genfromtxt</code> function provides two other complementary mechanism. The <code>missing_values</code> argument is used to recognize missing data and a second argument, <code>filling_values</code> is used to process these missing data.</p>
+<h3>missing_values</h3>
+<p>By default, any empty string is marked as missing. Additionally, more complex strings such as <code>&quot;N/A&quot;</code> or <code>&quot;???&quot;</code> translate into missing or invalid data.</p>
+<h3>filling_values</h3>
+<p>The <code>filling_values</code> parameters goes one step beyond just recognizing missing data and allows us to automatically fill in the data. It uses the expected <code>dtype</code> to fill in an automatic value.</p>
+<p>expected type | default
+<code>bool</code> | <code>False</code>
+<code>int</code> | <code>-1</code>
+<code>float</code> | <code>np.nan</code>
+<code>complex</code> | <code>np.nan+0j</code>
+<code>string</code> | <code>'???'</code></p>
+<p>To get finer control over the conversion of missing values we use the <code>filling_values</code> optional argument. Like <code>missing_values</code>, this accepts different kinds of values:</p>
+<ul>
+<li>a single value</li>
+<li>a sequence of values</li>
+<li>a dictionary</li>
+</ul>
+<h2>Shortcut Functions</h2>
+<p>In addition to <code>genfromtxt</code>, the <code>numpy.lib.npyio</code> module provides several convenience functions derived from <code>genfromtxt</code>.</p>
+<p>They work in the same way as the original function, but provide different default values.</p>
+<ul>
+<li><code>numpy.lib.npyio.recfromtxt</code></li>
+<li><code>numpy.lib.npyio.recfromcsv</code></li>
+</ul>
+
+    </main>
+    <footer>
+    <div>
+        <div>Sponsored by Frog Protection Services</div>
+        <div>Do you have Frog Protection?</div>
+    </div>
+    <hr />
+    <div>
+        <span class="logo-text-large">hello world</span>
+        <span class="logo-text-small">production</span>
+    </div>
+</footer>
+</body>
+</html>

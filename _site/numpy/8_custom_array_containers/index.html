@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Data Frog</title>
+    <link rel="stylesheet" href="/static/style.css" />
+    <link rel="icon" href="/static/favicon.ico" type="image/x-icon">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-3XCWXXR1VM"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-3XCWXXR1VM');
+    </script>
+</head>
+<body>
+    <header>
+    <div id="logo-container">
+        <div class="logo">
+            <a href="/">
+                <img src="/static/frog_logo.png" alt="Frog Protection">
+            </a>
+        </div>
+        <div class="logo-text-small">
+            <a href="/">Data Science & Computer Programming</a>
+        </div>
+    </div>
+    <div id="nav-container">
+        <div class="logo-text-small">
+            <span><a href="/numpy">NumPy</a></span>
+            <span><a href="/stats">Statistics</a></span>
+            <span><a href="/videos">Videos</a></span>
+        </div>
+    </div>
+</header>
+    <main>
+        <h2>Writing Custom Array Containers</h2>
+<p>NumPy's dispatch mechanism, is the recommended way to write custom N-dimensional array containers that are compatible with the NumPy API.</p>
+<p>This provides custom implementations of NumPy functionality.</p>
+<p>Applications include <code>dask arrays</code>, and N-dimensional array distributed across multiple nodes, and <code>cupy</code> arrays. <code>Cupy</code> arrays are an N-dimensional array on a GPU.</p>
+<p>NumPy allows a class to indicate that it would like to handle computations in a custom defined way through the interfaces <strong>arrayufun</strong> and <strong>array_function</strong>.</p>
+<p>The first <em>array_ufunc</em>_ covers Universal functions (ufunc), a class of functions that include, for example, <code>numpy.multiply</code> and <code>numpy.sin</code></p>
+<p>The _<em>array_ufunc</em> receives:</p>
+<ul>
+<li>ufunc, a function like numpy.multiply</li>
+<li>method, a string, differentiating between numpy.multiply and other numpy multiply</li>
+<li>inputs, which could be a mixture of different types</li>
+</ul>
+
+    </main>
+    <footer>
+    <div>
+        <div>Sponsored by Frog Protection Services</div>
+        <div>Do you have Frog Protection?</div>
+    </div>
+    <hr />
+    <div>
+        <span class="logo-text-large">hello world</span>
+        <span class="logo-text-small">production</span>
+    </div>
+</footer>
+</body>
+</html>

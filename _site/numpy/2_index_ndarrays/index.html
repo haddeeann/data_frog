@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Data Frog</title>
+    <link rel="stylesheet" href="/static/style.css" />
+    <link rel="icon" href="/static/favicon.ico" type="image/x-icon">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-3XCWXXR1VM"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-3XCWXXR1VM');
+    </script>
+</head>
+<body>
+    <header>
+    <div id="logo-container">
+        <div class="logo">
+            <a href="/">
+                <img src="/static/frog_logo.png" alt="Frog Protection">
+            </a>
+        </div>
+        <div class="logo-text-small">
+            <a href="/">Data Science & Computer Programming</a>
+        </div>
+    </div>
+    <div id="nav-container">
+        <div class="logo-text-small">
+            <span><a href="/numpy">NumPy</a></span>
+            <span><a href="/stats">Statistics</a></span>
+            <span><a href="/videos">Videos</a></span>
+        </div>
+    </div>
+</header>
+    <main>
+        <h2>Indexing NumPy Arrays</h2>
+<p>The <code>ndarrays</code> can be indexed using the stand Python object x[obj] syntax. This syntax indicates where x is the array in NumPy and obj is the thing you are selecting.</p>
+<p>This type of indexing works the similar to lists and tuples in Python. They are similar in that Python lists, tuples, and the <code>ndarray</code> in NumPy are all collection of data that can access individual values using indexes beginning with 0 at the start of the data collection.</p>
+<p>In NumPy, there's different types of indexing that varies in complexity. There's basic indexing, advanced indexing, and field access.</p>
+<h2>Basic and single element indexing</h2>
+<p>The single element indexing work the same as in other standard Python sequences. It's 0-based and accepts negative indices to reference from the end of an array.</p>
+<p>A single <code>ndarray</code> can be turned into a multidimensional array using the <code>shape</code> function.</p>
+<pre><code class="language-python">x = n.arange(10)
+# array([0, 1, 2, 3, 4, 5, 6, 7, 8, 9])
+x.shape = (2, 5)
+# array([[0, 1, 2, 3, 4],
+       [5, 6, 7, 8, 9]])
+x[1, 3]
+# 8
+</code></pre>
+<p>A multidimensional <code>ndarray</code> can be accessed as a single dimensional <code>ndarray</code>. The <code>shape</code> function does this by accessing a multidimensional <code>ndarray</code> with fewer dimensions than the original <code>ndarray</code>. This will return a sub dimensional <code>ndarray</code>.</p>
+<pre><code class="language-python">x
+# array([[0, 1, 2, 3, 4],
+       [5, 6, 7, 8, 9]])
+       
+x[0]
+# array([0, 1, 2, 3, 4])
+
+x
+# array([[0, 1, 2, 3, 4],
+       [5, 6, 7, 8, 9]])
+</code></pre>
+<p>The returned array is a view, it's not a copy of the original, but it points to the exact same values in memory as the original array. When you see the original value again it remains unchanged.</p>
+<p>The syntax <code>x[0, 2] == x[0][2]</code> is equivalent. The second syntax created a new temporary array after the first index that is subsequently indexed by 2.</p>
+<h2>Slicing</h2>
+<p>The basic slicing extends Python's basic concept of slicing to the N dimensions.</p>
+<p>It works like slicing an array in Python with <code>start:stop:step</code> notation in the brackets.</p>
+<p>The <code>ellipses</code> and <code>newaxis</code> objects can be in this notation as well as integers.</p>
+<p>In NumPy there are 24 fundamental Python types to describe the different types of scalars.</p>
+<p>All the rules of slicing sequences in Python apply on a per-dimension basis.</p>
+<p>The basics are that <code>i:j:k</code> will step through the array where i starts, j ends, and k is the step amount through the array where k != 0. that is, k can not equal zero.</p>
+<h2>Striding</h2>
+<p><a href="https://medium.com/analytics-vidhya/a-thorough-understanding-of-numpy-strides-and-its-application-in-data-processing-e40eab1c82fe">Credit: Kathryn</a></p>
+<p>Striding is taking steps through the data with a window and stride of a fixed size. The window is the amount of data that you are looking at. And the stride is the measure of how much you step each time you move forward in the data.</p>
+<h2>Ellipses</h2>
+<p>The ellipsis (...) or the Ellipsis object is used to slice higher-dimensional structures. It's designed to mean, at this point, insert as many full slices (:) to extend the multidimensional slice to all dimensions.</p>
+<p>There can be only one ellipsis present in slicing.</p>
+<p>To make a four dimensional matrix of order 2x2x2x2 you could do the following.</p>
+<pre><code class="language-python">from numpy import arange
+a = arange(16).
+# result array([ 0,  1,  2,  3,  4,  5,  6,  7,  8,  9, 10, 11, 12, 13, 14, 15])
+a.reshape(2,2,2,2)
+# result array([[[[ 0,  1],
+         [ 2,  3]],
+        [[ 4,  5],
+         [ 6,  7]]],
+       [[[ 8,  9],
+         [10, 11]],
+        [[12, 13],
+         [14, 15]]]])
+</code></pre>
+<p>Then to select all the first elements in the 4th dimension, you can use the ellipsis notation.</p>
+<pre><code class="language-python">a[..., 0].flatten()
+# result array([0, 2, 4, 6, 8, 10, 12, 14])
+</code></pre>
+<p>Which is the same as using the following notation.</p>
+<pre><code class="language-python">a[:,:,:,0].flatten()
+# result array([0, 2, 4, 6, 8, 10, 12, 14])
+</code></pre>
+<h2>Number of Dimensions</h2>
+<p>The <code>numpy.ndarray.ndim</code> function returns the number of dimensions of an array.</p>
+<pre><code class="language-python">a = np.array([1, 2, 3, 4])
+arr.ndim
+# result 1
+</code></pre>
+
+    </main>
+    <footer>
+    <div>
+        <div>Sponsored by Frog Protection Services</div>
+        <div>Do you have Frog Protection?</div>
+    </div>
+    <hr />
+    <div>
+        <span class="logo-text-large">hello world</span>
+        <span class="logo-text-small">production</span>
+    </div>
+</footer>
+</body>
+</html>
