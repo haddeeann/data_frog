@@ -7,8 +7,6 @@ You are given two non-empty linked lists representing two non-negative integers.
 
 You may assume the two numbers do not contain any leading zero, except the number 0 itself.
 
-
-
 ### Example 1:
 
 ```
@@ -31,12 +29,6 @@ Input: l1 = [9,9,9,9,9,9,9], l2 = [9,9,9,9]
 Output: [8,9,9,9,0,0,0,1]
 Explanation: 9,999,999 + 9,999 = 10,009,998
 ```
-
-### Constraints:
-
-The number of nodes in each linked list is in the range [1, 100].
-0 <= Node.val <= 9
-It is guaranteed that the list represents a number that does not have leading zeros.
 
 ```python
 # Definition for singly-linked list.

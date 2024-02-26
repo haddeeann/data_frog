@@ -1,8 +1,7 @@
 ---
 layout: "html_wrapper.njk"
 ---
-
-Integer to Roman
+# Integer to Roman
 
 Roman numerals are represented by seven different symbols: I, V, X, L, C, D and M.
 

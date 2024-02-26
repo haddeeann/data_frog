@@ -39,3 +39,11 @@ Python is a great language to write algorithms in even if you don't use it as a 
 17. [letter combo](./17_letter_combo)
 
 38. [count and say](./38_count)
+
+56. [merge two](./56_merge_two)
+
+121. [max profit](./121_max_profit)
+
+141. [linked](./141_linked)
+
+142. [linked cycle](./142_linked_cycle)

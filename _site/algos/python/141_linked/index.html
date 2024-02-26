@@ -37,45 +37,53 @@
     </div>
 </header>
     <main>
-        <h1>Palindrome Number</h1>
-<p>Given an integer x, return true if x is palindrome integer.</p>
-<p>An integer is a palindrome when it reads the same backward as forward.</p>
-<p>For example, 121 is a palindrome while 123 is not.</p>
+        <p>Given head, the head of a linked list, determine if the linked list has a cycle in it.</p>
+<p>There is a cycle in a linked list if there is some node in the list that can be reached again by continuously following the next pointer. Internally, pos is used to denote the index of the node that tail's next pointer is connected to. Note that pos is not passed as a parameter.</p>
+<p>Return true if there is a cycle in the linked list. Otherwise, return false.</p>
 <p>Example 1:</p>
-<p>Input: x = 121
+<p>Input: head = [3,2,0,-4], pos = 1
 Output: true
-Explanation: 121 reads as 121 from left to right and from right to left.
+Explanation: There is a cycle in the linked list, where the tail connects to the 1st node (0-indexed).
 Example 2:</p>
-<p>Input: x = -121
-Output: false
-Explanation: From left to right, it reads -121. From right to left, it becomes 121-. Therefore it is not a palindrome.
+<p>Input: head = [1,2], pos = 0
+Output: true
+Explanation: There is a cycle in the linked list, where the tail connects to the 0th node.
 Example 3:</p>
-<p>Input: x = 10
+<p>Input: head = [1], pos = -1
 Output: false
-Explanation: Reads 01 from right to left. Therefore, it is not a palindrome.</p>
-<pre><code class="language-python">import math
+Explanation: There is no cycle in the linked list.</p>
+<pre><code class="language-python">class ListNode(object):
+    def __init__(self, val=0, next=None):
+        self.val = val
+        self.next = next
 
 class Solution(object):
-    def isPalindrome(self, x):
+    def hasCycle(self, head):
         &quot;&quot;&quot;
-        :type x: int
+        :type head: ListNode
         :rtype: bool
         &quot;&quot;&quot;
-        str_x = str(x)
-        start = 0
-        end = len(str_x) - 1
-        midpoint = math.floor(len(str_x) / 2)
-        while start &lt; midpoint:
-            if str_x[start] != str_x[end]:
-                return False
-            start += 1
-            end -= 1
+        fast = head
+        slow = head
+        while fast and fast.next:
+            slow = slow.next
+            fast = fast.next.next
+            if slow == fast:
+                return True
 
-        return True
+        return False
 
 
-sol = Solution()
-print(sol.isPalindrome(-123321))
+def makeListNode(list_input):
+    h = None
+    for val in reversed(list_input):
+        h = ListNode(val, h)
+    return h
+
+
+l = makeListNode([1, 2])
+s = Solution()
+s.hasCycle(l)
 </code></pre>
 
     </main>

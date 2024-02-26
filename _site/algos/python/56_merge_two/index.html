@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Data Frog</title>
+    <link rel="stylesheet" href="/static/style.css" />
+    <link rel="icon" href="/static/favicon.ico" type="image/x-icon">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-3XCWXXR1VM"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-3XCWXXR1VM');
+    </script>
+</head>
+<body>
+    <header>
+    <div id="logo-container">
+        <div class="logo">
+            <a href="/">
+                <img src="/static/frog_logo.png" alt="Frog Protection">
+            </a>
+        </div>
+        <div class="logo-text-small">
+            <a href="/">Data Science & Computer Programming</a>
+        </div>
+    </div>
+    <div id="nav-container">
+        <div class="logo-text-small">
+            <span><a href="/numpy">NumPy</a></span>
+            <span><a href="/stats">Statistics</a></span>
+            <span><a href="/videos">Videos</a></span>
+            <span><a href="/algos">Algorithms</a></span>
+        </div>
+    </div>
+</header>
+    <main>
+        <h1>Merge Intervals</h1>
+<p>Example 1:</p>
+<p>Input: intervals = [[1,3],[2,6],[8,10],[15,18]]
+Output: [[1,6],[8,10],[15,18]]
+Explanation: Since intervals [1,3] and [2,6] overlap, merge them into [1,6].
+Example 2:</p>
+<p>Input: intervals = [[1,4],[4,5]]
+Output: [[1,5]]
+Explanation: Intervals [1,4] and [4,5] are considered overlapping.</p>
+<pre><code class="language-python">class Solution(object):
+    def merge(self, intervals):
+        &quot;&quot;&quot;
+        :type intervals: List[List[int]]
+        :rtype: List[List[int]]
+        &quot;&quot;&quot;
+        result_list = []
+
+        def sort_intervals(e):
+            return e[0]
+
+        intervals.sort(key=sort_intervals)
+
+        def test_overlap(left, test_arr):
+            return left[0] &lt;= test_arr[0] &lt;= left[1] or left[0] &lt;= test_arr[1] &lt;= left[1]
+
+        def change_overlap(index, left, right):
+            # fix the correct overlap
+            small_left = min(left[0], right[0])
+            large_right = max(left[1], right[1])
+            result_list[index] = [small_left, large_right]
+
+        for i, right_arr in enumerate(intervals):
+            if i == 0:
+                result_list.append(right_arr)
+            else:
+                last_result = len(result_list) - 1
+                if test_overlap(result_list[last_result], right_arr):
+                    change_overlap(last_result, result_list[last_result], right_arr)
+                else:
+                    result_list.append(right_arr)
+
+        return result_list
+
+
+sol = Solution()
+
+test_set = [
+    {
+        &quot;no&quot;: &quot;first&quot;,
+        &quot;interval&quot;: [[1, 3], [2, 6], [8, 10], [15, 18]],
+        &quot;answer&quot;: [[1, 6], [8, 10], [15, 18]]
+    },
+    {
+        &quot;no&quot;: &quot;second&quot;,
+        &quot;interval&quot;: [[1, 4], [4, 5]],
+        &quot;answer&quot;: [[1, 5]]
+    },
+    {
+        &quot;no&quot;: &quot;third&quot;,
+        &quot;interval&quot;: [[1, 4], [0, 4]],
+        &quot;answer&quot;: [[0, 4]]
+    },
+    {
+        &quot;no&quot;: &quot;fourth&quot;,
+        &quot;interval&quot;: [[1, 4], [0, 5]],
+        &quot;answer&quot;: [[0, 5]]
+    },
+    {
+        &quot;no&quot;: &quot;fifth&quot;,
+        &quot;interval&quot;: [[1, 4], [0, 2], [3, 5]],
+        &quot;answer&quot;: [[0, 5]]
+    },
+    {
+        &quot;no&quot;: &quot;sixth&quot;,
+        &quot;sorted&quot;: [[1, 3], [2, 6], [8, 10], [15, 18]],
+        &quot;interval&quot;: [[1, 3], [2, 6], [8, 10], [15, 18]],
+        &quot;answer&quot;: [[1, 6], [8, 10], [15, 18]]
+    },
+    {
+        &quot;no&quot;: &quot;seventh&quot;,
+        &quot;interval&quot;: [[2, 3], [4, 5], [6, 7], [8, 9], [1, 10]],
+        &quot;answer&quot;: [[1, 10]]
+    },
+    {
+        &quot;no&quot;: &quot;eighth&quot;,
+        &quot;interval&quot;: [[1,3]],
+        &quot;answer&quot;: [[1,3]]
+    },
+    {
+        &quot;no&quot;: &quot;nine&quot;,
+        &quot;interval&quot;: [[1, 4], [5, 6]],
+        &quot;answer&quot;: [[1, 4], [5, 6]]
+    },
+    {
+        &quot;no&quot;: &quot;ten&quot;,
+        &quot;sorted&quot;: [[1, 3], [2, 3], [2, 2], [2, 2], [3, 3], [4, 6], [5, 7]],
+        &quot;interval&quot;: [[2, 3], [2, 2], [3, 3], [1, 3], [5, 7], [2, 2], [4, 6]],
+        &quot;answer&quot;: [[1, 3], [4, 7]]
+    }
+]
+
+for test in test_set:
+    result = sol.merge(test['interval'])
+    if result == test['answer']:
+        print(f&quot;{test['no']} answer is right&quot;)
+    else:
+        print(f&quot;{test['no']} answer is wrong, the input is {test['interval']} the result is {result}&quot;)
+</code></pre>
+
+    </main>
+    <footer>
+    <div>
+        <div>Sponsored by Frog Protection Services</div>
+        <div>Do you have Frog Protection?</div>
+    </div>
+    <hr />
+    <div>
+        <span class="logo-text-large">hello world</span>
+        <span class="logo-text-small">production</span>
+    </div>
+</footer>
+</body>
+</html>

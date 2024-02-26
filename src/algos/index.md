@@ -52,4 +52,16 @@ Here's my list of leetcode problems and solutions (in Python):
 
 17. [letter combo](./python/17_letter_combo)
 
-38. [count and say](./38_count)
+18. [fourt sum](./python/18_four_sum)
+
+19. [node](./python/19_node)
+
+38. [count and say](./python/38_count)
+
+56. [merge two](./python/56_merge_two)
+
+121. [max profit](./python/121_max_profit)
+
+141. [linked](./python/141_linked)
+
+142. [linked cycle](./python/142_linked_cycle)
