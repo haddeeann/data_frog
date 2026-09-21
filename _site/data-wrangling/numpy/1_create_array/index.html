@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Data Frog</title>
+    <link rel="stylesheet" href="/static/style.css" />
+    <link rel="icon" href="/static/favicon.ico" type="image/x-icon">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-3XCWXXR1VM"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-3XCWXXR1VM');
+    </script>
+</head>
+<body>
+    <header class="site-header">
+    <div class="site-header-inner">
+        <a class="brand-link" href="/">
+            <img class="brand-mark" src="/static/frog_logo.png" alt="">
+            <span class="brand-copy">
+                <strong class="brand-name">Data Frog</strong>
+                <small class="brand-tagline">Field notes in data and Python</small>
+            </span>
+        </a>
+        <nav class="site-nav" aria-label="Primary navigation">
+            <a href="/curriculum/">Curriculum</a>
+            <a href="/algorithms/">Algorithms</a>
+            <a href="/data-wrangling/" class="active" aria-current="page">Data Wrangling</a>
+            <a href="/statistics/">Statistics</a>
+            <a href="/videos/">Videos</a>
+            <a href="/#data-sourcing">Data Sourcing</a>
+        </nav>
+    </div>
+</header>
+
+    <main>
+        <h2>Array Creation Methods</h2>
+<ol>
+<li>Conversion from other Python structures, like lists and tuples</li>
+<li>The built-in NumPy array creation functions</li>
+<li>By replicating, joining or mutating existing arrays</li>
+<li>Reading arrays from disk, either standard or custom formats</li>
+<li>From raw bytes through the use of strings or buffers</li>
+<li>Special library functions</li>
+</ol>
+<p>These methods create <code>ndarray</code> objects. An array becomes structured when its data type combines simpler types into a sequence of named fields.</p>
+<pre><code class="language-python">bob_array = np.array([('Bob', 9, 110)], dtype=[('firstname', 'U10'), ('age', 'i4'), ('weight', 'f4')])
+</code></pre>
+<p><code>bob_array</code> is one-dimensional, and each element contains three fields:</p>
+<ol>
+<li>a string of length 10 or less, named 'firstname'</li>
+<li>a 32 bit integer named 'age'</li>
+<li>a 32 bit float, named 'weight'</li>
+</ol>
+<h2>Conversion from other Python structures</h2>
+<p>Build NumPy arrays from Python lists (<code>[...]</code>) or tuples (<code>(...)</code>).</p>
+<p>A flat sequence creates a one-dimensional array.</p>
+<p>Nested sequences create higher-dimensional arrays: a list of equal-length lists produces a two-dimensional array.</p>
+<p>Pass the sequence to <code>np.array</code>:</p>
+<pre><code class="language-python">one_d_array = np.array([127, 182, 100])
+</code></pre>
+<p>Set <code>dtype</code> when the representation matters. Otherwise, NumPy infers a type from the input.</p>
+<p>Fixed-width numeric types can overflow when a value falls outside their range.</p>
+<p>For example, <code>np.int8</code> represents integers from -128 through 127. Values such as 128 and 129 exceed that range.</p>
+<pre><code class="language-python">overflow_array = np.array([127, 128, 129], dtype=np.int8)
+overflow_array
+array([127, -128, -127], dtype=int8)
+</code></pre>
+<p>Operations on arrays with the same dtype often preserve that dtype, subject to the operation's casting rules.</p>
+<p>For mixed dtypes, NumPy promotes inputs to a type that can represent the operation's values under its promotion rules.</p>
+<p>Integer inputs usually produce a platform-sized integer dtype; floating-point inputs usually produce <code>float64</code>.</p>
+<p>Specify <code>dtype</code> explicitly when the result requires a fixed representation.</p>
+<h2>Built in NumPy array creation functions</h2>
+<p>NumPy ships many constructors. Choose one by the shape, values, or source data you need rather than building arrays element by element.</p>
+<h2>1D Arrays</h2>
+<p>For one-dimensional ranges, start with <code>numpy.arange</code> or <code>numpy.linspace</code>.</p>
+<p><code>numpy.arange</code> advances from <code>start</code> by <code>step</code> and excludes <code>stop</code>. Integer arguments avoid floating-point endpoint surprises.</p>
+<p>It accepts floating-point arguments, but accumulated rounding can make the length or final value less obvious.</p>
+<p><code>numpy.linspace</code> returns a requested number of evenly spaced values between two endpoints.</p>
+<p>Use <code>linspace</code> to control the number of values; use <code>arange</code> to control the step size.</p>
+<h2>2D Arrays</h2>
+<p>Useful two-dimensional constructors include <code>numpy.eye</code>, <code>numpy.diag</code>, and <code>numpy.vander</code>.</p>
+<h3>numpy.eye</h3>
+<p>Call it as <code>np.eye(n, m)</code>.</p>
+<p><code>numpy.eye</code> places ones on a diagonal and zeros elsewhere. One size argument creates a square array.</p>
+<p>With both <code>n</code> and <code>m</code>, <code>n</code> sets the row count and <code>m</code> sets the column count.</p>
+<p>For example:</p>
+<pre><code class="language-python">np.eye(3)
+array([[1., 0., 0.],
+[0., 1., 0.],
+[0., 0., 1.]])
+</code></pre>
+<pre><code class="language-python">np.eye(3, 5)
+array([[1., 0., 0., 0., 0.],
+[0., 1., 0., 0., 0.],
+[0., 0., 1., 0., 0.]])
+</code></pre>
+<h3>numpy.diag</h3>
+<p><code>numpy.diag</code> either extracts a diagonal or constructs a two-dimensional array from one. The integer <code>k</code> selects an offset from the main diagonal.</p>
+<p>Given a one-dimensional input, it places those values on the <code>k</code>th diagonal of a new array.</p>
+<p>Positive <code>k</code> selects a diagonal above the main diagonal; negative <code>k</code> selects one below it.</p>
+<p>Given a two-dimensional input, it extracts the selected diagonal as a one-dimensional array.</p>
+<p>Both functions are standard building blocks for linear algebra.</p>
+<pre><code class="language-python">np.diag([1, 2, 3])
+array([[1, 0, 0],
+[0, 2, 0],
+[0, 0, 3]])
+</code></pre>
+<pre><code class="language-python">np.diag([1, 2, 3], 1)
+array([[0, 1, 0, 0],
+[0, 0, 2, 0],
+[0, 0, 0, 3],
+[0, 0, 0, 0]])
+</code></pre>
+<pre><code class="language-python">a = np.array([[1, 2], [3, 4]])
+np.diag(a)
+array([1, 4])
+</code></pre>
+<h3>numpy.vander</h3>
+<p><code>vander(x, n)</code> constructs a two-dimensional Vandermonde matrix.</p>
+<p>A Vandermonde matrix places a geometric progression across each row.</p>
+<p>In a geometric progression, each term equals the previous term times a fixed common ratio.</p>
+<p>For example, <code>2, 6, 18, 54</code> has a common ratio of 3.</p>
+<p>With the default ordering, each column of <code>vander(x, n)</code> contains a decreasing power of <code>x</code>.</p>
+<p>With <code>n</code> columns, the highest power is <code>n-1</code>.</p>
+<p>This matrix appears in polynomial interpolation and least-squares fitting.</p>
+<pre><code class="language-python">np.vander(np.linspace(0, 2, 5), 2)
+array([[0. , 1. ],
+[0.5, 1. ],
+[1. , 1. ],
+[1.5, 1. ],
+[2. , 1. ]])
+</code></pre>
+<pre><code class="language-python">np.vander([1, 2, 3, 4], 2)
+array([[1, 1],
+[2, 1],
+[3, 1],
+[4, 1]])
+</code></pre>
+<pre><code class="language-python">np.vander((1, 2, 3, 4), 4)
+array([[ 1,  1,  1,  1],
+[ 8,  4,  2,  1],
+[27,  9,  3,  1],
+[64, 16,  4,  1]])
+</code></pre>
+<p>Least squares approximates solutions to overdetermined systems, which contain more equations than unknowns.</p>
+<p>It minimizes the sum of squared residuals, where each residual is the difference between an observed and fitted value.</p>
+<h2>General ndarray Creation Functions</h2>
+<p>Create prefilled arrays with <code>numpy.ones</code>, <code>numpy.zeros</code>, or functions in <code>numpy.random</code>. Pass a shape tuple to set the dimensions.</p>
+<p><code>numpy.zeros</code> fills an array with zeros and defaults to <code>float64</code>; <code>numpy.ones</code> fills it with ones. Random generators produce values from a selected distribution.</p>
+<p><code>numpy.indices</code> returns one coordinate array per dimension, stacked along a new leading axis. Use it to evaluate multidimensional functions on a regular grid.</p>
+<h2>Replicating, Joining or Mutation</h2>
+<p>Existing arrays can seed new arrays through replication, joining, mutation, views, or copies.</p>
+<p>Assigning an array to another variable creates an alias, not a copy. Both names reference the same object.</p>
+<p>Use <code>numpy.copy</code> when changes must not affect the original. A slice, by contrast, usually returns a view:</p>
+<pre><code class="language-python">a = np.array([1, 2, 3, 4, 5, 6])
+b = a[:2]
+b += 1
+print('a = ', a)
+print('b = ', b)
+a = [2 3 3 4 5 6]
+b = [2 3]
+</code></pre>
+<p>A copied slice owns separate data:</p>
+<pre><code class="language-python">a = np.array([1, 2, 3, 4])
+b = a[:2].copy()
+b += 1
+print('a = ', a)
+print('b = ', b)
+a = [1 2 3 4]
+b = [2 3]
+</code></pre>
+<p>Join arrays with <code>numpy.vstack</code>, <code>numpy.hstack</code>, or <code>numpy.block</code>.</p>
+<h3>numpy.vstack</h3>
+<p><code>numpy.vstack</code> joins arrays row-wise along the first axis.</p>
+<p>For example:</p>
+<pre><code class="language-python">numpy.vstack((a1,a2,...))
+</code></pre>
+<p>The argument is a sequence of array-like inputs.</p>
+<p>Inputs must match along every axis except the first. One-dimensional inputs must have equal lengths.</p>
+<p>Stack two one-dimensional arrays like this:</p>
+<pre><code class="language-python">a = np.array([1, 2])
+b = np.array([3, 4])
+c = np.vstack((a, b))
+</code></pre>
+<p>The result is:</p>
+<pre><code class="language-python">[[1, 2], [3, 4]]
+</code></pre>
+<p>The same operation appends rows from two-dimensional arrays:</p>
+<pre><code class="language-python">a = np.array([
+    [1, 2],
+    [3, 4]
+])
+b = np.array([
+    [5, 6],
+    [7, 8]
+])
+c = np.vstack((a, b))
+</code></pre>
+<p>The result is:</p>
+<pre><code class="language-python">[
+    [1, 2],
+    [3, 4],
+    [5, 6],
+    [7, 8]
+]
+</code></pre>
+<h3>numpy.hstack</h3>
+<p><code>numpy.hstack</code> joins arrays horizontally: along the second axis for arrays with two or more dimensions, and along the first axis for one-dimensional arrays.</p>
+<p>Join one-dimensional arrays like this:</p>
+<pre><code class="language-python">a = np.array([1, 2])
+b = np.array([3, 4])
+c = np.hstack((a, b))
+</code></pre>
+<p>The result is:</p>
+<pre><code class="language-python">[[1, 2, 3, 4]]
+</code></pre>
+<p>For two-dimensional arrays, <code>hstack</code> appends columns:</p>
+<pre><code class="language-python">a = np.array([
+    [1, 2],
+    [3, 4]
+])
+b = np.array([
+    [5, 6],
+    [7, 8]
+])
+c = np.hstack((a, b))
+</code></pre>
+<p>The result is:</p>
+<pre><code class="language-python">[
+    [1, 2, 5, 6],
+    [3, 4, 7, 8]
+]
+</code></pre>
+<h3>numpy.block</h3>
+<p><code>numpy.block</code> assembles arrays from nested block layouts.</p>
+<p>For one-dimensional arrays:</p>
+<pre><code class="language-python">a = np.array([5, 6, 7])
+b = np.array([8, 9, 10])
+c = np.block((a, b))
+</code></pre>
+<p>The result is:</p>
+<pre><code class="language-python">[5, 6, 7, 8, 9, 10]
+</code></pre>
+<h2>Reading Arrays from Disk</h2>
+<p>Large arrays usually begin as data on disk.</p>
+<h3>Standard Binary Formats</h3>
+<p>Many fields use standard binary formats:</p>
+<p>HD5: h5py
+FITS: Astropy</p>
+<p>Convert unsupported formats through a library that understands them, such as Pillow for image data.</p>
+<h3>Common ASCII Formats</h3>
+<p>CSV and TSV files store delimited text. Load regular numeric tables with <code>numpy.loadtxt</code>; use <code>numpy.genfromtxt</code> when missing values or mixed types require more control. SciPy and Pandas cover additional formats.</p>
+<p>Load a CSV file while skipping its header:</p>
+<pre><code class="language-python">np.loadtxt('simple_example.csv', delimiter = ',', skiprows = 1)
+</code></pre>
+<p>The result is:</p>
+<pre><code class="language-python">array([[0., 0.],
+[1., 1.],
+[2., 4.],
+[3., 9.]])
+</code></pre>
+
+    </main>
+    <footer class="site-footer">
+    <div class="site-footer-inner">
+        <div>
+            <div>Field notes from the workbench.</div>
+            <div>Built one experiment at a time.</div>
+        </div>
+        <hr />
+        <div>
+            <span class="logo-text-large">Data Frog</span>
+            <span class="logo-text-small">lab notebook</span>
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>

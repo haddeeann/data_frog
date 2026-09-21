@@ -1,0 +1,98 @@
+---
+layout: "html_wrapper.njk"
+title: "Median of Two Sorted Arrays"
+track: "algorithms"
+type: "practice"
+status: "published"
+difficulty: "beginner"
+order: 4
+series: "python"
+---
+
+Given sorted arrays nums1 and nums2 with lengths m and n, return their combined median.
+
+Target overall runtime: O(log (m+n)).
+
+Example 1:
+
+Input: nums1 = [1,3], nums2 = [2]
+Output: 2.00000
+Explanation: The merged array is [1,2,3], so the median is 2.
+Example 2:
+
+Input: nums1 = [1,2], nums2 = [3,4]
+Output: 2.50000
+Explanation: The merged array is [1,2,3,4], so the median is (2 + 3) / 2 = 2.5.
+
+```python
+import math
+
+
+class Solution(object):
+    def findMedianSortedArrays(self, nums1, nums2):
+        """
+        :type nums1: List[int]
+        :type nums2: List[int]
+        :rtype: float
+        """
+        iter_1 = 0
+        end_1 = len(nums1)
+
+        iter_2 = 0
+        end_2 = len(nums2)
+
+        first_median = None
+        second_median = None
+
+        median_num_1 = None
+        median_num_2 = None
+
+        counter = 0
+        total_length = end_1 + end_2
+        if total_length % 2 == 0:
+            even = True
+            median_num_1 = total_length / 2 - 1
+            median_num_2 = total_length / 2
+        else:
+            even = False
+            median_num_1 = math.floor(total_length/2)
+
+        while iter_1 < end_1 or iter_2 < end_2:
+            if even:
+                if counter == median_num_1:
+                    if iter_1 < end_1 and nums1[iter_1] < nums2[iter_2]:
+                        first_median = nums1[iter_1]
+                    elif iter_2 < end_2:
+                        first_median = nums2[iter_2]
+                elif counter == median_num_2:
+                    if iter_1 < end_1 and nums1[iter_1] < nums2[iter_2]:
+                        second_median = nums1[iter_1]
+                    elif iter_2 < end_2:
+                        second_median = nums2[iter_2]
+                    break
+            elif even is False and counter == median_num_1:
+                if iter_1 < end_1 and nums1[iter_1] < nums2[iter_2]:
+                    first_median = nums1[iter_1]
+                elif iter_2 < end_2:
+                    first_median = nums2[iter_2]
+                break
+
+            if iter_1 < end_1:
+                if iter_2 == end_2 or nums1[iter_1] < nums2[iter_2]:
+                    iter_1 += 1
+
+            if iter_2 < end_2:
+                if iter_1 == end_1 or nums2[iter_2] < nums1[iter_1]:
+                    iter_2 += 1
+
+            counter += 1
+
+        if even:
+            return (first_median + second_median) / 2
+        else:
+            return first_median
+
+
+sol = Solution()
+print(sol.findMedianSortedArrays([11, 12], [2, 3]))
+```

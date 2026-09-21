@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Data Frog</title>
+    <link rel="stylesheet" href="/static/style.css" />
+    <link rel="icon" href="/static/favicon.ico" type="image/x-icon">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-3XCWXXR1VM"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-3XCWXXR1VM');
+    </script>
+</head>
+<body>
+    <header class="site-header">
+    <div class="site-header-inner">
+        <a class="brand-link" href="/">
+            <img class="brand-mark" src="/static/frog_logo.png" alt="">
+            <span class="brand-copy">
+                <strong class="brand-name">Data Frog</strong>
+                <small class="brand-tagline">Field notes in data and Python</small>
+            </span>
+        </a>
+        <nav class="site-nav" aria-label="Primary navigation">
+            <a href="/curriculum/">Curriculum</a>
+            <a href="/algorithms/" class="active" aria-current="page">Algorithms</a>
+            <a href="/data-wrangling/">Data Wrangling</a>
+            <a href="/statistics/">Statistics</a>
+            <a href="/videos/">Videos</a>
+            <a href="/#data-sourcing">Data Sourcing</a>
+        </nav>
+    </div>
+</header>
+
+    <main>
+        <h1>Remove Nth Node From End of List</h1>
+<p>Given a linked-list head, remove the nth node from the end and return the head.</p>
+<p>Example 1:</p>
+<p>Input: head = [1,2,3,4,5], n = 2
+Output: [1,2,3,5]
+Example 2:</p>
+<p>Input: head = [1], n = 1
+Output: []
+Example 3:</p>
+<p>Input: head = [1,2], n = 1
+Output: [1]</p>
+<pre><code class="language-python"># Definition for singly-linked list.
+class ListNode(object):
+    def __init__(self, val=0, next=None):
+        self.val = val
+        self.next = next
+
+
+class Solution(object):
+    def findLengthList(self, head):
+        count = 0
+        node = head
+        while node:
+            count += 1
+            node = node.next
+        return count
+
+    def removeNode(self, head, node_remove):
+        count = 0
+        node = head
+        answer = []
+        while node:
+            if count != node_remove:
+                answer.append(node.val)
+            node = node.next
+            count += 1
+
+        return answer
+
+    def makeNodeList(self, values):
+        h = None
+        for val in reversed(values):
+            h = ListNode(val, h)
+        return h
+
+    def removeNthFromEnd(self, head, n):
+        &quot;&quot;&quot;
+        :type head: ListNode
+        :type n: int
+        :rtype: ListNode
+        &quot;&quot;&quot;
+        l = self.findLengthList(head)
+        node_remove = l - n
+        values = self.removeNode(head, node_remove)
+        print(values)
+        node_answer = self.makeNodeList(values)
+        return node_answer
+
+
+def createLinkedList(values):
+    h = None
+    for val in reversed(values):
+        h = ListNode(val, h)
+    return h
+
+
+test_case = {
+    &quot;no&quot;: &quot;one&quot;,
+    &quot;input&quot;: ([1, 2, 3, 4, 5], 2),
+    &quot;answer&quot;: [1, 2, 3, 5],
+}
+
+s = Solution()
+c = [1, 2, 3, 4, 5]
+node_list = createLinkedList(c)
+s.removeNthFromEnd(node_list, 2)
+</code></pre>
+
+    </main>
+    <footer class="site-footer">
+    <div class="site-footer-inner">
+        <div>
+            <div>Field notes from the workbench.</div>
+            <div>Built one experiment at a time.</div>
+        </div>
+        <hr />
+        <div>
+            <span class="logo-text-large">Data Frog</span>
+            <span class="logo-text-small">lab notebook</span>
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>

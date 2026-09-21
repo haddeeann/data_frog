@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Data Frog</title>
+    <link rel="stylesheet" href="/static/style.css" />
+    <link rel="icon" href="/static/favicon.ico" type="image/x-icon">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-3XCWXXR1VM"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-3XCWXXR1VM');
+    </script>
+</head>
+<body>
+    <header class="site-header">
+    <div class="site-header-inner">
+        <a class="brand-link" href="/">
+            <img class="brand-mark" src="/static/frog_logo.png" alt="">
+            <span class="brand-copy">
+                <strong class="brand-name">Data Frog</strong>
+                <small class="brand-tagline">Field notes in data and Python</small>
+            </span>
+        </a>
+        <nav class="site-nav" aria-label="Primary navigation">
+            <a href="/curriculum/">Curriculum</a>
+            <a href="/algorithms/">Algorithms</a>
+            <a href="/data-wrangling/" class="active" aria-current="page">Data Wrangling</a>
+            <a href="/statistics/">Statistics</a>
+            <a href="/videos/">Videos</a>
+            <a href="/#data-sourcing">Data Sourcing</a>
+        </nav>
+    </div>
+</header>
+
+    <main>
+        <h2>Indexing NumPy Arrays</h2>
+<p>Index an <code>ndarray</code> with standard Python <code>x[obj]</code> syntax, where <code>x</code> is the array and <code>obj</code> selects part of it.</p>
+<p>Like lists and tuples, arrays use zero-based indices. Multidimensional arrays extend the same idea across multiple axes.</p>
+<p>NumPy supports basic indexing, advanced indexing, and field access for structured arrays.</p>
+<h2>Basic and single element indexing</h2>
+<p>Single-element indexing is zero-based and accepts negative indices from the end of an axis.</p>
+<p>Reshape a one-dimensional array by assigning a compatible tuple to <code>shape</code>.</p>
+<pre><code class="language-python">x = n.arange(10)
+# array([0, 1, 2, 3, 4, 5, 6, 7, 8, 9])
+x.shape = (2, 5)
+# array([[0, 1, 2, 3, 4],
+       [5, 6, 7, 8, 9]])
+x[1, 3]
+# 8
+</code></pre>
+<p>Indexing a multidimensional array with fewer indices than dimensions returns a lower-dimensional subarray.</p>
+<pre><code class="language-python">x
+# array([[0, 1, 2, 3, 4],
+       [5, 6, 7, 8, 9]])
+       
+x[0]
+# array([0, 1, 2, 3, 4])
+
+x
+# array([[0, 1, 2, 3, 4],
+       [5, 6, 7, 8, 9]])
+</code></pre>
+<p>Basic indexing returns a view that shares memory with the original array; changes through the view can change the source.</p>
+<p><code>x[0, 2]</code> and <code>x[0][2]</code> select the same element, but the second form creates an intermediate view before the final lookup.</p>
+<h2>Slicing</h2>
+<p>Basic slicing extends Python's slice syntax across any number of dimensions.</p>
+<p>Each axis accepts <code>start:stop:step</code> notation.</p>
+<p>Indices can also include integers, <code>Ellipsis</code>, and <code>newaxis</code>.</p>
+<p>Python's sequence-slicing rules apply independently to each dimension.</p>
+<p>In <code>i:j:k</code>, <code>i</code> is the start, <code>j</code> is the exclusive stop, and nonzero <code>k</code> is the step.</p>
+<h2>Striding</h2>
+<p><a href="https://medium.com/analytics-vidhya/a-thorough-understanding-of-numpy-strides-and-its-application-in-data-processing-e40eab1c82fe">Credit: Kathryn</a></p>
+<p>A sliding window reads a fixed-width region at each position; its stride controls how far that position advances between reads.</p>
+<h2>Ellipses</h2>
+<p>An ellipsis (<code>...</code> or <code>Ellipsis</code>) inserts as many full slices (<code>:</code>) as needed to cover unspecified dimensions.</p>
+<p>A slice expression can contain only one ellipsis.</p>
+<p>Create a four-dimensional <code>2 × 2 × 2 × 2</code> array:</p>
+<pre><code class="language-python">from numpy import arange
+a = arange(16).
+# result array([ 0,  1,  2,  3,  4,  5,  6,  7,  8,  9, 10, 11, 12, 13, 14, 15])
+a.reshape(2,2,2,2)
+# result array([[[[ 0,  1],
+         [ 2,  3]],
+        [[ 4,  5],
+         [ 6,  7]]],
+       [[[ 8,  9],
+         [10, 11]],
+        [[12, 13],
+         [14, 15]]]])
+</code></pre>
+<p>Select index <code>0</code> from the fourth dimension with an ellipsis:</p>
+<pre><code class="language-python">a[..., 0].flatten()
+# result array([0, 2, 4, 6, 8, 10, 12, 14])
+</code></pre>
+<p>This explicit slice is equivalent:</p>
+<pre><code class="language-python">a[:,:,:,0].flatten()
+# result array([0, 2, 4, 6, 8, 10, 12, 14])
+</code></pre>
+<h2>Number of Dimensions</h2>
+<p>The <code>numpy.ndarray.ndim</code> attribute reports an array's number of dimensions.</p>
+<pre><code class="language-python">a = np.array([1, 2, 3, 4])
+arr.ndim
+# result 1
+</code></pre>
+
+    </main>
+    <footer class="site-footer">
+    <div class="site-footer-inner">
+        <div>
+            <div>Field notes from the workbench.</div>
+            <div>Built one experiment at a time.</div>
+        </div>
+        <hr />
+        <div>
+            <span class="logo-text-large">Data Frog</span>
+            <span class="logo-text-small">lab notebook</span>
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Data Frog</title>
+    <link rel="stylesheet" href="/static/style.css" />
+    <link rel="icon" href="/static/favicon.ico" type="image/x-icon">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-3XCWXXR1VM"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-3XCWXXR1VM');
+    </script>
+</head>
+<body>
+    <header class="site-header">
+    <div class="site-header-inner">
+        <a class="brand-link" href="/">
+            <img class="brand-mark" src="/static/frog_logo.png" alt="">
+            <span class="brand-copy">
+                <strong class="brand-name">Data Frog</strong>
+                <small class="brand-tagline">Field notes in data and Python</small>
+            </span>
+        </a>
+        <nav class="site-nav" aria-label="Primary navigation">
+            <a href="/curriculum/">Curriculum</a>
+            <a href="/algorithms/" class="active" aria-current="page">Algorithms</a>
+            <a href="/data-wrangling/">Data Wrangling</a>
+            <a href="/statistics/">Statistics</a>
+            <a href="/videos/">Videos</a>
+            <a href="/#data-sourcing">Data Sourcing</a>
+        </nav>
+    </div>
+</header>
+
+    <main>
+        <h1>Count and Say</h1>
+<p>The count-and-say sequence recursively describes runs of digits:</p>
+<p>countAndSay(1) = &quot;1&quot;
+countAndSay(n) describes countAndSay(n-1). Split the previous term into maximal runs of one digit, state each run's length and digit, then concatenate the results.</p>
+<p>For example, describe &quot;3322251&quot; as:</p>
+<p>Given positive integer n, return the nth term.</p>
+<p>23 32 15 11</p>
+<p>Example 1:</p>
+<p>Input: n = 1
+Output: &quot;1&quot;
+Explanation: This is the base case.
+Example 2:</p>
+<p>Input: n = 4
+Output: &quot;1211&quot;
+Explanation:
+countAndSay(1) = &quot;1&quot;
+countAndSay(2) = say &quot;1&quot; = one 1 = &quot;11&quot;
+countAndSay(3) = say &quot;11&quot; = two 1's = &quot;21&quot;
+countAndSay(4) = say &quot;21&quot; = one 2 + one 1 = &quot;12&quot; + &quot;11&quot; = &quot;1211&quot;</p>
+<pre><code class="language-python">class Solution(object):
+    def countAndSay(self, n):
+        &quot;&quot;&quot;
+        :type n: int
+        :rtype: str
+        :type current int
+        &quot;&quot;&quot;
+        if n == 1:
+            return n
+        counter = 1
+        build = ''
+        while counter &lt; n:
+            if build == '':
+                test = str(counter)
+            else:
+                test = build
+            add = ''
+            count = 1
+            while len(test) &gt; 0:
+                first = test[:1]
+                test = test[1:]
+                while len(test) &gt; 0 and first == test[0]:
+                    count += 1
+                    test = test[1:]
+                add += str(count) + first
+            counter += 1
+            build = add
+        return build
+
+
+input = 4
+sol = Solution()
+answer = sol.countAndSay(input)
+print(answer == &quot;1211&quot;)
+</code></pre>
+
+    </main>
+    <footer class="site-footer">
+    <div class="site-footer-inner">
+        <div>
+            <div>Field notes from the workbench.</div>
+            <div>Built one experiment at a time.</div>
+        </div>
+        <hr />
+        <div>
+            <span class="logo-text-large">Data Frog</span>
+            <span class="logo-text-small">lab notebook</span>
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>

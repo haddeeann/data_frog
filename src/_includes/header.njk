@@ -8,10 +8,11 @@
             </span>
         </a>
         <nav class="site-nav" aria-label="Primary navigation">
-            <a href="/numpy/"{% if page.url == "/numpy/" or "/numpy/" in page.url %} class="active" aria-current="page"{% endif %}>NumPy</a>
-            <a href="/stats/"{% if page.url == "/stats/" or "/stats/" in page.url %} class="active" aria-current="page"{% endif %}>Statistics</a>
-            <a href="/algos/"{% if page.url == "/algos/" or "/algos/" in page.url %} class="active" aria-current="page"{% endif %}>Algorithms</a>
-            <a href="/videos/"{% if page.url == "/videos/" or "/videos/" in page.url %} class="active" aria-current="page"{% endif %}>Videos</a>
+            <a href="/curriculum/"{% if page.url == "/curriculum/" or "/curriculum" in page.url %} class="active" aria-current="page"{% endif %}>Curriculum</a>
+            <a href="/algorithms/"{% if "/algorithms" in page.url %} class="active" aria-current="page"{% endif %}>Algorithms</a>
+            <a href="/data-wrangling/"{% if "/data-wrangling" in page.url %} class="active" aria-current="page"{% endif %}>Data Wrangling</a>
+            <a href="/statistics/"{% if "/statistics" in page.url %} class="active" aria-current="page"{% endif %}>Statistics</a>
+            <a href="/videos/"{% if "/videos" in page.url %} class="active" aria-current="page"{% endif %}>Videos</a>
             <a href="/#data-sourcing"{% if page.url == "/" %} class="active" aria-current="page"{% endif %}>Data Sourcing</a>
         </nav>
     </div>
