@@ -31,4 +31,4 @@ order: 2
 
 ## Lessons
 
-This track is scaffolded and waiting for content. See [the curriculum dashboard](/curriculum/) for the roadmap and progress across all tracks.
+- [The Python Data Model](./01_python_data_model/) — protocols behind `len()`, iteration, and truthiness

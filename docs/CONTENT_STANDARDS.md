@@ -99,9 +99,10 @@ prerequisites: ["data-wrangling/numpy/1_create_array"]
 ```
 
 - The file goes at the backlog row's `target_path`. Never invent filenames or renumber.
+- Add the lesson to its track page's lesson list (the hand-written TOC in `src/<track>/index.md`) when it is published.
 - Delete the backlog row after creating the file. (The build dedupes by `id`, so a forgotten row can't double-count — but delete it anyway.)
-- `status` moves forward only: drafted → reviewed → published. Publishing happens at explicit checkpoints, never as a side effect of writing.
-- Drafted lessons render at their URL but appear only in a track page's collapsed "In review" section, clearly marked. Flipping to `published` (and merging to main) is the publish step.
+- `status` moves forward only: drafted → reviewed → published. **Review is agentic** — a reviewer agent (not a human) runs the review checklist, re-executes the code, and flips the status. The site owner consumes the finished product and edits where imperfections surface; those edits flow back into these standards.
+- Publishing happens at explicit checkpoints set by the site owner, never as a side effect of writing. Drafted and reviewed lessons render at their URLs and appear only in a track page's "In review" section, clearly marked; flipping to `published` (and merging to main) is the publish step.
 
 ### Acceptance checklist (all must pass before `drafted`)
 
@@ -114,9 +115,12 @@ prerequisites: ["data-wrangling/numpy/1_create_array"]
 7. Backlog row deleted; `npm run validate:backlog` passes
 8. `npx @11ty/eleventy` builds clean
 
-### Review checklist (before `reviewed` → `published`)
+### Review checklist (reviewer agent, before flipping to `published`)
 
-1. Technical accuracy — every claim checked
+The reviewer may be an agent; the standard is not lower for it. Re-execute every code block and compare outputs verbatim before checking anything else.
+
+1. Technical accuracy — every claim checked; every code block re-run, outputs matching
 2. Pedagogy — does the order of ideas hold up?
-3. Links live, citations real
-4. Exercise solutions verified independently
+3. Links live, citations real, datasets licensed
+4. Exercise solutions verified independently (solve, don't read)
+5. Acceptance checklist items 1-7 still true

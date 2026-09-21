@@ -28,4 +28,4 @@ order: 8
 
 ## Lessons
 
-This track is scaffolded and waiting for content. See [the curriculum dashboard](/curriculum/) for the roadmap and progress across all tracks.
+- [What ML Can and Cannot Do](./01_what_ml_can_and_cannot_do/) — the ladder from rules to models, and when to climb it
