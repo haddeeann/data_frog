@@ -65,7 +65,7 @@ A concept lesson runs 1,500–2,500 words (S lessons ~1,200, M ~2,000, L ~3,000)
 </div>
 ```
 
-- **Inside exercise blocks, use HTML tags, not markdown.** The site's markdown renderer does not process markdown inside raw HTML blocks, so write <code><code></code>, <code><em></code>, and <code><pre><code>...</code></pre></code> directly inside exercise markup. Nothing inside `<div class="exercise">` ... `</div>` should contain a backtick or asterisk.
+- **Inside exercise blocks, use HTML tags, not markdown.** The site's markdown renderer does not process markdown inside raw HTML blocks, so write `<code>`, `<em>`, and `<pre><code>...</code></pre>` directly inside exercise markup. Prose inside an exercise block should contain no markdown-formatting backticks or asterisks (a literal `*` inside actual code is fine).
 
 - Solutions explain the reasoning, not just the answer.
 - Difficulty ascends: exercise 1 is mechanical, the last one should be genuinely hard.
