@@ -2,7 +2,7 @@
 layout: "html_wrapper.njk"
 ---
 
-<p class="hero-statement">Data Frog is a running lab notebook — data science, ML, and the Python that ties them together, written up as I learn it.</p>
+<p class="hero-statement">A Data Science Journey</p>
 
 <div class="module-grid">
   <a class="module-card" href="/numpy/">
