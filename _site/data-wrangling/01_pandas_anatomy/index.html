@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Data Frog</title>
+    <link rel="stylesheet" href="/static/style.css" />
+    <link rel="icon" href="/static/favicon.ico" type="image/x-icon">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-3XCWXXR1VM"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-3XCWXXR1VM');
+    </script>
+</head>
+<body>
+    <header class="site-header">
+    <div class="site-header-inner">
+        <a class="brand-link" href="/">
+            <img class="brand-mark" src="/static/frog_logo.png" alt="">
+            <span class="brand-copy">
+                <strong class="brand-name">Data Frog</strong>
+                <small class="brand-tagline">Field notes in data and Python</small>
+            </span>
+        </a>
+        <nav class="site-nav" aria-label="Primary navigation">
+            <a href="/curriculum/">Curriculum</a>
+            <a href="/algorithms/">Algorithms</a>
+            <a href="/data-wrangling/" class="active" aria-current="page">Data Wrangling</a>
+            <a href="/statistics/">Statistics</a>
+            <a href="/videos/">Videos</a>
+            <a href="/#data-sourcing">Data Sourcing</a>
+        </nav>
+    </div>
+</header>
+
+    <main>
+        <h1>pandas Anatomy</h1>
+<p>NumPy gave you dense, typed, fast arrays. But look at what you actually work with: columns with names, rows that mean something, and tables that need to line up with other tables. Arrays carry none of that. pandas adds exactly that layer — labels and the machinery to keep them honest — and almost everything confusing about pandas comes from not seeing the three objects clearly: <code>Series</code>, <code>DataFrame</code>, and the <code>Index</code>.</p>
+<p>Get these straight now and the rest of the track (grouping, joining, reshaping) is a set of consequences. Skip this and every later lesson will feel like arbitrary rules.</p>
+<h2>The Series: values with labels</h2>
+<p>A <code>Series</code> is a one-dimensional array plus an <code>Index</code> — a label for every position:</p>
+<pre><code class="language-python"># python 3.10+, pandas 3.0
+import pandas as pd
+
+flippers = pd.Series(
+    [181, 186, 195, 210, 210, 193],
+    name=&quot;flipper_length_mm&quot;,
+)
+print(flippers)
+# 0    181
+# 1    186
+# 2    195
+# 3    210
+# 4    210
+# 5    193
+# Name: flipper_length_mm, dtype: int64
+</code></pre>
+<p>The left column is the index. Here it's the default — integers 0 through 5, positional-looking. But the index can be anything:</p>
+<pre><code class="language-python">by_species = pd.Series(
+    [190, 218, 195],
+    index=[&quot;Adelie&quot;, &quot;Gentoo&quot;, &quot;Chinstrap&quot;],
+    name=&quot;mean_flipper_mm&quot;,
+)
+print(by_species[&quot;Gentoo&quot;])   # 218
+</code></pre>
+<p>That's the whole trick. A Series is a mapping from labels to values, backed by a fast array. Selection by label is the <em>point</em>, not a convenience.</p>
+<h2>The DataFrame: Series sharing an index</h2>
+<p>A <code>DataFrame</code> is not &quot;a table&quot; in the spreadsheet sense. It is a dict of Series that all share one index — one labeled row-axis, many typed columns:</p>
+<pre><code class="language-python">penguins = pd.DataFrame({
+    &quot;species&quot;: [&quot;Adelie&quot;, &quot;Gentoo&quot;, &quot;Chinstrap&quot;, &quot;Adelie&quot;],
+    &quot;flipper_mm&quot;: [181, 210, 195, 186],
+    &quot;body_mass_g&quot;: [3750, 4500, 3800, 3700],
+})
+print(penguins)
+#      species  flipper_mm  body_mass_g
+# 0     Adelie         181         3750
+# 1     Gentoo         210         4500
+# 2  Chinstrap         195         3800
+# 3     Adelie         186         3700
+</code></pre>
+<p>Each column is a Series. The row labels on all of them are the same index. When you internalize &quot;shared index + typed columns,&quot; three things pandas does stop being mysterious:</p>
+<ul>
+<li><strong>Column selection</strong> returns the Series, with its index attached.</li>
+<li><strong>Row selection</strong> (<code>penguins.loc[2]</code>) gives you the row <em>by label</em>, as a Series indexed by column names.</li>
+<li><strong>Operations between columns</strong> align on the row index automatically — <code>penguins[&quot;flipper_mm&quot;] * 2</code> is elementwise on the shared axis.</li>
+</ul>
+<h2>Real data, first look</h2>
+<p>Everything above scales to a real file unchanged. Load the Palmer Penguins dataset — 344 penguins measured on an Antarctic island chain, and the running example for the whole vertical slice:</p>
+<p><strong>Data:</strong> Horst, Hill &amp; Gorman, <em>palmerpenguins</em> (2020), <a href="https://doi.org/10.5281/zenodo.3960218">10.5281/zenodo.3960218</a>, CC0. Loaded from the project's public CSV — the line needs network.</p>
+<pre><code class="language-python">url = &quot;https://raw.githubusercontent.com/allisonhorst/palmerpenguins/main/inst/extdata/penguins.csv&quot;
+penguins = pd.read_csv(url)
+
+print(penguins.shape)      # (344, 8)
+print(penguins.columns.tolist())
+# ['species', 'island', 'bill_length_mm', 'bill_depth_mm',
+#  'flipper_length_mm', 'body_mass_g', 'sex', 'year']
+print(penguins.dtypes)
+# species               str
+# island                str
+# bill_length_mm       float64
+# bill_depth_mm       float64
+# flipper_length_mm    float64
+# body_mass_g          float64
+# sex                   str
+# year                  int64
+print(penguins.head(3))
+</code></pre>
+<p>Notice what <code>shape</code>, <code>columns</code>, and <code>dtypes</code> already told you before you looked at a single value: 344 rows, 8 columns, four numeric measurement columns, three text ones, a year. (Those text columns show as <code>str</code> on pandas 3; on pandas 2.x they show as <code>object</code> — same concept, older default.) The habit to build — inspect <em>structure</em> first, values second — is the cheapest bug-repellent in data work.</p>
+<p>Column selection works the way the anatomy predicts:</p>
+<pre><code class="language-python">mass = penguins[&quot;body_mass_g&quot;]   # a Series
+print(type(mass))                # &lt;class 'pandas.core.series.Series'&gt;
+print(mass.mean())               # 4201.754385964912
+
+two_cols = penguins[[&quot;species&quot;, &quot;body_mass_g&quot;]]   # a DataFrame
+print(two_cols.head(2))
+#   species  body_mass_g
+# 0  Adelie       3750.0
+# 1  Adelie       3800.0
+</code></pre>
+<p>The double brackets select a <em>list</em> of columns, and a list of columns is a new DataFrame — not a Series. That single distinction explains a category of error messages you'd otherwise collect one by one.</p>
+<h2>The index is not row numbers</h2>
+<p>The most important demo in this lesson. Watch what happens when two Series with different index orders are combined:</p>
+<pre><code class="language-python">a = pd.Series([1, 2, 3], index=[&quot;x&quot;, &quot;y&quot;, &quot;z&quot;])
+b = pd.Series([10, 20, 30], index=[&quot;z&quot;, &quot;x&quot;, &quot;y&quot;])
+
+print(a + b)
+# x    21
+# y    32
+# z    13
+# dtype: int64
+</code></pre>
+<p>Position 0 of <code>a</code> was added to position 1 of <code>b</code> — pandas aligned on <strong>labels</strong>, not positions. If those had been row numbers, you'd have gotten 11, 22, 33 and (usually) a wrong answer. This alignment is pandas' best feature — joins and merges are it scaled up — and its most common source of silent wrongness when the index is something you forgot you set. The full consequences arrive in later lessons; for now: <strong>the index is data, treat it like data.</strong></p>
+<h2>Failure modes</h2>
+<p><strong>An integer column with missing values becomes float.</strong> Look at <code>dtypes</code> above: <code>body_mass_g</code> is <code>float64</code> even though penguin masses are whole grams. Two rows have missing mass; a missing value (<code>NaN</code>) is a float, so the whole column is. This will happen to your IDs, zip codes, and years — check <code>dtypes</code> early, not after a mysterious <code>0.0</code>.</p>
+<p><strong>Selection returns views or copies, depending on details.</strong> <code>penguins[&quot;body_mass_g&quot;]</code> may or may not be a view onto the DataFrame's memory. Assigning through a view sometimes works and sometimes raises <code>SettingWithCopyWarning</code>. The rule until the dedicated lesson: select, then assign — <code>mass = penguins[&quot;body_mass_g&quot;]</code> is safe to <em>read</em>; don't write through it.</p>
+<p><strong><code>penguins[3]</code> does not select row 3.</strong> Square brackets on a DataFrame select <em>columns</em>; a bare integer there is a KeyError. Rows come later via <code>.loc</code> (by label) and <code>.iloc</code> (by position) — two methods, deliberately different, worth the entire lesson they get.</p>
+<div class="exercise">
+  <p class="exercise-prompt"><strong>Exercise 1.</strong> Load the penguins CSV and answer from structure alone, without printing any values: how many rows, how many numeric columns, and which column names contain "mm"?</p>
+  <details class="exercise-solution">
+    <summary>Solution</summary>
+    <p><code>penguins.shape</code> gives (344, 8). <code>penguins.dtypes</code> shows five numeric columns (<code>bill_length_mm</code>, <code>bill_depth_mm</code>, <code>flipper_length_mm</code>, <code>body_mass_g</code>, <code>year</code>) and three text columns (<code>str</code> on pandas 3). And <code>[c for c in penguins.columns if "mm" in c]</code> returns <code>['bill_length_mm', 'bill_depth_mm', 'flipper_length_mm']</code>. If you printed <code>head()</code> to answer this, slow down — structure-first is the habit being trained.</p>
+  </details></div>
+<div class="exercise">
+  <p class="exercise-prompt"><strong>Exercise 2.</strong> Predict the output before running it: two Series, <code>s1</code> with index <code>["a","b","c"]</code> and values <code>[1,2,3]</code>, <code>s2</code> with index <code>["b","c","d"]</code> and values <code>[10,20,30]</code>. What is <code>s1 + s2</code>?</p>
+  <details class="exercise-solution">
+    <summary>Solution</summary>
+    <pre><code># a     NaN
+# b    12.0
+# c    23.0
+# d     NaN
+# dtype: float64</code></pre>
+    <p>Alignment is by label, so <code>a</code> exists only in <code>s1</code> and <code>d</code> only in <code>s2</code> — both sums are undefined, and pandas says so with <code>NaN</code> rather than guessing. Notice the dtype went to float: an integer column that can hold <code>NaN</code> must. The same mechanics, applied to whole tables, are what <code>merge</code> does with unmatched keys.</p>
+  </details></div>
+<div class="exercise">
+  <p class="exercise-prompt"><strong>Exercise 3.</strong> The <code>year</code> column reads as integers, but a teammate insists their pipeline saw it as float. What single fact about the dataset explains both observations, and how would you confirm it in one line?</p>
+  <details class="exercise-solution">
+    <summary>Solution</summary>
+    <p>Missing values. In the full CSV every <code>year</code> is present, so the column parses as <code>int64</code>; in whatever your teammate loaded, at least one row was missing or unparseable, <code>NaN</code> entered the column, and the whole thing became <code>float64</code>. Confirm with <code>penguins["year"].isna().sum()</code> — zero here, but the check belongs in every load step. The general rule: a column's dtype is a fact about the <em>file plus the parse</em>, not about the concept.</p>
+  </details></div>
+<h2>Takeaway</h2>
+<p>pandas has three objects, not one: <code>Series</code> (values + index), <code>DataFrame</code> (columns sharing an index), and the <code>Index</code> itself — labels that align, not row numbers. Column selection yields Series, list-of-columns yields DataFrames, and arithmetic aligns on labels even when that surprises you. Inspect structure before values (<code>shape</code>, <code>columns</code>, <code>dtypes</code>), and distrust any integer column that arrives as float.</p>
+
+    </main>
+    <footer class="site-footer">
+    <div class="site-footer-inner">
+        <div>
+            <div>Field notes from the workbench.</div>
+            <div>Built one experiment at a time.</div>
+        </div>
+        <hr />
+        <div>
+            <span class="logo-text-large">Data Frog</span>
+            <span class="logo-text-small">lab notebook</span>
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>

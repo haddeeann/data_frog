@@ -637,3 +637,40 @@ iframe {
     font-size: 0.92rem;
     color: var(--ink-soft);
 }
+
+/* ---- Exercises (concept lessons) ---- */
+
+.exercise {
+    margin: 1.5rem 0;
+    padding: 1rem 1.25rem;
+    border: 1px solid var(--line);
+    border-left: 4px solid var(--moss-dark);
+    background: rgba(0, 0, 0, 0.02);
+}
+
+.exercise-prompt {
+    margin: 0;
+    font-weight: 500;
+}
+
+details.exercise-solution {
+    margin-top: 0.75rem;
+    border-top: 1px dashed var(--line);
+    padding-top: 0.5rem;
+}
+
+details.exercise-solution > summary {
+    cursor: pointer;
+    font-family: var(--mono);
+    font-size: 0.8rem;
+    color: var(--moss-dark);
+    margin-bottom: 0.5rem;
+}
+
+details.exercise-solution[open] > summary {
+    margin-bottom: 0.75rem;
+}
+
+.review-queue {
+    margin: 1.5rem 0;
+}

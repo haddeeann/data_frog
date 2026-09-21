@@ -8,7 +8,7 @@ Checks:
 - unique ids; valid track slugs, types, difficulties, sizes, waves, confidence
 - target_path is unique, well-formed, and consistent with the row
 - every prerequisite resolves to a backlog id, a cross-track "track/id",
-  or an existing published lesson path
+  an existing published lesson path, or the id of an already-written lesson
 - no written lesson already claims a backlog id (that row should be deleted)
 """
 import json
@@ -73,13 +73,24 @@ def main():
     ids = set(seen_ids)
     qualified = {f"{l['track']}/{l['id']}" for l in lessons}
     published = set()
+    written_ids = set()
+    written_qualified = set()
     for p in (root / "src").rglob("*.md"):
         rel = p.relative_to(root / "src").with_suffix("")
         published.add("/".join(rel.parts))
+        text = p.read_text()
+        m = re.match(r"^---\n(.*?)\n---", text, re.DOTALL)
+        if not m:
+            continue
+        idm = re.search(r'^(?:id|backlog_id):\s*"?([\w-]+)"?\s*$', m.group(1), re.MULTILINE)
+        if idm:
+            written_ids.add(idm.group(1))
+            written_qualified.add(f"{rel.parts[0]}/{idm.group(1)}")
 
     for l in lessons:
         for pr in l.get("prerequisites", []):
-            if pr not in ids and pr not in qualified and pr not in published:
+            if (pr not in ids and pr not in qualified and pr not in published
+                    and pr not in written_ids and pr not in written_qualified):
                 errors.append(f"row {seen_ids[l['id']]} ({l['id']}): unresolved prerequisite '{pr}'")
 
     # written lessons that still have a backlog row: the row should be deleted

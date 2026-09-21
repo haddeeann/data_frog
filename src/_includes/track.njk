@@ -3,6 +3,23 @@
 {% block content %}
 {{ content | safe }}
 
+{% set drafts = collections.inReviewByTrack[track] %}
+{% if drafts.length > 0 %}
+<section class="review-queue" aria-label="Lessons in review">
+  <details class="planned-wave" open>
+    <summary>In review — {{ drafts.length }} draft{% if drafts.length > 1 %}s{% endif %} awaiting publication</summary>
+    <ul class="planned-list">
+      {% for l in drafts %}
+      <li>
+        <a href="{{ l.url }}">{{ l.title }}</a>
+        <span class="lesson-meta">{{ l.status }} · {{ l.type }}</span>
+      </li>
+      {% endfor %}
+    </ul>
+  </details>
+</section>
+{% endif %}
+
 {% set waves = collections.plannedByTrack[track] %}
 {% if waves.length > 0 %}
 <section class="planned-lessons" aria-label="Planned lessons">
