@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Data Frog</title>
     <link rel="stylesheet" href="/static/style.css" />
     <link rel="icon" href="/static/favicon.ico" type="image/x-icon">
@@ -16,55 +17,54 @@
     </script>
 </head>
 <body>
-    <header>
-    <div id="logo-container">
-        <div class="logo">
-            <a href="/">
-                <img src="/static/frog_logo.png" alt="Frog Protection">
-            </a>
-        </div>
-        <div class="logo-text-small">
-            <a href="/">Data Science & Computer Programming</a>
-        </div>
-    </div>
-    <div id="nav-container">
-        <div class="logo-text-small">
-            <span><a href="/numpy">NumPy</a></span>
-            <span><a href="/stats">Statistics</a></span>
-            <span><a href="/videos">Videos</a></span>
-            <span><a href="/algos">Algorithms</a></span>
-        </div>
+    <header class="site-header">
+    <div class="site-header-inner">
+        <a class="brand-link" href="/">
+            <img class="brand-mark" src="/static/frog_logo.png" alt="">
+            <span class="brand-copy">
+                <strong class="brand-name">Data Frog</strong>
+                <small class="brand-tagline">Field notes in data and Python</small>
+            </span>
+        </a>
+        <nav class="site-nav" aria-label="Primary navigation">
+            <a href="/numpy/" class="active" aria-current="page">NumPy</a>
+            <a href="/stats/">Statistics</a>
+            <a href="/algos/">Algorithms</a>
+            <a href="/videos/">Videos</a>
+            <a href="/#data-sourcing">Data Sourcing</a>
+        </nav>
     </div>
 </header>
+
     <main>
         <h2>Universal Functions</h2>
-<p>A universal function (or a <code>ufunc</code> for short) is a function that operates on <code>ndarrays</code> in an element by element fashion.</p>
-<p>This supports array broadcasting, type casting, and several other standard features.</p>
-<p>That is, a <code>ufunc</code> is a &quot;vectorized&quot; wrapper for a function that takes a fixed number of specific inputs and produces a fixed number of specific outputs.</p>
+<p>A universal function, or <code>ufunc</code>, applies an operation element by element to <code>ndarray</code> inputs.</p>
+<p>Ufuncs integrate broadcasting, type casting, and optional output arrays.</p>
+<p>Each ufunc wraps a fixed-input, fixed-output operation in a vectorized array interface.</p>
 <h2>Ufunc Methods</h2>
-<p>All <code>ufuncs</code> have four methods. These methods only make sense on scalar <code>ufuncs</code> that take tow input arguments and return one output argument.</p>
-<p>Attempting to call these methods on other <code>ufuncs</code> will case a ValueError.</p>
-<p>The reduce like methods all take an axis keyword, a dtype keyword, and an out keyword, and the arrays must all have the dimension &gt;= 1.</p>
-<p>The axis keyword specifies the axis of the array over which the reduction will take place.</p>
-<p>Generally, it is an integer, though for <code>numpy.ufunc.reduce</code>, it can also be a type of int to reduce over several axes at once, or None, to reduce over all axes.</p>
-<p>The dtype keyword allows you to manage a very common problem that arises when naively using <code>ufunc.reduce</code>.</p>
-<p>Sometimes you may have an array of a certain data type and wish to add up all of its elements, but the result does not fit into the data type of the array.</p>
-<p>This commonly happens if you have an array of single-byte integers.</p>
-<p>The dtype keyword allows you to alter the data type over which the reduction takes place.</p>
-<p>Therefore, you can ensure that the output is the datatype with the precision large enough to handle your output. The responsibility of altering reduce type is mostly up to you.</p>
-<p>There's one exception, if no dtype is given for a reduction on the 'add' or 'multiply' operations, the input type is an integer or boolean type, and it's smaller than the size of the <code>nupy.itn_</code> data type, it will be internally upcast to the <code>int_ or </code>numpy.uint` data-type.</p>
+<p>Ufunc methods such as <code>reduce</code> and <code>accumulate</code> apply only where the ufunc's input and output arity supports them.</p>
+<p>Unsupported calls raise <code>ValueError</code>.</p>
+<p>Reduction methods accept <code>axis</code>, <code>dtype</code>, and <code>out</code>; their inputs must have at least one dimension.</p>
+<p><code>axis</code> selects the dimension to reduce.</p>
+<p>For <code>numpy.ufunc.reduce</code>, it may be an integer, a tuple of integers for multiple axes, or <code>None</code> for all axes.</p>
+<p><code>dtype</code> controls the accumulator type, which matters when a reduction can exceed the input range. Single-byte integer sums are an obvious case.</p>
+<p>Choose a wide enough <code>dtype</code> to represent the result.</p>
+<p>One exception is <code>add</code> or <code>multiply</code>: without an explicit dtype, boolean and narrow integer inputs are promoted to the platform-sized <code>numpy.int_</code> or <code>numpy.uint</code> type.</p>
 
     </main>
-    <footer>
-    <div>
-        <div>Sponsored by Frog Protection Services</div>
-        <div>Do you have Frog Protection?</div>
-    </div>
-    <hr />
-    <div>
-        <span class="logo-text-large">hello world</span>
-        <span class="logo-text-small">production</span>
+    <footer class="site-footer">
+    <div class="site-footer-inner">
+        <div>
+            <div>Field notes from the workbench.</div>
+            <div>Built one experiment at a time.</div>
+        </div>
+        <hr />
+        <div>
+            <span class="logo-text-large">Data Frog</span>
+            <span class="logo-text-small">lab notebook</span>
+        </div>
     </div>
 </footer>
+
 </body>
 </html>

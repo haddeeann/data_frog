@@ -3,26 +3,26 @@ layout: "html_wrapper.njk"
 ---
 ## Copies and Views
 
-When operating on NumPy arrays, it's possible to access the internal data buffer directly using a view, without copying the data around. So it's important to know the difference between what returns a copy and what returns a view.
+A view exposes an array's existing data buffer without copying it. Know which operations return views before mutating their results.
 
-The NumPy array is a data structure consisting of two parts: the contiguous data buffer with the actual data elements and the metadata that contains information about the data buffer. The metadata includes data type, strides, and other important information that helps manipulate the `ndarray` easily.
+An array combines a data buffer with metadata such as dtype, shape, and strides. The buffer need not be contiguous, but the metadata tells NumPy how to traverse it.
 
 ## Views
 
-It's also possible to access the array differently by just changing the certain metadata like `stride` and `dtype` without changing the data buffer. This creates a new way of looking at the data and there new arrays are called views. 
+Changing metadata such as shape, strides, or dtype can produce a new interpretation of the same buffer. That new array is a view.
 
-The data buffer remains the same, so any changes made to a view reflects in the original copy. A view can be forced through the `ndarray.view` method. 
+Because the buffer is shared, changes through a view can appear in the original. Create one explicitly with `ndarray.view`.
 
 ## Copy
 
-When a new array is created by duplicating the data buffer as well as the metadata, it is called a copy. Changes made to the copy don't reject on the original array. Making a copy is slower and sometimes memory consuming. A copy can be forced by `ndarray.copy`.
+A copy duplicates the data into independent storage. Changes stay isolated, at the cost of allocation and copy time. Create one explicitly with `ndarray.copy`.
 
 ## Other Operations
 
-The `numpy.reshape` function creates a view where possible or makes a copy otherwise. In most cases, the strides can be modified to reshape the array with a view. 
+`numpy.reshape` returns a view when compatible strides can describe the new shape; otherwise it may copy.
 
-But if the array becomes non-contiguous the reshaping cannot be done by modifying strides and requires a copy. In that case, we can raise an error by assigning the new shape to the shape attribute of the array.
+Some non-contiguous layouts cannot be reshaped by changing strides alone. Assigning directly to the array's `shape` attribute raises an error rather than silently copying in those cases.
 
 ## View or Copy
 
-You can tell the whether the array is a view or copy by the base attribute. The base attribute of the `ndarray` makes it easy. The base attribute of a view returns the original array while it returns `None` for a copy.
+Inspect `ndarray.base` to trace shared storage. Views usually reference a base object; arrays that own their data usually report `None`.

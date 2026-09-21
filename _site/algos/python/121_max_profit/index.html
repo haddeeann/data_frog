@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Data Frog</title>
     <link rel="stylesheet" href="/static/style.css" />
     <link rel="icon" href="/static/favicon.ico" type="image/x-icon">
@@ -16,39 +17,37 @@
     </script>
 </head>
 <body>
-    <header>
-    <div id="logo-container">
-        <div class="logo">
-            <a href="/">
-                <img src="/static/frog_logo.png" alt="Frog Protection">
-            </a>
-        </div>
-        <div class="logo-text-small">
-            <a href="/">Data Science & Computer Programming</a>
-        </div>
-    </div>
-    <div id="nav-container">
-        <div class="logo-text-small">
-            <span><a href="/numpy">NumPy</a></span>
-            <span><a href="/stats">Statistics</a></span>
-            <span><a href="/videos">Videos</a></span>
-            <span><a href="/algos">Algorithms</a></span>
-        </div>
+    <header class="site-header">
+    <div class="site-header-inner">
+        <a class="brand-link" href="/">
+            <img class="brand-mark" src="/static/frog_logo.png" alt="">
+            <span class="brand-copy">
+                <strong class="brand-name">Data Frog</strong>
+                <small class="brand-tagline">Field notes in data and Python</small>
+            </span>
+        </a>
+        <nav class="site-nav" aria-label="Primary navigation">
+            <a href="/numpy/">NumPy</a>
+            <a href="/stats/">Statistics</a>
+            <a href="/algos/" class="active" aria-current="page">Algorithms</a>
+            <a href="/videos/">Videos</a>
+            <a href="/#data-sourcing">Data Sourcing</a>
+        </nav>
     </div>
 </header>
+
     <main>
         <h1>Best Time to Buy and Sell Stock</h1>
-<p>You want to maximize your profit by choosing a single day to buy one stock and choosing a different day in the future to sell that stock.</p>
-<p>Return the maximum profit you can achieve from this transaction. If you cannot achieve any profit, return 0.</p>
+<p>Choose one day to buy a stock and a later day to sell it.</p>
+<p>Return the maximum profit, or 0 when no profitable transaction exists.</p>
 <p>Example 1:</p>
 <p>Input: prices = [7,1,5,3,6,4]
 Output: 5
-Explanation: Buy on day 2 (price = 1) and sell on day 5 (price = 6), profit = 6-1 = 5.
-Note that buying on day 2 and selling on day 1 is not allowed because you must buy before you sell.
+Explanation: Buy on day 2 (price = 1) and sell on day 5 (price = 6), for profit = 6-1 = 5. The sale must follow the purchase.
 Example 2:</p>
 <p>Input: prices = [7,6,4,3,1]
 Output: 0
-Explanation: In this case, no transactions are done and the max profit = 0.</p>
+Explanation: No profitable transaction exists, so the maximum profit is 0.</p>
 <pre><code class="language-python">class Solution(object):
     def maxProfit(self, prices):
         &quot;&quot;&quot;
@@ -67,16 +66,19 @@ Explanation: In this case, no transactions are done and the max profit = 0.</p>
 </code></pre>
 
     </main>
-    <footer>
-    <div>
-        <div>Sponsored by Frog Protection Services</div>
-        <div>Do you have Frog Protection?</div>
-    </div>
-    <hr />
-    <div>
-        <span class="logo-text-large">hello world</span>
-        <span class="logo-text-small">production</span>
+    <footer class="site-footer">
+    <div class="site-footer-inner">
+        <div>
+            <div>Field notes from the workbench.</div>
+            <div>Built one experiment at a time.</div>
+        </div>
+        <hr />
+        <div>
+            <span class="logo-text-large">Data Frog</span>
+            <span class="logo-text-small">lab notebook</span>
+        </div>
     </div>
 </footer>
+
 </body>
 </html>

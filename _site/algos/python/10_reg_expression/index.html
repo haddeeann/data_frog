@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Data Frog</title>
     <link rel="stylesheet" href="/static/style.css" />
     <link rel="icon" href="/static/favicon.ico" type="image/x-icon">
@@ -16,45 +17,44 @@
     </script>
 </head>
 <body>
-    <header>
-    <div id="logo-container">
-        <div class="logo">
-            <a href="/">
-                <img src="/static/frog_logo.png" alt="Frog Protection">
-            </a>
-        </div>
-        <div class="logo-text-small">
-            <a href="/">Data Science & Computer Programming</a>
-        </div>
-    </div>
-    <div id="nav-container">
-        <div class="logo-text-small">
-            <span><a href="/numpy">NumPy</a></span>
-            <span><a href="/stats">Statistics</a></span>
-            <span><a href="/videos">Videos</a></span>
-            <span><a href="/algos">Algorithms</a></span>
-        </div>
+    <header class="site-header">
+    <div class="site-header-inner">
+        <a class="brand-link" href="/">
+            <img class="brand-mark" src="/static/frog_logo.png" alt="">
+            <span class="brand-copy">
+                <strong class="brand-name">Data Frog</strong>
+                <small class="brand-tagline">Field notes in data and Python</small>
+            </span>
+        </a>
+        <nav class="site-nav" aria-label="Primary navigation">
+            <a href="/numpy/">NumPy</a>
+            <a href="/stats/">Statistics</a>
+            <a href="/algos/" class="active" aria-current="page">Algorithms</a>
+            <a href="/videos/">Videos</a>
+            <a href="/#data-sourcing">Data Sourcing</a>
+        </nav>
     </div>
 </header>
+
     <main>
-        <p>Given an input string s and a pattern p, implement regular expression matching with support for '.' and '*' where:</p>
+        <p>Given input string s and pattern p, implement full-string matching with <code>.</code> and <code>*</code>:</p>
 <p>sol = Solution()
 sol.isMatch(&quot;abbbcd&quot;, &quot;ab*cd&quot;)</p>
-<p>'.' Matches any single character.​​​​
-'*' Matches zero or more of the preceding element.
-The matching should cover the entire input string (not partial).</p>
+<p><code>.</code> matches any single character.
+<code>*</code> matches zero or more copies of the preceding element.
+The pattern must match the entire string.</p>
 <p>Example 1:</p>
 <p>Input: s = &quot;aa&quot;, p = &quot;a&quot;
 Output: false
-Explanation: &quot;a&quot; does not match the entire string &quot;aa&quot;.
+Explanation: &quot;a&quot; leaves one character unmatched in &quot;aa&quot;.
 Example 2:</p>
 <p>Input: s = &quot;aa&quot;, p = &quot;a*&quot;
 Output: true
-Explanation: '*' means zero or more of the preceding element, 'a'. Therefore, by repeating 'a' once, it becomes &quot;aa&quot;.
+Explanation: <code>*</code> repeats the preceding <code>a</code>, allowing <code>a*</code> to match &quot;aa&quot;.
 Example 3:</p>
-<p>Input: s = &quot;ab&quot;, p = &quot;.<em>&quot;
+<p>Input: s = &quot;ab&quot;, p = &quot;.*&quot;
 Output: true
-Explanation: &quot;.</em>&quot; means &quot;zero or more (*) of any character (.)&quot;.</p>
+Explanation: <code>.*</code> matches zero or more of any character.</p>
 <pre><code class="language-python">class Solution(object):
     def isMatch(self, s, pattern):
         &quot;&quot;&quot;
@@ -226,16 +226,19 @@ else:
 </code></pre>
 
     </main>
-    <footer>
-    <div>
-        <div>Sponsored by Frog Protection Services</div>
-        <div>Do you have Frog Protection?</div>
-    </div>
-    <hr />
-    <div>
-        <span class="logo-text-large">hello world</span>
-        <span class="logo-text-small">production</span>
+    <footer class="site-footer">
+    <div class="site-footer-inner">
+        <div>
+            <div>Field notes from the workbench.</div>
+            <div>Built one experiment at a time.</div>
+        </div>
+        <hr />
+        <div>
+            <span class="logo-text-large">Data Frog</span>
+            <span class="logo-text-small">lab notebook</span>
+        </div>
     </div>
 </footer>
+
 </body>
 </html>

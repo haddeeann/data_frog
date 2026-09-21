@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Data Frog</title>
     <link rel="stylesheet" href="/static/style.css" />
     <link rel="icon" href="/static/favicon.ico" type="image/x-icon">
@@ -16,30 +17,28 @@
     </script>
 </head>
 <body>
-    <header>
-    <div id="logo-container">
-        <div class="logo">
-            <a href="/">
-                <img src="/static/frog_logo.png" alt="Frog Protection">
-            </a>
-        </div>
-        <div class="logo-text-small">
-            <a href="/">Data Science & Computer Programming</a>
-        </div>
-    </div>
-    <div id="nav-container">
-        <div class="logo-text-small">
-            <span><a href="/numpy">NumPy</a></span>
-            <span><a href="/stats">Statistics</a></span>
-            <span><a href="/videos">Videos</a></span>
-            <span><a href="/algos">Algorithms</a></span>
-        </div>
+    <header class="site-header">
+    <div class="site-header-inner">
+        <a class="brand-link" href="/">
+            <img class="brand-mark" src="/static/frog_logo.png" alt="">
+            <span class="brand-copy">
+                <strong class="brand-name">Data Frog</strong>
+                <small class="brand-tagline">Field notes in data and Python</small>
+            </span>
+        </a>
+        <nav class="site-nav" aria-label="Primary navigation">
+            <a href="/numpy/" class="active" aria-current="page">NumPy</a>
+            <a href="/stats/">Statistics</a>
+            <a href="/algos/">Algorithms</a>
+            <a href="/videos/">Videos</a>
+            <a href="/#data-sourcing">Data Sourcing</a>
+        </nav>
     </div>
 </header>
+
     <main>
         <h2>Data Types with NumPy</h2>
-<p>NumPy supports a greater variety of number types than Python does.</p>
-<p>Here's the data types for numbers and how to modify an array's data type.</p>
+<p>NumPy exposes fixed-width numeric types that map closely to C representations.</p>
 <table>
 <thead>
 <tr>
@@ -122,36 +121,39 @@
 </tr>
 </tbody>
 </table>
-<p>Since many of these have platform dependent definitions, a set of fixed size aliases are provided.</p>
-<p>NumPy number types are instances of dtype objects (data-type) each having a unique characteristic. Once you've imported the NumPy using the <code>&gt;&gt;&gt; import numpy as np</code> you can use any of the data types with <code>np.bool_</code>, <code>np.float32</code>, etc.</p>
-<p>There are 5 basic numerical types. There's booleans, integers, unsigned integers, floating point values and complex.</p>
-<p>If the data type has a number in the name it indicates the <code>bitsize</code> of the type. That's how many bits are needed to represent a single value in memory.</p>
-<p>Some data types have different <code>bitsizes</code> that depends on the platform. That can be important when interfacing with low level code - like with C or Fortran where the raw memory is addressed.</p>
+<p>Because several C-style names depend on the platform, NumPy also provides fixed-width aliases.</p>
+<p>Every NumPy scalar type corresponds to a <code>dtype</code> object. After <code>import numpy as np</code>, refer to them as <code>np.bool_</code>, <code>np.float32</code>, and so on.</p>
+<p>The five basic numeric families are booleans, signed integers, unsigned integers, floating-point numbers, and complex numbers.</p>
+<p>A number in a dtype name usually states its width in bits, such as <code>float32</code>.</p>
+<p>Platform-dependent widths matter when exchanging raw memory with C, Fortran, or binary file formats.</p>
 <h2>Array Scalars</h2>
-<p>NumPy generally returns elements of arrays as array scalars, a scalar with associated dtype.</p>
-<p>Array scalars differ from Python scalars, but for the most part they are interchangeable.</p>
-<p>The primary advantage of using array scalars is that they preserve the array type. So the use of array scalars ensures identical behavior between arrays and scalars. That's independent of whether the value is inside the array or not.</p>
+<p>Indexing one element usually returns an array scalar carrying its NumPy dtype.</p>
+<p>Array scalars and Python scalars often interoperate, but they are distinct types.</p>
+<p>Array scalars preserve dtype behavior even after a value leaves its array.</p>
 <h2>Overflow Errors</h2>
-<p>The fixed size of NumPy numeric types may cause overflow errors when a value requires more memory than is available in the data type.</p>
-<p>The behavior of NumPy and Python integer types differs significantly for integer overflows. This could be confusing if users are expecting NumPy integers to behave similar to Python <code>int</code>.</p>
-<p>In Python the <code>int</code> is flexible. So it will expand and not overflow. The size of the int in NumPy is not flexible.</p>
-<p>To verify the minimum or maximum values of NumPy integer and float points, NumPy provides <code>numpy.iinfo</code> and <code>numpy.finfo</code>.</p>
+<p>Fixed-width numeric types overflow when a result falls outside their representable range.</p>
+<p>Do not assume NumPy integers behave like Python's arbitrary-precision <code>int</code>.</p>
+<p>Python integers grow as needed; a NumPy integer's width stays fixed.</p>
+<p>Inspect integer and floating-point limits with <code>numpy.iinfo</code> and <code>numpy.finfo</code>.</p>
 <h2>Extended Precision</h2>
-<p>Python's floating point numbers are usual 64 bit floating point numbers. Pretty close to the <code>np.float64</code>.</p>
-<p>NumPy does not provide a dtype with more precision than C's long double.</p>
-<p>For efficient memory alignment, the <code>np.longdouble</code> is usually stored padded with zero bits.</p>
+<p>Python's built-in <code>float</code> typically uses IEEE 754 double precision, comparable to <code>np.float64</code>.</p>
+<p>NumPy's widest floating type follows the platform's C <code>long double</code>.</p>
+<p>Platforms may pad <code>np.longdouble</code> values for memory alignment; extra storage does not necessarily mean extra precision.</p>
 
     </main>
-    <footer>
-    <div>
-        <div>Sponsored by Frog Protection Services</div>
-        <div>Do you have Frog Protection?</div>
-    </div>
-    <hr />
-    <div>
-        <span class="logo-text-large">hello world</span>
-        <span class="logo-text-small">production</span>
+    <footer class="site-footer">
+    <div class="site-footer-inner">
+        <div>
+            <div>Field notes from the workbench.</div>
+            <div>Built one experiment at a time.</div>
+        </div>
+        <hr />
+        <div>
+            <span class="logo-text-large">Data Frog</span>
+            <span class="logo-text-small">lab notebook</span>
+        </div>
     </div>
 </footer>
+
 </body>
 </html>

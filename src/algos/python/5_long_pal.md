@@ -2,13 +2,13 @@
 layout: "html_wrapper.njk"
 ---
 
-Given a string s, return the longest palindromic substring in s.
+Given string s, return its longest palindromic substring.
 
 Example 1:
 
 Input: s = "babad"
 Output: "bab"
-Explanation: "aba" is also a valid answer.
+Explanation: "aba" is equally valid.
 Example 2:
 
 Input: s = "cbbd"

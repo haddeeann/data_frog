@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Data Frog</title>
     <link rel="stylesheet" href="/static/style.css" />
     <link rel="icon" href="/static/favicon.ico" type="image/x-icon">
@@ -16,31 +17,30 @@
     </script>
 </head>
 <body>
-    <header>
-    <div id="logo-container">
-        <div class="logo">
-            <a href="/">
-                <img src="/static/frog_logo.png" alt="Frog Protection">
-            </a>
-        </div>
-        <div class="logo-text-small">
-            <a href="/">Data Science & Computer Programming</a>
-        </div>
-    </div>
-    <div id="nav-container">
-        <div class="logo-text-small">
-            <span><a href="/numpy">NumPy</a></span>
-            <span><a href="/stats">Statistics</a></span>
-            <span><a href="/videos">Videos</a></span>
-            <span><a href="/algos">Algorithms</a></span>
-        </div>
+    <header class="site-header">
+    <div class="site-header-inner">
+        <a class="brand-link" href="/">
+            <img class="brand-mark" src="/static/frog_logo.png" alt="">
+            <span class="brand-copy">
+                <strong class="brand-name">Data Frog</strong>
+                <small class="brand-tagline">Field notes in data and Python</small>
+            </span>
+        </a>
+        <nav class="site-nav" aria-label="Primary navigation">
+            <a href="/numpy/">NumPy</a>
+            <a href="/stats/">Statistics</a>
+            <a href="/algos/" class="active" aria-current="page">Algorithms</a>
+            <a href="/videos/">Videos</a>
+            <a href="/#data-sourcing">Data Sourcing</a>
+        </nav>
     </div>
 </header>
+
     <main>
-        <p>You are given an integer array height of length n. There are n vertical lines drawn such that the two endpoints of the ith line are (i, 0) and (i, height[i]).</p>
-<p>Find two lines that together with the x-axis form a container, such that the container contains the most water.</p>
-<p>Return the maximum amount of water a container can store.</p>
-<p>Notice that you may not slant the container.</p>
+        <p>Integer array height of length n defines n vertical lines from (i, 0) to (i, height[i]).</p>
+<p>Choose two lines that, with the x-axis, form the highest-capacity container.</p>
+<p>Return that maximum capacity.</p>
+<p>The container cannot slant.</p>
 <pre><code class="language-python">class Solution(object):
     def maxArea(self, height):
         &quot;&quot;&quot;
@@ -68,16 +68,19 @@ sol = Solution()
 </code></pre>
 
     </main>
-    <footer>
-    <div>
-        <div>Sponsored by Frog Protection Services</div>
-        <div>Do you have Frog Protection?</div>
-    </div>
-    <hr />
-    <div>
-        <span class="logo-text-large">hello world</span>
-        <span class="logo-text-small">production</span>
+    <footer class="site-footer">
+    <div class="site-footer-inner">
+        <div>
+            <div>Field notes from the workbench.</div>
+            <div>Built one experiment at a time.</div>
+        </div>
+        <hr />
+        <div>
+            <span class="logo-text-large">Data Frog</span>
+            <span class="logo-text-small">lab notebook</span>
+        </div>
     </div>
 </footer>
+
 </body>
 </html>

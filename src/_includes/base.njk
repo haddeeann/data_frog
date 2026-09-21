@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Data Frog</title>
     <link rel="stylesheet" href="/static/style.css" />
     <link rel="icon" href="/static/favicon.ico" type="image/x-icon">
@@ -18,7 +19,7 @@
 <body>
     {% include "header.njk" %}
     <main>
-        {{ content | safe }}
+        {% block content %}{{ content | safe }}{% endblock %}
     </main>
     {% include "footer.njk" %}
 </body>

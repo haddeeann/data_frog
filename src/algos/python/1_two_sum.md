@@ -3,11 +3,11 @@ layout: "html_wrapper.njk"
 ---
 
 # Two Sum
-Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target.
+Given integer array nums and integer target, return the indices of two values whose sum equals target.
 
-You may assume that each input would have exactly one solution, and you may not use the same element twice.
+Each input has exactly one solution. Do not reuse an element.
 
-You can return the answer in any order.
+Return the indices in either order.
 
 ### Example 1:
 ```

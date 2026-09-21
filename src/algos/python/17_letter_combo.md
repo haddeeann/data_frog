@@ -3,9 +3,9 @@ layout: "html_wrapper.njk"
 ---
 Letter Combinations of a Phone Number
 
-Given a string containing digits from 2-9 inclusive, return all possible letter combinations that the number could represent. Return the answer in any order.
+Given a string of digits from 2 through 9, return every corresponding letter combination in any order.
 
-A mapping of digits to letters (just like on the telephone buttons) is given below. Note that 1 does not map to any letters.
+Use the standard telephone keypad mapping. Digit 1 maps to no letters.
 
 Example 1:
 

@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Data Frog</title>
     <link rel="stylesheet" href="/static/style.css" />
     <link rel="icon" href="/static/favicon.ico" type="image/x-icon">
@@ -16,121 +17,72 @@
     </script>
 </head>
 <body>
-    <header>
-    <div id="logo-container">
-        <div class="logo">
-            <a href="/">
-                <img src="/static/frog_logo.png" alt="Frog Protection">
-            </a>
-        </div>
-        <div class="logo-text-small">
-            <a href="/">Data Science & Computer Programming</a>
-        </div>
-    </div>
-    <div id="nav-container">
-        <div class="logo-text-small">
-            <span><a href="/numpy">NumPy</a></span>
-            <span><a href="/stats">Statistics</a></span>
-            <span><a href="/videos">Videos</a></span>
-            <span><a href="/algos">Algorithms</a></span>
-        </div>
+    <header class="site-header">
+    <div class="site-header-inner">
+        <a class="brand-link" href="/">
+            <img class="brand-mark" src="/static/frog_logo.png" alt="">
+            <span class="brand-copy">
+                <strong class="brand-name">Data Frog</strong>
+                <small class="brand-tagline">Field notes in data and Python</small>
+            </span>
+        </a>
+        <nav class="site-nav" aria-label="Primary navigation">
+            <a href="/numpy/">NumPy</a>
+            <a href="/stats/">Statistics</a>
+            <a href="/algos/" class="active" aria-current="page">Algorithms</a>
+            <a href="/videos/">Videos</a>
+            <a href="/#data-sourcing">Data Sourcing</a>
+        </nav>
     </div>
 </header>
+
     <main>
-        <p>Algorithms are fun for their own sake. They can make you a much better developer, the same way the push-ups or squats can help you with daily activities. But in 'actual' development there is a lot more to it than the pure algorithm solving. Some topics that a software developer would need: system design, testing, environment set up, deployment, and artistic tools.</p>
-<p>So system design is not something that I've delved into very much. But I've just heard at a senior level you will need.</p>
-<p>Testing is both the real life concept that you want to be solving a real world problem and writing tests in code.</p>
-<p>Environment set up is the idea that you'll need to know git, an i.d.e. and be able to install packages and do package management. No one writes code without building it on libraries from other programmers.</p>
-<p>Deployment comes into play with knowing different deployment tools like AWS. If you work at a small enough company, it's important because it's your job. Working at a large company I imagine it's important for everyone to write code that is optimized at a production level.</p>
-<p>And artistic tools is what I'm calling working coming up with mockups and graphics. Sometimes that falls in the realm of the software developer.</p>
-<p>Here's my list of leetcode problems and solutions (in Python):</p>
+        <p>Algorithm practice sharpens decomposition, complexity analysis, and implementation discipline. It does not replace production engineering: system design, testing, Git, dependency management, deployment, and interface work still decide whether software survives contact with users.</p>
+<p>This notebook keeps the algorithm work narrow and concrete: LeetCode problems, solved in Python.</p>
 <p><a href="./python/">Python Solutions</a></p>
-<ol>
-<li>
-<p><a href="./python/1_two_sum">two sum</a></p>
-</li>
-<li>
-<p><a href="./python/2_add_two_numbers">add two numbers</a></p>
-</li>
-<li>
-<p><a href="./python/3_longest_substring">longest substring</a></p>
-</li>
-<li>
-<p><a href="./python/4_median_two">median</a></p>
-</li>
-<li>
-<p><a href="./python/5_long_pal">long pal</a></p>
-</li>
-<li>
-<p><a href="./python/6_zig_zag">zig zag</a></p>
-</li>
-<li>
-<p><a href="./python/7_reverse_int">reverse int</a></p>
-</li>
-<li>
-<p><a href="./python/8_atoi">atoi</a></p>
-</li>
-<li>
-<p><a href="./python/9_paly_number">paly number</a></p>
-</li>
-<li>
-<p><a href="./python/10_reg_expression">reg expression</a></p>
-</li>
-<li>
-<p><a href="./python/11_container_water">container water</a></p>
-</li>
-<li>
-<p><a href="./python/12_roman_nums">roman nums</a></p>
-</li>
-<li>
-<p><a href="./python/13_rom_to_int">roman num to int</a></p>
-</li>
-<li>
-<p><a href="./python/14_longest_prefix">longest prefix</a></p>
-</li>
-<li>
-<p><a href="./python/15_3_sum">3 sum</a></p>
-</li>
-<li>
-<p><a href="./python/16_three_sum">three sum 2</a></p>
-</li>
-<li>
-<p><a href="./python/17_letter_combo">letter combo</a></p>
-</li>
-<li>
-<p><a href="./python/18_four_sum">fourt sum</a></p>
-</li>
-<li>
-<p><a href="./python/19_node">node</a></p>
-</li>
-<li>
-<p><a href="./python/38_count">count and say</a></p>
-</li>
-<li>
-<p><a href="./python/56_merge_two">merge two</a></p>
-</li>
-<li>
-<p><a href="./python/121_max_profit">max profit</a></p>
-</li>
-<li>
-<p><a href="./python/141_linked">linked</a></p>
-</li>
-<li>
-<p><a href="./python/142_linked_cycle">linked cycle</a></p>
-</li>
-</ol>
+<nav class="toc-component" aria-label="Algorithm topics">
+  <ol class="toc-list">
+    <li class="toc-item" value="1"><a href="./python/1_two_sum">Two Sum: index-pair lookup</a></li>
+    <li class="toc-item" value="2"><a href="./python/2_add_two_numbers">Add Two Numbers: linked-list arithmetic</a></li>
+    <li class="toc-item" value="3"><a href="./python/3_longest_substring">Longest Substring Without Repeats</a></li>
+    <li class="toc-item" value="4"><a href="./python/4_median_two">Median of Two Sorted Arrays</a></li>
+    <li class="toc-item" value="5"><a href="./python/5_long_pal">Longest Palindromic Substring</a></li>
+    <li class="toc-item" value="6"><a href="./python/6_zig_zag">Zigzag String Conversion</a></li>
+    <li class="toc-item" value="7"><a href="./python/7_reverse_int">Reverse a 32-bit Integer</a></li>
+    <li class="toc-item" value="8"><a href="./python/8_atoi">String to Integer (<code>atoi</code>)</a></li>
+    <li class="toc-item" value="9"><a href="./python/9_paly_number">Palindrome Integer</a></li>
+    <li class="toc-item" value="10"><a href="./python/10_reg_expression">Regular Expression Matching</a></li>
+    <li class="toc-item" value="11"><a href="./python/11_container_water">Container With Most Water</a></li>
+    <li class="toc-item" value="12"><a href="./python/12_roman_nums">Integer to Roman</a></li>
+    <li class="toc-item" value="13"><a href="./python/13_rom_to_int">Roman to Integer</a></li>
+    <li class="toc-item" value="14"><a href="./python/14_longest_prefix">Longest Common Prefix</a></li>
+    <li class="toc-item" value="15"><a href="./python/15_3_sum">3Sum</a></li>
+    <li class="toc-item" value="16"><a href="./python/16_three_sum">3Sum Closest</a></li>
+    <li class="toc-item" value="17"><a href="./python/17_letter_combo">Phone Number Letter Combinations</a></li>
+    <li class="toc-item" value="18"><a href="./python/18_four_sum">4Sum</a></li>
+    <li class="toc-item" value="19"><a href="./python/19_node">Remove Nth Node from List End</a></li>
+    <li class="toc-item" value="38"><a href="./python/38_count">Count and Say</a></li>
+    <li class="toc-item" value="56"><a href="./python/56_merge_two">Merge Overlapping Intervals</a></li>
+    <li class="toc-item" value="121"><a href="./python/121_max_profit">Best Time to Buy and Sell Stock</a></li>
+    <li class="toc-item" value="141"><a href="./python/141_linked">Linked List Cycle</a></li>
+    <li class="toc-item" value="142"><a href="./python/142_linked_cycle">Linked List Cycle II</a></li>
+  </ol>
+</nav>
 
     </main>
-    <footer>
-    <div>
-        <div>Sponsored by Frog Protection Services</div>
-        <div>Do you have Frog Protection?</div>
-    </div>
-    <hr />
-    <div>
-        <span class="logo-text-large">hello world</span>
-        <span class="logo-text-small">production</span>
+    <footer class="site-footer">
+    <div class="site-footer-inner">
+        <div>
+            <div>Field notes from the workbench.</div>
+            <div>Built one experiment at a time.</div>
+        </div>
+        <hr />
+        <div>
+            <span class="logo-text-large">Data Frog</span>
+            <span class="logo-text-small">lab notebook</span>
+        </div>
     </div>
 </footer>
+
 </body>
 </html>

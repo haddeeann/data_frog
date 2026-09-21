@@ -4,7 +4,7 @@ layout: "html_wrapper.njk"
 
 # Remove Nth Node From End of List
 
-Given the head of a linked list, remove the nth node from the end of the list and return its head.
+Given a linked-list head, remove the nth node from the end and return the head.
 
 Example 1:
 

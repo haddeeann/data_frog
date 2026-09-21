@@ -11,17 +11,13 @@ layout: "html_wrapper.njk"
 6. Special library functions
 
 
-The above methods can be used to create `ndarrays`. 
-
-`Ndarrays` are structured arrays whose data type is a composition of simpler data types.
-
-These simpler data types are organized as a sequence of named fields.
+These methods create `ndarray` objects. An array becomes structured when its data type combines simpler types into a sequence of named fields.
 
 ```python
 bob_array = np.array([('Bob', 9, 110)], dtype=[('firstname', 'U10'), ('age', 'i4'), ('weight', 'f4')])
 ```
 
-`bob_array` is a one dimensional array. The data types are structures with three fields:
+`bob_array` is one-dimensional, and each element contains three fields:
 
 
 1. a string of length 10 or less, named 'firstname'
@@ -30,23 +26,23 @@ bob_array = np.array([('Bob', 9, 110)], dtype=[('firstname', 'U10'), ('age', 'i4
 
 ## Conversion from other Python structures
 
-The NumPy arrays can be made from lists and tuples. In Python, lists are denoted as `[...]` and tuples as `(...)`.
+Build NumPy arrays from Python lists (`[...]`) or tuples (`(...)`).
 
-A list of numbers will create a 1D (one-dimensional) array. 
+A flat sequence creates a one-dimensional array.
 
-To create a 2D (two-dimensional) array, you can use a list of lists. If you want to create higher dimensional arrays you can nest lists even further.
+Nested sequences create higher-dimensional arrays: a list of equal-length lists produces a two-dimensional array.
 
-An easy way to create an array from a list or tuple is with the `np.array` function.
+Pass the sequence to `np.array`:
 
 ```python
 one_d_array = np.array([127, 182, 100])
 ```
 
-You can specify the data type of the information in the NumPy arrays by adding a parameter of the dtype. If you don't pass in a data type (dtype) then it will assign a default dtype.
+Set `dtype` when the representation matters. Otherwise, NumPy infers a type from the input.
 
-There can be data overflow if the value that is passed into the array is outside the allowed values for that data type.
+Fixed-width numeric types can overflow when a value falls outside their range.
 
-For example, an 8-bit signed integer represents a number from -128 to 127. So if you tried to assign a number like 128 or 129 to a `dtype=np.int8`, you'd have an overflow. This is because an 8-bit signed integer can only represent numbers from -128 to 127.
+For example, `np.int8` represents integers from -128 through 127. Values such as 128 and 129 exceed that range.
 
 ```python
 overflow_array = np.array([127, 128, 129], dtype=np.int8)
@@ -54,43 +50,41 @@ overflow_array
 array([127, -128, -127], dtype=int8)
 ```
 
-When performing operations with two arrays with the same data type the resulting array is the same data type.
+Operations on arrays with the same dtype often preserve that dtype, subject to the operation's casting rules.
 
-When performing operations that different data types, NumPy will assign a new type that satisfies all the array elements involved in the computation. 
+For mixed dtypes, NumPy promotes inputs to a type that can represent the operation's values under its promotion rules.
 
-The default behavior is to create arrays as either 32 or 64-bit signed integers depending on the platform. Or even a double precision floating point number like int32/int64. 
+Integer inputs usually produce a platform-sized integer dtype; floating-point inputs usually produce `float64`.
 
-If you want a specific data type in the result, it's best to specify the data type.
+Specify `dtype` explicitly when the result requires a fixed representation.
 
 ## Built in NumPy array creation functions
 
-There are over 40 built-in functions for creating arrays. 
-
-There are three broad categories of array creator functions based on the number of dimensions in the array. There are one-dimensional (1D arrays), two-dimensional (2D arrays), and more than two-dimensional (ndarrays). NumPy provides different methods to create arrays depending on how many dimensions the array will be.
+NumPy ships many constructors. Choose one by the shape, values, or source data you need rather than building arrays element by element.
 
 ## 1D Arrays
 
-For  one dimension arrays there's `numpy.linspace` and `numpy.arange`. Both of these functions use the two inputs: start and stop.
+For one-dimensional ranges, start with `numpy.arange` or `numpy.linspace`.
 
-The `numpy.arange` creates arrays with regular incrementing values. The best practice for `numpy.arange` is to use an integer start, end, and step values. The step values indicates the spacing between values.
+`numpy.arange` advances from `start` by `step` and excludes `stop`. Integer arguments avoid floating-point endpoint surprises.
 
-Smaller or more precise start, end, and step values can be used with float data type inputs. In order to do that an array can be created with the dtype of float.
+It accepts floating-point arguments, but accumulated rounding can make the length or final value less obvious.
 
-The `numpy.linspace` will create arrays with a specified number of elements. They will be spaced equally between the specific beginning and end values. They're spaced according to the third input, the number of values to generate.
+`numpy.linspace` returns a requested number of evenly spaced values between two endpoints.
 
-The difference? The `numpy.linspace` allows you to specify the number of steps. The `numpy.arange` allows you to specify the size of the steps.
+Use `linspace` to control the number of values; use `arange` to control the step size.
 
 ## 2D Arrays
 
-The 2D array creation functions are `numpy.eye`, `numpy.diag`, and `numpy.vander`.
+Useful two-dimensional constructors include `numpy.eye`, `numpy.diag`, and `numpy.vander`.
 
 ### numpy.eye
 
-And example of using the `numpy.eye` creation process is `np.eye(n, m)`. 
+Call it as `np.eye(n, m)`.
 
-The eye tool returns a 2D array with 1's as the diagonal and 0's elsewhere. If only one parameter is passed in, then it's used to make the length of each array and the number of arrays.
+`numpy.eye` places ones on a diagonal and zeros elsewhere. One size argument creates a square array.
 
-If both n and m parameters are passed in then the n parameter is the number of rows. And the m parameter is the length of each row.
+With both `n` and `m`, `n` sets the row count and `m` sets the column count.
 
 For example:
 
@@ -110,15 +104,15 @@ array([[1., 0., 0., 0., 0.],
 
 ### numpy.diag
 
-The `numpy.diag` is used for the extracted diagonal or constructed diagonal array. It can be used to define a 2D array with the given values along the diagonal. You can pass two parameters, an input array and k. The k is an integer, and it's value decides the main diagonal. 
+`numpy.diag` either extracts a diagonal or constructs a two-dimensional array from one. The integer `k` selects an offset from the main diagonal.
 
-If the input array, then `numpy.diag` will return a copy of its k-th diagonal. If it is a 1D array, then it will return a 2D array with the array on the k-th diagonal.
+Given a one-dimensional input, it places those values on the `k`th diagonal of a new array.
 
-If k is positive, then the diagonal is above the main diagonal. And if k is negative then the diagonal is below the main diagonal.
+Positive `k` selects a diagonal above the main diagonal; negative `k` selects one below it.
 
-Or if the input array is a 2D array, it returns a 1D array that is only the diagonal elements.
+Given a two-dimensional input, it extracts the selected diagonal as a one-dimensional array.
 
-The `numpy.eye` and `numpy.diag` functions can be helpful for doing linear algebra.
+Both functions are standard building blocks for linear algebra.
 
 ```python
 np.diag([1, 2, 3])
@@ -143,19 +137,19 @@ array([1, 4])
 
 ### numpy.vander
 
-The `vander(x, n)` defines a Vandermonde matrix as a 2D NumPy array.
+`vander(x, n)` constructs a two-dimensional Vandermonde matrix.
 
-In linear algebra, a Vandermonde matrix, named after Alexandre-Théophile Vandermonde, is a matrix with the terms of geometric progression in each row. 
+A Vandermonde matrix places a geometric progression across each row.
 
-A geometric progression (also known as a geometric sequence) is a sequence of non-zero numbers. Each term after the first is found by multiplying the previous one by a fixed, non-zero number called the common ratio.
+In a geometric progression, each term equals the previous term times a fixed common ratio.
 
-For example, the sequence, 2, 6, 18, 54... is a geometric progression with a common ratio of 3.
+For example, `2, 6, 18, 54` has a common ratio of 3.
 
-In the representation `vander(x, n)` where x is the input, then each column of the matrix is a decreasing power of the input. 
+With the default ordering, each column of `vander(x, n)` contains a decreasing power of `x`.
 
-The input can only be the highest polynomial order of `n-1`, where `n` is the second parameter passed into the `vander` equation.
+With `n` columns, the highest power is `n-1`.
 
-This array creation routine is useful in generating linear least square models.
+This matrix appears in polynomial interpolation and least-squares fitting.
 
 ```python
 np.vander(np.linspace(0, 2, 5), 2)
@@ -182,25 +176,25 @@ array([[ 1,  1,  1,  1],
 [64, 16,  4,  1]])
 ```
 
-The method of least-squares is a standard approach in regression analysis. It's used to approximate the solution of overdetermined systems. An overdetermined system is a set of equations in which there are more equations than unknowns.
+Least squares approximates solutions to overdetermined systems, which contain more equations than unknowns.
 
-The solution is determined by minimizing the sum of the squares of the residuals. A residual is the difference between the observed value and the fitted value provided by the model.
+It minimizes the sum of squared residuals, where each residual is the difference between an observed and fitted value.
 
 ## General ndarray Creation Functions
 
-To create an ndarry with filled in values, you can use `numpy.ones`, `numpy.zeroes`, and `random`. These all fill the created arrays with various values depending on which you use. These arrays create any dimension of arrays by specifying how many dimensions or the length of the tuple or list.
+Create prefilled arrays with `numpy.ones`, `numpy.zeros`, or functions in `numpy.random`. Pass a shape tuple to set the dimensions.
 
-The `numpy.zeros` will create an array filled with zeroes. The default dtype is `float64`. The `numpy.ones` will create an array filled with the value of 1. The `random` method will fill the array with random numbers between 0 and 1.
+`numpy.zeros` fills an array with zeros and defaults to `float64`; `numpy.ones` fills it with ones. Random generators produce values from a selected distribution.
 
-The `numpy.indices` will create a set of arrays. They will be stacked as a one-higher dimensioned array. This is useful for evaluating functions of multiple dimensions on a regular grid.
+`numpy.indices` returns one coordinate array per dimension, stacked along a new leading axis. Use it to evaluate multidimensional functions on a regular grid.
 
 ## Replicating, Joining or Mutation
 
-Once arrays have been created you can replicate, join, or mutate those existing arrays to make new arrays.
+Existing arrays can seed new arrays through replication, joining, mutation, views, or copies.
 
-If you assign an array to a new variable, the original array is edited when the new array is edited. To me, that is similar to passing data by values or by the underlying structure in programming languages.
+Assigning an array to another variable creates an alias, not a copy. Both names reference the same object.
 
-If you want to make a new array that doesn't change the original array, use `numpy.copy`. Here is an example of an array that gets edited after being passed.
+Use `numpy.copy` when changes must not affect the original. A slice, by contrast, usually returns a view:
 
 ```python
 a = np.array([1, 2, 3, 4, 5, 6])
@@ -212,7 +206,7 @@ a = [2 3 3 4 5 6]
 b = [2 3]
 ```
 
-Here's an example of how when you copy an array it doesn't change the original.
+A copied slice owns separate data:
 
 ```python
 a = np.array([1, 2, 3, 4])
@@ -224,11 +218,11 @@ a = [1 2 3 4]
 b = [2 3]
 ```
 
-Some functions that can be used to join existing arrays: `numpy.vstack`, `numpy.hstack`, and `numpy.block`.
+Join arrays with `numpy.vstack`, `numpy.hstack`, or `numpy.block`.
 
 ### numpy.vstack
 
-With `numpy.vstack` you can vertically join elements of two or more arrays into a single array. To join two or more arrays into an array _vertically_ means to join them row-wise.
+`numpy.vstack` joins arrays row-wise along the first axis.
 
 For example:
 
@@ -236,11 +230,11 @@ For example:
 numpy.vstack((a1,a2,...))
 ```
 
-The `a1,a2,...` is a sequence of arrays with an `ndarray` type.
+The argument is a sequence of array-like inputs.
 
-All of those input arrays must have the same shape along all but the first axis. So if they are 1D arrays, then they have to have the same length.
+Inputs must match along every axis except the first. One-dimensional inputs must have equal lengths.
 
-Joining a 1D array with `numpy.vstack` works a bit like this:
+Stack two one-dimensional arrays like this:
 
 ```python
 a = np.array([1, 2])
@@ -248,13 +242,13 @@ b = np.array([3, 4])
 c = np.vstack((a, b))
 ```
 
-That result would be:
+The result is:
 
 ```python
 [[1, 2], [3, 4]]
 ```
 
-Joining a 2D array with `numpy.vstack` work like this:
+The same operation appends rows from two-dimensional arrays:
 
 ```python
 a = np.array([
@@ -268,7 +262,7 @@ b = np.array([
 c = np.vstack((a, b))
 ```
 
-The result:
+The result is:
 
 ```python
 [
@@ -281,9 +275,9 @@ The result:
 
 ### numpy.hstack
 
-With `numpy.vstack` you can horizontally join elements of two or more arrays into a single array. To join two or more arrays into an array _horizontally_ means to join them column-wise.
+`numpy.hstack` joins arrays horizontally: along the second axis for arrays with two or more dimensions, and along the first axis for one-dimensional arrays.
 
-Joining a 1D array with `numpy.hstack` works like this:
+Join one-dimensional arrays like this:
 
 ```python
 a = np.array([1, 2])
@@ -291,13 +285,13 @@ b = np.array([3, 4])
 c = np.hstack((a, b))
 ```
 
-That result would be:
+The result is:
 
 ```python
 [[1, 2, 3, 4]]
 ```
 
-Joining a 2D array with `numpy.hstack` works like this:
+For two-dimensional arrays, `hstack` appends columns:
 
 ```python
 a = np.array([
@@ -311,7 +305,7 @@ b = np.array([
 c = np.hstack((a, b))
 ```
 
-The result would be:
+The result is:
 
 ```python
 [
@@ -322,9 +316,9 @@ The result would be:
 
 ### numpy.block
 
-The `numpy.block` also joins arrays. 
+`numpy.block` assembles arrays from nested block layouts.
 
-For a 1D array, it works like this:
+For one-dimensional arrays:
 
 ```python
 a = np.array([5, 6, 7])
@@ -340,28 +334,28 @@ The result is:
 
 ## Reading Arrays from Disk
 
-This is the most common case for creating large arrays is from existing data.
+Large arrays usually begin as data on disk.
 
 ### Standard Binary Formats
 
-Various fields have stand formats for the array data.
+Many fields use standard binary formats:
 
 HD5: h5py
 FITS: Astropy
 
-Some formats cannot be read directly, but those can be converted to a format supported by libraries like PIL.
+Convert unsupported formats through a library that understands them, such as Pillow for image data.
 
 ### Common ASCII Formats
 
-Files such as csv (comma separated values) and tsv (tab separated values) files are delimited data. Those type of files that can be opened with programs like Excel and LabView. the two standard routines for importing a file with delimited data is `numpy.loadtxt` and `numpy.genfromtxt`. Other ways of importing data are `scipy.ioFf` and `Pandas`.
+CSV and TSV files store delimited text. Load regular numeric tables with `numpy.loadtxt`; use `numpy.genfromtxt` when missing values or mixed types require more control. SciPy and Pandas cover additional formats.
 
-An example of loading a text file in the format of csv:
+Load a CSV file while skipping its header:
 
 ```python
 np.loadtxt('simple_example.csv', delimiter = ',', skiprows = 1)
 ```
 
-That result in:
+The result is:
 
 ```python
 array([[0., 0.],
@@ -369,7 +363,6 @@ array([[0., 0.],
 [2., 4.],
 [3., 9.]])
 ```
-
 
 
 

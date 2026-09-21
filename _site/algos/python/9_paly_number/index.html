@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Data Frog</title>
     <link rel="stylesheet" href="/static/style.css" />
     <link rel="icon" href="/static/favicon.ico" type="image/x-icon">
@@ -16,43 +17,42 @@
     </script>
 </head>
 <body>
-    <header>
-    <div id="logo-container">
-        <div class="logo">
-            <a href="/">
-                <img src="/static/frog_logo.png" alt="Frog Protection">
-            </a>
-        </div>
-        <div class="logo-text-small">
-            <a href="/">Data Science & Computer Programming</a>
-        </div>
-    </div>
-    <div id="nav-container">
-        <div class="logo-text-small">
-            <span><a href="/numpy">NumPy</a></span>
-            <span><a href="/stats">Statistics</a></span>
-            <span><a href="/videos">Videos</a></span>
-            <span><a href="/algos">Algorithms</a></span>
-        </div>
+    <header class="site-header">
+    <div class="site-header-inner">
+        <a class="brand-link" href="/">
+            <img class="brand-mark" src="/static/frog_logo.png" alt="">
+            <span class="brand-copy">
+                <strong class="brand-name">Data Frog</strong>
+                <small class="brand-tagline">Field notes in data and Python</small>
+            </span>
+        </a>
+        <nav class="site-nav" aria-label="Primary navigation">
+            <a href="/numpy/">NumPy</a>
+            <a href="/stats/">Statistics</a>
+            <a href="/algos/" class="active" aria-current="page">Algorithms</a>
+            <a href="/videos/">Videos</a>
+            <a href="/#data-sourcing">Data Sourcing</a>
+        </nav>
     </div>
 </header>
+
     <main>
         <h1>Palindrome Number</h1>
-<p>Given an integer x, return true if x is palindrome integer.</p>
-<p>An integer is a palindrome when it reads the same backward as forward.</p>
-<p>For example, 121 is a palindrome while 123 is not.</p>
+<p>Given integer x, return true when it is a palindrome.</p>
+<p>An integer is palindromic when it reads identically forward and backward.</p>
+<p>For example, 121 qualifies; 123 does not.</p>
 <p>Example 1:</p>
 <p>Input: x = 121
 Output: true
-Explanation: 121 reads as 121 from left to right and from right to left.
+Explanation: 121 reads the same in both directions.
 Example 2:</p>
 <p>Input: x = -121
 Output: false
-Explanation: From left to right, it reads -121. From right to left, it becomes 121-. Therefore it is not a palindrome.
+Explanation: Reversing -121 produces 121-, so it is not a palindrome.
 Example 3:</p>
 <p>Input: x = 10
 Output: false
-Explanation: Reads 01 from right to left. Therefore, it is not a palindrome.</p>
+Explanation: Reversing 10 produces 01, so it is not a palindrome.</p>
 <pre><code class="language-python">import math
 
 class Solution(object):
@@ -79,16 +79,19 @@ print(sol.isPalindrome(-123321))
 </code></pre>
 
     </main>
-    <footer>
-    <div>
-        <div>Sponsored by Frog Protection Services</div>
-        <div>Do you have Frog Protection?</div>
-    </div>
-    <hr />
-    <div>
-        <span class="logo-text-large">hello world</span>
-        <span class="logo-text-small">production</span>
+    <footer class="site-footer">
+    <div class="site-footer-inner">
+        <div>
+            <div>Field notes from the workbench.</div>
+            <div>Built one experiment at a time.</div>
+        </div>
+        <hr />
+        <div>
+            <span class="logo-text-large">Data Frog</span>
+            <span class="logo-text-small">lab notebook</span>
+        </div>
     </div>
 </footer>
+
 </body>
 </html>

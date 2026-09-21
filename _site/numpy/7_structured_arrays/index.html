@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Data Frog</title>
     <link rel="stylesheet" href="/static/style.css" />
     <link rel="icon" href="/static/favicon.ico" type="image/x-icon">
@@ -16,31 +17,29 @@
     </script>
 </head>
 <body>
-    <header>
-    <div id="logo-container">
-        <div class="logo">
-            <a href="/">
-                <img src="/static/frog_logo.png" alt="Frog Protection">
-            </a>
-        </div>
-        <div class="logo-text-small">
-            <a href="/">Data Science & Computer Programming</a>
-        </div>
-    </div>
-    <div id="nav-container">
-        <div class="logo-text-small">
-            <span><a href="/numpy">NumPy</a></span>
-            <span><a href="/stats">Statistics</a></span>
-            <span><a href="/videos">Videos</a></span>
-            <span><a href="/algos">Algorithms</a></span>
-        </div>
+    <header class="site-header">
+    <div class="site-header-inner">
+        <a class="brand-link" href="/">
+            <img class="brand-mark" src="/static/frog_logo.png" alt="">
+            <span class="brand-copy">
+                <strong class="brand-name">Data Frog</strong>
+                <small class="brand-tagline">Field notes in data and Python</small>
+            </span>
+        </a>
+        <nav class="site-nav" aria-label="Primary navigation">
+            <a href="/numpy/" class="active" aria-current="page">NumPy</a>
+            <a href="/stats/">Statistics</a>
+            <a href="/algos/">Algorithms</a>
+            <a href="/videos/">Videos</a>
+            <a href="/#data-sourcing">Data Sourcing</a>
+        </nav>
     </div>
 </header>
+
     <main>
         <h2>Structured Arrays</h2>
-<p>Structured arrays are <code>ndarrays</code> whose datatype are a composition of simpler <code>datatypes</code>.</p>
-<p>These <code>datatypes</code> are organized as a sequence of named fields.</p>
-<p>In a <code>structured data type</code> each subtype is called a field. The field has a name (a string), a type (any valid <code>dtype</code>), and an optional <em>title</em>.</p>
+<p>Structured arrays are <code>ndarray</code> objects whose dtype combines simpler dtypes into named fields.</p>
+<p>Each field has a string name, a valid dtype, and an optional title.</p>
 <pre><code class="language-python">x = np.array([('Bob', 9, 81.0), ('Fido', 3, 27.0)],
 dtype=[('name', 'U10'), ('age', 'i4'), ('weight', 'f4')])
 
@@ -48,7 +47,7 @@ dtype=[('name', 'U10'), ('age', 'i4'), ('weight', 'f4')])
 array([('Bob', 9, 81.), ('Fido', 3, 27.)],
 dtype=[('name', '&lt;U10'), ('age', '&lt;i4'), ('weight', '&lt;f4')])
 </code></pre>
-<p>It's similar to a regular <code>ndarray</code>, but each of the fields has a name. You can access the individual fields of a structured array by using the name.</p>
+<p>Index by field name to read or update one field across the array.</p>
 <pre><code class="language-python">x['age']
 array([9, 3], dtype=int32)
 x['age'] = 5
@@ -57,66 +56,66 @@ x['age'] = 5
 array([('Rex', 5, 81.), ('Fido', 5, 27.)],
 dtype=[('name', '&lt;U10'), ('age', '&lt;i4'), ('weight', '&lt;f4')])
 </code></pre>
-<p>Structured data types have a similar memory layout as 'structs' in the C language. These helps us be able to do low level manipulation, like for interpreting binary blobs. One of the drawbacks to using this for manipulation of tabular data (like that stored in csv files) is that it can lead to poor cache behavior.</p>
-<p>Other <code>pydata</code> projects could be better suited for this type of data manipulation such as <code>xarray</code>, <code>pandas</code>, or <code>DataArray</code>.</p>
+<p>Structured dtypes resemble C structs in memory, which makes them useful for binary records. Their row-oriented layout can perform poorly for column-wise tabular work.</p>
+<p>For general tabular or labeled-array analysis, Pandas or xarray may fit better.</p>
 <h2>Structured Datatypes</h2>
-<p>A structured datatype can be thought of as a sequence of bytes of a certain length which is interpreted as a collection of fields.</p>
-<p>Each of those fields has a name, a datatype, and a byte offset.</p>
-<p>The datatype can be any kind of datatype within NumPy, but can also be a subarray data type. Subarray data types behave like an <code>ndarray</code> of a specific shape.</p>
-<p>The structured <code>datatypes</code> can be created using a function <code>numpy.dtype</code>.</p>
-<p>There are four forms of creating the <code>numpy.dtype</code>:</p>
+<p>A structured dtype interprets a fixed-size byte sequence as fields. Each field has a name, dtype, and byte offset.</p>
+<p>A field can use any NumPy dtype, including a fixed-shape subarray dtype.</p>
+<p>Construct structured dtypes with <code>numpy.dtype</code>.</p>
+<p>Four input forms are common:</p>
 <ol>
 <li>A list of tuples. One tuple per field.</li>
 <li>A string of comma seperated dtype specifications.</li>
 <li>A dictionary of field parameter arrays.</li>
 <li>A dictionary of field names.</li>
 </ol>
-<p>The list of field names of a structured <code>datatype</code> can be found in the names attribute of the <code>dtype</code> of the object.</p>
-<p>The <code>dtype</code> object also has a dictionary-like attribute, fields, whose keys are the field names.</p>
-<p>NumPy uses of two methods to determine the field byte offsets and the overall item size of a structured datatype.</p>
-<p>This depends on whether <code>align=True</code> was given as a keyword argument to <code>numpy.dtype</code>.</p>
-<p>In addition to the field names, the fields can also have titles.</p>
+<p>Read field names from the dtype's <code>names</code> attribute.</p>
+<p>Its dictionary-like <code>fields</code> attribute maps those names to field metadata.</p>
+<p>NumPy calculates field offsets and total item size differently when <code>numpy.dtype</code> receives <code>align=True</code>.</p>
+<p>Fields may also carry titles.</p>
 <h2>Indexing and Assignment to Structured Arrays</h2>
-<p>The simplest way to assign values to a structured array is using Python tuples. Each assigned value should be a tuple of length equal to the number of fields in the array.</p>
-<p>A scalar assigned to a structured element will be assigned to all fields. This is when a scalar is assigned to a structured array. Structured arrays can also be assigned to a unstructured arrays, but only if the structured datatype has just a single field.</p>
-<p>You can also have assignment between two structured arrays. This occurs if the source elements have been converted to tuples assigned to the destination elements.</p>
-<p>Structured arrays with a different number of fields can't be assigned to each other.</p>
-<p>When assigning to fields which are <code>subarrays</code>, the assigned value will be first broadcast to the shape of the subarray.</p>
-<p>To access individual fields, the fields may be modified by indexing the array with the field name. The resulting array shares the same memory location as the original array.</p>
-<p>The view will have the same dype and itemsize as the indexed field. It will be a non-structured array, except in case of nested structures.</p>
-<p>One can index and assign to a structured array with a multi-field index. The index being a list of field names.</p>
-<p>The resul of it will be indexing with a multi-field index as a vew  into the original array.</p>
-<p>Assignment to the view modifies the original array. The view's fields will be in the order they were indexed.</p>
-<p>Note that unlike for single field indexing, the dtype of the view has the same itemsize as the original array. It has the fields at the same offsets as the original array, and the unindexed fields are merely missing.</p>
-<p>Assignment to an array with a multi-field index modifies the original array.</p>
-<p>This obeys the structured array assignment rules described above. So you can swap the vlaues of two fields using appropriate multi-field indexes.</p>
+<p>Assign one record with a Python tuple containing one value per field.</p>
+<p>Assigning a scalar to a structured element writes that scalar to every field. Assignment from an unstructured array requires a single-field structured dtype.</p>
+<p>Structured arrays can assign records to one another by field position.</p>
+<p>Source and destination must have the same number of fields.</p>
+<p>Values assigned to subarray fields broadcast to the field's shape first.</p>
+<p>Index with a field name to get a view that shares memory with the source.</p>
+<p>The view uses the field's dtype and item size and is unstructured unless the field is itself structured.</p>
+<p>Pass a list of field names to select or assign multiple fields.</p>
+<p>Multi-field indexing returns a view into the original array.</p>
+<p>Assignments through that view modify the source, and fields follow the requested order.</p>
+<p>Unlike a single-field view, a multi-field view preserves the original item size and offsets; unselected fields become gaps.</p>
+<p>Multi-field assignment follows the same rules and can swap field values in place.</p>
 <h2>Indexing an Integer to Get a Structured Scalar</h2>
-<p>Indexing a single element of a structured array returns a structured scalar.</p>
-<p>Unlike other NumPy scalars, structured scalars are mutable and act like views into the original array. Structured scalars also support access and assignment by field name.</p>
-<p>Just like tuples, structured scalars can be indexed with an integer. So tuples can be thought of as the native Python equivalent ot NumPy's structured types. Much like native Python integers are the equal to NumPy's integer types. Structured scalars may be converted to a tuple by calling numpy.ndarray.item.</p>
+<p>Indexing one record returns a structured scalar.</p>
+<p>Unlike most NumPy scalars, it is mutable, acts as a view, and supports field-name access and assignment.</p>
+<p>Structured scalars also accept integer field positions. Convert one to a Python tuple with <code>numpy.ndarray.item</code>.</p>
 <h2>Viewing Structured Arrays Containing Objects</h2>
-<p>In order to prevent clobbering object pointers in fields of object type, NumPy currently does not allow views of structured arrays containing objects.</p>
+<p>NumPy blocks views of structured arrays containing object fields to protect object pointers.</p>
 <h3>Structure Comparison and Promotion</h3>
-<p>if the dypes of two void structured arrays are equal, testing the equality of the arrays will result in a boolean array. It will have the dimension of hte original arrays, which elements are set to True where all fields of the corresponding structure are equal.</p>
-<p>NumPy will promote individual field datatypes to perform the comparison. To compare tow structured arrays, it's possible to promote them to a common dtype and then are returned by numpy.result_type and np.promote_types.</p>
-<p>The resulting dtype from promotion is also guaranteed to be packed, which means that all fields are ordered contiguously and any padding is removed.</p>
+<p>When two void structured arrays share a dtype, equality returns a boolean array shaped like the inputs. An element is <code>True</code> only when every corresponding field matches.</p>
+<p>For differing compatible dtypes, <code>numpy.result_type</code> and <code>numpy.promote_types</code> can determine a common promoted dtype field by field.</p>
+<p>The promoted dtype is packed: fields are contiguous and padding is removed.</p>
 <h2>Record Arrays</h2>
-<p>As an optional convenience NumPy provides an ndarray subclass <code>numpy.recarray</code>. This allows access to fields of structured arrays by attribute instead of only by index.</p>
-<p>Record arrays use a special datatype, <code>numpy.record</code> that allows field access by attribute on the structured scalars. the numpy.rec module provides functions for creating recarrays from various objects. Additional helper functions for creating and manipulating structured arrays can be found in <code>numpy.lib.recfunctions</code>.</p>
-<p>The easiest way to create a record array is with <code>numpy.rec.array</code>. It can convert structured arrays along with other kinds of arguments into record arrays.</p>
-<p>There's also a lot of other convenience functions for creating record arrays.</p>
+<p><code>numpy.recarray</code> is an optional <code>ndarray</code> subclass that exposes fields as attributes.</p>
+<p>Its scalar type, <code>numpy.record</code>, provides the same attribute access. Build record arrays through <code>numpy.rec</code>; find additional helpers in <code>numpy.lib.recfunctions</code>.</p>
+<p><code>numpy.rec.array</code> converts structured arrays and other compatible inputs into record arrays.</p>
+<p>Other constructors in <code>numpy.rec</code> cover common input forms.</p>
 
     </main>
-    <footer>
-    <div>
-        <div>Sponsored by Frog Protection Services</div>
-        <div>Do you have Frog Protection?</div>
-    </div>
-    <hr />
-    <div>
-        <span class="logo-text-large">hello world</span>
-        <span class="logo-text-small">production</span>
+    <footer class="site-footer">
+    <div class="site-footer-inner">
+        <div>
+            <div>Field notes from the workbench.</div>
+            <div>Built one experiment at a time.</div>
+        </div>
+        <hr />
+        <div>
+            <span class="logo-text-large">Data Frog</span>
+            <span class="logo-text-small">lab notebook</span>
+        </div>
     </div>
 </footer>
+
 </body>
 </html>

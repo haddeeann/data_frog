@@ -4,70 +4,70 @@ layout: "html_wrapper.njk"
 
 ## Frequency Tables and Plots
 
-Frequency tables are used to display the number of times (frequency) each value in a set of data occurs. They are a simple way to view and analyze quantitative data.
+Frequency tables count how often each value occurs. They are the quickest useful summary of discrete quantitative data.
 
-- **Frequency Plot**: This is a graphical representation of a frequency table. The plot shows the frequency of each data point or a range of data, making it easier to see patterns or trends.
+- **Frequency plot:** Graph the count for each value or interval to expose patterns and trends.
 
 ## Histograms
 
-A histogram is a type of bar graph that represents the distribution of numerical data. It groups data into bins (ranges) and displays the frequency of data points within each bin.
+A histogram groups numerical observations into bins and shows the frequency in each bin. Unlike a categorical bar chart, adjacent bins represent continuous intervals.
 
 - **How to Interpret a Histogram**:
-    - **Width of Bins**: Each bin represents a range of values. The width of each bin can affect the interpretation.
-    - **Height of Bins**: The height indicates the frequency of data within that range.
-    - **Shape of the Histogram**: The overall shape can give insights into the distribution of the data (e.g., normal, skewed, bimodal).
-    - **Outliers**: Unusually high or low bars might indicate outliers in the data.
+    - **Bin width:** Each bin covers a value range; changing the width can change the apparent pattern.
+    - **Bin height:** Height encodes the frequency within that range.
+    - **Shape:** The silhouette can reveal symmetric, skewed, or bimodal structure.
+    - **Outliers:** Isolated observations may signal outliers, though a histogram can hide exact values.
 
 ## Stem and Leaf Plots
 
-Stem and leaf plots are a way of displaying quantitative data that maintains the original data values while showing the distribution. Each data point is split into a "stem" (like the leading digit) and a "leaf" (like the last digit).
+Stem-and-leaf plots preserve individual values while exposing the distribution. Split each observation into a stem, usually its leading digits, and a leaf, usually its final digit.
 
 - **How to Read a Stem and Leaf Plot**:
-    - **Stem**: Usually on the left, representing the higher-order values.
-    - **Leaf**: On the right, showing the lower-order values.
-    - **Reading the Plot**: Each line combines stem and leaf to form the original data points.
-    - **Arrangement**: Data is arranged in ascending order, making it easy to see the distribution and identify the mode, median, and even approximate mean.
+    - **Stem:** The left side holds the higher-order digits.
+    - **Leaf:** The right side holds the lower-order digits.
+    - **Reading:** Combine a stem and leaf to recover an observation.
+    - **Arrangement:** Sort leaves within each stem to expose the distribution, median, and mode.
 
-Each of these tools provides a different way to visualize and interpret quantitative data, helping in understanding the distribution, central tendency, and spread of the data.
+Each view emphasizes a different part of the data: exact values, shape, center, or spread.
 
 ## Understanding Distributions in Data
 
-Analyzing data involves recognizing various patterns or characteristics in distributions. Here's an overview of common distribution shapes and features:
+Read a distribution by its shape and its departures from that shape.
 
 ## Common Shapes of Distributions
 
-- **Normal Distribution**: Often called a "bell curve", it's symmetric with a single peak in the middle.
-- **Skewed Distribution**: A distribution is skewed if one tail is longer than the other. It's "skewed left" if the left tail is longer, and "skewed right" if the right tail is longer.
-- **Uniform Distribution**: Every value has approximately the same frequency, resulting in a flat distribution.
-- **Bimodal Distribution**: A distribution with two peaks, which might indicate two different groups within the data.
+- **Normal distribution:** A symmetric, bell-shaped distribution with one central peak.
+- **Skewed distribution:** One tail extends farther than the other. The longer tail names the direction of skew.
+- **Uniform distribution:** Values occur at roughly equal frequencies, producing a flat shape.
+- **Bimodal distribution:** Two peaks may indicate two underlying groups.
 
 ## Clusters, Peaks, Gaps, and Outliers
 
-- **Clusters**: Groups of data points that are close to each other, indicating a concentration of values.
-- **Peaks**: High points in the distribution, also known as "modes".
-- **Gaps**: Areas in the distribution with a low frequency of data points.
-- **Outliers**: Data points that are significantly different from the majority of the data. They can indicate variability in the data or errors in data collection.
+- **Clusters:** Concentrations of nearby values.
+- **Peaks:** High-frequency regions, or modes.
+- **Gaps:** Regions with few or no observations.
+- **Outliers:** Values far from the main body; they may be genuine variation or collection errors.
 
 ## Dot Plots
 
-- Dot plots are useful for comparing small sets of data. Each data point is represented by a dot.
-- **Comparing Dot Plots**: Look for differences in the center, spread, and overall range. Also, note any patterns, clusters, or outliers.
+- Dot plots show every observation and suit small datasets.
+- **Comparing dot plots:** Compare center, spread, range, clusters, gaps, and outliers.
 
 ## Histograms
 
-- Histograms are better for larger data sets. They group data into bins and show frequency per bin.
-- **Comparing Histograms**: Compare the shapes, center, and spread of distributions. Pay attention to the skewness and the presence of multiple peaks.
+- Histograms scale to larger datasets by grouping values into bins.
+- **Comparing histograms:** Compare shape, center, spread, skew, and the number of peaks.
 
 ## Box Plots
 
-- Box plots provide a summary of the distribution's quartiles and median, also indicating outliers.
-- **Comparing Box Plots**: Look at the range, interquartile range (IQR), median, and any outliers. Box plots are particularly useful for comparing the spread and identifying outliers.
+- Box plots summarize quartiles, median, and potential outliers.
+- **Comparing box plots:** Compare median, range, interquartile range, and outliers across groups.
 
-Each of these graphical methods offers a unique way to analyze and compare distributions, helping to highlight different aspects of the data.
+No single plot tells the whole story. Choose the one that exposes the feature under inspection.
 
 ## Line Graphs: Uses and Potential Misleading Nature
 
-Line graphs are a popular tool in statistics and data analysis, known for their ability to show trends over time. Below is an overview of their uses and how they can sometimes be misleading.
+Line graphs show change across an ordered axis, usually time. Their apparent story depends heavily on scale and selection.
 
 ### Common Uses of Line Graphs
 
@@ -83,8 +83,7 @@ Line graphs are a popular tool in statistics and data analysis, known for their 
 4. **Using Too Many Data Points**: Overloading a line graph with too many data points or lines can make it cluttered and difficult to interpret.
 5. **Ignoring Confounding Variables**: Not accounting for external factors that might affect the data can lead to incorrect interpretations of trends.
 
-When using line graphs, it's crucial to present data honestly and clearly, avoiding these pitfalls to ensure accurate and truthful representation of the data.
-
+Use honest scales, show the relevant range, and state what the graph omits.
 
 
 

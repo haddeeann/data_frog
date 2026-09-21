@@ -3,17 +3,17 @@ layout: "html_wrapper.njk"
 ---
 ## Writing Custom Array Containers
 
-NumPy's dispatch mechanism, is the recommended way to write custom N-dimensional array containers that are compatible with the NumPy API.
+NumPy's dispatch protocols are the standard route for custom N-dimensional containers that interoperate with its API.
 
-This provides custom implementations of NumPy functionality.
+They let a container provide its own implementation of NumPy operations.
 
-Applications include `dask arrays`, and N-dimensional array distributed across multiple nodes, and `cupy` arrays. `Cupy` arrays are an N-dimensional array on a GPU.
+Dask arrays distribute N-dimensional work across chunks or nodes; CuPy arrays execute N-dimensional operations on GPUs.
 
-NumPy allows a class to indicate that it would like to handle computations in a custom defined way through the interfaces __arrayufun__ and __array_function__.
+A class opts into custom dispatch through `__array_ufunc__` and `__array_function__`.
 
-The first _array_ufunc__ covers Universal functions (ufunc), a class of functions that include, for example, `numpy.multiply` and `numpy.sin`
+`__array_ufunc__` handles universal functions such as `numpy.multiply` and `numpy.sin`.
 
-The __array_ufunc_ receives:
-- ufunc, a function like numpy.multiply
-- method, a string, differentiating between numpy.multiply and other numpy multiply 
-- inputs, which could be a mixture of different types
+`__array_ufunc__` receives:
+- `ufunc`, such as `numpy.multiply`
+- `method`, identifying the requested ufunc method
+- `inputs`, which may mix several types

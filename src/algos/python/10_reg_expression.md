@@ -1,14 +1,14 @@
 ---
 layout: "html_wrapper.njk"
 ---
-Given an input string s and a pattern p, implement regular expression matching with support for '.' and '*' where:
+Given input string s and pattern p, implement full-string matching with `.` and `*`:
 
 sol = Solution()
 sol.isMatch("abbbcd", "ab*cd")
 
-'.' Matches any single character.​​​​
-'*' Matches zero or more of the preceding element.
-The matching should cover the entire input string (not partial).
+`.` matches any single character.
+`*` matches zero or more copies of the preceding element.
+The pattern must match the entire string.
 
 
 
@@ -16,17 +16,17 @@ Example 1:
 
 Input: s = "aa", p = "a"
 Output: false
-Explanation: "a" does not match the entire string "aa".
+Explanation: "a" leaves one character unmatched in "aa".
 Example 2:
 
 Input: s = "aa", p = "a*"
 Output: true
-Explanation: '*' means zero or more of the preceding element, 'a'. Therefore, by repeating 'a' once, it becomes "aa".
+Explanation: `*` repeats the preceding `a`, allowing `a*` to match "aa".
 Example 3:
 
 Input: s = "ab", p = ".*"
 Output: true
-Explanation: ".*" means "zero or more (*) of any character (.)".
+Explanation: `.*` matches zero or more of any character.
 
 ```python
 class Solution(object):

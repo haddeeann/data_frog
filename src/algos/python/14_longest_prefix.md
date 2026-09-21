@@ -2,9 +2,9 @@
 layout: "html_wrapper.njk"
 ---
 
-Write a function to find the longest common prefix string amongst an array of strings.
+Return the longest prefix shared by every string in the array.
 
-If there is no common prefix, return an empty string "".
+Return "" when no common prefix exists.
 
 Example 1:
 
@@ -14,7 +14,7 @@ Example 2:
 
 Input: strs = ["dog","racecar","car"]
 Output: ""
-Explanation: There is no common prefix among the input strings.
+Explanation: The strings share no prefix.
 
 ```python
 class Solution(object):

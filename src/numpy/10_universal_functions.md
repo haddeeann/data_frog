@@ -3,31 +3,25 @@ layout: "html_wrapper.njk"
 ---
 ## Universal Functions
 
-A universal function (or a `ufunc` for short) is a function that operates on `ndarrays` in an element by element fashion.
+A universal function, or `ufunc`, applies an operation element by element to `ndarray` inputs.
 
-This supports array broadcasting, type casting, and several other standard features.
+Ufuncs integrate broadcasting, type casting, and optional output arrays.
 
-That is, a `ufunc` is a "vectorized" wrapper for a function that takes a fixed number of specific inputs and produces a fixed number of specific outputs.
+Each ufunc wraps a fixed-input, fixed-output operation in a vectorized array interface.
 
 ## Ufunc Methods
-All `ufuncs` have four methods. These methods only make sense on scalar `ufuncs` that take tow input arguments and return one output argument. 
+Ufunc methods such as `reduce` and `accumulate` apply only where the ufunc's input and output arity supports them.
 
-Attempting to call these methods on other `ufuncs` will case a ValueError.
+Unsupported calls raise `ValueError`.
 
-The reduce like methods all take an axis keyword, a dtype keyword, and an out keyword, and the arrays must all have the dimension >= 1.
+Reduction methods accept `axis`, `dtype`, and `out`; their inputs must have at least one dimension.
 
-The axis keyword specifies the axis of the array over which the reduction will take place.
+`axis` selects the dimension to reduce.
 
-Generally, it is an integer, though for `numpy.ufunc.reduce`, it can also be a type of int to reduce over several axes at once, or None, to reduce over all axes.
+For `numpy.ufunc.reduce`, it may be an integer, a tuple of integers for multiple axes, or `None` for all axes.
 
-The dtype keyword allows you to manage a very common problem that arises when naively using `ufunc.reduce`.
+`dtype` controls the accumulator type, which matters when a reduction can exceed the input range. Single-byte integer sums are an obvious case.
 
-Sometimes you may have an array of a certain data type and wish to add up all of its elements, but the result does not fit into the data type of the array.
+Choose a wide enough `dtype` to represent the result.
 
-This commonly happens if you have an array of single-byte integers.
-
-The dtype keyword allows you to alter the data type over which the reduction takes place.
-
-Therefore, you can ensure that the output is the datatype with the precision large enough to handle your output. The responsibility of altering reduce type is mostly up to you. 
-
-There's one exception, if no dtype is given for a reduction on the 'add' or 'multiply' operations, the input type is an integer or boolean type, and it's smaller than the size of the `nupy.itn_` data type, it will be internally upcast to the `int_ or `numpy.uint` data-type. 
+One exception is `add` or `multiply`: without an explicit dtype, boolean and narrow integer inputs are promoted to the platform-sized `numpy.int_` or `numpy.uint` type.

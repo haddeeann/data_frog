@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Data Frog</title>
     <link rel="stylesheet" href="/static/style.css" />
     <link rel="icon" href="/static/favicon.ico" type="image/x-icon">
@@ -16,108 +17,110 @@
     </script>
 </head>
 <body>
-    <header>
-    <div id="logo-container">
-        <div class="logo">
-            <a href="/">
-                <img src="/static/frog_logo.png" alt="Frog Protection">
-            </a>
-        </div>
-        <div class="logo-text-small">
-            <a href="/">Data Science & Computer Programming</a>
-        </div>
-    </div>
-    <div id="nav-container">
-        <div class="logo-text-small">
-            <span><a href="/numpy">NumPy</a></span>
-            <span><a href="/stats">Statistics</a></span>
-            <span><a href="/videos">Videos</a></span>
-            <span><a href="/algos">Algorithms</a></span>
-        </div>
+    <header class="site-header">
+    <div class="site-header-inner">
+        <a class="brand-link" href="/">
+            <img class="brand-mark" src="/static/frog_logo.png" alt="">
+            <span class="brand-copy">
+                <strong class="brand-name">Data Frog</strong>
+                <small class="brand-tagline">Field notes in data and Python</small>
+            </span>
+        </a>
+        <nav class="site-nav" aria-label="Primary navigation">
+            <a href="/numpy/">NumPy</a>
+            <a href="/stats/">Statistics</a>
+            <a href="/algos/" class="active" aria-current="page">Algorithms</a>
+            <a href="/videos/">Videos</a>
+            <a href="/#data-sourcing">Data Sourcing</a>
+        </nav>
     </div>
 </header>
+
     <main>
-        <p>Python is a great language to write algorithms in even if you don't use it as a primary language in everyday life. It's because it's got a simple, clean syntax and lets' you focus on solving the problem instead of writing a lot of 'boiler plate' code.</p>
+        <p>Python keeps algorithm practice focused on the problem: compact syntax, useful built-ins, little ceremony.</p>
 <ol>
 <li>
-<p><a href="./1_two_sum">two sum</a></p>
+<p><a href="./1_two_sum">Two Sum: index-pair lookup</a></p>
 </li>
 <li>
-<p><a href="./2_add_two_numbers">add two numbers</a></p>
+<p><a href="./2_add_two_numbers">Add Two Numbers: linked-list arithmetic</a></p>
 </li>
 <li>
-<p><a href="./3_longest_substring">longest substring</a></p>
+<p><a href="./3_longest_substring">Longest Substring Without Repeats</a></p>
 </li>
 <li>
-<p><a href="./4_median_two">median</a></p>
+<p><a href="./4_median_two">Median of Two Sorted Arrays</a></p>
 </li>
 <li>
-<p><a href="./5_long_pal">long pal</a></p>
+<p><a href="./5_long_pal">Longest Palindromic Substring</a></p>
 </li>
 <li>
-<p><a href="./6_zig_zag">zig zag</a></p>
+<p><a href="./6_zig_zag">Zigzag String Conversion</a></p>
 </li>
 <li>
-<p><a href="./7_reverse_int">reverse int</a></p>
+<p><a href="./7_reverse_int">Reverse a 32-bit Integer</a></p>
 </li>
 <li>
-<p><a href="./8_atoi">atoi</a></p>
+<p><a href="./8_atoi">String to Integer (atoi)</a></p>
 </li>
 <li>
-<p><a href="./9_paly_number">paly number</a></p>
+<p><a href="./9_paly_number">Palindrome Integer</a></p>
 </li>
 <li>
-<p><a href="./10_reg_expression">reg expression</a></p>
+<p><a href="./10_reg_expression">Regular Expression Matching</a></p>
 </li>
 <li>
-<p><a href="./11_container_water">container water</a></p>
+<p><a href="./11_container_water">Container With Most Water</a></p>
 </li>
 <li>
-<p><a href="./12_roman_nums">roman nums</a></p>
+<p><a href="./12_roman_nums">Integer to Roman</a></p>
 </li>
 <li>
-<p><a href="./13_rom_to_int">roman num to int</a></p>
+<p><a href="./13_rom_to_int">Roman to Integer</a></p>
 </li>
 <li>
-<p><a href="./14_longest_prefix">longest prefix</a></p>
+<p><a href="./14_longest_prefix">Longest Common Prefix</a></p>
 </li>
 <li>
-<p><a href="./15_3_sum">3 sum</a></p>
+<p><a href="./15_3_sum">3Sum</a></p>
 </li>
 <li>
-<p><a href="./16_three_sum">three sum 2</a></p>
+<p><a href="./16_three_sum">3Sum Closest</a></p>
 </li>
 <li>
-<p><a href="./17_letter_combo">letter combo</a></p>
+<p><a href="./17_letter_combo">Phone Number Letter Combinations</a></p>
 </li>
 <li>
-<p><a href="./38_count">count and say</a></p>
+<p><a href="./38_count">Count and Say</a></p>
 </li>
 <li>
-<p><a href="./56_merge_two">merge two</a></p>
+<p><a href="./56_merge_two">Merge Overlapping Intervals</a></p>
 </li>
 <li>
-<p><a href="./121_max_profit">max profit</a></p>
+<p><a href="./121_max_profit">Best Time to Buy and Sell Stock</a></p>
 </li>
 <li>
-<p><a href="./141_linked">linked</a></p>
+<p><a href="./141_linked">Linked List Cycle</a></p>
 </li>
 <li>
-<p><a href="./142_linked_cycle">linked cycle</a></p>
+<p><a href="./142_linked_cycle">Linked List Cycle II</a></p>
 </li>
 </ol>
 
     </main>
-    <footer>
-    <div>
-        <div>Sponsored by Frog Protection Services</div>
-        <div>Do you have Frog Protection?</div>
-    </div>
-    <hr />
-    <div>
-        <span class="logo-text-large">hello world</span>
-        <span class="logo-text-small">production</span>
+    <footer class="site-footer">
+    <div class="site-footer-inner">
+        <div>
+            <div>Field notes from the workbench.</div>
+            <div>Built one experiment at a time.</div>
+        </div>
+        <hr />
+        <div>
+            <span class="logo-text-large">Data Frog</span>
+            <span class="logo-text-small">lab notebook</span>
+        </div>
     </div>
 </footer>
+
 </body>
 </html>

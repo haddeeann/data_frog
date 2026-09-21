@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Data Frog</title>
     <link rel="stylesheet" href="/static/style.css" />
     <link rel="icon" href="/static/favicon.ico" type="image/x-icon">
@@ -16,103 +17,128 @@
     </script>
 </head>
 <body>
-    <header>
-    <div id="logo-container">
-        <div class="logo">
-            <a href="/">
-                <img src="/static/frog_logo.png" alt="Frog Protection">
-            </a>
-        </div>
-        <div class="logo-text-small">
-            <a href="/">Data Science & Computer Programming</a>
-        </div>
-    </div>
-    <div id="nav-container">
-        <div class="logo-text-small">
-            <span><a href="/numpy">NumPy</a></span>
-            <span><a href="/stats">Statistics</a></span>
-            <span><a href="/videos">Videos</a></span>
-            <span><a href="/algos">Algorithms</a></span>
-        </div>
+    <header class="site-header">
+    <div class="site-header-inner">
+        <a class="brand-link" href="/">
+            <img class="brand-mark" src="/static/frog_logo.png" alt="">
+            <span class="brand-copy">
+                <strong class="brand-name">Data Frog</strong>
+                <small class="brand-tagline">Field notes in data and Python</small>
+            </span>
+        </a>
+        <nav class="site-nav" aria-label="Primary navigation">
+            <a href="/numpy/">NumPy</a>
+            <a href="/stats/">Statistics</a>
+            <a href="/algos/">Algorithms</a>
+            <a href="/videos/">Videos</a>
+            <a href="/#data-sourcing" class="active" aria-current="page">Data Sourcing</a>
+        </nav>
     </div>
 </header>
+
     <main>
-        <p>Welcome to Data Frog. My personal notes and learning journey for data science, machine learning, and computer programming.</p>
-<h2>Data Sourcing</h2>
-<p>When looking for data to start experimenting with, you can think of it in three categories: proprietary, public, and purchased.</p>
-<p>Proprietary can be thought of as 'in house' data. Or data from an organization you are already a part of.</p>
-<p>Public is a category of data that is available to anyone.</p>
+        <p class="hero-statement">Data Frog is a running lab notebook — data science, ML, and the Python that ties them together, written up as I learn it.</p>
+<div class="module-grid">
+  <a class="module-card" href="/numpy/">
+    <span class="card-meta">01</span>
+    <h2>NumPy</h2>
+    <p>Python's answer to slow, memory-hungry lists — fixed types, contiguous memory, real speed.</p>
+  </a>
+  <a class="module-card" href="/stats/">
+    <span class="card-meta">02</span>
+    <h2>Statistics</h2>
+    <p>Distributions, uncertainty, and the summaries that make raw data legible.</p>
+  </a>
+  <a class="module-card" href="/algos/">
+    <span class="card-meta">03</span>
+    <h2>Algorithms</h2>
+    <p>Python solutions, explicit tradeoffs, and the patterns behind the problems.</p>
+  </a>
+  <a class="module-card" href="/videos/">
+    <span class="card-meta">04</span>
+    <h2>Videos</h2>
+    <p>Courses worth the time, with the useful parts kept close.</p>
+  </a>
+</div>
+<h2 id="data-sourcing">Data Sourcing</h2>
+<p>Start with the data you can legally use: proprietary data your organization controls, public data open to everyone, or data purchased under license.</p>
 <h3>Some resources:</h3>
-<p>Data at <strong>U.S. national government</strong> level:</p>
-<ul>
-<li><a href="https://data.gov/">Data.gov data</a></li>
-</ul>
-<hr>
-<p>Data at <strong>U.S. state government</strong> level:</p>
-<ul>
-<li><a href="https://opendata.utah.gov/">Utah gov data</a></li>
-</ul>
-<hr>
-<p><strong>European</strong> data:</p>
-<ul>
-<li><a href="https://data.europa.eu/en">European data</a></li>
-</ul>
-<hr>
-<p><strong>Non-Profit</strong> data:</p>
-<ul>
-<li>
-<p><a href="https://data.unicef.org/">Unicef data</a></p>
-</li>
-<li>
-<p><a href="https://www.who.int/data/">WHO data</a></p>
-</li>
-</ul>
-<hr>
-<p><strong>Private organizations'</strong> data:</p>
-<ul>
-<li>
-<p><a href="https://www.pewresearch.org/">Pew Research Center</a></p>
-</li>
-<li>
-<p><a href="https://developer.nytimes.com/">NY Times</a></p>
-</li>
-</ul>
-<hr>
-<p><strong>Large</strong> data:</p>
-<ul>
-<li>
-<p><a href="https://www.google.com/publicdata/directory#!">Google data</a></p>
-</li>
-<li>
-<p><a href="https://aws.amazon.com/marketplace/search/results?trk=868d8747-614e-4d4d-9fb6-fd5ac02947a8&amp;sc_channel=el&amp;FULFILLMENT_OPTION_TYPE=DATA_EXCHANGE&amp;CONTRACT_TYPE=OPEN_DATA_LICENSES&amp;filters=FULFILLMENT_OPTION_TYPE%2CCONTRACT_TYPE">AWS marketplace</a></p>
-</li>
-<li>
-<p><a href="https://registry.opendata.aws/">AWS opendata</a></p>
-</li>
-</ul>
-<h3>Web Scraping and APIs</h3>
-<p>Web API's and web scraping are great for getting data as well. For scraping data the following tools are great:</p>
-<ul>
-<li>import.io</li>
-<li>ScraperWiki</li>
-<li>Tabular</li>
-<li>Google Sheets</li>
-<li>Excel</li>
-</ul>
-<p>When using Google sheets, you can pull in tables very easily from around the web. Open up Google sheets, in the A1 cell, paste this type of formula (an example):</p>
-<p><code>=IMPORTHTML('https://en.wikipedia.org/wiki/Iron_Chef_America', 'table', 2)</code></p>
+<div class="directory-grid">
+  <section class="directory-card">
+    <h3>U.S. national government</h3>
+    <p>Start with federal datasets published for public use.</p>
+    <ul>
+      <li><a href="https://data.gov/">Data.gov data</a></li>
+    </ul>
+  </section>
+  <section class="directory-card">
+    <h3>U.S. state government</h3>
+    <p>State portals expose regional records that federal datasets often miss.</p>
+    <ul>
+      <li><a href="https://opendata.utah.gov/">Utah gov data</a></li>
+    </ul>
+  </section>
+  <section class="directory-card">
+    <h3>European</h3>
+    <p>Use the European Union portal for datasets published across Europe.</p>
+    <ul>
+      <li><a href="https://data.europa.eu/en">European data</a></li>
+    </ul>
+  </section>
+  <section class="directory-card">
+    <h3>Non-Profit</h3>
+    <p>Nonprofits publish focused datasets on health, development, and public welfare.</p>
+    <ul>
+      <li><a href="https://data.unicef.org/">Unicef data</a></li>
+      <li><a href="https://www.who.int/data/">WHO data</a></li>
+    </ul>
+  </section>
+  <section class="directory-card">
+    <h3>Private organizations</h3>
+    <p>Private organizations release research data and specialized APIs.</p>
+    <ul>
+      <li><a href="https://www.pewresearch.org/">Pew Research Center</a></li>
+      <li><a href="https://developer.nytimes.com/">NY Times</a></li>
+    </ul>
+  </section>
+  <section class="directory-card">
+    <h3>Large datasets</h3>
+    <p>These catalogs are built for datasets too large or broad for a single portal.</p>
+    <ul>
+      <li><a href="https://www.google.com/publicdata/directory#!">Google data</a></li>
+      <li><a href="https://aws.amazon.com/marketplace/search/results?trk=868d8747-614e-4d4d-9fb6-fd5ac02947a8&amp;sc_channel=el&amp;FULFILLMENT_OPTION_TYPE=DATA_EXCHANGE&amp;CONTRACT_TYPE=OPEN_DATA_LICENSES&amp;filters=FULFILLMENT_OPTION_TYPE%2CCONTRACT_TYPE">AWS marketplace</a></li>
+      <li><a href="https://registry.opendata.aws/">AWS opendata</a></li>
+    </ul>
+  </section>
+  <section class="directory-card">
+    <h3>Web Scraping and APIs</h3>
+    <p>When no dataset exists, collect structured data through an API or scrape it from the web with the right tool:</p>
+    <ul>
+      <li>import.io</li>
+      <li>ScraperWiki</li>
+      <li>Tabular</li>
+      <li>Google Sheets</li>
+      <li>Excel</li>
+    </ul>
+    <p>Google Sheets can import an HTML table directly. Put this formula in cell A1:</p>
+    <p><code>=IMPORTHTML('https://en.wikipedia.org/wiki/Iron_Chef_America', 'table', 2)</code></p>
+  </section>
+</div>
 
     </main>
-    <footer>
-    <div>
-        <div>Sponsored by Frog Protection Services</div>
-        <div>Do you have Frog Protection?</div>
-    </div>
-    <hr />
-    <div>
-        <span class="logo-text-large">hello world</span>
-        <span class="logo-text-small">production</span>
+    <footer class="site-footer">
+    <div class="site-footer-inner">
+        <div>
+            <div>Field notes from the workbench.</div>
+            <div>Built one experiment at a time.</div>
+        </div>
+        <hr />
+        <div>
+            <span class="logo-text-large">Data Frog</span>
+            <span class="logo-text-small">lab notebook</span>
+        </div>
     </div>
 </footer>
+
 </body>
 </html>

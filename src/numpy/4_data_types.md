@@ -3,9 +3,7 @@ layout: "html_wrapper.njk"
 ---
 ## Data Types with NumPy
 
-NumPy supports a greater variety of number types than Python does. 
-
-Here's the data types for numbers and how to modify an array's data type.
+NumPy exposes fixed-width numeric types that map closely to C representations.
 
 | NumPy type | C type | 
 |------------|--------|
@@ -28,38 +26,38 @@ Here's the data types for numbers and how to modify an array's data type.
 | numpy.cdouble | double complex |
 | numpy.clongdouble | long double complex |
 
-Since many of these have platform dependent definitions, a set of fixed size aliases are provided.
+Because several C-style names depend on the platform, NumPy also provides fixed-width aliases.
 
-NumPy number types are instances of dtype objects (data-type) each having a unique characteristic. Once you've imported the NumPy using the `>>> import numpy as np` you can use any of the data types with `np.bool_`, `np.float32`, etc.
+Every NumPy scalar type corresponds to a `dtype` object. After `import numpy as np`, refer to them as `np.bool_`, `np.float32`, and so on.
 
-There are 5 basic numerical types. There's booleans, integers, unsigned integers, floating point values and complex.
+The five basic numeric families are booleans, signed integers, unsigned integers, floating-point numbers, and complex numbers.
 
-If the data type has a number in the name it indicates the `bitsize` of the type. That's how many bits are needed to represent a single value in memory.
+A number in a dtype name usually states its width in bits, such as `float32`.
 
-Some data types have different `bitsizes` that depends on the platform. That can be important when interfacing with low level code - like with C or Fortran where the raw memory is addressed.
+Platform-dependent widths matter when exchanging raw memory with C, Fortran, or binary file formats.
 
 ## Array Scalars
 
-NumPy generally returns elements of arrays as array scalars, a scalar with associated dtype.
+Indexing one element usually returns an array scalar carrying its NumPy dtype.
 
-Array scalars differ from Python scalars, but for the most part they are interchangeable.
+Array scalars and Python scalars often interoperate, but they are distinct types.
 
-The primary advantage of using array scalars is that they preserve the array type. So the use of array scalars ensures identical behavior between arrays and scalars. That's independent of whether the value is inside the array or not.
+Array scalars preserve dtype behavior even after a value leaves its array.
 
 ## Overflow Errors
 
-The fixed size of NumPy numeric types may cause overflow errors when a value requires more memory than is available in the data type.
+Fixed-width numeric types overflow when a result falls outside their representable range.
 
-The behavior of NumPy and Python integer types differs significantly for integer overflows. This could be confusing if users are expecting NumPy integers to behave similar to Python `int`.
+Do not assume NumPy integers behave like Python's arbitrary-precision `int`.
 
-In Python the `int` is flexible. So it will expand and not overflow. The size of the int in NumPy is not flexible.
+Python integers grow as needed; a NumPy integer's width stays fixed.
 
-To verify the minimum or maximum values of NumPy integer and float points, NumPy provides `numpy.iinfo` and `numpy.finfo`.
+Inspect integer and floating-point limits with `numpy.iinfo` and `numpy.finfo`.
 
 ## Extended Precision
 
-Python's floating point numbers are usual 64 bit floating point numbers. Pretty close to the `np.float64`.
+Python's built-in `float` typically uses IEEE 754 double precision, comparable to `np.float64`.
 
-NumPy does not provide a dtype with more precision than C's long double.
+NumPy's widest floating type follows the platform's C `long double`.
 
-For efficient memory alignment, the `np.longdouble` is usually stored padded with zero bits.
+Platforms may pad `np.longdouble` values for memory alignment; extra storage does not necessarily mean extra precision.

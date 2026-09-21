@@ -2,48 +2,48 @@
 layout: "html_wrapper.njk"
 ---
 
-Python is a great language to write algorithms in even if you don't use it as a primary language in everyday life. It's because it's got a simple, clean syntax and lets' you focus on solving the problem instead of writing a lot of 'boiler plate' code.
+Python keeps algorithm practice focused on the problem: compact syntax, useful built-ins, little ceremony.
 
-1. [two sum](./1_two_sum) 
+1. [Two Sum: index-pair lookup](./1_two_sum)
 
-2. [add two numbers](./2_add_two_numbers)
+2. [Add Two Numbers: linked-list arithmetic](./2_add_two_numbers)
 
-3. [longest substring](./3_longest_substring)
+3. [Longest Substring Without Repeats](./3_longest_substring)
 
-4. [median](./4_median_two)
+4. [Median of Two Sorted Arrays](./4_median_two)
 
-5. [long pal](./5_long_pal)
+5. [Longest Palindromic Substring](./5_long_pal)
 
-6. [zig zag](./6_zig_zag)
+6. [Zigzag String Conversion](./6_zig_zag)
 
-7. [reverse int](./7_reverse_int)
+7. [Reverse a 32-bit Integer](./7_reverse_int)
 
-8. [atoi](./8_atoi)
+8. [String to Integer (atoi)](./8_atoi)
 
-9. [paly number](./9_paly_number)
+9. [Palindrome Integer](./9_paly_number)
 
-10. [reg expression](./10_reg_expression)
+10. [Regular Expression Matching](./10_reg_expression)
 
-11. [container water](./11_container_water)
+11. [Container With Most Water](./11_container_water)
 
-12. [roman nums](./12_roman_nums)
+12. [Integer to Roman](./12_roman_nums)
 
-13. [roman num to int](./13_rom_to_int)
+13. [Roman to Integer](./13_rom_to_int)
 
-14. [longest prefix](./14_longest_prefix)
+14. [Longest Common Prefix](./14_longest_prefix)
 
-15. [3 sum](./15_3_sum)
+15. [3Sum](./15_3_sum)
 
-16. [three sum 2](./16_three_sum)
+16. [3Sum Closest](./16_three_sum)
 
-17. [letter combo](./17_letter_combo)
+17. [Phone Number Letter Combinations](./17_letter_combo)
 
-38. [count and say](./38_count)
+38. [Count and Say](./38_count)
 
-56. [merge two](./56_merge_two)
+56. [Merge Overlapping Intervals](./56_merge_two)
 
-121. [max profit](./121_max_profit)
+121. [Best Time to Buy and Sell Stock](./121_max_profit)
 
-141. [linked](./141_linked)
+141. [Linked List Cycle](./141_linked)
 
-142. [linked cycle](./142_linked_cycle)
+142. [Linked List Cycle II](./142_linked_cycle)

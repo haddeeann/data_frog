@@ -3,79 +3,77 @@ layout: "html_wrapper.njk"
 ---
 ## Basics of Byte Swapping
 
-The `ndarray` is an object that provides an interface to data in memory. 
+An `ndarray` interprets bytes held in memory.
 
-So it sometimes happens that the memory that you want to view in the array is not of the same byte ordering as the computer than you're running Python on.
+Those bytes may use a different order from the machine running Python.
 
 ## Side Note on Endianness
 [Endianness](https://www.section.io/engineering-education/what-is-little-endian-and-big-endian/)
 
-An example of when this type of data storage matters, if I was working on a computer with a little endian CPU (way of storing the data) and I had loaded some data from a file written by a computer than is big endian (different way of storing the data).
+Byte order matters when, for example, a little-endian machine reads a file written in big-endian order.
 
-Computers store their data in memory in binary. And the way that the computer formats the data at the byte level is called it's endianness. This refers to the ordering of the bytes.
+Endianness is the order in which a multibyte value's bytes appear in memory.
 
-Little endian is when the LEAST significant bytes are stored before the more significant bytes. 
+Little-endian order stores the least significant byte first.
 
-Big endian is when the MOST significant bytes are stored before the less significant bytes. 
+Big-endian order stores the most significant byte first.
 
-The way we write normal numbers in the real world could be considered big endian, because we write the most important numbers first. For example, if I were to write the number 123 (one hundred and twenty-three), the one and two would be the more significant numbers.
+Written decimal notation resembles big-endian order because the most significant digit comes first.
 
-When we talk about the endianness of the number in computer science this is referring to how we store the numbers and isn't important to what the number type is. Let's take a hexadecimal number like 0x12345678. If we were to store that number in little-endian we would get the following:
+Endianness changes storage, not the value itself. Store hexadecimal `0x12345678` in little-endian order and the bytes appear as:
 
 `78 56 34 12`
 
-And if we were to store that same number in big-endian we would get:
+In big-endian order:
 
 `12 34 56 78`
 
-Note that each 2 hex letters represent one byte.
+Each pair of hexadecimal digits represents one byte.
 
-The reason this is important is that processors use different ways to store data. So knowing how the computer stores the data across the internet communication is important.
+Processors and file formats may choose different byte orders, so binary interchange must declare the order explicitly.
 
-For example, one processor might use a little endian way of storing the data and another might use big endian.
-
-With little endian we don't arbitrarily store any 8 bytes in little endian order, but it stores individual values in little endian based on the size they take up. So if we had an 8 byte number that would be stored as the whole number reversed and if we had two 4 byte numbers each of those would be reversed.
+Byte order applies per value. One eight-byte value reverses as a unit; two four-byte values each reverse independently.
 
 ## Back to NumPy
 
-So with NumPy arrays we might be working with a computer that is little endian, like Intel Pentium, but loading data from a file written on a computer that is big endian.
+NumPy therefore needs both the host byte order and the source data's byte order.
 
-In our example, we've loaded 4 bytes of data from a file in a big endian computer. These four bytes represent tw 15 bit integers. In the big endian system the two byte integer is store with the Most Significant Byte first (MSB) and the Least Significant byte last.
+Here, four big-endian bytes represent two 16-bit integers. Each integer stores its most significant byte first.
 
-We pass in a '>' in front of the dtype to indicate that the data type is big endian and we pass in a buffer of a type of 'big_end_buffer'.
+Prefix the dtype with `>` to interpret `big_end_buffer` as big-endian data.
 
 `big_end_arr = np.ndarray(shape=(2,),dtype='>i2', buffer=big_end_buffer)
 big_end_arr[0]`
 
 ## Changing Byte Ordering
 
-There are two ways to affect the relationship between the byte ordering of the array and the underlying memory.
+Change byte order in one of two places:
 
 1. change the byte ordering info in hte array dtype. Using such as `arr.newbyteorder()`
 2. change the byte ordering of the underlying data and don't change the dtype interpretation. Such as `arr.byteswap()`
 
-If we find the order incorrect, an easy fix to give the data the correct endianness:
+If the dtype describes the bytes incorrectly, change its byte-order metadata:
 
 `
 fixed_end_dtype_arr = wrong_end_dtype_arr.newbyteorder()
 fixed_end_dtype_arr[0]
 `
 
-This doens't change the original array in memory. But if you need to change the data and type endianness in memory.
+That leaves the underlying bytes untouched. To change the bytes instead:
 
 `
 fixed_end_mem_arr = wrong_end_dtype_arr.byteswap()
 fixed_end_mem_arr[0]
 `
 
-Then the array has changed in memory:
+The resulting bytes now differ:
 
 `
 fixed_end_mem_arr.tobytes() == big_end_buffer
 False
 `
 
-If you want you can also make the array to have the opposite byte order in memory, with the dtype to match so the array values make sense.
+To swap the bytes and update the dtype so values keep their meaning:
 
 `
 swapped_end_arr = big_end_arr.byteswap().newbyteorder()
@@ -85,7 +83,7 @@ swapped_end_arr.tobytes() == big_end_buffer
 False
 `
 
-The easier way of casting the data to a specific dtype and byte ordering:
+Or cast directly to a dtype with the required byte order:
 
 `
 swapped_end_arr = big_end_arr.astype('<i2')
@@ -94,7 +92,6 @@ swapped_end_arr[0]
 swapped_end_arr.tobytes() == big_end_buffer
 False
 `
-
 
 
 

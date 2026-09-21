@@ -2,9 +2,9 @@
 layout: "html_wrapper.njk"
 ---
 
-Implement the myAtoi(string s) function, which converts a string to a 32-bit signed integer (similar to C/C++'s atoi function).
+Implement myAtoi(string s), which parses a string into a 32-bit signed integer like C/C++ `atoi`.
 
-The algorithm for myAtoi(string s) is as follows:
+Apply these steps to myAtoi(string s):
 
 Read in and ignore any leading whitespace.
 Check if the next character (if not already at the end of the string) is '-' or '+'. Read this character in if it is either. This determines if the final result is negative or positive respectively. Assume the result is positive if neither is present.
@@ -14,8 +14,8 @@ If the integer is out of the 32-bit signed integer range [-231, 231 - 1], then c
 Return the integer as the final result.
 Note:
 
-Only the space character ' ' is considered a whitespace character.
-Do not ignore any characters other than the leading whitespace or the rest of the string after the digits.
+Only ' ' counts as whitespace.
+Ignore nothing except leading spaces and the suffix after the parsed digits.
 
 Example 1:
 

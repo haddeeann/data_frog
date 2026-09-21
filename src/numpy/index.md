@@ -1,53 +1,40 @@
 ---
 layout: "html_wrapper.njk"
 ---
-NumPy stands for Numerical Python. It's used in a lot of data science and engineering.
+NumPy gives Python dense, typed, multidimensional arrays. Fixed data types and contiguous storage cut memory overhead and move array operations out of slow Python loops.
 
-Installing NumPy can be done with pip:
+Install it with pip:
 
 `pip install numpy`
 
-NumPy is a multidimensional library, meaning that you can have 1D, 2D or even more dimensions in the arrays. The benefit of using NumPy is that using Python lists are really slow. NumPy is much faster because they have fixed data types. That means that NumPy arrays contain  specific types of data.
-
-NumPy uses fewer bytes of memory. Which also makes it faster.
-
-NumPy uses contiguous memory as well.
-
-To start using NumPy from the command line, start the command line. Then from there start using Python by entering:
+Start a Python session:
 
 `python`
 
-That will put you in a Python environment. Then you can start using NumPy with:
+Import NumPy under its standard alias:
 
 `import numpy as np`
 
-Then you have a numpy prompt and can start working inputting and manipulating arrays and data.
+Now the `np` namespace exposes NumPy's array constructors and operations.
 
 ## NumPy Learn By Topics
 
-1. [NumPy Array Creation](./1_create_array)
-
-2. [Indexing NumPy Arrays](./2_index_ndarrays)
-
-3. [I/O with NumPy](./3_io_numpy)
-
-4. [Data Types in NumPy](./4_data_types)
-
-5. [Broadcasting](./5_broadcasting)
-
-6. [Byte Swapping](./6_byte_swapping)
-
-7. [Structured Arrays](./7_structured_arrays)
-
-8. [Custom Array Containers](./8_custom_array_containers)
-
-9. [Subclassing](./9_subclassing)
-
-10. [Universal Functions](./10_universal_functions)
-
-11. [Copies and Views](./11_copies_views)
-
-12. [Interoperability](./12_interoperability)
+<nav class="toc-component" aria-label="NumPy topics">
+  <ol class="toc-list">
+    <li class="toc-item"><a href="./1_create_array">Array construction, stacking &amp; file input</a></li>
+    <li class="toc-item"><a href="./2_index_ndarrays">Indexing, slicing &amp; strides</a></li>
+    <li class="toc-item"><a href="./3_io_numpy"><code>genfromtxt</code>: typed text import</a></li>
+    <li class="toc-item"><a href="./4_data_types">Numeric dtypes, scalars &amp; overflow</a></li>
+    <li class="toc-item"><a href="./5_broadcasting">Broadcasting rules &amp; shape compatibility</a></li>
+    <li class="toc-item"><a href="./6_byte_swapping">Endianness &amp; byte swapping</a></li>
+    <li class="toc-item"><a href="./7_structured_arrays">Structured dtypes &amp; record arrays</a></li>
+    <li class="toc-item"><a href="./8_custom_array_containers">Custom array dispatch protocols</a></li>
+    <li class="toc-item"><a href="./9_subclassing"><code>ndarray</code> subclassing &amp; view casting</a></li>
+    <li class="toc-item"><a href="./10_universal_functions">Ufuncs, reductions &amp; dtype control</a></li>
+    <li class="toc-item"><a href="./11_copies_views">Views, copies &amp; shared memory</a></li>
+    <li class="toc-item"><a href="./12_interoperability">Array interoperability protocols</a></li>
+  </ol>
+</nav>
 
 ## Ideas for Next Steps
 
@@ -56,8 +43,8 @@ Then you have a numpy prompt and can start working inputting and manipulating ar
 [Idea for first project](https://www.youtube.com/watch?v=o64FV-ez6Gw)
 
 [Ideas for a beginner project](https://www.reddit.com/r/Python/comments/a925bi/projects_for_numpypandas_novice/)
-  - Try implementing a neural network from scratch in pure NumPy using a basic optimization algorithm like vanilla gradient descent/SGD. This necessitates manually writing out a backward pass, which TensorFlow/PyTorch/Keras will spare you from, but it familiarizes you with backprop and update rules at a granular level and will make you more comfortable with NumPy operations.
+  - Build a neural network in pure NumPy with vanilla gradient descent or SGD. Writing the backward pass by hand exposes backpropagation and update rules that TensorFlow, PyTorch, and Keras usually hide.
 
-## A note about Panda:
+## A note about Pandas
 
-Panda is built on the top of the NumPy library which means that a lot of structures of NumPy are used or replicated in Pandas. The data produced by Pandas are often used as input for plotting functions of Matplotlib, statistical analysis in SciPy, and machine learning algorithms in Scikit-learn. 
+Pandas builds on NumPy and reuses many of its array conventions. Its data structures feed naturally into Matplotlib plots, SciPy analyses, and scikit-learn models.

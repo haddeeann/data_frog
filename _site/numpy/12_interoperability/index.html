@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Data Frog</title>
     <link rel="stylesheet" href="/static/style.css" />
     <link rel="icon" href="/static/favicon.ico" type="image/x-icon">
@@ -16,66 +17,68 @@
     </script>
 </head>
 <body>
-    <header>
-    <div id="logo-container">
-        <div class="logo">
-            <a href="/">
-                <img src="/static/frog_logo.png" alt="Frog Protection">
-            </a>
-        </div>
-        <div class="logo-text-small">
-            <a href="/">Data Science & Computer Programming</a>
-        </div>
-    </div>
-    <div id="nav-container">
-        <div class="logo-text-small">
-            <span><a href="/numpy">NumPy</a></span>
-            <span><a href="/stats">Statistics</a></span>
-            <span><a href="/videos">Videos</a></span>
-            <span><a href="/algos">Algorithms</a></span>
-        </div>
+    <header class="site-header">
+    <div class="site-header-inner">
+        <a class="brand-link" href="/">
+            <img class="brand-mark" src="/static/frog_logo.png" alt="">
+            <span class="brand-copy">
+                <strong class="brand-name">Data Frog</strong>
+                <small class="brand-tagline">Field notes in data and Python</small>
+            </span>
+        </a>
+        <nav class="site-nav" aria-label="Primary navigation">
+            <a href="/numpy/" class="active" aria-current="page">NumPy</a>
+            <a href="/stats/">Statistics</a>
+            <a href="/algos/">Algorithms</a>
+            <a href="/videos/">Videos</a>
+            <a href="/#data-sourcing">Data Sourcing</a>
+        </nav>
     </div>
 </header>
+
     <main>
         <h2>Interoperability with NumPy</h2>
-<p>NumPy's <code>ndarray</code> objects provide both a high level API for operations on array-structured data and a concrete implementation of the API based on strided in-RAM storage. While this API is powerful and fairly general, its concrete implementation has limitations. As datasets grow and NumPy becomes used in a variety of new environments and architectures, there are cases where the strided in-RAM storage strategy is inappropriate. Which has caused different libraries to reimplement this API for their own uses.</p>
-<p>This includes GPR arrays (CuPy), Sparse arrays and parallel arrays. Also included are various NumPy like implementations in deep learning frameworks, like TensorFlow and PyTorch.</p>
-<p>Similarly, there are many projects tha build on top of the NumPy API for labeled and indexed arrays, automatic differentiation, masked arrays, physical units, among others that add additional functionality on top of the NumPy API.</p>
-<p>Yet, users still want to work with these arrays using the familiar NumPy API, and re-use existing code with minimal porting overhead. With goal in mind, various protocols are defined for implementations of multidimensional arrays with high-level APIs matching NumPy.</p>
-<p>Broadly speaking, there are three groups of features used for interoperability with NumPy:</p>
+<p>NumPy's <code>ndarray</code> pairs a high-level array API with strided, in-memory storage. That implementation does not fit every dataset, device, or execution model, so other libraries implement compatible array APIs over different storage and compute engines.</p>
+<p>Examples include GPU arrays in CuPy, sparse arrays, parallel arrays, and tensor libraries in frameworks such as TensorFlow and PyTorch.</p>
+<p>Other projects extend the model with labels, indexes, automatic differentiation, masks, or physical units.</p>
+<p>Interoperability protocols let these objects reuse NumPy-style code with less porting.</p>
+<p>The protocols cover three broad jobs:</p>
 <ol>
 <li>methods of turning a foreign object into an <code>ndarray</code></li>
 <li>methods of deferring execution from NumPy function to another array library</li>
 <li>methods that use NumPy functions and return and instance of a foreign object.</li>
 </ol>
 <h2>Arbitrary Objects in NumPy</h2>
-<p>The first set of interoperability features from the NumPy API allows foreign objects to be treated as NumPy arrays whenever possible.</p>
-<p>Whe NumPy functions encounter a foreign object, they will try in order:</p>
+<p>The first path converts or exposes foreign objects as NumPy arrays when possible.</p>
+<p>NumPy tries these interfaces in order:</p>
 <ol>
 <li>the buffer protocol</li>
 <li>the <strong>array_interface</strong> protocol</li>
 <li>the <strong>array</strong>() method</li>
 </ol>
 <h2>Operation on Foreign Objects</h2>
-<p>A second set of methods defined by the NumPy API allows us to defer the execution from a NumPY function to another array library.</p>
+<p>The second path lets another array library execute a NumPy operation itself.</p>
 <h2>Returning Foreign Objects</h2>
-<p>A third type of feature set is meant to use the NumPy function implementation and then convert the return value back into an instance of the foreign object. The <strong>array_finalize</strong> and <strong>array_wrap</strong> methods act behind the scenes to ensure that the  return type of NumPy function that can be specified as needed.</p>
+<p>The third path uses NumPy's implementation, then wraps the result back into the foreign type. <code>__array_finalize__</code> and <code>__array_wrap__</code> help control that return type.</p>
 <h2>PyTorch Tensors</h2>
-<p>PyTorch is an optimized tensor library for deep learning using GPUs and CPUs. PyTorch's arrays are commonly called tensors.</p>
-<p>Tensors are similar to NumPy's <code>ndarrays</code> except that tensors can run on GPUs or other hardware accelerators.</p>
-<p>NumPy's arrays and tensors often share the same underlying memory, and that eliminates the need to copy the data.</p>
+<p>PyTorch is a tensor library for CPU- and GPU-based deep learning workloads.</p>
+<p>Its tensors resemble NumPy arrays but can execute on GPUs and other accelerators.</p>
+<p>On the CPU, NumPy arrays and PyTorch tensors can share underlying memory and avoid a copy.</p>
 
     </main>
-    <footer>
-    <div>
-        <div>Sponsored by Frog Protection Services</div>
-        <div>Do you have Frog Protection?</div>
-    </div>
-    <hr />
-    <div>
-        <span class="logo-text-large">hello world</span>
-        <span class="logo-text-small">production</span>
+    <footer class="site-footer">
+    <div class="site-footer-inner">
+        <div>
+            <div>Field notes from the workbench.</div>
+            <div>Built one experiment at a time.</div>
+        </div>
+        <hr />
+        <div>
+            <span class="logo-text-large">Data Frog</span>
+            <span class="logo-text-small">lab notebook</span>
+        </div>
     </div>
 </footer>
+
 </body>
 </html>

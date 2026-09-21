@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Data Frog</title>
     <link rel="stylesheet" href="/static/style.css" />
     <link rel="icon" href="/static/favicon.ico" type="image/x-icon">
@@ -16,51 +17,53 @@
     </script>
 </head>
 <body>
-    <header>
-    <div id="logo-container">
-        <div class="logo">
-            <a href="/">
-                <img src="/static/frog_logo.png" alt="Frog Protection">
-            </a>
-        </div>
-        <div class="logo-text-small">
-            <a href="/">Data Science & Computer Programming</a>
-        </div>
-    </div>
-    <div id="nav-container">
-        <div class="logo-text-small">
-            <span><a href="/numpy">NumPy</a></span>
-            <span><a href="/stats">Statistics</a></span>
-            <span><a href="/videos">Videos</a></span>
-            <span><a href="/algos">Algorithms</a></span>
-        </div>
+    <header class="site-header">
+    <div class="site-header-inner">
+        <a class="brand-link" href="/">
+            <img class="brand-mark" src="/static/frog_logo.png" alt="">
+            <span class="brand-copy">
+                <strong class="brand-name">Data Frog</strong>
+                <small class="brand-tagline">Field notes in data and Python</small>
+            </span>
+        </a>
+        <nav class="site-nav" aria-label="Primary navigation">
+            <a href="/numpy/" class="active" aria-current="page">NumPy</a>
+            <a href="/stats/">Statistics</a>
+            <a href="/algos/">Algorithms</a>
+            <a href="/videos/">Videos</a>
+            <a href="/#data-sourcing">Data Sourcing</a>
+        </nav>
     </div>
 </header>
+
     <main>
         <h2>Writing Custom Array Containers</h2>
-<p>NumPy's dispatch mechanism, is the recommended way to write custom N-dimensional array containers that are compatible with the NumPy API.</p>
-<p>This provides custom implementations of NumPy functionality.</p>
-<p>Applications include <code>dask arrays</code>, and N-dimensional array distributed across multiple nodes, and <code>cupy</code> arrays. <code>Cupy</code> arrays are an N-dimensional array on a GPU.</p>
-<p>NumPy allows a class to indicate that it would like to handle computations in a custom defined way through the interfaces <strong>arrayufun</strong> and <strong>array_function</strong>.</p>
-<p>The first <em>array_ufunc</em>_ covers Universal functions (ufunc), a class of functions that include, for example, <code>numpy.multiply</code> and <code>numpy.sin</code></p>
-<p>The _<em>array_ufunc</em> receives:</p>
+<p>NumPy's dispatch protocols are the standard route for custom N-dimensional containers that interoperate with its API.</p>
+<p>They let a container provide its own implementation of NumPy operations.</p>
+<p>Dask arrays distribute N-dimensional work across chunks or nodes; CuPy arrays execute N-dimensional operations on GPUs.</p>
+<p>A class opts into custom dispatch through <code>__array_ufunc__</code> and <code>__array_function__</code>.</p>
+<p><code>__array_ufunc__</code> handles universal functions such as <code>numpy.multiply</code> and <code>numpy.sin</code>.</p>
+<p><code>__array_ufunc__</code> receives:</p>
 <ul>
-<li>ufunc, a function like numpy.multiply</li>
-<li>method, a string, differentiating between numpy.multiply and other numpy multiply</li>
-<li>inputs, which could be a mixture of different types</li>
+<li><code>ufunc</code>, such as <code>numpy.multiply</code></li>
+<li><code>method</code>, identifying the requested ufunc method</li>
+<li><code>inputs</code>, which may mix several types</li>
 </ul>
 
     </main>
-    <footer>
-    <div>
-        <div>Sponsored by Frog Protection Services</div>
-        <div>Do you have Frog Protection?</div>
-    </div>
-    <hr />
-    <div>
-        <span class="logo-text-large">hello world</span>
-        <span class="logo-text-small">production</span>
+    <footer class="site-footer">
+    <div class="site-footer-inner">
+        <div>
+            <div>Field notes from the workbench.</div>
+            <div>Built one experiment at a time.</div>
+        </div>
+        <hr />
+        <div>
+            <span class="logo-text-large">Data Frog</span>
+            <span class="logo-text-small">lab notebook</span>
+        </div>
     </div>
 </footer>
+
 </body>
 </html>
