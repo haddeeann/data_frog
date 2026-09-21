@@ -4,7 +4,13 @@
 
 **How this document works.** The curriculum is organized as 12 stable tracks. Tracks are shelves: they hold lessons, and lessons are typed (concept, example, practice, project, reference). Content is filled in over time; the track structure does not move. Every lesson carries frontmatter described in [LESSON_SCHEMA.md](./LESSON_SCHEMA.md), and its `status` field (`planned → drafted → reviewed → published`) is the single source of truth for progress.
 
-**Site convention.** Each track lives at `src/<track-slug>/`. Its `index.md` is the track landing page. The rendered dashboard at `/curriculum/` is auto-generated from lesson frontmatter, so it always reflects reality.
+**The backlog.** All not-yet-written lessons live in `src/_data/backlog.json` — one row per lesson, with a stable id, module, sequence, target path, type, difficulty, wave, size, confidence, and prerequisites (validate with `npm run validate:backlog`). The rendered dashboard at `/curriculum/` is generated from published lesson frontmatter **plus** the backlog, so it always reflects reality. As of Phase 1 it holds **261 planned lessons** in three waves:
+
+- **Wave 1 — first vertical slice (115 lessons, confidence: high):** the complete Python Craft → Data Wrangling → Statistics → Machine Learning → Capstone pathway, production-ready detail.
+- **Wave 2 — breadth (87 lessons, medium confidence):** math foundations, algorithm patterns, visualization, systems and databases.
+- **Wave 3 — depth (59 lessons, draft confidence):** deep learning, data engineering, problem framing, further capstones. These rows are provisional roadmap entries, not a frozen contract.
+
+**Site convention.** Each track lives at `src/<track-slug>/`; its `index.md` is the landing page and also renders that track's planned lessons from the backlog.
 
 ## Principles
 
