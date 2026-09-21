@@ -31,4 +31,4 @@ order: 2
 
 ## Lessons
 
-- [The Python Data Model](./01_python_data_model/) — protocols behind `len()`, iteration, and truthiness
+Content is in production — first lessons are in review (see below on this page). The full roadmap is on [the curriculum dashboard](/curriculum/).

@@ -20,15 +20,13 @@ That contract between your objects and the language is the data model, and almos
 
 Python doesn't have interfaces you declare. It has behaviors it looks up, by special-name method, when a syntax asks for them. When you write:
 
-```python
-# illustrative fragment
+```text
 len(records)
 ```
 
 the interpreter executes `type(records).__len__(records)`. When you write:
 
-```python
-# illustrative fragment
+```text
 for r in records:
     ...
 ```

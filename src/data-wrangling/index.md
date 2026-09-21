@@ -17,7 +17,6 @@ Start with the [library landscape](./library-landscape/), then work the [NumPy s
   <ol class="toc-list">
     <li class="toc-item"><a href="./library-landscape/">The library landscape</a></li>
     <li class="toc-item"><a href="./numpy/">NumPy fundamentals (12 lessons)</a></li>
-    <li class="toc-item"><a href="./01_pandas_anatomy/">pandas anatomy</a></li>
   </ol>
 </nav>
 

@@ -43,12 +43,10 @@
 <p>That contract between your objects and the language is the data model, and almost everything that makes Python feel like Python — <code>len()</code>, <code>for</code> loops, <code>in</code>, truthiness, <code>with</code> — runs through it. For data work it matters twice over: the libraries you'll use are built on these protocols, and the code you write becomes pleasant exactly when you implement them.</p>
 <h2>The protocol idea</h2>
 <p>Python doesn't have interfaces you declare. It has behaviors it looks up, by special-name method, when a syntax asks for them. When you write:</p>
-<pre><code class="language-python"># illustrative fragment
-len(records)
+<pre><code class="language-text">len(records)
 </code></pre>
 <p>the interpreter executes <code>type(records).__len__(records)</code>. When you write:</p>
-<pre><code class="language-python"># illustrative fragment
-for r in records:
+<pre><code class="language-text">for r in records:
     ...
 </code></pre>
 <p>it looks for <code>type(records).__iter__</code> — and if that's missing, falls back to <code>__getitem__</code>, calling it with 0, 1, 2, ... until it raises <code>IndexError</code>. The for loop isn't a construct that works on lists. It's a construct that works on <em>anything that answers those lookups</em>.</p>

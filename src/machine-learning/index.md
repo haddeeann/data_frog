@@ -28,4 +28,4 @@ order: 8
 
 ## Lessons
 
-- [What ML Can and Cannot Do](./01_what_ml_can_and_cannot_do/) — the ladder from rules to models, and when to climb it
+Content is in production — first lessons are in review (see below on this page). The full roadmap is on [the curriculum dashboard](/curriculum/).

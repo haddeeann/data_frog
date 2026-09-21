@@ -18,6 +18,5 @@ The track's full scope — sampling, estimation, hypothesis testing, regression,
     <li class="toc-item"><a href="./1_categorical_data">Categorical variables & comparison charts</a></li>
     <li class="toc-item"><a href="./2_quantitative_data">Quantitative distributions & plots</a></li>
     <li class="toc-item"><a href="./3_summarizing_quantitative_data">Center, spread & box plots</a></li>
-    <li class="toc-item"><a href="./01_distributions_reading">Reading distributions</a></li>
   </ol>
 </nav>
