@@ -1,5 +1,5 @@
 ---
-layout: "html_wrapper.njk"
+layout: "track.njk"
 title: "Systems & Databases"
 track: "systems-and-databases"
 type: "index"

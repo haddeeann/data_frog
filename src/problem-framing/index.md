@@ -1,5 +1,5 @@
 ---
-layout: "html_wrapper.njk"
+layout: "track.njk"
 title: "Problem Framing, Ethics & Judgment"
 track: "problem-framing"
 type: "index"

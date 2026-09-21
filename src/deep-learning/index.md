@@ -1,5 +1,5 @@
 ---
-layout: "html_wrapper.njk"
+layout: "track.njk"
 title: "Deep Learning & Modern AI"
 track: "deep-learning"
 type: "index"

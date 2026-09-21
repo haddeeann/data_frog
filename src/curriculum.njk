@@ -14,16 +14,7 @@ Each lesson carries a status — <strong>planned</strong>, <strong>drafted</stro
     <span class="card-meta">{{ t.num }}</span>
     <h2>{{ t.name }}</h2>
     <p>{{ t.tagline }}</p>
-    {% if t.total > 0 %}
-    <span class="card-meta">
-      {{ t.published }} published
-      {%- if t.drafted %} &middot; {{ t.drafted }} drafted{% endif %}
-      {%- if t.reviewed %} &middot; {{ t.reviewed }} reviewed{% endif %}
-      {%- if t.planned %} &middot; {{ t.planned }} planned{% endif %}
-    </span>
-    {% else %}
-    <span class="card-meta">scaffolded — coming soon</span>
-    {% endif %}
+    <span class="card-meta">{{ t.countsLabel }}</span>
   </a>
 {% endfor %}
 </div>

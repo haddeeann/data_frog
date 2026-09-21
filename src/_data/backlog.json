@@ -1,0 +1,4351 @@
+{
+  "version": 1,
+  "lessons": [
+    {
+      "id": "python-data-model",
+      "track": "python-craft",
+      "module": "foundations",
+      "sequence": 1,
+      "target_path": "src/python-craft/01_python_data_model.md",
+      "type": "concept",
+      "difficulty": "beginner",
+      "wave": 1,
+      "size": "S",
+      "confidence": "high",
+      "prerequisites": [],
+      "title": "The Python Data Model",
+      "scope": "How Python actually invokes your code: the protocols behind len(), iteration, and truthiness."
+    },
+    {
+      "id": "comprehensions-and-generators",
+      "track": "python-craft",
+      "module": "foundations",
+      "sequence": 2,
+      "target_path": "src/python-craft/02_comprehensions_and_generators.md",
+      "type": "concept",
+      "difficulty": "beginner",
+      "wave": 1,
+      "size": "S",
+      "confidence": "high",
+      "prerequisites": [],
+      "title": "Comprehensions and Generators",
+      "scope": "Build collections and lazy pipelines the way fluent Python does."
+    },
+    {
+      "id": "functions-closures-decorators",
+      "track": "python-craft",
+      "module": "foundations",
+      "sequence": 3,
+      "target_path": "src/python-craft/03_functions_closures_decorators.md",
+      "type": "concept",
+      "difficulty": "beginner",
+      "wave": 1,
+      "size": "M",
+      "confidence": "high",
+      "prerequisites": [],
+      "title": "Functions, Closures, Decorators",
+      "scope": "First-class functions, captured state, and wrapping behavior without magic."
+    },
+    {
+      "id": "error-handling",
+      "track": "python-craft",
+      "module": "foundations",
+      "sequence": 4,
+      "target_path": "src/python-craft/04_error_handling.md",
+      "type": "concept",
+      "difficulty": "intermediate",
+      "wave": 1,
+      "size": "M",
+      "confidence": "high",
+      "prerequisites": [
+        "functions-closures-decorators"
+      ],
+      "title": "Error Handling That Doesn't Lie",
+      "scope": "Exceptions that carry information, and the difference between failing loud and failing wrong."
+    },
+    {
+      "id": "dataclasses",
+      "track": "python-craft",
+      "module": "foundations",
+      "sequence": 5,
+      "target_path": "src/python-craft/05_dataclasses.md",
+      "type": "concept",
+      "difficulty": "beginner",
+      "wave": 1,
+      "size": "S",
+      "confidence": "high",
+      "prerequisites": [],
+      "title": "Dataclasses",
+      "scope": "Structured records without the boilerplate, and when a dict is still fine."
+    },
+    {
+      "id": "type-hints-in-practice",
+      "track": "python-craft",
+      "module": "typing",
+      "sequence": 6,
+      "target_path": "src/python-craft/06_type_hints_in_practice.md",
+      "type": "concept",
+      "difficulty": "beginner",
+      "wave": 1,
+      "size": "M",
+      "confidence": "high",
+      "prerequisites": [],
+      "title": "Type Hints in Practice",
+      "scope": "Annotate real code: signatures, generics, and what types do and don't check."
+    },
+    {
+      "id": "static-checking-with-mypy",
+      "track": "python-craft",
+      "module": "typing",
+      "sequence": 7,
+      "target_path": "src/python-craft/07_static_checking_with_mypy.md",
+      "type": "concept",
+      "difficulty": "intermediate",
+      "wave": 1,
+      "size": "M",
+      "confidence": "high",
+      "prerequisites": [
+        "type-hints-in-practice"
+      ],
+      "title": "Static Checking with mypy",
+      "scope": "Run mypy on a real project, read the errors, and keep the config honest."
+    },
+    {
+      "id": "pytest-fundamentals",
+      "track": "python-craft",
+      "module": "testing",
+      "sequence": 8,
+      "target_path": "src/python-craft/08_pytest_fundamentals.md",
+      "type": "concept",
+      "difficulty": "beginner",
+      "wave": 1,
+      "size": "M",
+      "confidence": "high",
+      "prerequisites": [],
+      "title": "pytest Fundamentals",
+      "scope": "Write tests that fail for the right reason and run in any order."
+    },
+    {
+      "id": "fixtures-and-parametrize",
+      "track": "python-craft",
+      "module": "testing",
+      "sequence": 9,
+      "target_path": "src/python-craft/09_fixtures_and_parametrize.md",
+      "type": "concept",
+      "difficulty": "intermediate",
+      "wave": 1,
+      "size": "M",
+      "confidence": "high",
+      "prerequisites": [
+        "pytest-fundamentals"
+      ],
+      "title": "Fixtures and Parametrize",
+      "scope": "Reuse setup and cover the matrix of cases without copy-paste."
+    },
+    {
+      "id": "testing-data-code",
+      "track": "python-craft",
+      "module": "testing",
+      "sequence": 10,
+      "target_path": "src/python-craft/10_testing_data_code.md",
+      "type": "concept",
+      "difficulty": "intermediate",
+      "wave": 1,
+      "size": "L",
+      "confidence": "high",
+      "prerequisites": [
+        "pytest-fundamentals"
+      ],
+      "title": "Testing Data Code",
+      "scope": "Test transforms, schemas, and edge cases without turning tests into brittle snapshots."
+    },
+    {
+      "id": "property-based-testing",
+      "track": "python-craft",
+      "module": "testing",
+      "sequence": 11,
+      "target_path": "src/python-craft/11_property_based_testing.md",
+      "type": "concept",
+      "difficulty": "advanced",
+      "wave": 1,
+      "size": "M",
+      "confidence": "high",
+      "prerequisites": [
+        "testing-data-code"
+      ],
+      "title": "Property-Based Testing",
+      "scope": "Generate adversarial inputs with Hypothesis and let invariants find the bugs."
+    },
+    {
+      "id": "debugging-with-pdb",
+      "track": "python-craft",
+      "module": "performance",
+      "sequence": 12,
+      "target_path": "src/python-craft/12_debugging_with_pdb.md",
+      "type": "concept",
+      "difficulty": "beginner",
+      "wave": 1,
+      "size": "S",
+      "confidence": "high",
+      "prerequisites": [],
+      "title": "Debugging with pdb",
+      "scope": "Stop print-debugging: breakpoints, stepping, and inspecting live state."
+    },
+    {
+      "id": "profiling-before-optimizing",
+      "track": "python-craft",
+      "module": "performance",
+      "sequence": 13,
+      "target_path": "src/python-craft/13_profiling_before_optimizing.md",
+      "type": "concept",
+      "difficulty": "intermediate",
+      "wave": 1,
+      "size": "M",
+      "confidence": "high",
+      "prerequisites": [],
+      "title": "Profile Before Optimizing",
+      "scope": "Measure first: cProfile, line_profiler, and locating the actual bottleneck."
+    },
+    {
+      "id": "vectorize-or-rewrite",
+      "track": "python-craft",
+      "module": "performance",
+      "sequence": 14,
+      "target_path": "src/python-craft/14_vectorize_or_rewrite.md",
+      "type": "example",
+      "difficulty": "intermediate",
+      "wave": 1,
+      "size": "M",
+      "confidence": "high",
+      "prerequisites": [
+        "profiling-before-optimizing"
+      ],
+      "title": "Vectorize or Rewrite",
+      "scope": "A slow data script made fast, and the analysis that chose the fix."
+    },
+    {
+      "id": "memory-model-for-data",
+      "track": "python-craft",
+      "module": "performance",
+      "sequence": 15,
+      "target_path": "src/python-craft/15_memory_model_for_data.md",
+      "type": "concept",
+      "difficulty": "advanced",
+      "wave": 1,
+      "size": "M",
+      "confidence": "high",
+      "prerequisites": [],
+      "title": "Python's Memory Model for Data",
+      "scope": "What Python actually holds in memory, and why big data lives in NumPy."
+    },
+    {
+      "id": "async-python",
+      "track": "python-craft",
+      "module": "performance",
+      "sequence": 16,
+      "target_path": "src/python-craft/16_async_python.md",
+      "type": "concept",
+      "difficulty": "advanced",
+      "wave": 1,
+      "size": "M",
+      "confidence": "high",
+      "prerequisites": [],
+      "title": "Async Python",
+      "scope": "Where await pays off for data work, and where threads beat it."
+    },
+    {
+      "id": "environments-and-pinning",
+      "track": "python-craft",
+      "module": "engineering",
+      "sequence": 17,
+      "target_path": "src/python-craft/17_environments_and_pinning.md",
+      "type": "concept",
+      "difficulty": "beginner",
+      "wave": 1,
+      "size": "S",
+      "confidence": "high",
+      "prerequisites": [],
+      "title": "Environments and Pinning",
+      "scope": "Virtual environments, lockfiles, and installs that reproduce."
+    },
+    {
+      "id": "project-structure-pyproject",
+      "track": "python-craft",
+      "module": "engineering",
+      "sequence": 18,
+      "target_path": "src/python-craft/18_project_structure_pyproject.md",
+      "type": "concept",
+      "difficulty": "intermediate",
+      "wave": 1,
+      "size": "M",
+      "confidence": "high",
+      "prerequisites": [
+        "environments-and-pinning"
+      ],
+      "title": "Project Structure and pyproject.toml",
+      "scope": "src layout, pyproject.toml, and a project another engineer can run."
+    },
+    {
+      "id": "building-a-cli",
+      "track": "python-craft",
+      "module": "engineering",
+      "sequence": 19,
+      "target_path": "src/python-craft/19_building_a_cli.md",
+      "type": "concept",
+      "difficulty": "intermediate",
+      "wave": 1,
+      "size": "M",
+      "confidence": "high",
+      "prerequisites": [
+        "project-structure-pyproject"
+      ],
+      "title": "Building a CLI",
+      "scope": "Wrap an analysis in a real command-line tool with argparse or typer."
+    },
+    {
+      "id": "notebook-discipline",
+      "track": "python-craft",
+      "module": "engineering",
+      "sequence": 20,
+      "target_path": "src/python-craft/20_notebook_discipline.md",
+      "type": "concept",
+      "difficulty": "intermediate",
+      "wave": 1,
+      "size": "M",
+      "confidence": "high",
+      "prerequisites": [],
+      "title": "Notebook Discipline",
+      "scope": "Keep notebooks runnable: kernels, seeds, exports, and the boundary to modules."
+    },
+    {
+      "id": "refactoring-data-scripts",
+      "track": "python-craft",
+      "module": "engineering",
+      "sequence": 21,
+      "target_path": "src/python-craft/21_refactoring_data_scripts.md",
+      "type": "example",
+      "difficulty": "intermediate",
+      "wave": 1,
+      "size": "L",
+      "confidence": "high",
+      "prerequisites": [
+        "notebook-discipline",
+        "pytest-fundamentals"
+      ],
+      "title": "Refactoring Data Scripts",
+      "scope": "Turn a 400-line analysis script into a testable module without losing behavior."
+    },
+    {
+      "id": "logging-for-data-work",
+      "track": "python-craft",
+      "module": "engineering",
+      "sequence": 22,
+      "target_path": "src/python-craft/22_logging_for_data_work.md",
+      "type": "concept",
+      "difficulty": "intermediate",
+      "wave": 1,
+      "size": "S",
+      "confidence": "high",
+      "prerequisites": [],
+      "title": "Logging for Data Work",
+      "scope": "Progress, provenance, and errors you can find after the run."
+    },
+    {
+      "id": "code-review-for-data-code",
+      "track": "python-craft",
+      "module": "communication",
+      "sequence": 23,
+      "target_path": "src/python-craft/23_code_review_for_data_code.md",
+      "type": "reference",
+      "difficulty": "intermediate",
+      "wave": 1,
+      "size": "M",
+      "confidence": "high",
+      "prerequisites": [],
+      "title": "Code Review for Data Code",
+      "scope": "A checklist for reviewing analysis code: correctness, reproducibility, honesty."
+    },
+    {
+      "id": "git-for-small-teams",
+      "track": "python-craft",
+      "module": "communication",
+      "sequence": 24,
+      "target_path": "src/python-craft/24_git_for_small_teams.md",
+      "type": "concept",
+      "difficulty": "beginner",
+      "wave": 1,
+      "size": "M",
+      "confidence": "high",
+      "prerequisites": [],
+      "title": "Git for Small Teams",
+      "scope": "Branches, PRs, and a review flow that survives data projects."
+    },
+    {
+      "id": "pandas-anatomy",
+      "track": "data-wrangling",
+      "module": "pandas-core",
+      "sequence": 1,
+      "target_path": "src/data-wrangling/01_pandas_anatomy.md",
+      "type": "concept",
+      "difficulty": "beginner",
+      "wave": 1,
+      "size": "M",
+      "confidence": "high",
+      "prerequisites": [
+        "data-wrangling/numpy/1_create_array"
+      ],
+      "title": "pandas Anatomy",
+      "scope": "Series, DataFrame, and the index: the three ideas everything else builds on."
+    },
+    {
+      "id": "reading-files",
+      "track": "data-wrangling",
+      "module": "pandas-core",
+      "sequence": 2,
+      "target_path": "src/data-wrangling/02_reading_files.md",
+      "type": "concept",
+      "difficulty": "beginner",
+      "wave": 1,
+      "size": "M",
+      "confidence": "high",
+      "prerequisites": [
+        "pandas-anatomy"
+      ],
+      "title": "Reading Files",
+      "scope": "CSV, Excel, and Parquet in, and the ways each silently mangles your data."
+    },
+    {
+      "id": "first-look",
+      "track": "data-wrangling",
+      "module": "pandas-core",
+      "sequence": 3,
+      "target_path": "src/data-wrangling/03_first_look.md",
+      "type": "concept",
+      "difficulty": "beginner",
+      "wave": 1,
+      "size": "S",
+      "confidence": "high",
+      "prerequisites": [
+        "reading-files"
+      ],
+      "title": "First Look",
+      "scope": "head, describe, value_counts: a disciplined first pass over new data."
+    },
+    {
+      "id": "selecting-filtering",
+      "track": "data-wrangling",
+      "module": "pandas-core",
+      "sequence": 4,
+      "target_path": "src/data-wrangling/04_selecting_filtering.md",
+      "type": "concept",
+      "difficulty": "beginner",
+      "wave": 1,
+      "size": "M",
+      "confidence": "high",
+      "prerequisites": [
+        "pandas-anatomy"
+      ],
+      "title": "Selecting and Filtering",
+      "scope": "loc, iloc, boolean masks, and query: get exactly the rows you mean."
+    },
+    {
+      "id": "missing-data",
+      "track": "data-wrangling",
+      "module": "transforming",
+      "sequence": 5,
+      "target_path": "src/data-wrangling/05_missing_data.md",
+      "type": "concept",
+      "difficulty": "intermediate",
+      "wave": 1,
+      "size": "M",
+      "confidence": "high",
+      "prerequisites": [
+        "first-look"
+      ],
+      "title": "Missing Data",
+      "scope": "The three kinds of missingness and what each licenses you to do."
+    },
+    {
+      "id": "cleaning-strings-dates",
+      "track": "data-wrangling",
+      "module": "transforming",
+      "sequence": 6,
+      "target_path": "src/data-wrangling/06_cleaning_strings_dates.md",
+      "type": "concept",
+      "difficulty": "intermediate",
+      "wave": 1,
+      "size": "L",
+      "confidence": "high",
+      "prerequisites": [
+        "reading-files"
+      ],
+      "title": "Cleaning Strings and Dates",
+      "scope": "Tame the mess: whitespace, formats, parse errors, duplicates."
+    },
+    {
+      "id": "dtype-hygiene",
+      "track": "data-wrangling",
+      "module": "transforming",
+      "sequence": 7,
+      "target_path": "src/data-wrangling/07_dtype_hygiene.md",
+      "type": "concept",
+      "difficulty": "intermediate",
+      "wave": 1,
+      "size": "M",
+      "confidence": "high",
+      "prerequisites": [
+        "data-wrangling/numpy/4_data_types"
+      ],
+      "title": "dtype Hygiene",
+      "scope": "Downcasting, nullable types, and the memory you didn't know you were wasting."
+    },
+    {
+      "id": "groupby-split-apply",
+      "track": "data-wrangling",
+      "module": "transforming",
+      "sequence": 8,
+      "target_path": "src/data-wrangling/08_groupby_split_apply.md",
+      "type": "concept",
+      "difficulty": "intermediate",
+      "wave": 1,
+      "size": "M",
+      "confidence": "high",
+      "prerequisites": [
+        "selecting-filtering"
+      ],
+      "title": "GroupBy: Split, Apply, Combine",
+      "scope": "The single most useful move in pandas, from counting to transforming."
+    },
+    {
+      "id": "joins-merge",
+      "track": "data-wrangling",
+      "module": "transforming",
+      "sequence": 9,
+      "target_path": "src/data-wrangling/09_joins_merge.md",
+      "type": "concept",
+      "difficulty": "intermediate",
+      "wave": 1,
+      "size": "M",
+      "confidence": "high",
+      "prerequisites": [
+        "pandas-anatomy"
+      ],
+      "title": "Joins and merge",
+      "scope": "Merge mechanics: key shapes, validation, and the rows that vanish."
+    },
+    {
+      "id": "reshaping-tidy",
+      "track": "data-wrangling",
+      "module": "transforming",
+      "sequence": 10,
+      "target_path": "src/data-wrangling/10_reshaping_tidy.md",
+      "type": "concept",
+      "difficulty": "intermediate",
+      "wave": 1,
+      "size": "M",
+      "confidence": "high",
+      "prerequisites": [
+        "groupby-split-apply"
+      ],
+      "title": "Reshaping and Tidy Data",
+      "scope": "melt, pivot, and the tidy-data discipline behind both."
+    },
+    {
+      "id": "time-series-essentials",
+      "track": "data-wrangling",
+      "module": "transforming",
+      "sequence": 11,
+      "target_path": "src/data-wrangling/11_time_series_essentials.md",
+      "type": "concept",
+      "difficulty": "intermediate",
+      "wave": 1,
+      "size": "M",
+      "confidence": "high",
+      "prerequisites": [
+        "cleaning-strings-dates"
+      ],
+      "title": "Time Series Essentials",
+      "scope": "DatetimeIndex, resampling, and timezones without fear."
+    },
+    {
+      "id": "rolling-windows",
+      "track": "data-wrangling",
+      "module": "transforming",
+      "sequence": 12,
+      "target_path": "src/data-wrangling/12_rolling_windows.md",
+      "type": "concept",
+      "difficulty": "intermediate",
+      "wave": 1,
+      "size": "S",
+      "confidence": "high",
+      "prerequisites": [
+        "time-series-essentials"
+      ],
+      "title": "Rolling Windows",
+      "scope": "Rolling statistics, expanding windows, and what they smooth away."
+    },
+    {
+      "id": "text-in-pandas",
+      "track": "data-wrangling",
+      "module": "transforming",
+      "sequence": 13,
+      "target_path": "src/data-wrangling/13_text_in_pandas.md",
+      "type": "concept",
+      "difficulty": "intermediate",
+      "wave": 1,
+      "size": "S",
+      "confidence": "high",
+      "prerequisites": [
+        "cleaning-strings-dates"
+      ],
+      "title": "Text in pandas",
+      "scope": "The .str accessor, vectorized regex, and when to give up and loop."
+    },
+    {
+      "id": "categoricals",
+      "track": "data-wrangling",
+      "module": "transforming",
+      "sequence": 14,
+      "target_path": "src/data-wrangling/14_categoricals.md",
+      "type": "concept",
+      "difficulty": "intermediate",
+      "wave": 1,
+      "size": "S",
+      "confidence": "high",
+      "prerequisites": [
+        "dtype-hygiene"
+      ],
+      "title": "Categoricals",
+      "scope": "Ordered categories, memory savings, and sorting that finally makes sense."
+    },
+    {
+      "id": "vectorization",
+      "track": "data-wrangling",
+      "module": "performance",
+      "sequence": 15,
+      "target_path": "src/data-wrangling/15_vectorization.md",
+      "type": "concept",
+      "difficulty": "intermediate",
+      "wave": 1,
+      "size": "M",
+      "confidence": "high",
+      "prerequisites": [
+        "data-wrangling/numpy/5_broadcasting"
+      ],
+      "title": "Vectorization",
+      "scope": "Replace loops with array operations, and know when you can't."
+    },
+    {
+      "id": "pandas-performance",
+      "track": "data-wrangling",
+      "module": "performance",
+      "sequence": 16,
+      "target_path": "src/data-wrangling/16_pandas_performance.md",
+      "type": "concept",
+      "difficulty": "advanced",
+      "wave": 1,
+      "size": "M",
+      "confidence": "high",
+      "prerequisites": [
+        "vectorization"
+      ],
+      "title": "pandas Performance",
+      "scope": "Profiling pandas: where the time goes and which idiom to switch to."
+    },
+    {
+      "id": "eda-repeatable-pass",
+      "track": "data-wrangling",
+      "module": "eda",
+      "sequence": 17,
+      "target_path": "src/data-wrangling/17_eda_repeatable_pass.md",
+      "type": "example",
+      "difficulty": "intermediate",
+      "wave": 1,
+      "size": "L",
+      "confidence": "high",
+      "prerequisites": [
+        "missing-data",
+        "groupby-split-apply"
+      ],
+      "title": "A Repeatable EDA Pass",
+      "scope": "A structured first-pass EDA on a real messy dataset."
+    },
+    {
+      "id": "eda-finding-surprises",
+      "track": "data-wrangling",
+      "module": "eda",
+      "sequence": 18,
+      "target_path": "src/data-wrangling/18_eda_finding_surprises.md",
+      "type": "example",
+      "difficulty": "intermediate",
+      "wave": 1,
+      "size": "M",
+      "confidence": "high",
+      "prerequisites": [
+        "eda-repeatable-pass"
+      ],
+      "title": "Finding Surprises",
+      "scope": "Distributions, outliers, and leaks: catch them before the model does."
+    },
+    {
+      "id": "feature-engineering-numeric",
+      "track": "data-wrangling",
+      "module": "features",
+      "sequence": 19,
+      "target_path": "src/data-wrangling/19_feature_engineering_numeric.md",
+      "type": "concept",
+      "difficulty": "intermediate",
+      "wave": 1,
+      "size": "M",
+      "confidence": "high",
+      "prerequisites": [
+        "eda-repeatable-pass"
+      ],
+      "title": "Feature Engineering: Numeric",
+      "scope": "Scaling, transforms, binning, and interaction features that mean something."
+    },
+    {
+      "id": "feature-engineering-categorical",
+      "track": "data-wrangling",
+      "module": "features",
+      "sequence": 20,
+      "target_path": "src/data-wrangling/20_feature_engineering_categorical.md",
+      "type": "concept",
+      "difficulty": "intermediate",
+      "wave": 1,
+      "size": "M",
+      "confidence": "high",
+      "prerequisites": [
+        "categoricals"
+      ],
+      "title": "Feature Engineering: Categorical",
+      "scope": "Encoding choices: one-hot, ordinal, target, and their leakage risks."
+    },
+    {
+      "id": "feature-engineering-dates-text",
+      "track": "data-wrangling",
+      "module": "features",
+      "sequence": 21,
+      "target_path": "src/data-wrangling/21_feature_engineering_dates_text.md",
+      "type": "concept",
+      "difficulty": "intermediate",
+      "wave": 1,
+      "size": "M",
+      "confidence": "high",
+      "prerequisites": [
+        "time-series-essentials",
+        "text-in-pandas"
+      ],
+      "title": "Feature Engineering: Dates and Text",
+      "scope": "Calendar features, lags, and the text signals worth extracting."
+    },
+    {
+      "id": "outliers-detect-decide",
+      "track": "data-wrangling",
+      "module": "quality",
+      "sequence": 22,
+      "target_path": "src/data-wrangling/22_outliers_detect_decide.md",
+      "type": "concept",
+      "difficulty": "intermediate",
+      "wave": 1,
+      "size": "M",
+      "confidence": "high",
+      "prerequisites": [
+        "eda-finding-surprises"
+      ],
+      "title": "Outliers: Detect, Understand, Decide",
+      "scope": "Find outliers, understand them, and decide with a reason."
+    },
+    {
+      "id": "data-validation-assertions",
+      "track": "data-wrangling",
+      "module": "quality",
+      "sequence": 23,
+      "target_path": "src/data-wrangling/23_data_validation_assertions.md",
+      "type": "concept",
+      "difficulty": "intermediate",
+      "wave": 1,
+      "size": "S",
+      "confidence": "high",
+      "prerequisites": [
+        "dtype-hygiene"
+      ],
+      "title": "Data Validation",
+      "scope": "Assert your assumptions about shape, ranges, and uniqueness."
+    },
+    {
+      "id": "data-dictionaries",
+      "track": "data-wrangling",
+      "module": "quality",
+      "sequence": 24,
+      "target_path": "src/data-wrangling/24_data_dictionaries.md",
+      "type": "reference",
+      "difficulty": "beginner",
+      "wave": 1,
+      "size": "S",
+      "confidence": "high",
+      "prerequisites": [],
+      "title": "Data Dictionaries",
+      "scope": "Documenting a dataset so future-you survives."
+    },
+    {
+      "id": "parquet-columnar",
+      "track": "data-wrangling",
+      "module": "quality",
+      "sequence": 25,
+      "target_path": "src/data-wrangling/25_parquet_columnar.md",
+      "type": "concept",
+      "difficulty": "intermediate",
+      "wave": 1,
+      "size": "S",
+      "confidence": "high",
+      "prerequisites": [
+        "reading-files"
+      ],
+      "title": "Parquet and Columnar Formats",
+      "scope": "Why analytics loves columnar storage."
+    },
+    {
+      "id": "apis-to-tables",
+      "track": "data-wrangling",
+      "module": "sources",
+      "sequence": 26,
+      "target_path": "src/data-wrangling/26_apis_to_tables.md",
+      "type": "concept",
+      "difficulty": "intermediate",
+      "wave": 1,
+      "size": "M",
+      "confidence": "high",
+      "prerequisites": [
+        "pandas-anatomy"
+      ],
+      "title": "APIs to Tables",
+      "scope": "requests, pagination, and JSON chaos turned into a tidy DataFrame."
+    },
+    {
+      "id": "sql-for-analysis",
+      "track": "data-wrangling",
+      "module": "sql",
+      "sequence": 27,
+      "target_path": "src/data-wrangling/27_sql_for_analysis.md",
+      "type": "concept",
+      "difficulty": "intermediate",
+      "wave": 1,
+      "size": "L",
+      "confidence": "high",
+      "prerequisites": [
+        "groupby-split-apply"
+      ],
+      "title": "SQL for Analysis",
+      "scope": "SELECT through window functions: the SQL an analyst actually needs."
+    },
+    {
+      "id": "sql-vs-pandas",
+      "track": "data-wrangling",
+      "module": "sql",
+      "sequence": 28,
+      "target_path": "src/data-wrangling/28_sql_vs_pandas.md",
+      "type": "concept",
+      "difficulty": "intermediate",
+      "wave": 1,
+      "size": "M",
+      "confidence": "high",
+      "prerequisites": [
+        "sql-for-analysis"
+      ],
+      "title": "SQL vs pandas",
+      "scope": "Where the work should run, and how to stop pretending it's religious."
+    },
+    {
+      "id": "case-study-messy-dataset",
+      "track": "data-wrangling",
+      "module": "projects",
+      "sequence": 29,
+      "target_path": "src/data-wrangling/29_case_study_messy_dataset.md",
+      "type": "project",
+      "difficulty": "intermediate",
+      "wave": 1,
+      "size": "L",
+      "confidence": "high",
+      "prerequisites": [
+        "cleaning-strings-dates",
+        "data-validation-assertions"
+      ],
+      "title": "Case Study: A Messy Real Dataset",
+      "scope": "From an ugly raw file to an analysis-ready table, documented end to end."
+    },
+    {
+      "id": "case-study-multi-table-join",
+      "track": "data-wrangling",
+      "module": "projects",
+      "sequence": 30,
+      "target_path": "src/data-wrangling/30_case_study_multi_table_join.md",
+      "type": "project",
+      "difficulty": "intermediate",
+      "wave": 1,
+      "size": "L",
+      "confidence": "high",
+      "prerequisites": [
+        "joins-merge",
+        "data-dictionaries"
+      ],
+      "title": "Case Study: Three Tables, One Honest Table",
+      "scope": "Multiple sources merged with validated keys and a real data dictionary."
+    },
+    {
+      "id": "distributions-reading",
+      "track": "statistics",
+      "module": "foundations",
+      "sequence": 1,
+      "target_path": "src/statistics/01_distributions_reading.md",
+      "type": "concept",
+      "difficulty": "beginner",
+      "wave": 1,
+      "size": "M",
+      "confidence": "high",
+      "prerequisites": [
+        "statistics/3_summarizing_quantitative_data"
+      ],
+      "title": "Reading Distributions",
+      "scope": "Shape, center, spread, tails: read a distribution before summarizing it."
+    },
+    {
+      "id": "summary-statistics-traps",
+      "track": "statistics",
+      "module": "foundations",
+      "sequence": 2,
+      "target_path": "src/statistics/02_summary_statistics_traps.md",
+      "type": "concept",
+      "difficulty": "beginner",
+      "wave": 1,
+      "size": "S",
+      "confidence": "high",
+      "prerequisites": [
+        "distributions-reading"
+      ],
+      "title": "Summary Statistics and Their Traps",
+      "scope": "Means that lie, medians that hide, and the statistics that survive skew."
+    },
+    {
+      "id": "probability-rules",
+      "track": "statistics",
+      "module": "foundations",
+      "sequence": 3,
+      "target_path": "src/statistics/03_probability_rules.md",
+      "type": "concept",
+      "difficulty": "beginner",
+      "wave": 1,
+      "size": "M",
+      "confidence": "high",
+      "prerequisites": [],
+      "title": "Probability Rules Without Tears",
+      "scope": "Sample spaces, conditioning, and Bayes' rule without the ritual."
+    },
+    {
+      "id": "random-variables",
+      "track": "statistics",
+      "module": "foundations",
+      "sequence": 4,
+      "target_path": "src/statistics/04_random_variables.md",
+      "type": "concept",
+      "difficulty": "intermediate",
+      "wave": 1,
+      "size": "M",
+      "confidence": "high",
+      "prerequisites": [
+        "probability-rules"
+      ],
+      "title": "Random Variables",
+      "scope": "Random variables, expectation, variance: the vocabulary of every model."
+    },
+    {
+      "id": "common-distributions",
+      "track": "statistics",
+      "module": "foundations",
+      "sequence": 5,
+      "target_path": "src/statistics/05_common_distributions.md",
+      "type": "concept",
+      "difficulty": "intermediate",
+      "wave": 1,
+      "size": "M",
+      "confidence": "high",
+      "prerequisites": [
+        "random-variables"
+      ],
+      "title": "The Distributions You'll Meet",
+      "scope": "Bernoulli to normal: where each distribution comes from and what it describes."
+    },
+    {
+      "id": "sampling-basics",
+      "track": "statistics",
+      "module": "inference",
+      "sequence": 6,
+      "target_path": "src/statistics/06_sampling_basics.md",
+      "type": "concept",
+      "difficulty": "intermediate",
+      "wave": 1,
+      "size": "M",
+      "confidence": "high",
+      "prerequisites": [
+        "random-variables"
+      ],
+      "title": "Sampling",
+      "scope": "Samples, populations, and the bridge between them."
+    },
+    {
+      "id": "sampling-distributions-clt",
+      "track": "statistics",
+      "module": "inference",
+      "sequence": 7,
+      "target_path": "src/statistics/07_sampling_distributions_clt.md",
+      "type": "concept",
+      "difficulty": "intermediate",
+      "wave": 1,
+      "size": "M",
+      "confidence": "high",
+      "prerequisites": [
+        "sampling-basics"
+      ],
+      "title": "Sampling Distributions and the CLT",
+      "scope": "Why the mean of almost anything settles down."
+    },
+    {
+      "id": "estimation-bias-variance",
+      "track": "statistics",
+      "module": "inference",
+      "sequence": 8,
+      "target_path": "src/statistics/08_estimation_bias_variance.md",
+      "type": "concept",
+      "difficulty": "intermediate",
+      "wave": 1,
+      "size": "M",
+      "confidence": "high",
+      "prerequisites": [
+        "sampling-distributions-clt"
+      ],
+      "title": "Estimation: Bias and Variance",
+      "scope": "What a good estimator owes you, and the trade it makes."
+    },
+    {
+      "id": "confidence-intervals",
+      "track": "statistics",
+      "module": "inference",
+      "sequence": 9,
+      "target_path": "src/statistics/09_confidence_intervals.md",
+      "type": "concept",
+      "difficulty": "intermediate",
+      "wave": 1,
+      "size": "M",
+      "confidence": "high",
+      "prerequisites": [
+        "estimation-bias-variance"
+      ],
+      "title": "Confidence Intervals, Honestly",
+      "scope": "What a CI actually claims, and the confidence it doesn't."
+    },
+    {
+      "id": "hypothesis-testing-framework",
+      "track": "statistics",
+      "module": "inference",
+      "sequence": 10,
+      "target_path": "src/statistics/10_hypothesis_testing_framework.md",
+      "type": "concept",
+      "difficulty": "intermediate",
+      "wave": 1,
+      "size": "M",
+      "confidence": "high",
+      "prerequisites": [
+        "sampling-distributions-clt"
+      ],
+      "title": "The Hypothesis Testing Framework",
+      "scope": "Null hypotheses, p-values, and the logic of the test."
+    },
+    {
+      "id": "t-tests",
+      "track": "statistics",
+      "module": "inference",
+      "sequence": 11,
+      "target_path": "src/statistics/11_t_tests.md",
+      "type": "concept",
+      "difficulty": "intermediate",
+      "wave": 1,
+      "size": "S",
+      "confidence": "high",
+      "prerequisites": [
+        "hypothesis-testing-framework"
+      ],
+      "title": "t-Tests",
+      "scope": "One- and two-sample t-tests, and the normality they quietly assume."
+    },
+    {
+      "id": "chi-square",
+      "track": "statistics",
+      "module": "inference",
+      "sequence": 12,
+      "target_path": "src/statistics/12_chi_square.md",
+      "type": "concept",
+      "difficulty": "intermediate",
+      "wave": 1,
+      "size": "S",
+      "confidence": "high",
+      "prerequisites": [
+        "hypothesis-testing-framework"
+      ],
+      "title": "Chi-Square Tests",
+      "scope": "Categories under test: goodness of fit and independence."
+    },
+    {
+      "id": "anova",
+      "track": "statistics",
+      "module": "inference",
+      "sequence": 13,
+      "target_path": "src/statistics/13_anova.md",
+      "type": "concept",
+      "difficulty": "intermediate",
+      "wave": 1,
+      "size": "M",
+      "confidence": "high",
+      "prerequisites": [
+        "t-tests"
+      ],
+      "title": "ANOVA",
+      "scope": "Comparing several means honestly, and what to do after the F-test."
+    },
+    {
+      "id": "nonparametric-tests",
+      "track": "statistics",
+      "module": "inference",
+      "sequence": 14,
+      "target_path": "src/statistics/14_nonparametric_tests.md",
+      "type": "concept",
+      "difficulty": "intermediate",
+      "wave": 1,
+      "size": "S",
+      "confidence": "high",
+      "prerequisites": [
+        "t-tests"
+      ],
+      "title": "Nonparametric Tests",
+      "scope": "Rank-based tests for when the assumptions won't hold."
+    },
+    {
+      "id": "multiple-testing",
+      "track": "statistics",
+      "module": "inference",
+      "sequence": 15,
+      "target_path": "src/statistics/15_multiple_testing.md",
+      "type": "concept",
+      "difficulty": "intermediate",
+      "wave": 1,
+      "size": "M",
+      "confidence": "high",
+      "prerequisites": [
+        "hypothesis-testing-framework"
+      ],
+      "title": "Multiple Testing",
+      "scope": "Why 20 tests at p<0.05 guarantee lies, and the corrections that fix it."
+    },
+    {
+      "id": "correlation-caution",
+      "track": "statistics",
+      "module": "regression",
+      "sequence": 16,
+      "target_path": "src/statistics/16_correlation_caution.md",
+      "type": "concept",
+      "difficulty": "beginner",
+      "wave": 1,
+      "size": "S",
+      "confidence": "high",
+      "prerequisites": [
+        "distributions-reading"
+      ],
+      "title": "Correlation and Its Discontents",
+      "scope": "What correlation measures, and the stories it can't support."
+    },
+    {
+      "id": "simple-linear-regression",
+      "track": "statistics",
+      "module": "regression",
+      "sequence": 17,
+      "target_path": "src/statistics/17_simple_linear_regression.md",
+      "type": "concept",
+      "difficulty": "intermediate",
+      "wave": 1,
+      "size": "M",
+      "confidence": "high",
+      "prerequisites": [
+        "correlation-caution"
+      ],
+      "title": "Simple Linear Regression",
+      "scope": "One predictor, one line: fitting, reading, and doubting the slope."
+    },
+    {
+      "id": "multiple-regression",
+      "track": "statistics",
+      "module": "regression",
+      "sequence": 18,
+      "target_path": "src/statistics/18_multiple_regression.md",
+      "type": "concept",
+      "difficulty": "intermediate",
+      "wave": 1,
+      "size": "L",
+      "confidence": "high",
+      "prerequisites": [
+        "simple-linear-regression"
+      ],
+      "title": "Multiple Regression",
+      "scope": "Coefficients as adjusted effects, and the moment they stop meaning that."
+    },
+    {
+      "id": "regression-diagnostics",
+      "track": "statistics",
+      "module": "regression",
+      "sequence": 19,
+      "target_path": "src/statistics/19_regression_diagnostics.md",
+      "type": "concept",
+      "difficulty": "intermediate",
+      "wave": 1,
+      "size": "M",
+      "confidence": "high",
+      "prerequisites": [
+        "multiple-regression"
+      ],
+      "title": "Regression Diagnostics",
+      "scope": "Residuals, leverage, influence: the regression's confession."
+    },
+    {
+      "id": "logistic-regression",
+      "track": "statistics",
+      "module": "regression",
+      "sequence": 20,
+      "target_path": "src/statistics/20_logistic_regression.md",
+      "type": "concept",
+      "difficulty": "intermediate",
+      "wave": 1,
+      "size": "M",
+      "confidence": "high",
+      "prerequisites": [
+        "simple-linear-regression"
+      ],
+      "title": "Logistic Regression",
+      "scope": "Modeling probabilities with a linear heart."
+    },
+    {
+      "id": "bayesian-thinking",
+      "track": "statistics",
+      "module": "bayes",
+      "sequence": 21,
+      "target_path": "src/statistics/21_bayesian_thinking.md",
+      "type": "concept",
+      "difficulty": "intermediate",
+      "wave": 1,
+      "size": "M",
+      "confidence": "high",
+      "prerequisites": [
+        "probability-rules"
+      ],
+      "title": "Bayesian Thinking",
+      "scope": "Priors, likelihoods, posteriors: belief updated by evidence."
+    },
+    {
+      "id": "bayesian-practice",
+      "track": "statistics",
+      "module": "bayes",
+      "sequence": 22,
+      "target_path": "src/statistics/22_bayesian_practice.md",
+      "type": "concept",
+      "difficulty": "intermediate",
+      "wave": 1,
+      "size": "L",
+      "confidence": "high",
+      "prerequisites": [
+        "bayesian-thinking"
+      ],
+      "title": "Bayesian Analysis in Practice",
+      "scope": "A real Bayesian analysis in PyMC or Stan, start to posterior."
+    },
+    {
+      "id": "ab-testing-design",
+      "track": "statistics",
+      "module": "experiments",
+      "sequence": 23,
+      "target_path": "src/statistics/23_ab_testing_design.md",
+      "type": "concept",
+      "difficulty": "intermediate",
+      "wave": 1,
+      "size": "M",
+      "confidence": "high",
+      "prerequisites": [
+        "hypothesis-testing-framework"
+      ],
+      "title": "A/B Testing: Design",
+      "scope": "Randomization, units, and metrics: an experiment that actually answers."
+    },
+    {
+      "id": "ab-testing-analysis",
+      "track": "statistics",
+      "module": "experiments",
+      "sequence": 24,
+      "target_path": "src/statistics/24_ab_testing_analysis.md",
+      "type": "concept",
+      "difficulty": "intermediate",
+      "wave": 1,
+      "size": "M",
+      "confidence": "high",
+      "prerequisites": [
+        "ab-testing-design",
+        "confidence-intervals"
+      ],
+      "title": "A/B Testing: Analysis",
+      "scope": "Effects, intervals, and the traps between them."
+    },
+    {
+      "id": "statistical-power",
+      "track": "statistics",
+      "module": "experiments",
+      "sequence": 25,
+      "target_path": "src/statistics/25_statistical_power.md",
+      "type": "concept",
+      "difficulty": "intermediate",
+      "wave": 1,
+      "size": "M",
+      "confidence": "high",
+      "prerequisites": [
+        "ab-testing-design"
+      ],
+      "title": "Statistical Power",
+      "scope": "Designing experiments that can detect the effect you care about."
+    },
+    {
+      "id": "sequential-testing",
+      "track": "statistics",
+      "module": "experiments",
+      "sequence": 26,
+      "target_path": "src/statistics/26_sequential_testing.md",
+      "type": "concept",
+      "difficulty": "advanced",
+      "wave": 1,
+      "size": "M",
+      "confidence": "high",
+      "prerequisites": [
+        "ab-testing-analysis"
+      ],
+      "title": "Sequential Testing",
+      "scope": "Peeking, early stopping, and the corrections that keep peeking honest."
+    },
+    {
+      "id": "causal-ladder",
+      "track": "statistics",
+      "module": "causal",
+      "sequence": 27,
+      "target_path": "src/statistics/27_causal_ladder.md",
+      "type": "concept",
+      "difficulty": "intermediate",
+      "wave": 1,
+      "size": "M",
+      "confidence": "high",
+      "prerequisites": [
+        "correlation-caution"
+      ],
+      "title": "The Causal Ladder",
+      "scope": "Association, intervention, counterfactuals: the three rungs of causation."
+    },
+    {
+      "id": "confounding-dags",
+      "track": "statistics",
+      "module": "causal",
+      "sequence": 28,
+      "target_path": "src/statistics/28_confounding_dags.md",
+      "type": "concept",
+      "difficulty": "advanced",
+      "wave": 1,
+      "size": "M",
+      "confidence": "high",
+      "prerequisites": [
+        "causal-ladder"
+      ],
+      "title": "Confounding and DAGs",
+      "scope": "Draw the causal graph, find the confounders, adjust for the right ones."
+    },
+    {
+      "id": "quasi-experiments",
+      "track": "statistics",
+      "module": "causal",
+      "sequence": 29,
+      "target_path": "src/statistics/29_quasi_experiments.md",
+      "type": "concept",
+      "difficulty": "advanced",
+      "wave": 1,
+      "size": "L",
+      "confidence": "high",
+      "prerequisites": [
+        "confounding-dags"
+      ],
+      "title": "Quasi-Experiments",
+      "scope": "Difference-in-differences and regression discontinuity: causation without labs."
+    },
+    {
+      "id": "time-series-decomposition",
+      "track": "statistics",
+      "module": "time-series",
+      "sequence": 30,
+      "target_path": "src/statistics/30_time_series_decomposition.md",
+      "type": "concept",
+      "difficulty": "intermediate",
+      "wave": 1,
+      "size": "M",
+      "confidence": "high",
+      "prerequisites": [
+        "distributions-reading"
+      ],
+      "title": "Time Series Decomposition",
+      "scope": "Trend, seasonality, remainder: taking a series apart."
+    },
+    {
+      "id": "time-series-forecasting-baselines",
+      "track": "statistics",
+      "module": "time-series",
+      "sequence": 31,
+      "target_path": "src/statistics/31_time_series_forecasting_baselines.md",
+      "type": "concept",
+      "difficulty": "advanced",
+      "wave": 1,
+      "size": "M",
+      "confidence": "high",
+      "prerequisites": [
+        "time-series-decomposition"
+      ],
+      "title": "Forecasting Baselines",
+      "scope": "Naive and seasonal baselines, and the humility they enforce."
+    },
+    {
+      "id": "what-ml-can-and-cannot",
+      "track": "machine-learning",
+      "module": "foundations",
+      "sequence": 1,
+      "target_path": "src/machine-learning/01_what_ml_can_and_cannot.md",
+      "type": "concept",
+      "difficulty": "beginner",
+      "wave": 1,
+      "size": "M",
+      "confidence": "high",
+      "prerequisites": [],
+      "title": "What ML Can and Cannot Do",
+      "scope": "The problems ML solves and the ones it just decorates."
+    },
+    {
+      "id": "supervised-workflow",
+      "track": "machine-learning",
+      "module": "foundations",
+      "sequence": 2,
+      "target_path": "src/machine-learning/02_supervised_workflow.md",
+      "type": "concept",
+      "difficulty": "beginner",
+      "wave": 1,
+      "size": "M",
+      "confidence": "high",
+      "prerequisites": [
+        "what-ml-can-and-cannot"
+      ],
+      "title": "The Supervised Workflow",
+      "scope": "Data to deployment: the shape of a supervised learning project."
+    },
+    {
+      "id": "train-validation-test",
+      "track": "machine-learning",
+      "module": "foundations",
+      "sequence": 3,
+      "target_path": "src/machine-learning/03_train_validation_test.md",
+      "type": "concept",
+      "difficulty": "beginner",
+      "wave": 1,
+      "size": "M",
+      "confidence": "high",
+      "prerequisites": [
+        "supervised-workflow"
+      ],
+      "title": "Train, Validation, Test",
+      "scope": "The split discipline that keeps your model honest about the future."
+    },
+    {
+      "id": "cross-validation",
+      "track": "machine-learning",
+      "module": "foundations",
+      "sequence": 4,
+      "target_path": "src/machine-learning/04_cross_validation.md",
+      "type": "concept",
+      "difficulty": "intermediate",
+      "wave": 1,
+      "size": "M",
+      "confidence": "high",
+      "prerequisites": [
+        "train-validation-test"
+      ],
+      "title": "Cross-Validation",
+      "scope": "K-fold, stratification, and group leakage."
+    },
+    {
+      "id": "data-leakage",
+      "track": "machine-learning",
+      "module": "foundations",
+      "sequence": 5,
+      "target_path": "src/machine-learning/05_data_leakage.md",
+      "type": "concept",
+      "difficulty": "intermediate",
+      "wave": 1,
+      "size": "M",
+      "confidence": "high",
+      "prerequisites": [
+        "cross-validation"
+      ],
+      "title": "Data Leakage",
+      "scope": "The silent killer: how information from the future inflates your scores."
+    },
+    {
+      "id": "linear-regression-model",
+      "track": "machine-learning",
+      "module": "models",
+      "sequence": 6,
+      "target_path": "src/machine-learning/06_linear_regression_model.md",
+      "type": "concept",
+      "difficulty": "beginner",
+      "wave": 1,
+      "size": "M",
+      "confidence": "high",
+      "prerequisites": [
+        "statistics/simple-linear-regression"
+      ],
+      "title": "Linear Regression as a Model",
+      "scope": "Least squares as a model, not just a formula."
+    },
+    {
+      "id": "logistic-regression-classifier",
+      "track": "machine-learning",
+      "module": "models",
+      "sequence": 7,
+      "target_path": "src/machine-learning/07_logistic_regression_classifier.md",
+      "type": "concept",
+      "difficulty": "intermediate",
+      "wave": 1,
+      "size": "M",
+      "confidence": "high",
+      "prerequisites": [
+        "statistics/logistic-regression"
+      ],
+      "title": "Logistic Regression as a Classifier",
+      "scope": "Probabilities, decision boundaries, and calibration."
+    },
+    {
+      "id": "knn-baseline",
+      "track": "machine-learning",
+      "module": "models",
+      "sequence": 8,
+      "target_path": "src/machine-learning/08_knn_baseline.md",
+      "type": "concept",
+      "difficulty": "beginner",
+      "wave": 1,
+      "size": "S",
+      "confidence": "high",
+      "prerequisites": [
+        "train-validation-test"
+      ],
+      "title": "k-Nearest Neighbors",
+      "scope": "The simplest classifier, and what its failures teach."
+    },
+    {
+      "id": "decision-trees",
+      "track": "machine-learning",
+      "module": "models",
+      "sequence": 9,
+      "target_path": "src/machine-learning/09_decision_trees.md",
+      "type": "concept",
+      "difficulty": "intermediate",
+      "wave": 1,
+      "size": "M",
+      "confidence": "high",
+      "prerequisites": [
+        "train-validation-test"
+      ],
+      "title": "Decision Trees",
+      "scope": "Splits, impurity, and the overfitting built into trees."
+    },
+    {
+      "id": "random-forests",
+      "track": "machine-learning",
+      "module": "models",
+      "sequence": 10,
+      "target_path": "src/machine-learning/10_random_forests.md",
+      "type": "concept",
+      "difficulty": "intermediate",
+      "wave": 1,
+      "size": "M",
+      "confidence": "high",
+      "prerequisites": [
+        "decision-trees"
+      ],
+      "title": "Random Forests",
+      "scope": "Bagging and feature randomness: variance reduction made practical."
+    },
+    {
+      "id": "gradient-boosting",
+      "track": "machine-learning",
+      "module": "models",
+      "sequence": 11,
+      "target_path": "src/machine-learning/11_gradient_boosting.md",
+      "type": "concept",
+      "difficulty": "intermediate",
+      "wave": 1,
+      "size": "M",
+      "confidence": "high",
+      "prerequisites": [
+        "decision-trees"
+      ],
+      "title": "Gradient Boosting",
+      "scope": "Sequential error correction, and why it wins on tabular data."
+    },
+    {
+      "id": "svm-margins",
+      "track": "machine-learning",
+      "module": "models",
+      "sequence": 12,
+      "target_path": "src/machine-learning/12_svm_margins.md",
+      "type": "concept",
+      "difficulty": "advanced",
+      "wave": 1,
+      "size": "M",
+      "confidence": "high",
+      "prerequisites": [
+        "linear-regression-model"
+      ],
+      "title": "Support Vector Machines",
+      "scope": "Margins, kernels, and the geometry of the separator."
+    },
+    {
+      "id": "kmeans-clustering",
+      "track": "machine-learning",
+      "module": "unsupervised",
+      "sequence": 13,
+      "target_path": "src/machine-learning/13_kmeans_clustering.md",
+      "type": "concept",
+      "difficulty": "intermediate",
+      "wave": 1,
+      "size": "M",
+      "confidence": "high",
+      "prerequisites": [
+        "train-validation-test"
+      ],
+      "title": "k-Means Clustering",
+      "scope": "Assumptions, failure modes, and choosing k honestly."
+    },
+    {
+      "id": "dbscan-clustering",
+      "track": "machine-learning",
+      "module": "unsupervised",
+      "sequence": 14,
+      "target_path": "src/machine-learning/14_dbscan_clustering.md",
+      "type": "concept",
+      "difficulty": "intermediate",
+      "wave": 1,
+      "size": "S",
+      "confidence": "high",
+      "prerequisites": [
+        "kmeans-clustering"
+      ],
+      "title": "DBSCAN",
+      "scope": "Density-based clusters without choosing k."
+    },
+    {
+      "id": "pca",
+      "track": "machine-learning",
+      "module": "unsupervised",
+      "sequence": 15,
+      "target_path": "src/machine-learning/15_pca.md",
+      "type": "concept",
+      "difficulty": "intermediate",
+      "wave": 1,
+      "size": "M",
+      "confidence": "high",
+      "prerequisites": [
+        "data-wrangling/numpy/1_create_array"
+      ],
+      "title": "Principal Component Analysis",
+      "scope": "Compression, decorrelation, and interpretation of components."
+    },
+    {
+      "id": "regression-metrics",
+      "track": "machine-learning",
+      "module": "evaluation",
+      "sequence": 16,
+      "target_path": "src/machine-learning/16_regression_metrics.md",
+      "type": "concept",
+      "difficulty": "beginner",
+      "wave": 1,
+      "size": "S",
+      "confidence": "high",
+      "prerequisites": [
+        "linear-regression-model"
+      ],
+      "title": "Regression Metrics",
+      "scope": "MSE, MAE, R-squared: what each metric forgives and punishes."
+    },
+    {
+      "id": "classification-metrics",
+      "track": "machine-learning",
+      "module": "evaluation",
+      "sequence": 17,
+      "target_path": "src/machine-learning/17_classification_metrics.md",
+      "type": "concept",
+      "difficulty": "intermediate",
+      "wave": 1,
+      "size": "M",
+      "confidence": "high",
+      "prerequisites": [
+        "logistic-regression-classifier"
+      ],
+      "title": "Classification Metrics",
+      "scope": "Precision, recall, F1: choosing the metric that matches the cost."
+    },
+    {
+      "id": "roc-calibration",
+      "track": "machine-learning",
+      "module": "evaluation",
+      "sequence": 18,
+      "target_path": "src/machine-learning/18_roc_calibration.md",
+      "type": "concept",
+      "difficulty": "intermediate",
+      "wave": 1,
+      "size": "M",
+      "confidence": "high",
+      "prerequisites": [
+        "classification-metrics"
+      ],
+      "title": "ROC, Thresholds, Calibration",
+      "scope": "Curves, threshold choice, and whether to trust the probabilities."
+    },
+    {
+      "id": "regularization",
+      "track": "machine-learning",
+      "module": "evaluation",
+      "sequence": 19,
+      "target_path": "src/machine-learning/19_regularization.md",
+      "type": "concept",
+      "difficulty": "intermediate",
+      "wave": 1,
+      "size": "M",
+      "confidence": "high",
+      "prerequisites": [
+        "linear-regression-model"
+      ],
+      "title": "Regularization",
+      "scope": "Ridge, lasso, and the bias-variance dial."
+    },
+    {
+      "id": "hyperparameter-tuning",
+      "track": "machine-learning",
+      "module": "evaluation",
+      "sequence": 20,
+      "target_path": "src/machine-learning/20_hyperparameter_tuning.md",
+      "type": "concept",
+      "difficulty": "intermediate",
+      "wave": 1,
+      "size": "M",
+      "confidence": "high",
+      "prerequisites": [
+        "cross-validation"
+      ],
+      "title": "Hyperparameter Tuning",
+      "scope": "Grid, random, and Bayesian search without test-set leakage."
+    },
+    {
+      "id": "ensembles-stacking",
+      "track": "machine-learning",
+      "module": "evaluation",
+      "sequence": 21,
+      "target_path": "src/machine-learning/21_ensembles_stacking.md",
+      "type": "concept",
+      "difficulty": "advanced",
+      "wave": 1,
+      "size": "M",
+      "confidence": "high",
+      "prerequisites": [
+        "random-forests",
+        "gradient-boosting"
+      ],
+      "title": "Ensembles and Stacking",
+      "scope": "Blending models: when diversity beats strength."
+    },
+    {
+      "id": "imbalanced-classes",
+      "track": "machine-learning",
+      "module": "evaluation",
+      "sequence": 22,
+      "target_path": "src/machine-learning/22_imbalanced_classes.md",
+      "type": "concept",
+      "difficulty": "intermediate",
+      "wave": 1,
+      "size": "M",
+      "confidence": "high",
+      "prerequisites": [
+        "classification-metrics"
+      ],
+      "title": "Imbalanced Classes",
+      "scope": "When 99 percent accuracy means nothing: resampling, weighting, thresholds."
+    },
+    {
+      "id": "feature-selection",
+      "track": "machine-learning",
+      "module": "practice",
+      "sequence": 23,
+      "target_path": "src/machine-learning/23_feature_selection.md",
+      "type": "concept",
+      "difficulty": "intermediate",
+      "wave": 1,
+      "size": "M",
+      "confidence": "high",
+      "prerequisites": [
+        "data-leakage"
+      ],
+      "title": "Feature Selection",
+      "scope": "Choosing fewer, better features without p-hacking your way there."
+    },
+    {
+      "id": "model-interpretability",
+      "track": "machine-learning",
+      "module": "practice",
+      "sequence": 24,
+      "target_path": "src/machine-learning/24_model_interpretability.md",
+      "type": "concept",
+      "difficulty": "intermediate",
+      "wave": 1,
+      "size": "M",
+      "confidence": "high",
+      "prerequisites": [
+        "random-forests"
+      ],
+      "title": "Model Interpretability",
+      "scope": "Permutation importance and SHAP: interrogating what the model learned."
+    },
+    {
+      "id": "sklearn-pipelines",
+      "track": "machine-learning",
+      "module": "practice",
+      "sequence": 25,
+      "target_path": "src/machine-learning/25_sklearn_pipelines.md",
+      "type": "concept",
+      "difficulty": "intermediate",
+      "wave": 1,
+      "size": "M",
+      "confidence": "high",
+      "prerequisites": [
+        "data-leakage"
+      ],
+      "title": "scikit-learn Pipelines",
+      "scope": "Pipelines and ColumnTransformer: preprocessing without leakage."
+    },
+    {
+      "id": "model-persistence-serving",
+      "track": "machine-learning",
+      "module": "practice",
+      "sequence": 26,
+      "target_path": "src/machine-learning/26_model_persistence_serving.md",
+      "type": "concept",
+      "difficulty": "intermediate",
+      "wave": 1,
+      "size": "M",
+      "confidence": "high",
+      "prerequisites": [
+        "sklearn-pipelines"
+      ],
+      "title": "Model Persistence and Serving",
+      "scope": "Serializing models and serving predictions behind a function."
+    },
+    {
+      "id": "case-study-classification",
+      "track": "machine-learning",
+      "module": "project",
+      "sequence": 27,
+      "target_path": "src/machine-learning/27_case_study_classification.md",
+      "type": "project",
+      "difficulty": "intermediate",
+      "wave": 1,
+      "size": "L",
+      "confidence": "high",
+      "prerequisites": [
+        "sklearn-pipelines",
+        "classification-metrics",
+        "data-wrangling/case-study-messy-dataset"
+      ],
+      "title": "Case Study: End-to-End Classification",
+      "scope": "A real dataset, honest evaluation, and a served prediction."
+    },
+    {
+      "id": "vectors",
+      "track": "math-foundations",
+      "module": "linear-algebra",
+      "sequence": 1,
+      "target_path": "src/math-foundations/01_vectors.md",
+      "type": "concept",
+      "difficulty": "beginner",
+      "wave": 2,
+      "size": "S",
+      "confidence": "medium",
+      "prerequisites": [],
+      "title": "Vectors",
+      "scope": "Magnitude and direction as the atom of data representation."
+    },
+    {
+      "id": "dot-products-similarity",
+      "track": "math-foundations",
+      "module": "linear-algebra",
+      "sequence": 2,
+      "target_path": "src/math-foundations/02_dot_products_similarity.md",
+      "type": "concept",
+      "difficulty": "beginner",
+      "wave": 2,
+      "size": "S",
+      "confidence": "medium",
+      "prerequisites": [
+        "vectors"
+      ],
+      "title": "Dot Products and Similarity",
+      "scope": "Projections, cosines, and why similarity is a dot product."
+    },
+    {
+      "id": "norms-distances",
+      "track": "math-foundations",
+      "module": "linear-algebra",
+      "sequence": 3,
+      "target_path": "src/math-foundations/03_norms_distances.md",
+      "type": "concept",
+      "difficulty": "beginner",
+      "wave": 2,
+      "size": "S",
+      "confidence": "medium",
+      "prerequisites": [
+        "vectors"
+      ],
+      "title": "Norms and Distances",
+      "scope": "Measuring size: L1, L2, and what each is for."
+    },
+    {
+      "id": "matrices-as-transformations",
+      "track": "math-foundations",
+      "module": "linear-algebra",
+      "sequence": 4,
+      "target_path": "src/math-foundations/04_matrices_as_transformations.md",
+      "type": "concept",
+      "difficulty": "beginner",
+      "wave": 2,
+      "size": "M",
+      "confidence": "medium",
+      "prerequisites": [
+        "vectors"
+      ],
+      "title": "Matrices as Transformations",
+      "scope": "A matrix is a verb: stretching, rotating, projecting space."
+    },
+    {
+      "id": "matrix-multiplication-geometrically",
+      "track": "math-foundations",
+      "module": "linear-algebra",
+      "sequence": 5,
+      "target_path": "src/math-foundations/05_matrix_multiplication_geometrically.md",
+      "type": "concept",
+      "difficulty": "intermediate",
+      "wave": 2,
+      "size": "M",
+      "confidence": "medium",
+      "prerequisites": [
+        "matrices-as-transformations"
+      ],
+      "title": "Matrix Multiplication, Geometrically",
+      "scope": "Composing transformations, and why the order matters."
+    },
+    {
+      "id": "linear-systems",
+      "track": "math-foundations",
+      "module": "linear-algebra",
+      "sequence": 6,
+      "target_path": "src/math-foundations/06_linear_systems.md",
+      "type": "concept",
+      "difficulty": "intermediate",
+      "wave": 2,
+      "size": "M",
+      "confidence": "medium",
+      "prerequisites": [
+        "matrices-as-transformations"
+      ],
+      "title": "Linear Systems",
+      "scope": "Elimination, solution sets, and the geometry of solvability."
+    },
+    {
+      "id": "rank-span-independence",
+      "track": "math-foundations",
+      "module": "linear-algebra",
+      "sequence": 7,
+      "target_path": "src/math-foundations/07_rank_span_independence.md",
+      "type": "concept",
+      "difficulty": "intermediate",
+      "wave": 2,
+      "size": "M",
+      "confidence": "medium",
+      "prerequisites": [
+        "linear-systems"
+      ],
+      "title": "Rank, Span, Independence",
+      "scope": "The dimensions of your data and the redundancies inside it."
+    },
+    {
+      "id": "determinants",
+      "track": "math-foundations",
+      "module": "linear-algebra",
+      "sequence": 8,
+      "target_path": "src/math-foundations/08_determinants.md",
+      "type": "concept",
+      "difficulty": "intermediate",
+      "wave": 2,
+      "size": "S",
+      "confidence": "medium",
+      "prerequisites": [
+        "matrices-as-transformations"
+      ],
+      "title": "Determinants",
+      "scope": "What a determinant measures: volume, orientation, invertibility."
+    },
+    {
+      "id": "eigenvalues-eigenvectors",
+      "track": "math-foundations",
+      "module": "linear-algebra",
+      "sequence": 9,
+      "target_path": "src/math-foundations/09_eigenvalues_eigenvectors.md",
+      "type": "concept",
+      "difficulty": "advanced",
+      "wave": 2,
+      "size": "M",
+      "confidence": "medium",
+      "prerequisites": [
+        "linear-systems"
+      ],
+      "title": "Eigenvalues and Eigenvectors",
+      "scope": "The directions a transformation doesn't turn, and why ML keeps finding them."
+    },
+    {
+      "id": "svd",
+      "track": "math-foundations",
+      "module": "linear-algebra",
+      "sequence": 10,
+      "target_path": "src/math-foundations/10_svd.md",
+      "type": "concept",
+      "difficulty": "advanced",
+      "wave": 2,
+      "size": "M",
+      "confidence": "medium",
+      "prerequisites": [
+        "eigenvalues-eigenvectors"
+      ],
+      "title": "Singular Value Decomposition",
+      "scope": "The workhorse decomposition behind PCA, compression, and recommender systems."
+    },
+    {
+      "id": "projections-least-squares",
+      "track": "math-foundations",
+      "module": "linear-algebra",
+      "sequence": 11,
+      "target_path": "src/math-foundations/11_projections_least_squares.md",
+      "type": "concept",
+      "difficulty": "advanced",
+      "wave": 2,
+      "size": "M",
+      "confidence": "medium",
+      "prerequisites": [
+        "rank-span-independence"
+      ],
+      "title": "Projections and Least Squares",
+      "scope": "The geometry behind every regression you'll fit."
+    },
+    {
+      "id": "probability-sample-spaces",
+      "track": "math-foundations",
+      "module": "probability",
+      "sequence": 12,
+      "target_path": "src/math-foundations/12_probability_sample_spaces.md",
+      "type": "concept",
+      "difficulty": "beginner",
+      "wave": 2,
+      "size": "M",
+      "confidence": "medium",
+      "prerequisites": [],
+      "title": "Sample Spaces and Events",
+      "scope": "Counting outcomes correctly before reasoning about them."
+    },
+    {
+      "id": "conditional-probability-bayes",
+      "track": "math-foundations",
+      "module": "probability",
+      "sequence": 13,
+      "target_path": "src/math-foundations/13_conditional_probability_bayes.md",
+      "type": "concept",
+      "difficulty": "intermediate",
+      "wave": 2,
+      "size": "M",
+      "confidence": "medium",
+      "prerequisites": [
+        "probability-sample-spaces"
+      ],
+      "title": "Conditional Probability and Bayes",
+      "scope": "Updating beliefs when evidence arrives, done carefully."
+    },
+    {
+      "id": "expectation-variance-math",
+      "track": "math-foundations",
+      "module": "probability",
+      "sequence": 14,
+      "target_path": "src/math-foundations/14_expectation_variance_math.md",
+      "type": "concept",
+      "difficulty": "intermediate",
+      "wave": 2,
+      "size": "M",
+      "confidence": "medium",
+      "prerequisites": [
+        "probability-sample-spaces"
+      ],
+      "title": "Expectation and Variance",
+      "scope": "The mean as an operator, and variance as its second moment."
+    },
+    {
+      "id": "covariance-correlation-math",
+      "track": "math-foundations",
+      "module": "probability",
+      "sequence": 15,
+      "target_path": "src/math-foundations/15_covariance_correlation_math.md",
+      "type": "concept",
+      "difficulty": "intermediate",
+      "wave": 2,
+      "size": "M",
+      "confidence": "medium",
+      "prerequisites": [
+        "expectation-variance-math"
+      ],
+      "title": "Covariance and Correlation",
+      "scope": "Joint behavior of random variables, from the math up."
+    },
+    {
+      "id": "derivatives-sensitivity",
+      "track": "math-foundations",
+      "module": "calculus",
+      "sequence": 16,
+      "target_path": "src/math-foundations/16_derivatives_sensitivity.md",
+      "type": "concept",
+      "difficulty": "beginner",
+      "wave": 2,
+      "size": "S",
+      "confidence": "medium",
+      "prerequisites": [],
+      "title": "Derivatives as Sensitivity",
+      "scope": "Rates of change: what nudging an input does to an output."
+    },
+    {
+      "id": "partial-derivatives-gradients",
+      "track": "math-foundations",
+      "module": "calculus",
+      "sequence": 17,
+      "target_path": "src/math-foundations/17_partial_derivatives_gradients.md",
+      "type": "concept",
+      "difficulty": "intermediate",
+      "wave": 2,
+      "size": "M",
+      "confidence": "medium",
+      "prerequisites": [
+        "derivatives-sensitivity"
+      ],
+      "title": "Gradients",
+      "scope": "Partial derivatives as a vector pointing uphill."
+    },
+    {
+      "id": "chain-rule",
+      "track": "math-foundations",
+      "module": "calculus",
+      "sequence": 18,
+      "target_path": "src/math-foundations/18_chain_rule.md",
+      "type": "concept",
+      "difficulty": "intermediate",
+      "wave": 2,
+      "size": "M",
+      "confidence": "medium",
+      "prerequisites": [
+        "partial-derivatives-gradients"
+      ],
+      "title": "The Chain Rule",
+      "scope": "Derivatives through composition, the engine of backpropagation."
+    },
+    {
+      "id": "convexity",
+      "track": "math-foundations",
+      "module": "optimization",
+      "sequence": 19,
+      "target_path": "src/math-foundations/19_convexity.md",
+      "type": "concept",
+      "difficulty": "intermediate",
+      "wave": 2,
+      "size": "M",
+      "confidence": "medium",
+      "prerequisites": [
+        "partial-derivatives-gradients"
+      ],
+      "title": "Convexity",
+      "scope": "Bowl-shaped problems you can actually solve to optimality."
+    },
+    {
+      "id": "gradient-descent-by-hand",
+      "track": "math-foundations",
+      "module": "optimization",
+      "sequence": 20,
+      "target_path": "src/math-foundations/20_gradient_descent_by_hand.md",
+      "type": "concept",
+      "difficulty": "intermediate",
+      "wave": 2,
+      "size": "M",
+      "confidence": "medium",
+      "prerequisites": [
+        "chain-rule",
+        "convexity"
+      ],
+      "title": "Gradient Descent by Hand",
+      "scope": "Deriving and stepping the update rule yourself."
+    },
+    {
+      "id": "gradient-descent-numpy",
+      "track": "math-foundations",
+      "module": "optimization",
+      "sequence": 21,
+      "target_path": "src/math-foundations/21_gradient_descent_numpy.md",
+      "type": "example",
+      "difficulty": "intermediate",
+      "wave": 2,
+      "size": "M",
+      "confidence": "medium",
+      "prerequisites": [
+        "gradient-descent-by-hand"
+      ],
+      "title": "Gradient Descent in NumPy",
+      "scope": "The update rule in code, with diagnostics for divergence."
+    },
+    {
+      "id": "constrained-optimization",
+      "track": "math-foundations",
+      "module": "optimization",
+      "sequence": 22,
+      "target_path": "src/math-foundations/22_constrained_optimization.md",
+      "type": "concept",
+      "difficulty": "advanced",
+      "wave": 2,
+      "size": "M",
+      "confidence": "medium",
+      "prerequisites": [
+        "gradient-descent-by-hand"
+      ],
+      "title": "Constrained Optimization",
+      "scope": "Lagrange multipliers and the boundary of the feasible set."
+    },
+    {
+      "id": "counting-combinatorics",
+      "track": "math-foundations",
+      "module": "discrete",
+      "sequence": 23,
+      "target_path": "src/math-foundations/23_counting_combinatorics.md",
+      "type": "concept",
+      "difficulty": "intermediate",
+      "wave": 2,
+      "size": "M",
+      "confidence": "medium",
+      "prerequisites": [],
+      "title": "Counting and Combinatorics",
+      "scope": "Permutations, combinations, and counting without listing."
+    },
+    {
+      "id": "graph-theory-essentials",
+      "track": "math-foundations",
+      "module": "discrete",
+      "sequence": 24,
+      "target_path": "src/math-foundations/24_graph_theory_essentials.md",
+      "type": "concept",
+      "difficulty": "intermediate",
+      "wave": 2,
+      "size": "M",
+      "confidence": "medium",
+      "prerequisites": [],
+      "title": "Graph Theory Essentials",
+      "scope": "Nodes, edges, paths: the structures behind networks and pipelines."
+    },
+    {
+      "id": "bigo-beyond-basics",
+      "track": "algorithms",
+      "module": "analysis",
+      "sequence": 1,
+      "target_path": "src/algorithms/01_bigo_beyond_basics.md",
+      "type": "concept",
+      "difficulty": "beginner",
+      "wave": 2,
+      "size": "M",
+      "confidence": "medium",
+      "prerequisites": [],
+      "title": "Big-O Beyond the Basics",
+      "scope": "Growth rates, constants, and the analysis of real code rather than toy loops."
+    },
+    {
+      "id": "amortized-analysis",
+      "track": "algorithms",
+      "module": "analysis",
+      "sequence": 2,
+      "target_path": "src/algorithms/02_amortized_analysis.md",
+      "type": "concept",
+      "difficulty": "intermediate",
+      "wave": 2,
+      "size": "S",
+      "confidence": "medium",
+      "prerequisites": [
+        "bigo-beyond-basics"
+      ],
+      "title": "Amortized Analysis",
+      "scope": "Why appends are cheap on average: paying for work over time."
+    },
+    {
+      "id": "two-pointers-pattern",
+      "track": "algorithms",
+      "module": "patterns",
+      "sequence": 3,
+      "target_path": "src/algorithms/03_two_pointers_pattern.md",
+      "type": "practice",
+      "difficulty": "beginner",
+      "wave": 2,
+      "size": "M",
+      "confidence": "medium",
+      "prerequisites": [],
+      "title": "Two Pointers",
+      "scope": "Converging indices on sorted or paired structure."
+    },
+    {
+      "id": "sliding-window-pattern",
+      "track": "algorithms",
+      "module": "patterns",
+      "sequence": 4,
+      "target_path": "src/algorithms/04_sliding_window_pattern.md",
+      "type": "practice",
+      "difficulty": "intermediate",
+      "wave": 2,
+      "size": "M",
+      "confidence": "medium",
+      "prerequisites": [
+        "two-pointers-pattern"
+      ],
+      "title": "Sliding Window",
+      "scope": "Subarray and substring problems without re-scanning."
+    },
+    {
+      "id": "hash-map-patterns",
+      "track": "algorithms",
+      "module": "patterns",
+      "sequence": 5,
+      "target_path": "src/algorithms/05_hash_map_patterns.md",
+      "type": "practice",
+      "difficulty": "beginner",
+      "wave": 2,
+      "size": "M",
+      "confidence": "medium",
+      "prerequisites": [],
+      "title": "Hash Map Patterns",
+      "scope": "Trading space for time: complements, frequencies, and indices."
+    },
+    {
+      "id": "prefix-sums",
+      "track": "algorithms",
+      "module": "patterns",
+      "sequence": 6,
+      "target_path": "src/algorithms/06_prefix_sums.md",
+      "type": "practice",
+      "difficulty": "beginner",
+      "wave": 2,
+      "size": "S",
+      "confidence": "medium",
+      "prerequisites": [],
+      "title": "Prefix Sums",
+      "scope": "Range queries in constant time after linear prep."
+    },
+    {
+      "id": "binary-search-variants",
+      "track": "algorithms",
+      "module": "patterns",
+      "sequence": 7,
+      "target_path": "src/algorithms/07_binary_search_variants.md",
+      "type": "practice",
+      "difficulty": "intermediate",
+      "wave": 2,
+      "size": "M",
+      "confidence": "medium",
+      "prerequisites": [],
+      "title": "Binary Search and Its Variants",
+      "scope": "First-true boundaries, not just finding a value."
+    },
+    {
+      "id": "sorting-internals",
+      "track": "algorithms",
+      "module": "structure-internals",
+      "sequence": 8,
+      "target_path": "src/algorithms/08_sorting_internals.md",
+      "type": "concept",
+      "difficulty": "intermediate",
+      "wave": 2,
+      "size": "M",
+      "confidence": "medium",
+      "prerequisites": [
+        "bigo-beyond-basics"
+      ],
+      "title": "Sorting Internals",
+      "scope": "Quicksort, mergesort, and why the standard library wins."
+    },
+    {
+      "id": "recursion-call-stack",
+      "track": "algorithms",
+      "module": "patterns",
+      "sequence": 9,
+      "target_path": "src/algorithms/09_recursion_call_stack.md",
+      "type": "concept",
+      "difficulty": "beginner",
+      "wave": 2,
+      "size": "M",
+      "confidence": "medium",
+      "prerequisites": [],
+      "title": "Recursion and the Call Stack",
+      "scope": "Base cases, stack frames, and converting to iteration."
+    },
+    {
+      "id": "divide-and-conquer",
+      "track": "algorithms",
+      "module": "patterns",
+      "sequence": 10,
+      "target_path": "src/algorithms/10_divide_and_conquer.md",
+      "type": "concept",
+      "difficulty": "intermediate",
+      "wave": 2,
+      "size": "M",
+      "confidence": "medium",
+      "prerequisites": [
+        "recursion-call-stack"
+      ],
+      "title": "Divide and Conquer",
+      "scope": "Splitting problems until they're trivial, then merging answers."
+    },
+    {
+      "id": "backtracking-pattern",
+      "track": "algorithms",
+      "module": "patterns",
+      "sequence": 11,
+      "target_path": "src/algorithms/11_backtracking_pattern.md",
+      "type": "practice",
+      "difficulty": "intermediate",
+      "wave": 2,
+      "size": "M",
+      "confidence": "medium",
+      "prerequisites": [
+        "recursion-call-stack"
+      ],
+      "title": "Backtracking",
+      "scope": "Building candidates and undoing mistakes."
+    },
+    {
+      "id": "stack-queue-patterns",
+      "track": "algorithms",
+      "module": "patterns",
+      "sequence": 12,
+      "target_path": "src/algorithms/12_stack_queue_patterns.md",
+      "type": "practice",
+      "difficulty": "beginner",
+      "wave": 2,
+      "size": "M",
+      "confidence": "medium",
+      "prerequisites": [],
+      "title": "Stack and Queue Patterns",
+      "scope": "Matching, nesting, and processing order as algorithmic tools."
+    },
+    {
+      "id": "linked-list-patterns",
+      "track": "algorithms",
+      "module": "patterns",
+      "sequence": 13,
+      "target_path": "src/algorithms/13_linked_list_patterns.md",
+      "type": "practice",
+      "difficulty": "intermediate",
+      "wave": 2,
+      "size": "M",
+      "confidence": "medium",
+      "prerequisites": [],
+      "title": "Linked List Patterns",
+      "scope": "Fast and slow pointers, reversal, and in-place surgery."
+    },
+    {
+      "id": "tree-traversals",
+      "track": "algorithms",
+      "module": "trees-graphs",
+      "sequence": 14,
+      "target_path": "src/algorithms/14_tree_traversals.md",
+      "type": "concept",
+      "difficulty": "intermediate",
+      "wave": 2,
+      "size": "M",
+      "confidence": "medium",
+      "prerequisites": [
+        "recursion-call-stack"
+      ],
+      "title": "Tree Traversals",
+      "scope": "Preorder, inorder, postorder, and level order \u2014 and when each matters."
+    },
+    {
+      "id": "bst-ordered-structure",
+      "track": "algorithms",
+      "module": "trees-graphs",
+      "sequence": 15,
+      "target_path": "src/algorithms/15_bst_ordered_structure.md",
+      "type": "concept",
+      "difficulty": "intermediate",
+      "wave": 2,
+      "size": "M",
+      "confidence": "medium",
+      "prerequisites": [
+        "tree-traversals"
+      ],
+      "title": "Binary Search Trees",
+      "scope": "Ordered structure, in-order facts, and the cost of imbalance."
+    },
+    {
+      "id": "heaps-priority-queues",
+      "track": "algorithms",
+      "module": "trees-graphs",
+      "sequence": 16,
+      "target_path": "src/algorithms/16_heaps_priority_queues.md",
+      "type": "concept",
+      "difficulty": "intermediate",
+      "wave": 2,
+      "size": "M",
+      "confidence": "medium",
+      "prerequisites": [
+        "bigo-beyond-basics"
+      ],
+      "title": "Heaps and Priority Queues",
+      "scope": "The top-k structure behind schedulers and Dijkstra."
+    },
+    {
+      "id": "tries",
+      "track": "algorithms",
+      "module": "trees-graphs",
+      "sequence": 17,
+      "target_path": "src/algorithms/17_tries.md",
+      "type": "practice",
+      "difficulty": "intermediate",
+      "wave": 2,
+      "size": "M",
+      "confidence": "medium",
+      "prerequisites": [
+        "tree-traversals"
+      ],
+      "title": "Tries",
+      "scope": "Prefix trees for strings and autocomplete."
+    },
+    {
+      "id": "graph-representations",
+      "track": "algorithms",
+      "module": "trees-graphs",
+      "sequence": 18,
+      "target_path": "src/algorithms/18_graph_representations.md",
+      "type": "concept",
+      "difficulty": "intermediate",
+      "wave": 2,
+      "size": "S",
+      "confidence": "medium",
+      "prerequisites": [],
+      "title": "Graph Representations",
+      "scope": "Adjacency lists, matrices, and choosing by operation."
+    },
+    {
+      "id": "bfs-dfs",
+      "track": "algorithms",
+      "module": "trees-graphs",
+      "sequence": 19,
+      "target_path": "src/algorithms/19_bfs_dfs.md",
+      "type": "concept",
+      "difficulty": "intermediate",
+      "wave": 2,
+      "size": "M",
+      "confidence": "medium",
+      "prerequisites": [
+        "graph-representations"
+      ],
+      "title": "BFS and DFS",
+      "scope": "The two ways to walk a graph, and what each discovers."
+    },
+    {
+      "id": "topological-sort",
+      "track": "algorithms",
+      "module": "trees-graphs",
+      "sequence": 20,
+      "target_path": "src/algorithms/20_topological_sort.md",
+      "type": "practice",
+      "difficulty": "intermediate",
+      "wave": 2,
+      "size": "S",
+      "confidence": "medium",
+      "prerequisites": [
+        "bfs-dfs"
+      ],
+      "title": "Topological Sort",
+      "scope": "Ordering dependencies, from build systems to course schedules."
+    },
+    {
+      "id": "dijkstra-shortest-paths",
+      "track": "algorithms",
+      "module": "trees-graphs",
+      "sequence": 21,
+      "target_path": "src/algorithms/21_dijkstra_shortest_paths.md",
+      "type": "practice",
+      "difficulty": "advanced",
+      "wave": 2,
+      "size": "M",
+      "confidence": "medium",
+      "prerequisites": [
+        "heaps-priority-queues",
+        "bfs-dfs"
+      ],
+      "title": "Dijkstra and Shortest Paths",
+      "scope": "Weighted shortest paths with a priority queue."
+    },
+    {
+      "id": "union-find",
+      "track": "algorithms",
+      "module": "trees-graphs",
+      "sequence": 22,
+      "target_path": "src/algorithms/22_union_find.md",
+      "type": "practice",
+      "difficulty": "intermediate",
+      "wave": 2,
+      "size": "M",
+      "confidence": "medium",
+      "prerequisites": [],
+      "title": "Union-Find",
+      "scope": "Disjoint sets, near-constant merges, and connectivity in bulk."
+    },
+    {
+      "id": "dp-the-idea",
+      "track": "algorithms",
+      "module": "dynamic-programming",
+      "sequence": 23,
+      "target_path": "src/algorithms/23_dp_the_idea.md",
+      "type": "concept",
+      "difficulty": "intermediate",
+      "wave": 2,
+      "size": "M",
+      "confidence": "medium",
+      "prerequisites": [
+        "recursion-call-stack"
+      ],
+      "title": "Dynamic Programming: The Idea",
+      "scope": "Overlapping subproblems and optimal substructure, recognized on sight."
+    },
+    {
+      "id": "dp-1d",
+      "track": "algorithms",
+      "module": "dynamic-programming",
+      "sequence": 24,
+      "target_path": "src/algorithms/24_dp_1d.md",
+      "type": "practice",
+      "difficulty": "intermediate",
+      "wave": 2,
+      "size": "M",
+      "confidence": "medium",
+      "prerequisites": [
+        "dp-the-idea"
+      ],
+      "title": "One-Dimensional DP",
+      "scope": "Fibonacci to house robber: state, transition, order."
+    },
+    {
+      "id": "dp-2d-strings",
+      "track": "algorithms",
+      "module": "dynamic-programming",
+      "sequence": 25,
+      "target_path": "src/algorithms/25_dp_2d_strings.md",
+      "type": "practice",
+      "difficulty": "advanced",
+      "wave": 2,
+      "size": "M",
+      "confidence": "medium",
+      "prerequisites": [
+        "dp-1d"
+      ],
+      "title": "Two-Dimensional and String DP",
+      "scope": "Edit distance, LCS, and grid paths."
+    },
+    {
+      "id": "greedy-exchange",
+      "track": "algorithms",
+      "module": "dynamic-programming",
+      "sequence": 26,
+      "target_path": "src/algorithms/26_greedy_exchange.md",
+      "type": "concept",
+      "difficulty": "intermediate",
+      "wave": 2,
+      "size": "M",
+      "confidence": "medium",
+      "prerequisites": [
+        "dp-the-idea"
+      ],
+      "title": "Greedy Algorithms",
+      "scope": "When local choices are globally safe: exchange arguments."
+    },
+    {
+      "id": "interval-problems",
+      "track": "algorithms",
+      "module": "patterns",
+      "sequence": 27,
+      "target_path": "src/algorithms/27_interval_problems.md",
+      "type": "practice",
+      "difficulty": "intermediate",
+      "wave": 2,
+      "size": "M",
+      "confidence": "medium",
+      "prerequisites": [
+        "sorting-internals"
+      ],
+      "title": "Interval Problems",
+      "scope": "Sorting by start, sweeping, and merging."
+    },
+    {
+      "id": "chart-choice",
+      "track": "visualization",
+      "module": "foundations",
+      "sequence": 1,
+      "target_path": "src/visualization/01_chart_choice.md",
+      "type": "concept",
+      "difficulty": "beginner",
+      "wave": 2,
+      "size": "M",
+      "confidence": "medium",
+      "prerequisites": [],
+      "title": "Choosing the Chart",
+      "scope": "A decision path from question to mark type."
+    },
+    {
+      "id": "grammar-of-graphics",
+      "track": "visualization",
+      "module": "foundations",
+      "sequence": 2,
+      "target_path": "src/visualization/02_grammar_of_graphics.md",
+      "type": "concept",
+      "difficulty": "intermediate",
+      "wave": 2,
+      "size": "M",
+      "confidence": "medium",
+      "prerequisites": [],
+      "title": "The Grammar of Graphics",
+      "scope": "Data, mappings, marks, scales: why charts are composable."
+    },
+    {
+      "id": "matplotlib-first-principles",
+      "track": "visualization",
+      "module": "tools",
+      "sequence": 3,
+      "target_path": "src/visualization/03_matplotlib_first_principles.md",
+      "type": "concept",
+      "difficulty": "beginner",
+      "wave": 2,
+      "size": "M",
+      "confidence": "medium",
+      "prerequisites": [],
+      "title": "Matplotlib from First Principles",
+      "scope": "Figures, axes, artists: the object model under every plot."
+    },
+    {
+      "id": "matplotlib-craft",
+      "track": "visualization",
+      "module": "tools",
+      "sequence": 4,
+      "target_path": "src/visualization/04_matplotlib_craft.md",
+      "type": "concept",
+      "difficulty": "intermediate",
+      "wave": 2,
+      "size": "M",
+      "confidence": "medium",
+      "prerequisites": [
+        "matplotlib-first-principles"
+      ],
+      "title": "Matplotlib Craft",
+      "scope": "Ticks, limits, layout, and the details that make charts readable."
+    },
+    {
+      "id": "seaborn-statistical-plots",
+      "track": "visualization",
+      "module": "tools",
+      "sequence": 5,
+      "target_path": "src/visualization/05_seaborn_statistical_plots.md",
+      "type": "concept",
+      "difficulty": "beginner",
+      "wave": 2,
+      "size": "M",
+      "confidence": "medium",
+      "prerequisites": [
+        "matplotlib-first-principles"
+      ],
+      "title": "Seaborn for Statistical Plots",
+      "scope": "Distribution and relationship plots with sensible defaults."
+    },
+    {
+      "id": "visualizing-distributions",
+      "track": "visualization",
+      "module": "chart-craft",
+      "sequence": 6,
+      "target_path": "src/visualization/06_visualizing_distributions.md",
+      "type": "concept",
+      "difficulty": "intermediate",
+      "wave": 2,
+      "size": "M",
+      "confidence": "medium",
+      "prerequisites": [
+        "seaborn-statistical-plots"
+      ],
+      "title": "Visualizing Distributions",
+      "scope": "Histograms, KDEs, violins \u2014 and what each implies about the data."
+    },
+    {
+      "id": "visualizing-comparisons",
+      "track": "visualization",
+      "module": "chart-craft",
+      "sequence": 7,
+      "target_path": "src/visualization/07_visualizing_comparisons.md",
+      "type": "concept",
+      "difficulty": "intermediate",
+      "wave": 2,
+      "size": "M",
+      "confidence": "medium",
+      "prerequisites": [
+        "chart-choice"
+      ],
+      "title": "Visualizing Comparisons",
+      "scope": "Bars, dot plots, and the axes that lie."
+    },
+    {
+      "id": "visualizing-relationships",
+      "track": "visualization",
+      "module": "chart-craft",
+      "sequence": 8,
+      "target_path": "src/visualization/08_visualizing_relationships.md",
+      "type": "concept",
+      "difficulty": "intermediate",
+      "wave": 2,
+      "size": "M",
+      "confidence": "medium",
+      "prerequisites": [
+        "seaborn-statistical-plots"
+      ],
+      "title": "Visualizing Relationships",
+      "scope": "Scatterplots, smoothing, and density when points pile up."
+    },
+    {
+      "id": "visualizing-time",
+      "track": "visualization",
+      "module": "chart-craft",
+      "sequence": 9,
+      "target_path": "src/visualization/09_visualizing_time.md",
+      "type": "concept",
+      "difficulty": "intermediate",
+      "wave": 2,
+      "size": "M",
+      "confidence": "medium",
+      "prerequisites": [
+        "matplotlib-craft"
+      ],
+      "title": "Visualizing Time",
+      "scope": "Lines, seasonality, and honest axes for temporal data."
+    },
+    {
+      "id": "color-perception",
+      "track": "visualization",
+      "module": "design",
+      "sequence": 10,
+      "target_path": "src/visualization/10_color_perception.md",
+      "type": "concept",
+      "difficulty": "intermediate",
+      "wave": 2,
+      "size": "M",
+      "confidence": "medium",
+      "prerequisites": [],
+      "title": "Color and Perception",
+      "scope": "Sequential, diverging, categorical palettes \u2014 and accessibility."
+    },
+    {
+      "id": "annotation-storytelling",
+      "track": "visualization",
+      "module": "design",
+      "sequence": 11,
+      "target_path": "src/visualization/11_annotation_storytelling.md",
+      "type": "concept",
+      "difficulty": "intermediate",
+      "wave": 2,
+      "size": "M",
+      "confidence": "medium",
+      "prerequisites": [
+        "matplotlib-craft"
+      ],
+      "title": "Annotation and Storytelling",
+      "scope": "Putting the story on the chart instead of under it."
+    },
+    {
+      "id": "small-multiples",
+      "track": "visualization",
+      "module": "design",
+      "sequence": 12,
+      "target_path": "src/visualization/12_small_multiples.md",
+      "type": "concept",
+      "difficulty": "intermediate",
+      "wave": 2,
+      "size": "M",
+      "confidence": "medium",
+      "prerequisites": [
+        "matplotlib-craft"
+      ],
+      "title": "Small Multiples",
+      "scope": "Many small charts beat one overloaded chart."
+    },
+    {
+      "id": "explaining-uncertainty-visually",
+      "track": "visualization",
+      "module": "design",
+      "sequence": 13,
+      "target_path": "src/visualization/13_explaining_uncertainty_visually.md",
+      "type": "concept",
+      "difficulty": "advanced",
+      "wave": 2,
+      "size": "M",
+      "confidence": "medium",
+      "prerequisites": [
+        "statistics/confidence-intervals"
+      ],
+      "title": "Explaining Uncertainty Visually",
+      "scope": "Error bars, bands, and ensembles the audience can read."
+    },
+    {
+      "id": "dashboards-that-answer",
+      "track": "visualization",
+      "module": "practice",
+      "sequence": 14,
+      "target_path": "src/visualization/14_dashboards_that_answer.md",
+      "type": "concept",
+      "difficulty": "intermediate",
+      "wave": 2,
+      "size": "M",
+      "confidence": "medium",
+      "prerequisites": [
+        "small-multiples"
+      ],
+      "title": "Dashboards That Answer Questions",
+      "scope": "Layout and hierarchy for monitoring and exploration."
+    },
+    {
+      "id": "one-page-analysis",
+      "track": "visualization",
+      "module": "practice",
+      "sequence": 15,
+      "target_path": "src/visualization/15_one_page_analysis.md",
+      "type": "concept",
+      "difficulty": "intermediate",
+      "wave": 2,
+      "size": "M",
+      "confidence": "medium",
+      "prerequisites": [
+        "annotation-storytelling"
+      ],
+      "title": "The One-Page Analysis",
+      "scope": "Writing for decisions: the chart, the number, the so-what."
+    },
+    {
+      "id": "redesigning-a-bad-chart",
+      "track": "visualization",
+      "module": "practice",
+      "sequence": 16,
+      "target_path": "src/visualization/16_redesigning_a_bad_chart.md",
+      "type": "example",
+      "difficulty": "intermediate",
+      "wave": 2,
+      "size": "M",
+      "confidence": "medium",
+      "prerequisites": [
+        "chart-choice"
+      ],
+      "title": "Redesigning a Bad Chart",
+      "scope": "A before-and-after teardown of a chart that failed."
+    },
+    {
+      "id": "query-to-results",
+      "track": "systems-and-databases",
+      "module": "databases",
+      "sequence": 1,
+      "target_path": "src/systems-and-databases/01_query_to_results.md",
+      "type": "concept",
+      "difficulty": "intermediate",
+      "wave": 2,
+      "size": "M",
+      "confidence": "medium",
+      "prerequisites": [
+        "data-wrangling/sql-for-analysis"
+      ],
+      "title": "How a Query Becomes Results",
+      "scope": "Parsing, planning, execution: what the database does with your SQL."
+    },
+    {
+      "id": "sql-joins-ctes-readability",
+      "track": "systems-and-databases",
+      "module": "databases",
+      "sequence": 2,
+      "target_path": "src/systems-and-databases/02_sql_joins_ctes_readability.md",
+      "type": "concept",
+      "difficulty": "intermediate",
+      "wave": 2,
+      "size": "M",
+      "confidence": "medium",
+      "prerequisites": [
+        "data-wrangling/sql-for-analysis"
+      ],
+      "title": "Joins, CTEs, and Readability",
+      "scope": "SQL another engineer can read six months later."
+    },
+    {
+      "id": "window-functions",
+      "track": "systems-and-databases",
+      "module": "databases",
+      "sequence": 3,
+      "target_path": "src/systems-and-databases/03_window_functions.md",
+      "type": "concept",
+      "difficulty": "intermediate",
+      "wave": 2,
+      "size": "M",
+      "confidence": "medium",
+      "prerequisites": [
+        "data-wrangling/sql-for-analysis"
+      ],
+      "title": "Window Functions",
+      "scope": "Ranking, running totals, and per-group computation without self-joins."
+    },
+    {
+      "id": "reading-query-plans",
+      "track": "systems-and-databases",
+      "module": "databases",
+      "sequence": 4,
+      "target_path": "src/systems-and-databases/04_reading_query_plans.md",
+      "type": "concept",
+      "difficulty": "intermediate",
+      "wave": 2,
+      "size": "M",
+      "confidence": "medium",
+      "prerequisites": [
+        "query-to-results"
+      ],
+      "title": "Reading a Query Plan",
+      "scope": "EXPLAIN output, costs, and finding the slow step."
+    },
+    {
+      "id": "indexes-btrees",
+      "track": "systems-and-databases",
+      "module": "databases",
+      "sequence": 5,
+      "target_path": "src/systems-and-databases/05_indexes_btrees.md",
+      "type": "concept",
+      "difficulty": "intermediate",
+      "wave": 2,
+      "size": "M",
+      "confidence": "medium",
+      "prerequisites": [
+        "query-to-results"
+      ],
+      "title": "Indexes and B-Trees",
+      "scope": "How index structure turns scans into lookups \u2014 and when it doesn't."
+    },
+    {
+      "id": "composite-covering-indexes",
+      "track": "systems-and-databases",
+      "module": "databases",
+      "sequence": 6,
+      "target_path": "src/systems-and-databases/06_composite_covering_indexes.md",
+      "type": "concept",
+      "difficulty": "advanced",
+      "wave": 2,
+      "size": "M",
+      "confidence": "medium",
+      "prerequisites": [
+        "indexes-btrees"
+      ],
+      "title": "Composite and Covering Indexes",
+      "scope": "Column order, included columns, and index-only reads."
+    },
+    {
+      "id": "transactions-acid",
+      "track": "systems-and-databases",
+      "module": "databases",
+      "sequence": 7,
+      "target_path": "src/systems-and-databases/07_transactions_acid.md",
+      "type": "concept",
+      "difficulty": "intermediate",
+      "wave": 2,
+      "size": "M",
+      "confidence": "medium",
+      "prerequisites": [],
+      "title": "Transactions and ACID",
+      "scope": "Atomicity through durability: what a transaction promises."
+    },
+    {
+      "id": "isolation-levels",
+      "track": "systems-and-databases",
+      "module": "databases",
+      "sequence": 8,
+      "target_path": "src/systems-and-databases/08_isolation_levels.md",
+      "type": "concept",
+      "difficulty": "advanced",
+      "wave": 2,
+      "size": "M",
+      "confidence": "medium",
+      "prerequisites": [
+        "transactions-acid"
+      ],
+      "title": "Isolation Levels",
+      "scope": "Read phenomena and the tradeoffs between safety and speed."
+    },
+    {
+      "id": "modeling-normalization",
+      "track": "systems-and-databases",
+      "module": "modeling",
+      "sequence": 9,
+      "target_path": "src/systems-and-databases/09_modeling_normalization.md",
+      "type": "concept",
+      "difficulty": "intermediate",
+      "wave": 2,
+      "size": "M",
+      "confidence": "medium",
+      "prerequisites": [],
+      "title": "Normalization",
+      "scope": "Normal forms without the ceremony, and when to denormalize."
+    },
+    {
+      "id": "analytics-schemas",
+      "track": "systems-and-databases",
+      "module": "modeling",
+      "sequence": 10,
+      "target_path": "src/systems-and-databases/10_analytics_schemas.md",
+      "type": "concept",
+      "difficulty": "intermediate",
+      "wave": 2,
+      "size": "M",
+      "confidence": "medium",
+      "prerequisites": [
+        "modeling-normalization"
+      ],
+      "title": "Analytics Schemas",
+      "scope": "Star and snowflake: modeling for analysis instead of transactions."
+    },
+    {
+      "id": "caching-where-why",
+      "track": "systems-and-databases",
+      "module": "systems",
+      "sequence": 11,
+      "target_path": "src/systems-and-databases/11_caching_where_why.md",
+      "type": "concept",
+      "difficulty": "intermediate",
+      "wave": 2,
+      "size": "M",
+      "confidence": "medium",
+      "prerequisites": [],
+      "title": "Caching: Where and Why",
+      "scope": "Layers of caching, hit rates, and what each costs."
+    },
+    {
+      "id": "cache-invalidation-staleness",
+      "track": "systems-and-databases",
+      "module": "systems",
+      "sequence": 12,
+      "target_path": "src/systems-and-databases/12_cache_invalidation_staleness.md",
+      "type": "concept",
+      "difficulty": "advanced",
+      "wave": 2,
+      "size": "M",
+      "confidence": "medium",
+      "prerequisites": [
+        "caching-where-why"
+      ],
+      "title": "Invalidation and Staleness",
+      "scope": "Expiry, events, and the staleness you can tolerate."
+    },
+    {
+      "id": "http-rest-essentials",
+      "track": "systems-and-databases",
+      "module": "systems",
+      "sequence": 13,
+      "target_path": "src/systems-and-databases/13_http_rest_essentials.md",
+      "type": "concept",
+      "difficulty": "beginner",
+      "wave": 2,
+      "size": "M",
+      "confidence": "medium",
+      "prerequisites": [],
+      "title": "HTTP and REST Essentials",
+      "scope": "Requests, responses, status codes, and the contract of an API."
+    },
+    {
+      "id": "designing-data-apis",
+      "track": "systems-and-databases",
+      "module": "systems",
+      "sequence": 14,
+      "target_path": "src/systems-and-databases/14_designing_data_apis.md",
+      "type": "concept",
+      "difficulty": "intermediate",
+      "wave": 2,
+      "size": "M",
+      "confidence": "medium",
+      "prerequisites": [
+        "http-rest-essentials"
+      ],
+      "title": "Designing an API for Data",
+      "scope": "Pagination, filtering, payloads: APIs analysts don't hate."
+    },
+    {
+      "id": "latency-is-the-enemy",
+      "track": "systems-and-databases",
+      "module": "systems",
+      "sequence": 15,
+      "target_path": "src/systems-and-databases/15_latency_is_the_enemy.md",
+      "type": "concept",
+      "difficulty": "intermediate",
+      "wave": 2,
+      "size": "M",
+      "confidence": "medium",
+      "prerequisites": [],
+      "title": "Latency Is the Enemy",
+      "scope": "Network round trips, batching, and the physics of slow."
+    },
+    {
+      "id": "files-formats-storage",
+      "track": "systems-and-databases",
+      "module": "systems",
+      "sequence": 16,
+      "target_path": "src/systems-and-databases/16_files_formats_storage.md",
+      "type": "concept",
+      "difficulty": "intermediate",
+      "wave": 2,
+      "size": "M",
+      "confidence": "medium",
+      "prerequisites": [
+        "data-wrangling/parquet-columnar"
+      ],
+      "title": "Files, Formats, and Storage",
+      "scope": "Row vs column, compression, and the cost of your choices."
+    },
+    {
+      "id": "containers-for-data-science",
+      "track": "systems-and-databases",
+      "module": "systems",
+      "sequence": 17,
+      "target_path": "src/systems-and-databases/17_containers_for_data_science.md",
+      "type": "concept",
+      "difficulty": "intermediate",
+      "wave": 2,
+      "size": "M",
+      "confidence": "medium",
+      "prerequisites": [
+        "python-craft/environments-and-pinning"
+      ],
+      "title": "Containers for Data Science",
+      "scope": "Docker images that make environments portable and boring."
+    },
+    {
+      "id": "concurrency-gil",
+      "track": "systems-and-databases",
+      "module": "systems",
+      "sequence": 18,
+      "target_path": "src/systems-and-databases/18_concurrency_gil.md",
+      "type": "concept",
+      "difficulty": "advanced",
+      "wave": 2,
+      "size": "M",
+      "confidence": "medium",
+      "prerequisites": [
+        "python-craft/async-python"
+      ],
+      "title": "Threads, Processes, and the GIL",
+      "scope": "What actually runs in parallel in Python, and how to use it."
+    },
+    {
+      "id": "distributed-fallacies",
+      "track": "systems-and-databases",
+      "module": "systems",
+      "sequence": 19,
+      "target_path": "src/systems-and-databases/19_distributed_fallacies.md",
+      "type": "concept",
+      "difficulty": "advanced",
+      "wave": 2,
+      "size": "M",
+      "confidence": "medium",
+      "prerequisites": [
+        "latency-is-the-enemy"
+      ],
+      "title": "Distributed Systems Fallacies",
+      "scope": "The assumptions that break when you add a second machine."
+    },
+    {
+      "id": "speeding-up-a-pipeline",
+      "track": "systems-and-databases",
+      "module": "projects",
+      "sequence": 20,
+      "target_path": "src/systems-and-databases/20_speeding_up_a_pipeline.md",
+      "type": "project",
+      "difficulty": "advanced",
+      "wave": 2,
+      "size": "L",
+      "confidence": "medium",
+      "prerequisites": [
+        "reading-query-plans",
+        "caching-where-why"
+      ],
+      "title": "Case Study: Speeding Up a Slow Pipeline",
+      "scope": "Profile, diagnose, fix: a pipeline from hours to minutes."
+    },
+    {
+      "id": "perceptron",
+      "track": "deep-learning",
+      "module": "foundations",
+      "sequence": 1,
+      "target_path": "src/deep-learning/01_perceptron.md",
+      "type": "concept",
+      "difficulty": "beginner",
+      "wave": 3,
+      "size": "M",
+      "confidence": "draft",
+      "prerequisites": [
+        "math-foundations/gradient-descent-by-hand"
+      ],
+      "title": "The Perceptron",
+      "scope": "A linear model with a learning rule, and the boundary of what it can learn."
+    },
+    {
+      "id": "backprop-by-hand",
+      "track": "deep-learning",
+      "module": "foundations",
+      "sequence": 2,
+      "target_path": "src/deep-learning/02_backprop_by_hand.md",
+      "type": "concept",
+      "difficulty": "advanced",
+      "wave": 3,
+      "size": "L",
+      "confidence": "draft",
+      "prerequisites": [
+        "math-foundations/chain-rule"
+      ],
+      "title": "Backpropagation by Hand",
+      "scope": "The chain rule applied to a small network, on paper."
+    },
+    {
+      "id": "backprop-in-numpy",
+      "track": "deep-learning",
+      "module": "foundations",
+      "sequence": 3,
+      "target_path": "src/deep-learning/03_backprop_in_numpy.md",
+      "type": "example",
+      "difficulty": "advanced",
+      "wave": 3,
+      "size": "L",
+      "confidence": "draft",
+      "prerequisites": [
+        "backprop-by-hand"
+      ],
+      "title": "Backprop in NumPy",
+      "scope": "A tiny neural network with the backward pass written out."
+    },
+    {
+      "id": "pytorch-tensors-autograd",
+      "track": "deep-learning",
+      "module": "pytorch",
+      "sequence": 4,
+      "target_path": "src/deep-learning/04_pytorch_tensors_autograd.md",
+      "type": "concept",
+      "difficulty": "intermediate",
+      "wave": 3,
+      "size": "M",
+      "confidence": "draft",
+      "prerequisites": [
+        "backprop-by-hand"
+      ],
+      "title": "PyTorch Tensors and Autograd",
+      "scope": "The tensor, the graph, and the automatic gradient."
+    },
+    {
+      "id": "training-loops-pytorch",
+      "track": "deep-learning",
+      "module": "pytorch",
+      "sequence": 5,
+      "target_path": "src/deep-learning/05_training_loops_pytorch.md",
+      "type": "concept",
+      "difficulty": "intermediate",
+      "wave": 3,
+      "size": "M",
+      "confidence": "draft",
+      "prerequisites": [
+        "pytorch-tensors-autograd"
+      ],
+      "title": "Training Loops in PyTorch",
+      "scope": "Batches, forward, backward, step \u2014 the loop you'll write a thousand times."
+    },
+    {
+      "id": "overfitting-dropout-regularization",
+      "track": "deep-learning",
+      "module": "training",
+      "sequence": 6,
+      "target_path": "src/deep-learning/06_overfitting_dropout_regularization.md",
+      "type": "concept",
+      "difficulty": "intermediate",
+      "wave": 3,
+      "size": "M",
+      "confidence": "draft",
+      "prerequisites": [
+        "training-loops-pytorch"
+      ],
+      "title": "Overfitting and Dropout",
+      "scope": "The failure mode of deep nets and the regularization that fights it."
+    },
+    {
+      "id": "optimization-sgd-adam",
+      "track": "deep-learning",
+      "module": "training",
+      "sequence": 7,
+      "target_path": "src/deep-learning/07_optimization_sgd_adam.md",
+      "type": "concept",
+      "difficulty": "intermediate",
+      "wave": 3,
+      "size": "M",
+      "confidence": "draft",
+      "prerequisites": [
+        "training-loops-pytorch"
+      ],
+      "title": "Optimizers: SGD to Adam",
+      "scope": "Momentum, adaptivity, and the defaults everyone uses."
+    },
+    {
+      "id": "learning-rates-schedules",
+      "track": "deep-learning",
+      "module": "training",
+      "sequence": 8,
+      "target_path": "src/deep-learning/08_learning_rates_schedules.md",
+      "type": "concept",
+      "difficulty": "intermediate",
+      "wave": 3,
+      "size": "M",
+      "confidence": "draft",
+      "prerequisites": [
+        "optimization-sgd-adam"
+      ],
+      "title": "Learning Rates and Schedules",
+      "scope": "The most important hyperparameter, tuned without superstition."
+    },
+    {
+      "id": "cnns-convolutions",
+      "track": "deep-learning",
+      "module": "architectures",
+      "sequence": 9,
+      "target_path": "src/deep-learning/09_cnns_convolutions.md",
+      "type": "concept",
+      "difficulty": "intermediate",
+      "wave": 3,
+      "size": "M",
+      "confidence": "draft",
+      "prerequisites": [
+        "pytorch-tensors-autograd"
+      ],
+      "title": "Convolutions",
+      "scope": "Locality and weight sharing: why CNNs see images."
+    },
+    {
+      "id": "cnn-architectures-practice",
+      "track": "deep-learning",
+      "module": "architectures",
+      "sequence": 10,
+      "target_path": "src/deep-learning/10_cnn_architectures_practice.md",
+      "type": "concept",
+      "difficulty": "intermediate",
+      "wave": 3,
+      "size": "M",
+      "confidence": "draft",
+      "prerequisites": [
+        "cnns-convolutions"
+      ],
+      "title": "CNN Architectures in Practice",
+      "scope": "Blocks, transfer, and not designing from scratch."
+    },
+    {
+      "id": "embeddings",
+      "track": "deep-learning",
+      "module": "architectures",
+      "sequence": 11,
+      "target_path": "src/deep-learning/11_embeddings.md",
+      "type": "concept",
+      "difficulty": "intermediate",
+      "wave": 3,
+      "size": "M",
+      "confidence": "draft",
+      "prerequisites": [
+        "svd"
+      ],
+      "title": "Embeddings",
+      "scope": "Meaning as geometry: entities as vectors."
+    },
+    {
+      "id": "sequence-models-rnns",
+      "track": "deep-learning",
+      "module": "architectures",
+      "sequence": 12,
+      "target_path": "src/deep-learning/12_sequence_models_rnns.md",
+      "type": "concept",
+      "difficulty": "intermediate",
+      "wave": 3,
+      "size": "M",
+      "confidence": "draft",
+      "prerequisites": [
+        "training-loops-pytorch"
+      ],
+      "title": "Sequence Models: RNNs",
+      "scope": "Recurrent state, its limits, and why attention replaced it."
+    },
+    {
+      "id": "attention",
+      "track": "deep-learning",
+      "module": "architectures",
+      "sequence": 13,
+      "target_path": "src/deep-learning/13_attention.md",
+      "type": "concept",
+      "difficulty": "advanced",
+      "wave": 3,
+      "size": "M",
+      "confidence": "draft",
+      "prerequisites": [
+        "sequence-models-rnns"
+      ],
+      "title": "Attention",
+      "scope": "Queries, keys, values: weighted lookup as a differentiable operation."
+    },
+    {
+      "id": "transformers-architecture",
+      "track": "deep-learning",
+      "module": "architectures",
+      "sequence": 14,
+      "target_path": "src/deep-learning/14_transformers_architecture.md",
+      "type": "concept",
+      "difficulty": "advanced",
+      "wave": 3,
+      "size": "L",
+      "confidence": "draft",
+      "prerequisites": [
+        "attention"
+      ],
+      "title": "The Transformer",
+      "scope": "The architecture behind the modern AI wave, layer by layer."
+    },
+    {
+      "id": "transfer-learning-default",
+      "track": "deep-learning",
+      "module": "practice",
+      "sequence": 15,
+      "target_path": "src/deep-learning/15_transfer_learning_default.md",
+      "type": "concept",
+      "difficulty": "intermediate",
+      "wave": 3,
+      "size": "M",
+      "confidence": "draft",
+      "prerequisites": [
+        "cnn-architectures-practice"
+      ],
+      "title": "Transfer Learning",
+      "scope": "Start from pretrained weights; fine-tune deliberately."
+    },
+    {
+      "id": "fine-tuning-pretrained",
+      "track": "deep-learning",
+      "module": "practice",
+      "sequence": 16,
+      "target_path": "src/deep-learning/16_fine_tuning_pretrained.md",
+      "type": "concept",
+      "difficulty": "intermediate",
+      "wave": 3,
+      "size": "M",
+      "confidence": "draft",
+      "prerequisites": [
+        "transfer-learning-default"
+      ],
+      "title": "Fine-Tuning a Pretrained Model",
+      "scope": "Heads, freezing, and catastrophic forgetting on your own data."
+    },
+    {
+      "id": "evaluating-neural-nets",
+      "track": "deep-learning",
+      "module": "practice",
+      "sequence": 17,
+      "target_path": "src/deep-learning/17_evaluating_neural_nets.md",
+      "type": "concept",
+      "difficulty": "intermediate",
+      "wave": 3,
+      "size": "M",
+      "confidence": "draft",
+      "prerequisites": [
+        "classification-metrics"
+      ],
+      "title": "Evaluating Neural Nets",
+      "scope": "Honest evaluation when the model has millions of parameters."
+    },
+    {
+      "id": "llm-application-patterns",
+      "track": "deep-learning",
+      "module": "llms",
+      "sequence": 18,
+      "target_path": "src/deep-learning/18_llm_application_patterns.md",
+      "type": "concept",
+      "difficulty": "intermediate",
+      "wave": 3,
+      "size": "M",
+      "confidence": "draft",
+      "prerequisites": [
+        "transformers-architecture"
+      ],
+      "title": "LLM Application Patterns",
+      "scope": "Prompts, tools, agents: the patterns behind LLM-backed products."
+    },
+    {
+      "id": "rag-retrieval-augmented",
+      "track": "deep-learning",
+      "module": "llms",
+      "sequence": 19,
+      "target_path": "src/deep-learning/19_rag_retrieval_augmented.md",
+      "type": "concept",
+      "difficulty": "intermediate",
+      "wave": 3,
+      "size": "M",
+      "confidence": "draft",
+      "prerequisites": [
+        "llm-application-patterns"
+      ],
+      "title": "Retrieval-Augmented Generation",
+      "scope": "Grounding LLM output in your documents, with evaluation."
+    },
+    {
+      "id": "serving-monitoring-models",
+      "track": "deep-learning",
+      "module": "llms",
+      "sequence": 20,
+      "target_path": "src/deep-learning/20_serving_monitoring_models.md",
+      "type": "concept",
+      "difficulty": "advanced",
+      "wave": 3,
+      "size": "M",
+      "confidence": "draft",
+      "prerequisites": [
+        "model-persistence-serving"
+      ],
+      "title": "Serving and Monitoring Models",
+      "scope": "From checkpoint to endpoint, with feedback loops."
+    },
+    {
+      "id": "case-study-image-classifier",
+      "track": "deep-learning",
+      "module": "projects",
+      "sequence": 21,
+      "target_path": "src/deep-learning/21_case_study_image_classifier.md",
+      "type": "project",
+      "difficulty": "intermediate",
+      "wave": 3,
+      "size": "L",
+      "confidence": "draft",
+      "prerequisites": [
+        "fine-tuning-pretrained",
+        "evaluating-neural-nets"
+      ],
+      "title": "Case Study: Image Classifier End to End",
+      "scope": "Data, transfer learning, evaluation, and deployment."
+    },
+    {
+      "id": "pipeline-mental-model",
+      "track": "data-engineering",
+      "module": "foundations",
+      "sequence": 1,
+      "target_path": "src/data-engineering/01_pipeline_mental_model.md",
+      "type": "concept",
+      "difficulty": "beginner",
+      "wave": 3,
+      "size": "M",
+      "confidence": "draft",
+      "prerequisites": [],
+      "title": "The Pipeline Mental Model",
+      "scope": "Stages, contracts, and failure isolation for data in motion."
+    },
+    {
+      "id": "databases-warehouses-lakes",
+      "track": "data-engineering",
+      "module": "foundations",
+      "sequence": 2,
+      "target_path": "src/data-engineering/02_databases_warehouses_lakes.md",
+      "type": "concept",
+      "difficulty": "beginner",
+      "wave": 3,
+      "size": "M",
+      "confidence": "draft",
+      "prerequisites": [],
+      "title": "Databases, Warehouses, Lakes",
+      "scope": "What each store is for and when data belongs in it."
+    },
+    {
+      "id": "etl-vs-elt",
+      "track": "data-engineering",
+      "module": "foundations",
+      "sequence": 3,
+      "target_path": "src/data-engineering/03_etl_vs_elt.md",
+      "type": "concept",
+      "difficulty": "beginner",
+      "wave": 3,
+      "size": "S",
+      "confidence": "draft",
+      "prerequisites": [
+        "databases-warehouses-lakes"
+      ],
+      "title": "ETL vs ELT",
+      "scope": "Where transformation happens, and why the industry moved it."
+    },
+    {
+      "id": "airflow-dags-tasks",
+      "track": "data-engineering",
+      "module": "orchestration",
+      "sequence": 4,
+      "target_path": "src/data-engineering/04_airflow_dags_tasks.md",
+      "type": "concept",
+      "difficulty": "intermediate",
+      "wave": 3,
+      "size": "M",
+      "confidence": "draft",
+      "prerequisites": [
+        "pipeline-mental-model"
+      ],
+      "title": "Airflow: DAGs and Tasks",
+      "scope": "Scheduling, dependencies, and retries without cron archaeology."
+    },
+    {
+      "id": "idempotent-pipelines",
+      "track": "data-engineering",
+      "module": "orchestration",
+      "sequence": 5,
+      "target_path": "src/data-engineering/05_idempotent_pipelines.md",
+      "type": "concept",
+      "difficulty": "intermediate",
+      "wave": 3,
+      "size": "M",
+      "confidence": "draft",
+      "prerequisites": [
+        "pipeline-mental-model"
+      ],
+      "title": "Idempotent Pipelines",
+      "scope": "Rerun anything, anytime, without fear."
+    },
+    {
+      "id": "data-quality-tests",
+      "track": "data-engineering",
+      "module": "orchestration",
+      "sequence": 6,
+      "target_path": "src/data-engineering/06_data_quality_tests.md",
+      "type": "concept",
+      "difficulty": "intermediate",
+      "wave": 3,
+      "size": "M",
+      "confidence": "draft",
+      "prerequisites": [
+        "data-wrangling/data-validation-assertions"
+      ],
+      "title": "Data Quality Tests",
+      "scope": "Great Expectations-style checks at every stage boundary."
+    },
+    {
+      "id": "dbt-style-transformations",
+      "track": "data-engineering",
+      "module": "transformations",
+      "sequence": 7,
+      "target_path": "src/data-engineering/07_dbt_style_transformations.md",
+      "type": "concept",
+      "difficulty": "intermediate",
+      "wave": 3,
+      "size": "M",
+      "confidence": "draft",
+      "prerequisites": [
+        "sql-joins-ctes-readability"
+      ],
+      "title": "dbt-Style Transformations",
+      "scope": "Versioned, tested, documented SQL as the pipeline's middle."
+    },
+    {
+      "id": "spark-when-why",
+      "track": "data-engineering",
+      "module": "distributed",
+      "sequence": 8,
+      "target_path": "src/data-engineering/08_spark_when_why.md",
+      "type": "concept",
+      "difficulty": "advanced",
+      "wave": 3,
+      "size": "M",
+      "confidence": "draft",
+      "prerequisites": [
+        "pipeline-mental-model"
+      ],
+      "title": "Spark: When and Why",
+      "scope": "Where a single machine stops being enough."
+    },
+    {
+      "id": "spark-dataframes",
+      "track": "data-engineering",
+      "module": "distributed",
+      "sequence": 9,
+      "target_path": "src/data-engineering/09_spark_dataframes.md",
+      "type": "concept",
+      "difficulty": "advanced",
+      "wave": 3,
+      "size": "M",
+      "confidence": "draft",
+      "prerequisites": [
+        "spark-when-why",
+        "vectorization"
+      ],
+      "title": "Spark DataFrames",
+      "scope": "Pandas-like API, distributed execution, different rules."
+    },
+    {
+      "id": "streaming-batch-event-time",
+      "track": "data-engineering",
+      "module": "distributed",
+      "sequence": 10,
+      "target_path": "src/data-engineering/10_streaming_batch_event_time.md",
+      "type": "concept",
+      "difficulty": "advanced",
+      "wave": 3,
+      "size": "M",
+      "confidence": "draft",
+      "prerequisites": [
+        "spark-when-why"
+      ],
+      "title": "Streaming: Batch vs Event Time",
+      "scope": "Windows, watermarks, and what late means."
+    },
+    {
+      "id": "experiment-tracking",
+      "track": "data-engineering",
+      "module": "mlops",
+      "sequence": 11,
+      "target_path": "src/data-engineering/11_experiment_tracking.md",
+      "type": "concept",
+      "difficulty": "intermediate",
+      "wave": 3,
+      "size": "S",
+      "confidence": "draft",
+      "prerequisites": [
+        "sklearn-pipelines"
+      ],
+      "title": "Experiment Tracking",
+      "scope": "MLflow-style records: what ran, with what, producing what."
+    },
+    {
+      "id": "reproducibility-seeds",
+      "track": "data-engineering",
+      "module": "mlops",
+      "sequence": 12,
+      "target_path": "src/data-engineering/12_reproducibility_seeds.md",
+      "type": "concept",
+      "difficulty": "intermediate",
+      "wave": 3,
+      "size": "M",
+      "confidence": "draft",
+      "prerequisites": [
+        "experiment-tracking"
+      ],
+      "title": "Reproducibility",
+      "scope": "Environments, seeds, and runs that can be replayed."
+    },
+    {
+      "id": "data-versioning",
+      "track": "data-engineering",
+      "module": "mlops",
+      "sequence": 13,
+      "target_path": "src/data-engineering/13_data_versioning.md",
+      "type": "concept",
+      "difficulty": "intermediate",
+      "wave": 3,
+      "size": "M",
+      "confidence": "draft",
+      "prerequisites": [
+        "reproducibility-seeds"
+      ],
+      "title": "Data Versioning",
+      "scope": "DVC and lakeFS: versioning inputs, not just code."
+    },
+    {
+      "id": "model-serving-patterns",
+      "track": "data-engineering",
+      "module": "mlops",
+      "sequence": 14,
+      "target_path": "src/data-engineering/14_model_serving_patterns.md",
+      "type": "concept",
+      "difficulty": "intermediate",
+      "wave": 3,
+      "size": "M",
+      "confidence": "draft",
+      "prerequisites": [
+        "model-persistence-serving"
+      ],
+      "title": "Model Serving Patterns",
+      "scope": "Batch scoring, online endpoints, and feature reuse."
+    },
+    {
+      "id": "monitoring-models-production",
+      "track": "data-engineering",
+      "module": "mlops",
+      "sequence": 15,
+      "target_path": "src/data-engineering/15_monitoring_models_production.md",
+      "type": "concept",
+      "difficulty": "intermediate",
+      "wave": 3,
+      "size": "M",
+      "confidence": "draft",
+      "prerequisites": [
+        "model-serving-patterns"
+      ],
+      "title": "Monitoring Models in Production",
+      "scope": "The metrics that say a model is quietly failing."
+    },
+    {
+      "id": "drift-detection-response",
+      "track": "data-engineering",
+      "module": "mlops",
+      "sequence": 16,
+      "target_path": "src/data-engineering/16_drift_detection_response.md",
+      "type": "concept",
+      "difficulty": "advanced",
+      "wave": 3,
+      "size": "M",
+      "confidence": "draft",
+      "prerequisites": [
+        "monitoring-models-production"
+      ],
+      "title": "Drift: Detection and Response",
+      "scope": "Data drift, concept drift, and the playbook for both."
+    },
+    {
+      "id": "feature-stores-gently",
+      "track": "data-engineering",
+      "module": "mlops",
+      "sequence": 17,
+      "target_path": "src/data-engineering/17_feature_stores_gently.md",
+      "type": "concept",
+      "difficulty": "advanced",
+      "wave": 3,
+      "size": "M",
+      "confidence": "draft",
+      "prerequisites": [
+        "model-serving-patterns"
+      ],
+      "title": "Feature Stores, Gently",
+      "scope": "Training-serving consistency without the platform team."
+    },
+    {
+      "id": "ci-for-data-projects",
+      "track": "data-engineering",
+      "module": "mlops",
+      "sequence": 18,
+      "target_path": "src/data-engineering/18_ci_for_data_projects.md",
+      "type": "concept",
+      "difficulty": "intermediate",
+      "wave": 3,
+      "size": "M",
+      "confidence": "draft",
+      "prerequisites": [
+        "pytest-fundamentals"
+      ],
+      "title": "CI for Data Projects",
+      "scope": "Testing pipelines on every commit, not every crisis."
+    },
+    {
+      "id": "mlops-maturity-ladder",
+      "track": "data-engineering",
+      "module": "reference",
+      "sequence": 19,
+      "target_path": "src/data-engineering/19_mlops_maturity_ladder.md",
+      "type": "reference",
+      "difficulty": "intermediate",
+      "wave": 3,
+      "size": "S",
+      "confidence": "draft",
+      "prerequisites": [],
+      "title": "The MLOps Maturity Ladder",
+      "scope": "Levels of production discipline, and the next rung for your team."
+    },
+    {
+      "id": "production-pipeline-case-study",
+      "track": "data-engineering",
+      "module": "projects",
+      "sequence": 20,
+      "target_path": "src/data-engineering/20_production_pipeline_case_study.md",
+      "type": "project",
+      "difficulty": "advanced",
+      "wave": 3,
+      "size": "L",
+      "confidence": "draft",
+      "prerequisites": [
+        "airflow-dags-tasks",
+        "data-quality-tests",
+        "monitoring-models-production"
+      ],
+      "title": "Case Study: A Production Pipeline from Scratch",
+      "scope": "Ingestion to dashboard, scheduled, tested, monitored."
+    },
+    {
+      "id": "business-to-data-question",
+      "track": "problem-framing",
+      "module": "framing",
+      "sequence": 1,
+      "target_path": "src/problem-framing/01_business_to_data_question.md",
+      "type": "concept",
+      "difficulty": "beginner",
+      "wave": 3,
+      "size": "M",
+      "confidence": "medium",
+      "prerequisites": [],
+      "title": "From Business Question to Data Question",
+      "scope": "Turning vague stakeholder requests into testable, scoped questions."
+    },
+    {
+      "id": "metrics-that-matter",
+      "track": "problem-framing",
+      "module": "framing",
+      "sequence": 2,
+      "target_path": "src/problem-framing/02_metrics_that_matter.md",
+      "type": "concept",
+      "difficulty": "intermediate",
+      "wave": 3,
+      "size": "M",
+      "confidence": "medium",
+      "prerequisites": [],
+      "title": "Metrics That Matter",
+      "scope": "Designing measures that capture the thing you actually care about."
+    },
+    {
+      "id": "goodharts-law",
+      "track": "problem-framing",
+      "module": "framing",
+      "sequence": 3,
+      "target_path": "src/problem-framing/03_goodharts_law.md",
+      "type": "concept",
+      "difficulty": "intermediate",
+      "wave": 3,
+      "size": "S",
+      "confidence": "medium",
+      "prerequisites": [
+        "metrics-that-matter"
+      ],
+      "title": "Goodhart's Law",
+      "scope": "When a measure becomes a target, it stops measuring."
+    },
+    {
+      "id": "cost-of-being-wrong",
+      "track": "problem-framing",
+      "module": "framing",
+      "sequence": 4,
+      "target_path": "src/problem-framing/04_cost_of_being_wrong.md",
+      "type": "concept",
+      "difficulty": "intermediate",
+      "wave": 3,
+      "size": "M",
+      "confidence": "medium",
+      "prerequisites": [],
+      "title": "The Cost of Being Wrong",
+      "scope": "Asymmetric errors, and decisions that follow from them."
+    },
+    {
+      "id": "baselines-before-models",
+      "track": "problem-framing",
+      "module": "framing",
+      "sequence": 5,
+      "target_path": "src/problem-framing/05_baselines_before_models.md",
+      "type": "concept",
+      "difficulty": "beginner",
+      "wave": 3,
+      "size": "S",
+      "confidence": "medium",
+      "prerequisites": [],
+      "title": "Baselines Before Models",
+      "scope": "The dumb solution that makes the smart one earn its place."
+    },
+    {
+      "id": "build-vs-buy",
+      "track": "problem-framing",
+      "module": "framing",
+      "sequence": 6,
+      "target_path": "src/problem-framing/06_build_vs_buy.md",
+      "type": "concept",
+      "difficulty": "intermediate",
+      "wave": 3,
+      "size": "M",
+      "confidence": "medium",
+      "prerequisites": [],
+      "title": "Build vs Buy",
+      "scope": "The total-cost math of building, buying, and borrowing."
+    },
+    {
+      "id": "when-not-to-use-ml",
+      "track": "problem-framing",
+      "module": "framing",
+      "sequence": 7,
+      "target_path": "src/problem-framing/07_when_not_to_use_ml.md",
+      "type": "concept",
+      "difficulty": "intermediate",
+      "wave": 3,
+      "size": "M",
+      "confidence": "medium",
+      "prerequisites": [
+        "baselines-before-models"
+      ],
+      "title": "When Not to Use ML",
+      "scope": "Rules, heuristics, and the cases ML only decorates."
+    },
+    {
+      "id": "bias-fairness-sources",
+      "track": "problem-framing",
+      "module": "ethics",
+      "sequence": 8,
+      "target_path": "src/problem-framing/08_bias_fairness_sources.md",
+      "type": "concept",
+      "difficulty": "intermediate",
+      "wave": 3,
+      "size": "M",
+      "confidence": "medium",
+      "prerequisites": [],
+      "title": "Bias: Where It Comes From",
+      "scope": "Data, labels, measurement, and deployment as sources of bias."
+    },
+    {
+      "id": "fairness-measurement-tradeoffs",
+      "track": "problem-framing",
+      "module": "ethics",
+      "sequence": 9,
+      "target_path": "src/problem-framing/09_fairness_measurement_tradeoffs.md",
+      "type": "concept",
+      "difficulty": "advanced",
+      "wave": 3,
+      "size": "M",
+      "confidence": "medium",
+      "prerequisites": [
+        "bias-fairness-sources"
+      ],
+      "title": "Fairness: Measurement and Tradeoffs",
+      "scope": "Fairness definitions that conflict, and choosing anyway."
+    },
+    {
+      "id": "privacy-data-minimization",
+      "track": "problem-framing",
+      "module": "ethics",
+      "sequence": 10,
+      "target_path": "src/problem-framing/10_privacy_data_minimization.md",
+      "type": "concept",
+      "difficulty": "intermediate",
+      "wave": 3,
+      "size": "M",
+      "confidence": "medium",
+      "prerequisites": [],
+      "title": "Privacy and Data Minimization",
+      "scope": "PII, consent, and collecting less on purpose."
+    },
+    {
+      "id": "working-with-stakeholders",
+      "track": "problem-framing",
+      "module": "practice",
+      "sequence": 11,
+      "target_path": "src/problem-framing/11_working_with_stakeholders.md",
+      "type": "concept",
+      "difficulty": "intermediate",
+      "wave": 3,
+      "size": "M",
+      "confidence": "medium",
+      "prerequisites": [],
+      "title": "Working with Stakeholders",
+      "scope": "Expectations, updates, and pushing back without friction."
+    },
+    {
+      "id": "one-page-proposal",
+      "track": "problem-framing",
+      "module": "practice",
+      "sequence": 12,
+      "target_path": "src/problem-framing/12_one_page_proposal.md",
+      "type": "concept",
+      "difficulty": "intermediate",
+      "wave": 3,
+      "size": "M",
+      "confidence": "medium",
+      "prerequisites": [
+        "business-to-data-question"
+      ],
+      "title": "The One-Page Proposal",
+      "scope": "Question, approach, cost, risk: the document that starts the work."
+    },
+    {
+      "id": "capstone-1-end-to-end",
+      "track": "projects",
+      "module": "capstones",
+      "sequence": 1,
+      "target_path": "src/projects/01_capstone_1_end_to_end.md",
+      "type": "project",
+      "difficulty": "intermediate",
+      "wave": 1,
+      "size": "L",
+      "confidence": "high",
+      "prerequisites": [
+        "sklearn-pipelines",
+        "data-wrangling/case-study-messy-dataset"
+      ],
+      "title": "Capstone 1: End to End",
+      "scope": "The vertical-slice capstone: raw data to served model, documented."
+    },
+    {
+      "id": "capstone-1-rubric",
+      "track": "projects",
+      "module": "capstones",
+      "sequence": 2,
+      "target_path": "src/projects/02_capstone_1_rubric.md",
+      "type": "reference",
+      "difficulty": "intermediate",
+      "wave": 1,
+      "size": "S",
+      "confidence": "high",
+      "prerequisites": [
+        "capstone-1-end-to-end"
+      ],
+      "title": "Capstone 1 Rubric",
+      "scope": "The self-review standard: what makes this capstone pass."
+    },
+    {
+      "id": "portfolio-presentation",
+      "track": "projects",
+      "module": "career",
+      "sequence": 3,
+      "target_path": "src/projects/03_portfolio_presentation.md",
+      "type": "concept",
+      "difficulty": "intermediate",
+      "wave": 1,
+      "size": "M",
+      "confidence": "high",
+      "prerequisites": [
+        "capstone-1-end-to-end"
+      ],
+      "title": "Presenting a Project",
+      "scope": "A hiring manager understands it in five minutes or it didn't happen."
+    },
+    {
+      "id": "capstone-2-experiment",
+      "track": "projects",
+      "module": "capstones",
+      "sequence": 4,
+      "target_path": "src/projects/04_capstone_2_experiment.md",
+      "type": "project",
+      "difficulty": "advanced",
+      "wave": 3,
+      "size": "L",
+      "confidence": "medium",
+      "prerequisites": [
+        "statistics/ab-testing-analysis"
+      ],
+      "title": "Capstone 2: The Experiment",
+      "scope": "An experiment-driven product decision: design, run, analyze, recommend."
+    },
+    {
+      "id": "capstone-3-llm-application",
+      "track": "projects",
+      "module": "capstones",
+      "sequence": 5,
+      "target_path": "src/projects/05_capstone_3_llm_application.md",
+      "type": "project",
+      "difficulty": "intermediate",
+      "wave": 3,
+      "size": "L",
+      "confidence": "medium",
+      "prerequisites": [
+        "deep-learning/rag-retrieval-augmented"
+      ],
+      "title": "Capstone 3: An LLM Application",
+      "scope": "A working LLM-backed tool with retrieval and honest evaluation."
+    },
+    {
+      "id": "capstone-4-pipeline",
+      "track": "projects",
+      "module": "capstones",
+      "sequence": 6,
+      "target_path": "src/projects/06_capstone_4_pipeline.md",
+      "type": "project",
+      "difficulty": "advanced",
+      "wave": 3,
+      "size": "L",
+      "confidence": "medium",
+      "prerequisites": [
+        "data-engineering/production-pipeline-case-study"
+      ],
+      "title": "Capstone 4: The Pipeline",
+      "scope": "A scheduled, monitored pipeline feeding a live dashboard."
+    },
+    {
+      "id": "interview-ml-system-design",
+      "track": "projects",
+      "module": "career",
+      "sequence": 7,
+      "target_path": "src/projects/07_interview_ml_system_design.md",
+      "type": "concept",
+      "difficulty": "advanced",
+      "wave": 3,
+      "size": "L",
+      "confidence": "medium",
+      "prerequisites": [
+        "serving-monitoring-models"
+      ],
+      "title": "ML System Design Interviews",
+      "scope": "Designing ML systems on a whiteboard under time pressure."
+    },
+    {
+      "id": "interview-ds-cases",
+      "track": "projects",
+      "module": "career",
+      "sequence": 8,
+      "target_path": "src/projects/08_interview_ds_cases.md",
+      "type": "concept",
+      "difficulty": "intermediate",
+      "wave": 3,
+      "size": "M",
+      "confidence": "medium",
+      "prerequisites": [],
+      "title": "Data Science Case Interviews",
+      "scope": "Structure, estimation, and tradeoffs in the case interview."
+    },
+    {
+      "id": "portfolio-site-story",
+      "track": "projects",
+      "module": "career",
+      "sequence": 9,
+      "target_path": "src/projects/09_portfolio_site_story.md",
+      "type": "concept",
+      "difficulty": "intermediate",
+      "wave": 3,
+      "size": "M",
+      "confidence": "medium",
+      "prerequisites": [
+        "portfolio-presentation"
+      ],
+      "title": "The Portfolio and the Story",
+      "scope": "Assembling the work into a portfolio with a narrative."
+    }
+  ]
+}
