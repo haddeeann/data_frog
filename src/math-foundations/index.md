@@ -1,5 +1,5 @@
 ---
-layout: "html_wrapper.njk"
+layout: "track.njk"
 title: "Math Foundations"
 track: "math-foundations"
 type: "index"

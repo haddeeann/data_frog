@@ -1,5 +1,5 @@
 ---
-layout: "html_wrapper.njk"
+layout: "track.njk"
 title: "Data Engineering & MLOps"
 track: "data-engineering"
 type: "index"

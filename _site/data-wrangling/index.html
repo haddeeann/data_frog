@@ -38,7 +38,8 @@
 </header>
 
     <main>
-        <h1>Data Wrangling &amp; Analysis</h1>
+        
+<h1>Data Wrangling &amp; Analysis</h1>
 <p>Make messy real-world data analyzable, repeatably. This track covers pandas in depth, data cleaning, missing values, joins and reshaping, feature engineering, and exploratory analysis — with NumPy as the substrate.</p>
 <p>Start with the <a href="./library-landscape/">library landscape</a>, then work the <a href="./numpy/">NumPy series</a>.</p>
 <nav class="toc-component" aria-label="Data wrangling series">
@@ -48,6 +49,250 @@
   </ol>
 </nav>
 <p>Pandas, cleaning, joins, reshaping, and EDA lessons are planned next. See <a href="/curriculum/">the curriculum dashboard</a> for the roadmap.</p>
+
+
+
+
+<section class="planned-lessons" aria-label="Planned lessons">
+  
+  
+  <h2>Planned lessons (30)</h2>
+  
+    
+      
+    
+    <details class="planned-wave" open>
+      <summary>Wave 1 — first vertical slice (production-ready) — 30 lessons</summary>
+      
+        <h3>pandas-core</h3>
+        <ul class="planned-list">
+          
+          <li>
+            <strong>pandas Anatomy</strong>
+            <span class="lesson-meta">concept · beginner · M</span>
+            <span class="lesson-scope">Series, DataFrame, and the index: the three ideas everything else builds on.</span>
+          </li>
+          
+          <li>
+            <strong>Reading Files</strong>
+            <span class="lesson-meta">concept · beginner · M</span>
+            <span class="lesson-scope">CSV, Excel, and Parquet in, and the ways each silently mangles your data.</span>
+          </li>
+          
+          <li>
+            <strong>First Look</strong>
+            <span class="lesson-meta">concept · beginner · S</span>
+            <span class="lesson-scope">head, describe, value_counts: a disciplined first pass over new data.</span>
+          </li>
+          
+          <li>
+            <strong>Selecting and Filtering</strong>
+            <span class="lesson-meta">concept · beginner · M</span>
+            <span class="lesson-scope">loc, iloc, boolean masks, and query: get exactly the rows you mean.</span>
+          </li>
+          
+        </ul>
+      
+        <h3>transforming</h3>
+        <ul class="planned-list">
+          
+          <li>
+            <strong>Missing Data</strong>
+            <span class="lesson-meta">concept · intermediate · M</span>
+            <span class="lesson-scope">The three kinds of missingness and what each licenses you to do.</span>
+          </li>
+          
+          <li>
+            <strong>Cleaning Strings and Dates</strong>
+            <span class="lesson-meta">concept · intermediate · L</span>
+            <span class="lesson-scope">Tame the mess: whitespace, formats, parse errors, duplicates.</span>
+          </li>
+          
+          <li>
+            <strong>dtype Hygiene</strong>
+            <span class="lesson-meta">concept · intermediate · M</span>
+            <span class="lesson-scope">Downcasting, nullable types, and the memory you didn&#39;t know you were wasting.</span>
+          </li>
+          
+          <li>
+            <strong>GroupBy: Split, Apply, Combine</strong>
+            <span class="lesson-meta">concept · intermediate · M</span>
+            <span class="lesson-scope">The single most useful move in pandas, from counting to transforming.</span>
+          </li>
+          
+          <li>
+            <strong>Joins and merge</strong>
+            <span class="lesson-meta">concept · intermediate · M</span>
+            <span class="lesson-scope">Merge mechanics: key shapes, validation, and the rows that vanish.</span>
+          </li>
+          
+          <li>
+            <strong>Reshaping and Tidy Data</strong>
+            <span class="lesson-meta">concept · intermediate · M</span>
+            <span class="lesson-scope">melt, pivot, and the tidy-data discipline behind both.</span>
+          </li>
+          
+          <li>
+            <strong>Time Series Essentials</strong>
+            <span class="lesson-meta">concept · intermediate · M</span>
+            <span class="lesson-scope">DatetimeIndex, resampling, and timezones without fear.</span>
+          </li>
+          
+          <li>
+            <strong>Rolling Windows</strong>
+            <span class="lesson-meta">concept · intermediate · S</span>
+            <span class="lesson-scope">Rolling statistics, expanding windows, and what they smooth away.</span>
+          </li>
+          
+          <li>
+            <strong>Text in pandas</strong>
+            <span class="lesson-meta">concept · intermediate · S</span>
+            <span class="lesson-scope">The .str accessor, vectorized regex, and when to give up and loop.</span>
+          </li>
+          
+          <li>
+            <strong>Categoricals</strong>
+            <span class="lesson-meta">concept · intermediate · S</span>
+            <span class="lesson-scope">Ordered categories, memory savings, and sorting that finally makes sense.</span>
+          </li>
+          
+        </ul>
+      
+        <h3>performance</h3>
+        <ul class="planned-list">
+          
+          <li>
+            <strong>Vectorization</strong>
+            <span class="lesson-meta">concept · intermediate · M</span>
+            <span class="lesson-scope">Replace loops with array operations, and know when you can&#39;t.</span>
+          </li>
+          
+          <li>
+            <strong>pandas Performance</strong>
+            <span class="lesson-meta">concept · advanced · M</span>
+            <span class="lesson-scope">Profiling pandas: where the time goes and which idiom to switch to.</span>
+          </li>
+          
+        </ul>
+      
+        <h3>eda</h3>
+        <ul class="planned-list">
+          
+          <li>
+            <strong>A Repeatable EDA Pass</strong>
+            <span class="lesson-meta">example · intermediate · L</span>
+            <span class="lesson-scope">A structured first-pass EDA on a real messy dataset.</span>
+          </li>
+          
+          <li>
+            <strong>Finding Surprises</strong>
+            <span class="lesson-meta">example · intermediate · M</span>
+            <span class="lesson-scope">Distributions, outliers, and leaks: catch them before the model does.</span>
+          </li>
+          
+        </ul>
+      
+        <h3>features</h3>
+        <ul class="planned-list">
+          
+          <li>
+            <strong>Feature Engineering: Numeric</strong>
+            <span class="lesson-meta">concept · intermediate · M</span>
+            <span class="lesson-scope">Scaling, transforms, binning, and interaction features that mean something.</span>
+          </li>
+          
+          <li>
+            <strong>Feature Engineering: Categorical</strong>
+            <span class="lesson-meta">concept · intermediate · M</span>
+            <span class="lesson-scope">Encoding choices: one-hot, ordinal, target, and their leakage risks.</span>
+          </li>
+          
+          <li>
+            <strong>Feature Engineering: Dates and Text</strong>
+            <span class="lesson-meta">concept · intermediate · M</span>
+            <span class="lesson-scope">Calendar features, lags, and the text signals worth extracting.</span>
+          </li>
+          
+        </ul>
+      
+        <h3>quality</h3>
+        <ul class="planned-list">
+          
+          <li>
+            <strong>Outliers: Detect, Understand, Decide</strong>
+            <span class="lesson-meta">concept · intermediate · M</span>
+            <span class="lesson-scope">Find outliers, understand them, and decide with a reason.</span>
+          </li>
+          
+          <li>
+            <strong>Data Validation</strong>
+            <span class="lesson-meta">concept · intermediate · S</span>
+            <span class="lesson-scope">Assert your assumptions about shape, ranges, and uniqueness.</span>
+          </li>
+          
+          <li>
+            <strong>Data Dictionaries</strong>
+            <span class="lesson-meta">reference · beginner · S</span>
+            <span class="lesson-scope">Documenting a dataset so future-you survives.</span>
+          </li>
+          
+          <li>
+            <strong>Parquet and Columnar Formats</strong>
+            <span class="lesson-meta">concept · intermediate · S</span>
+            <span class="lesson-scope">Why analytics loves columnar storage.</span>
+          </li>
+          
+        </ul>
+      
+        <h3>sources</h3>
+        <ul class="planned-list">
+          
+          <li>
+            <strong>APIs to Tables</strong>
+            <span class="lesson-meta">concept · intermediate · M</span>
+            <span class="lesson-scope">requests, pagination, and JSON chaos turned into a tidy DataFrame.</span>
+          </li>
+          
+        </ul>
+      
+        <h3>sql</h3>
+        <ul class="planned-list">
+          
+          <li>
+            <strong>SQL for Analysis</strong>
+            <span class="lesson-meta">concept · intermediate · L</span>
+            <span class="lesson-scope">SELECT through window functions: the SQL an analyst actually needs.</span>
+          </li>
+          
+          <li>
+            <strong>SQL vs pandas</strong>
+            <span class="lesson-meta">concept · intermediate · M</span>
+            <span class="lesson-scope">Where the work should run, and how to stop pretending it&#39;s religious.</span>
+          </li>
+          
+        </ul>
+      
+        <h3>projects</h3>
+        <ul class="planned-list">
+          
+          <li>
+            <strong>Case Study: A Messy Real Dataset</strong>
+            <span class="lesson-meta">project · intermediate · L</span>
+            <span class="lesson-scope">From an ugly raw file to an analysis-ready table, documented end to end.</span>
+          </li>
+          
+          <li>
+            <strong>Case Study: Three Tables, One Honest Table</strong>
+            <span class="lesson-meta">project · intermediate · L</span>
+            <span class="lesson-scope">Multiple sources merged with validated keys and a real data dictionary.</span>
+          </li>
+          
+        </ul>
+      
+    </details>
+  
+</section>
+
 
     </main>
     <footer class="site-footer">

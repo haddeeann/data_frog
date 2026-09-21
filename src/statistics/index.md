@@ -1,5 +1,5 @@
 ---
-layout: "html_wrapper.njk"
+layout: "track.njk"
 title: "Statistics"
 track: "statistics"
 type: "index"

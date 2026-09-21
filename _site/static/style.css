@@ -565,3 +565,75 @@ iframe {
         transition-duration: 0.01ms !important;
     }
 }
+
+/* Planned lessons (backlog) on track pages */
+.planned-lessons {
+    margin-top: 3rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--line);
+}
+
+.planned-lessons h2 {
+    font-family: var(--serif);
+}
+
+.planned-wave {
+    border: 1px solid var(--line);
+    background: var(--surface);
+    margin: 1rem 0;
+}
+
+.planned-wave summary {
+    cursor: pointer;
+    padding: 0.75rem 1rem;
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: var(--moss-dark);
+    list-style-position: inside;
+}
+
+.planned-wave summary:hover {
+    color: var(--orange);
+}
+
+.planned-wave > *:not(summary) {
+    padding-inline: 1rem;
+}
+
+.planned-wave h3 {
+    font-family: var(--mono);
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--ink-soft);
+    margin: 1.25rem 0 0.5rem;
+}
+
+.planned-list {
+    list-style: none;
+    margin: 0 0 1rem;
+    padding: 0;
+}
+
+.planned-list li {
+    padding: 0.5rem 0;
+    border-bottom: 1px dashed var(--line);
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+}
+
+.planned-list li:last-child {
+    border-bottom: none;
+}
+
+.lesson-meta {
+    font-family: var(--mono);
+    font-size: 0.75rem;
+    color: var(--moss-dark);
+}
+
+.lesson-scope {
+    font-size: 0.92rem;
+    color: var(--ink-soft);
+}

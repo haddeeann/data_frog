@@ -1,5 +1,5 @@
 ---
-layout: "html_wrapper.njk"
+layout: "track.njk"
 title: "Machine Learning Fundamentals"
 track: "machine-learning"
 type: "index"

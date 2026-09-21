@@ -22,21 +22,57 @@ src/
 ```yaml
 ---
 layout: "html_wrapper.njk"   # always this, for now
+id: "testing-data-code"        # required for new lessons — must match the backlog row it came from
 title: "Two Sum"              # required — the page title
 track: "algorithms"            # required — one of the 12 track slugs
 type: "practice"              # required — see lesson types
 status: "published"           # required — planned | drafted | reviewed | published
 difficulty: "beginner"        # concept/example/practice/project: beginner | intermediate | advanced
 order: 1                      # optional — explicit sort key within the directory
-prerequisites: []             # optional — slugs of lessons or tracks this builds on
+prerequisites: []             # optional — see prerequisite format below
 tags: []                      # optional — topical tags, kebab-case
 ---
 ```
 
 Rules:
 - `status` only ever moves forward: planned → drafted → reviewed → published. Never silently downgrade; if content fails review, fix it or remove the file.
-- `prerequisites` use lesson slugs (e.g. `numpy/5_broadcasting`) or track slugs when the dependency is broad.
+- `id` is required on every lesson written from the backlog; it must match the backlog row's `id`. Existing pre-backlog lessons have no `id`.
+- `prerequisites` use lesson ids (e.g. `broadcasting`), cross-track ids with a track prefix (`statistics/confidence-intervals`), or published lesson paths (`numpy/5_broadcasting`).
 - Files without a `track` do not appear in curriculum collections. `videos/` deliberately omits it.
+
+## The backlog (src/_data/backlog.json)
+
+All not-yet-written lessons live in one backlog file. Each row carries:
+
+```json
+{
+  "id": "testing-data-code",
+  "track": "python-craft",
+  "module": "testing",
+  "sequence": 10,
+  "target_path": "src/python-craft/10_testing_data_code.md",
+  "type": "concept",
+  "difficulty": "intermediate",
+  "wave": 1,
+  "size": "L",
+  "confidence": "high",
+  "prerequisites": ["pytest-fundamentals"],
+  "title": "Testing Data Code",
+  "scope": "Test transforms, schemas, edge cases, and failure modes without turning tests into brittle snapshots."
+}
+```
+
+- **wave** is the build order: wave 1 is the first vertical slice (production-ready detail); waves 2–3 are provisional roadmap entries with lower `confidence`.
+- **size** is S/M/L — for batching work, not hour estimates.
+- **target_path** and **sequence** fix where the lesson lands and in what order. Do not invent new filenames or renumber.
+
+### Moving a lesson into production
+
+When a lesson enters production:
+1. Create its file at the row's `target_path`, with frontmatter copied from the row (`id`, `track`, `type`, `difficulty`, `title`) and `status: drafted`.
+2. Delete the backlog row.
+
+Correctness does not depend on step 2: the curriculum dashboard and track pages ignore backlog rows whose `id` already exists on a written lesson, so a forgotten deletion double-counts nothing. Deleting the row is still the cleanup rule — the backlog should only contain work that hasn't started.
 
 ## Lesson types and definitions of done
 

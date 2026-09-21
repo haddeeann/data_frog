@@ -1,5 +1,5 @@
 ---
-layout: "html_wrapper.njk"
+layout: "track.njk"
 title: "Python Craft"
 track: "python-craft"
 type: "index"

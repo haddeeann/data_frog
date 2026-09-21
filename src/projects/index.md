@@ -1,5 +1,5 @@
 ---
-layout: "html_wrapper.njk"
+layout: "track.njk"
 title: "Capstones, Portfolio & Interview"
 track: "projects"
 type: "index"

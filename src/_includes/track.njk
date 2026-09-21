@@ -1,0 +1,38 @@
+{% extends "base.njk" %}
+
+{% block content %}
+{{ content | safe }}
+
+{% set waves = collections.plannedByTrack[track] %}
+{% if waves.length > 0 %}
+<section class="planned-lessons" aria-label="Planned lessons">
+  {% set totalPlanned = 0 %}
+  {% for w in waves %}{% set totalPlanned = totalPlanned + w.total %}{% endfor %}
+  <h2>Planned lessons ({{ totalPlanned }})</h2>
+  {% for w in waves %}
+    {% if w.wave == 1 %}
+      {% set waveLabel = "Wave 1 — first vertical slice (production-ready)" %}
+    {% elif w.wave == 2 %}
+      {% set waveLabel = "Wave 2 — breadth (provisional roadmap)" %}
+    {% else %}
+      {% set waveLabel = "Wave 3 — depth (provisional roadmap)" %}
+    {% endif %}
+    <details class="planned-wave"{% if w.wave == 1 %} open{% endif %}>
+      <summary>{{ waveLabel }} — {{ w.total }} lessons</summary>
+      {% for m in w.modules %}
+        <h3>{{ m.module }}</h3>
+        <ul class="planned-list">
+          {% for l in m.lessons %}
+          <li>
+            <strong>{{ l.title }}</strong>
+            <span class="lesson-meta">{{ l.type }} · {{ l.difficulty }} · {{ l.size }}</span>
+            <span class="lesson-scope">{{ l.scope }}</span>
+          </li>
+          {% endfor %}
+        </ul>
+      {% endfor %}
+    </details>
+  {% endfor %}
+</section>
+{% endif %}
+{% endblock %}

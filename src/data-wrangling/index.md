@@ -1,5 +1,5 @@
 ---
-layout: "html_wrapper.njk"
+layout: "track.njk"
 title: "Data Wrangling & Analysis"
 track: "data-wrangling"
 type: "index"
