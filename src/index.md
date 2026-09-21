@@ -5,23 +5,28 @@ layout: "html_wrapper.njk"
 <p class="hero-statement">A Data Science Journey</p>
 
 <div class="module-grid">
-  <a class="module-card" href="/numpy/">
+  <a class="module-card" href="/curriculum/">
+    <span class="card-meta">MAP</span>
+    <h2>Curriculum</h2>
+    <p>Twelve tracks from software engineer to data scientist — with live progress.</p>
+  </a>
+  <a class="module-card" href="/algorithms/">
     <span class="card-meta">01</span>
-    <h2>NumPy</h2>
-    <p>Python's answer to slow, memory-hungry lists — fixed types, contiguous memory, real speed.</p>
-  </a>
-  <a class="module-card" href="/stats/">
-    <span class="card-meta">02</span>
-    <h2>Statistics</h2>
-    <p>Distributions, uncertainty, and the summaries that make raw data legible.</p>
-  </a>
-  <a class="module-card" href="/algos/">
-    <span class="card-meta">03</span>
     <h2>Algorithms</h2>
     <p>Python solutions, explicit tradeoffs, and the patterns behind the problems.</p>
   </a>
+  <a class="module-card" href="/data-wrangling/">
+    <span class="card-meta">06</span>
+    <h2>Data Wrangling</h2>
+    <p>NumPy arrays first, then pandas — messy data in, analysis-ready tables out.</p>
+  </a>
+  <a class="module-card" href="/statistics/">
+    <span class="card-meta">05</span>
+    <h2>Statistics</h2>
+    <p>Distributions, uncertainty, and the summaries that make raw data legible.</p>
+  </a>
   <a class="module-card" href="/videos/">
-    <span class="card-meta">04</span>
+    <span class="card-meta">VID</span>
     <h2>Videos</h2>
     <p>Courses worth the time, with the useful parts kept close.</p>
   </a>

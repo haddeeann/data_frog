@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Data Frog</title>
+    <link rel="stylesheet" href="/static/style.css" />
+    <link rel="icon" href="/static/favicon.ico" type="image/x-icon">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-3XCWXXR1VM"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-3XCWXXR1VM');
+    </script>
+</head>
+<body>
+    <header class="site-header">
+    <div class="site-header-inner">
+        <a class="brand-link" href="/">
+            <img class="brand-mark" src="/static/frog_logo.png" alt="">
+            <span class="brand-copy">
+                <strong class="brand-name">Data Frog</strong>
+                <small class="brand-tagline">Field notes in data and Python</small>
+            </span>
+        </a>
+        <nav class="site-nav" aria-label="Primary navigation">
+            <a href="/curriculum/">Curriculum</a>
+            <a href="/algorithms/" class="active" aria-current="page">Algorithms</a>
+            <a href="/data-wrangling/">Data Wrangling</a>
+            <a href="/statistics/">Statistics</a>
+            <a href="/videos/">Videos</a>
+            <a href="/#data-sourcing">Data Sourcing</a>
+        </nav>
+    </div>
+</header>
+
+    <main>
+        <h1>Integer to Roman</h1>
+<p>Roman numerals use seven symbols: I, V, X, L, C, D, and M.</p>
+<p>Symbol       Value
+I             1
+V             5
+X             10
+L             50
+C             100
+D             500
+M             1000
+For example, 2 is II, 12 is XII (X + II), and 27 is XXVII (XX + V + II).</p>
+<p>Roman numerals usually descend from left to right. Six subtractive pairs handle values such as 4 (IV) and 9 (IX):</p>
+<p>I can be placed before V (5) and X (10) to make 4 and 9.
+X can be placed before L (50) and C (100) to make 40 and 90.
+C can be placed before D (500) and M (1000) to make 400 and 900.
+Convert a given integer to a Roman numeral.</p>
+<pre><code class="language-python">class Solution(object):
+    def findLargest(self, n):
+        lookup = {
+            900: 'CM',
+            1000: 'M',
+            400: 'CD',
+            500: 'D',
+            90: 'XC',
+            100: 'C',
+            40: 'XL',
+            50: 'L',
+            9: 'IX',
+            10: 'X',
+            4: 'IV',
+            5: 'V',
+            1: 'I'
+        }
+        search = [1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1, 0]
+        x = n
+        last_elem = len(search) - 1
+        letter = ''
+        r = 0
+        for i, value in enumerate(search):
+            if i &lt; last_elem:
+                next = search[i+1]
+                if x &gt;= value:
+                    # use the value plain
+                    letter = lookup[value]
+                    r = x - value
+                    return letter, r
+
+        return letter, r
+
+
+    def intToRoman(self, num):
+        &quot;&quot;&quot;
+        :type num: int
+        :rtype: str
+        &quot;&quot;&quot;
+        letter = ''
+        letter_combo = ''
+        # remainer
+        r = num
+        while num &gt; 0:
+            if r &lt;= 0:
+                break
+            letter, r = self.findLargest(r)
+            letter_combo = letter_combo + letter
+            num -= 1
+
+        return letter_combo
+
+sol = Solution()
+
+num_one = 3
+output = &quot;III&quot;
+print(sol.intToRoman(num_one))
+
+num_two = 58
+output = &quot;LVIII&quot;
+print(sol.intToRoman(num_two))
+
+num_three = 1994
+output = &quot;MCMXCIV&quot;
+# Explanation: M = 1000, CM = 900, XC = 90 and IV = 4.
+print(sol.intToRoman(num_three))
+</code></pre>
+
+    </main>
+    <footer class="site-footer">
+    <div class="site-footer-inner">
+        <div>
+            <div>Field notes from the workbench.</div>
+            <div>Built one experiment at a time.</div>
+        </div>
+        <hr />
+        <div>
+            <span class="logo-text-large">Data Frog</span>
+            <span class="logo-text-small">lab notebook</span>
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>

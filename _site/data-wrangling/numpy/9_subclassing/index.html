@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Data Frog</title>
+    <link rel="stylesheet" href="/static/style.css" />
+    <link rel="icon" href="/static/favicon.ico" type="image/x-icon">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-3XCWXXR1VM"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-3XCWXXR1VM');
+    </script>
+</head>
+<body>
+    <header class="site-header">
+    <div class="site-header-inner">
+        <a class="brand-link" href="/">
+            <img class="brand-mark" src="/static/frog_logo.png" alt="">
+            <span class="brand-copy">
+                <strong class="brand-name">Data Frog</strong>
+                <small class="brand-tagline">Field notes in data and Python</small>
+            </span>
+        </a>
+        <nav class="site-nav" aria-label="Primary navigation">
+            <a href="/curriculum/">Curriculum</a>
+            <a href="/algorithms/">Algorithms</a>
+            <a href="/data-wrangling/" class="active" aria-current="page">Data Wrangling</a>
+            <a href="/statistics/">Statistics</a>
+            <a href="/videos/">Videos</a>
+            <a href="/#data-sourcing">Data Sourcing</a>
+        </nav>
+    </div>
+</header>
+
+    <main>
+        <h2>Subclassing ndarray</h2>
+<p>An <code>ndarray</code> subclass can be instantiated three ways:</p>
+<ol>
+<li>Explicit constructor call, <code>MySubClass(params)</code>. This is the usual route to Python instance creation.</li>
+<li>View casting, casting an existing <code>ndarray</code> as a given subclass</li>
+<li>New from template, creating a new instance from a template instance. Examples include returning slices from a subclassed array, creating return types from <code>ufuncs</code>, and copying arrays.</li>
+</ol>
+<p>The last two routes are specific to array behavior such as slicing. Supporting all three is what makes <code>ndarray</code> subclassing subtle.</p>
+<h2>When to Use Subclassing</h2>
+<p>Some NumPy functions convert a subclass to base <code>ndarray</code> and silently discard its extra metadata.</p>
+<p>Untested methods can therefore produce surprising results.</p>
+<p>Subclassing remains convenient because much of the NumPy API works without additional adapters.</p>
+<p>NumPy's interoperability protocols may fit better or supplement a subclass.</p>
+<p>Subclassing can be a good fit if:</p>
+<ul>
+<li>you aren't worried about maintainability or users other than yourself.</li>
+<li>you don't think it's problematic if the subclass information is ignored or lost silently.</li>
+</ul>
+<p>For complex cases, study the interoperability protocols before committing to inheritance.</p>
+<p>Astropy's <code>Quantity</code> combines subclassing with interoperability protocols.</p>
+<h2>View Casting</h2>
+<p>View casting exposes the same array data through another specified <code>ndarray</code> subclass.</p>
+<p>NumPy uses a related path when it creates a new instance from a template, most visibly when slicing a subclassed array.</p>
+<p>A slice returns a new object of the same class that views <code>c_arr</code>'s original data.</p>
+<p>Copies, ufunc outputs, and reductions such as <code>c_arr.mean()</code> also create subclass instances through related machinery.</p>
+<h2>The Role of <strong>array_finalize</strong></h2>
+<p><code>__array_finalize__</code> lets a subclass initialize metadata regardless of how NumPy created the new instance.</p>
+<p><code>__array_wrap__</code> can adjust a ufunc result before NumPy returns it. It receives <code>self</code>, the ufunc result, and an optional context.</p>
+<p>The default implementation passes the array through unchanged.</p>
+
+    </main>
+    <footer class="site-footer">
+    <div class="site-footer-inner">
+        <div>
+            <div>Field notes from the workbench.</div>
+            <div>Built one experiment at a time.</div>
+        </div>
+        <hr />
+        <div>
+            <span class="logo-text-large">Data Frog</span>
+            <span class="logo-text-small">lab notebook</span>
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>

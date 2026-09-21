@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Data Frog</title>
+    <link rel="stylesheet" href="/static/style.css" />
+    <link rel="icon" href="/static/favicon.ico" type="image/x-icon">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-3XCWXXR1VM"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-3XCWXXR1VM');
+    </script>
+</head>
+<body>
+    <header class="site-header">
+    <div class="site-header-inner">
+        <a class="brand-link" href="/">
+            <img class="brand-mark" src="/static/frog_logo.png" alt="">
+            <span class="brand-copy">
+                <strong class="brand-name">Data Frog</strong>
+                <small class="brand-tagline">Field notes in data and Python</small>
+            </span>
+        </a>
+        <nav class="site-nav" aria-label="Primary navigation">
+            <a href="/curriculum/">Curriculum</a>
+            <a href="/algorithms/">Algorithms</a>
+            <a href="/data-wrangling/" class="active" aria-current="page">Data Wrangling</a>
+            <a href="/statistics/">Statistics</a>
+            <a href="/videos/">Videos</a>
+            <a href="/#data-sourcing">Data Sourcing</a>
+        </nav>
+    </div>
+</header>
+
+    <main>
+        <h2>Interoperability with NumPy</h2>
+<p>NumPy's <code>ndarray</code> pairs a high-level array API with strided, in-memory storage. That implementation does not fit every dataset, device, or execution model, so other libraries implement compatible array APIs over different storage and compute engines.</p>
+<p>Examples include GPU arrays in CuPy, sparse arrays, parallel arrays, and tensor libraries in frameworks such as TensorFlow and PyTorch.</p>
+<p>Other projects extend the model with labels, indexes, automatic differentiation, masks, or physical units.</p>
+<p>Interoperability protocols let these objects reuse NumPy-style code with less porting.</p>
+<p>The protocols cover three broad jobs:</p>
+<ol>
+<li>methods of turning a foreign object into an <code>ndarray</code></li>
+<li>methods of deferring execution from NumPy function to another array library</li>
+<li>methods that use NumPy functions and return and instance of a foreign object.</li>
+</ol>
+<h2>Arbitrary Objects in NumPy</h2>
+<p>The first path converts or exposes foreign objects as NumPy arrays when possible.</p>
+<p>NumPy tries these interfaces in order:</p>
+<ol>
+<li>the buffer protocol</li>
+<li>the <strong>array_interface</strong> protocol</li>
+<li>the <strong>array</strong>() method</li>
+</ol>
+<h2>Operation on Foreign Objects</h2>
+<p>The second path lets another array library execute a NumPy operation itself.</p>
+<h2>Returning Foreign Objects</h2>
+<p>The third path uses NumPy's implementation, then wraps the result back into the foreign type. <code>__array_finalize__</code> and <code>__array_wrap__</code> help control that return type.</p>
+<h2>PyTorch Tensors</h2>
+<p>PyTorch is a tensor library for CPU- and GPU-based deep learning workloads.</p>
+<p>Its tensors resemble NumPy arrays but can execute on GPUs and other accelerators.</p>
+<p>On the CPU, NumPy arrays and PyTorch tensors can share underlying memory and avoid a copy.</p>
+
+    </main>
+    <footer class="site-footer">
+    <div class="site-footer-inner">
+        <div>
+            <div>Field notes from the workbench.</div>
+            <div>Built one experiment at a time.</div>
+        </div>
+        <hr />
+        <div>
+            <span class="logo-text-large">Data Frog</span>
+            <span class="logo-text-small">lab notebook</span>
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>

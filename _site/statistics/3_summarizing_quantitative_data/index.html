@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Data Frog</title>
+    <link rel="stylesheet" href="/static/style.css" />
+    <link rel="icon" href="/static/favicon.ico" type="image/x-icon">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-3XCWXXR1VM"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-3XCWXXR1VM');
+    </script>
+</head>
+<body>
+    <header class="site-header">
+    <div class="site-header-inner">
+        <a class="brand-link" href="/">
+            <img class="brand-mark" src="/static/frog_logo.png" alt="">
+            <span class="brand-copy">
+                <strong class="brand-name">Data Frog</strong>
+                <small class="brand-tagline">Field notes in data and Python</small>
+            </span>
+        </a>
+        <nav class="site-nav" aria-label="Primary navigation">
+            <a href="/curriculum/">Curriculum</a>
+            <a href="/algorithms/">Algorithms</a>
+            <a href="/data-wrangling/">Data Wrangling</a>
+            <a href="/statistics/" class="active" aria-current="page">Statistics</a>
+            <a href="/videos/">Videos</a>
+            <a href="/#data-sourcing">Data Sourcing</a>
+        </nav>
+    </div>
+</header>
+
+    <main>
+        <h2>Mean (Average)</h2>
+<ul>
+<li><strong>Calculation</strong>: Sum the values, then divide by the number of values.</li>
+<li><strong>Formula</strong>: Mean = (Sum of all values) / (Number of values)</li>
+<li><strong>Usage</strong>: The mean works well for symmetric data without extreme outliers.</li>
+</ul>
+<h2>Median</h2>
+<ul>
+<li><strong>Calculation</strong>: Sort the data and take the middle value. For an even count, average the two middle values.</li>
+<li><strong>Usage</strong>: Prefer the median for skewed data or data with outliers because extreme values do not pull it toward a tail.</li>
+</ul>
+<h2>Mode</h2>
+<ul>
+<li><strong>Calculation</strong>: The mode is the most frequent value.</li>
+<li><strong>Usage</strong>: Use it for categorical data or whenever the most common value matters.</li>
+</ul>
+<h2>Comparing Means of Distributions</h2>
+<ul>
+<li>Never compare means alone. Check each distribution's shape, spread, and outliers.</li>
+</ul>
+<h3>Impact of Outliers</h3>
+<ul>
+<li><strong>Removing an outlier:</strong> A sufficiently extreme value can move the mean substantially when removed.</li>
+<li><strong>Increasing an outlier:</strong> Moving an outlier farther from the data pulls the mean with it.</li>
+</ul>
+<h2>Mean as the Balance Point</h2>
+<ul>
+<li>The mean acts as the distribution's balance point. In a symmetric distribution, values balance evenly around it.</li>
+</ul>
+<p>Choose mean, median, or mode from the distribution in front of you, not from habit.</p>
+<h2>Interquartile Range (IQR)</h2>
+<ul>
+<li><strong>Calculation</strong>: Subtract the 25th percentile (Q1) from the 75th percentile (Q3).</li>
+<li><strong>Formula</strong>: IQR = Q3 - Q1</li>
+<li><strong>Use case</strong>: IQR measures the middle 50% and supports common outlier rules.</li>
+</ul>
+<h2>Range</h2>
+<ul>
+<li><strong>Calculation</strong>: Subtract the minimum from the maximum.</li>
+<li><strong>Formula</strong>: Range = Maximum value - Minimum value</li>
+<li><strong>Use case</strong>: The range is quick but extremely sensitive to outliers.</li>
+</ul>
+<h2>Variance</h2>
+<ul>
+<li><strong>Population variance</strong>: The average squared distance from the mean.</li>
+<li><strong>Formula for Population Variance ((\sigma^2))</strong>: (\sigma^2 = \frac{\sum (X - \mu)^2}{N}) where (X) is each value, (\mu) is the mean, and (N) is the number of values.</li>
+<li><strong>Sample variance</strong>: Divide by (N-1), not (N), to estimate population variance from a sample.</li>
+<li><strong>Use case</strong>: Variance quantifies squared distance from the mean.</li>
+</ul>
+<h2>Standard Deviation</h2>
+<ul>
+<li><strong>Calculation</strong>: Take the square root of the variance.</li>
+<li><strong>Formula for Population Standard Deviation ((\sigma))</strong>: (\sigma = \sqrt{\sigma^2})</li>
+<li><strong>Formula for Sample Standard Deviation (s)</strong>: (s = \sqrt{\frac{\sum (X - \bar{X})^2}{N-1}})</li>
+<li><strong>Use case</strong>: Standard deviation measures spread around the mean in the data's original units.</li>
+</ul>
+<h2>Calculating Standard Deviation Step by Step</h2>
+<ol>
+<li><strong>Find the Mean</strong>: Sum all the data points and divide by the number of points.</li>
+<li><strong>Calculate Each Point's Deviation from the Mean</strong>: Subtract the mean from each data point.</li>
+<li><strong>Square Each Deviation</strong>: Square each result from step 2.</li>
+<li><strong>Sum the Squared Deviations</strong>: Add up all the squared deviations.</li>
+<li><strong>Divide by (N-1) for a Sample, or (N) for a Population</strong>: This gives the variance.</li>
+<li><strong>Take the Square Root of the Variance</strong>: This gives the standard deviation.</li>
+</ol>
+<h2>Understanding the Concepts</h2>
+<ul>
+<li><strong>Population variance:</strong> Measures squared spread around the population mean.</li>
+<li><strong>Population standard deviation:</strong> Measures that spread in the data's original units.</li>
+<li><strong>Interpretation:</strong> Variance uses squared units; standard deviation converts the result back to the original units.</li>
+</ul>
+<p>Pick the measure that matches the analysis and the units you need to interpret.</p>
+<h2>Dividing by ( n - 1 ) in Variance Calculation</h2>
+<p>Sample variance uses ( n - 1 ), rather than ( n ), in the denominator. This is Bessel's correction.</p>
+<ul>
+<li><strong>Reason for ( n - 1 ):</strong> Estimating variance around the sample mean with ( n ) systematically underestimates population variance. Dividing by ( n - 1 ) removes that bias.</li>
+<li><strong>Concept:</strong> Estimating the mean from the same sample imposes one constraint on the deviations: they must sum to zero.</li>
+<li><strong>Degrees of freedom:</strong> Once the first ( n - 1 ) deviations are fixed, the final deviation is determined. Only ( n - 1 ) values remain free to vary.</li>
+</ul>
+<h2>Box and Whisker Plots</h2>
+<p>Box-and-whisker plots visualize a distribution's five-number summary: minimum, first quartile (Q1), median, third quartile (Q3), and maximum.</p>
+<ul>
+<li>
+<p><strong>Components of a Box Plot</strong>:</p>
+<ol>
+<li><strong>Box</strong>: The box spans from Q1 to Q3, representing the interquartile range (IQR).</li>
+<li><strong>Median</strong>: A line across the box indicates the median of the dataset.</li>
+<li><strong>Whiskers</strong>: Lines extending from the box (whiskers) typically extend to the minimum and maximum values within 1.5 * IQR from the Q1 and Q3. Values beyond this are plotted as outliers.</li>
+<li><strong>Outliers</strong>: Points beyond the whiskers are considered outliers and are plotted individually.</li>
+</ol>
+</li>
+<li>
+<p><strong>Interpreting a Box Plot</strong>:</p>
+<ul>
+<li>Box length shows the spread of the middle 50%.</li>
+<li>The median's position within the box can suggest asymmetry, but it does not establish skew by itself.</li>
+<li>Points beyond the whiskers flag potential outliers for inspection.</li>
+</ul>
+</li>
+<li>
+<p><strong>Use case:</strong> Box plots compare center and spread across groups without drawing every observation.</p>
+</li>
+</ul>
+<p>Use box plots for a compact comparison, then inspect the underlying distribution before drawing conclusions.</p>
+
+    </main>
+    <footer class="site-footer">
+    <div class="site-footer-inner">
+        <div>
+            <div>Field notes from the workbench.</div>
+            <div>Built one experiment at a time.</div>
+        </div>
+        <hr />
+        <div>
+            <span class="logo-text-large">Data Frog</span>
+            <span class="logo-text-small">lab notebook</span>
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>

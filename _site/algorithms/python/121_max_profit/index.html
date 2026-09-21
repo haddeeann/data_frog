@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Data Frog</title>
+    <link rel="stylesheet" href="/static/style.css" />
+    <link rel="icon" href="/static/favicon.ico" type="image/x-icon">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-3XCWXXR1VM"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-3XCWXXR1VM');
+    </script>
+</head>
+<body>
+    <header class="site-header">
+    <div class="site-header-inner">
+        <a class="brand-link" href="/">
+            <img class="brand-mark" src="/static/frog_logo.png" alt="">
+            <span class="brand-copy">
+                <strong class="brand-name">Data Frog</strong>
+                <small class="brand-tagline">Field notes in data and Python</small>
+            </span>
+        </a>
+        <nav class="site-nav" aria-label="Primary navigation">
+            <a href="/curriculum/">Curriculum</a>
+            <a href="/algorithms/" class="active" aria-current="page">Algorithms</a>
+            <a href="/data-wrangling/">Data Wrangling</a>
+            <a href="/statistics/">Statistics</a>
+            <a href="/videos/">Videos</a>
+            <a href="/#data-sourcing">Data Sourcing</a>
+        </nav>
+    </div>
+</header>
+
+    <main>
+        <h1>Best Time to Buy and Sell Stock</h1>
+<p>Choose one day to buy a stock and a later day to sell it.</p>
+<p>Return the maximum profit, or 0 when no profitable transaction exists.</p>
+<p>Example 1:</p>
+<p>Input: prices = [7,1,5,3,6,4]
+Output: 5
+Explanation: Buy on day 2 (price = 1) and sell on day 5 (price = 6), for profit = 6-1 = 5. The sale must follow the purchase.
+Example 2:</p>
+<p>Input: prices = [7,6,4,3,1]
+Output: 0
+Explanation: No profitable transaction exists, so the maximum profit is 0.</p>
+<pre><code class="language-python">class Solution(object):
+    def maxProfit(self, prices):
+        &quot;&quot;&quot;
+        :type prices: List[int]
+        :rtype: int
+        &quot;&quot;&quot;
+        min_price = float('inf')
+        max_profit = 0
+        for i in range(len(prices)):
+            if prices[i] &lt; min_price:
+                min_price = prices[i]
+            elif prices[i] - min_price &gt; max_profit:
+                max_profit = prices[i] - min_price
+
+        return max_profit
+</code></pre>
+
+    </main>
+    <footer class="site-footer">
+    <div class="site-footer-inner">
+        <div>
+            <div>Field notes from the workbench.</div>
+            <div>Built one experiment at a time.</div>
+        </div>
+        <hr />
+        <div>
+            <span class="logo-text-large">Data Frog</span>
+            <span class="logo-text-small">lab notebook</span>
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>

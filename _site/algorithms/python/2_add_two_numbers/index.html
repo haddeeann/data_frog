@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Data Frog</title>
+    <link rel="stylesheet" href="/static/style.css" />
+    <link rel="icon" href="/static/favicon.ico" type="image/x-icon">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-3XCWXXR1VM"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-3XCWXXR1VM');
+    </script>
+</head>
+<body>
+    <header class="site-header">
+    <div class="site-header-inner">
+        <a class="brand-link" href="/">
+            <img class="brand-mark" src="/static/frog_logo.png" alt="">
+            <span class="brand-copy">
+                <strong class="brand-name">Data Frog</strong>
+                <small class="brand-tagline">Field notes in data and Python</small>
+            </span>
+        </a>
+        <nav class="site-nav" aria-label="Primary navigation">
+            <a href="/curriculum/">Curriculum</a>
+            <a href="/algorithms/" class="active" aria-current="page">Algorithms</a>
+            <a href="/data-wrangling/">Data Wrangling</a>
+            <a href="/statistics/">Statistics</a>
+            <a href="/videos/">Videos</a>
+            <a href="/#data-sourcing">Data Sourcing</a>
+        </nav>
+    </div>
+</header>
+
+    <main>
+        <h2>Add Two Numbers</h2>
+<p>Two non-empty linked lists encode non-negative integers in reverse digit order, one digit per node. Add the values and return the sum as a linked list in the same format.</p>
+<p>Neither number has a leading zero unless the number itself is 0.</p>
+<h3>Example 1:</h3>
+<pre><code>Input: l1 = [2,4,3], l2 = [5,6,4]
+Output: [7,0,8]
+Explanation: 342 + 465 = 807.
+</code></pre>
+<h3>Example 2:</h3>
+<pre><code>Input: l1 = [0], l2 = [0]
+Output: [0]
+</code></pre>
+<h3>Example 3:</h3>
+<pre><code>Input: l1 = [9,9,9,9,9,9,9], l2 = [9,9,9,9]
+Output: [8,9,9,9,0,0,0,1]
+Explanation: 9,999,999 + 9,999 = 10,009,998
+</code></pre>
+<pre><code class="language-python"># Definition for singly-linked list.
+# class ListNode(object):
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+class Solution(object):
+    def addTwoNumbers(self, l1, l2):
+        &quot;&quot;&quot;
+        :type l1: ListNode
+        :type l2: ListNode
+        :rtype: ListNode
+        &quot;&quot;&quot;
+        return_list = ListNode()
+        loop = return_list
+
+        l1_list = l1
+        l2_list = l2
+        carry = 0
+
+        while l1_list is not None or l2_list is not None:
+            # find the add in
+            if l1_list is not None and l2_list is not None:
+                addSum = l1_list.val + l2_list.val + carry
+            elif l1_list is not None:
+                addSum = l1_list.val + carry
+            elif l2_list is not None:
+                addSum = l2_list.val + carry
+
+            if addSum &gt; 9:
+                strSum = str(addSum)
+                loop.val = int(strSum[1])
+                carry = int(strSum[0])
+            else:
+                loop.val = addSum
+                carry = 0
+
+            if (l1_list is not None and l1_list.next is not None) or (l2_list is not None and l2_list.next is not None):
+                loop.next = ListNode()
+
+            # loop replacements
+            l1_list = l1_list.next if l1_list is not None else None
+            l2_list = l2_list.next if l2_list is not None else None
+
+            if l1_list is None and l2_list is None and carry != 0:
+                new_node = ListNode()
+                new_node.val = 1
+                loop.next = new_node
+            else:
+                loop = loop.next
+
+        return return_list
+</code></pre>
+
+    </main>
+    <footer class="site-footer">
+    <div class="site-footer-inner">
+        <div>
+            <div>Field notes from the workbench.</div>
+            <div>Built one experiment at a time.</div>
+        </div>
+        <hr />
+        <div>
+            <span class="logo-text-large">Data Frog</span>
+            <span class="logo-text-small">lab notebook</span>
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>

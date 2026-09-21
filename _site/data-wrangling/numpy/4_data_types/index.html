@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Data Frog</title>
+    <link rel="stylesheet" href="/static/style.css" />
+    <link rel="icon" href="/static/favicon.ico" type="image/x-icon">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-3XCWXXR1VM"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-3XCWXXR1VM');
+    </script>
+</head>
+<body>
+    <header class="site-header">
+    <div class="site-header-inner">
+        <a class="brand-link" href="/">
+            <img class="brand-mark" src="/static/frog_logo.png" alt="">
+            <span class="brand-copy">
+                <strong class="brand-name">Data Frog</strong>
+                <small class="brand-tagline">Field notes in data and Python</small>
+            </span>
+        </a>
+        <nav class="site-nav" aria-label="Primary navigation">
+            <a href="/curriculum/">Curriculum</a>
+            <a href="/algorithms/">Algorithms</a>
+            <a href="/data-wrangling/" class="active" aria-current="page">Data Wrangling</a>
+            <a href="/statistics/">Statistics</a>
+            <a href="/videos/">Videos</a>
+            <a href="/#data-sourcing">Data Sourcing</a>
+        </nav>
+    </div>
+</header>
+
+    <main>
+        <h2>Data Types with NumPy</h2>
+<p>NumPy exposes fixed-width numeric types that map closely to C representations.</p>
+<table>
+<thead>
+<tr>
+<th>NumPy type</th>
+<th>C type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>numpy.bool_</td>
+<td>bool</td>
+</tr>
+<tr>
+<td>numpy.byte</td>
+<td>signed char</td>
+</tr>
+<tr>
+<td>numpy.ubyte</td>
+<td>unsigned char</td>
+</tr>
+<tr>
+<td>numpy.short</td>
+<td>short</td>
+</tr>
+<tr>
+<td>numpy.ushort</td>
+<td>unsigned short</td>
+</tr>
+<tr>
+<td>numpy.intc</td>
+<td>int</td>
+</tr>
+<tr>
+<td>numpy.unintc</td>
+<td>unsigned int</td>
+</tr>
+<tr>
+<td>numpy.int_</td>
+<td>long</td>
+</tr>
+<tr>
+<td>numpy.uint</td>
+<td>unsigned long</td>
+</tr>
+<tr>
+<td>numpy.longlong</td>
+<td>long long</td>
+</tr>
+<tr>
+<td>numpy.ulonglong</td>
+<td>unsigned long long</td>
+</tr>
+<tr>
+<td>numpy.half / numpy.float16</td>
+<td></td>
+</tr>
+<tr>
+<td>numpy.single</td>
+<td>float</td>
+</tr>
+<tr>
+<td>numpy.double</td>
+<td>double</td>
+</tr>
+<tr>
+<td>numpy.longdouble</td>
+<td>long double</td>
+</tr>
+<tr>
+<td>numpy.csignle</td>
+<td>float complex</td>
+</tr>
+<tr>
+<td>numpy.cdouble</td>
+<td>double complex</td>
+</tr>
+<tr>
+<td>numpy.clongdouble</td>
+<td>long double complex</td>
+</tr>
+</tbody>
+</table>
+<p>Because several C-style names depend on the platform, NumPy also provides fixed-width aliases.</p>
+<p>Every NumPy scalar type corresponds to a <code>dtype</code> object. After <code>import numpy as np</code>, refer to them as <code>np.bool_</code>, <code>np.float32</code>, and so on.</p>
+<p>The five basic numeric families are booleans, signed integers, unsigned integers, floating-point numbers, and complex numbers.</p>
+<p>A number in a dtype name usually states its width in bits, such as <code>float32</code>.</p>
+<p>Platform-dependent widths matter when exchanging raw memory with C, Fortran, or binary file formats.</p>
+<h2>Array Scalars</h2>
+<p>Indexing one element usually returns an array scalar carrying its NumPy dtype.</p>
+<p>Array scalars and Python scalars often interoperate, but they are distinct types.</p>
+<p>Array scalars preserve dtype behavior even after a value leaves its array.</p>
+<h2>Overflow Errors</h2>
+<p>Fixed-width numeric types overflow when a result falls outside their representable range.</p>
+<p>Do not assume NumPy integers behave like Python's arbitrary-precision <code>int</code>.</p>
+<p>Python integers grow as needed; a NumPy integer's width stays fixed.</p>
+<p>Inspect integer and floating-point limits with <code>numpy.iinfo</code> and <code>numpy.finfo</code>.</p>
+<h2>Extended Precision</h2>
+<p>Python's built-in <code>float</code> typically uses IEEE 754 double precision, comparable to <code>np.float64</code>.</p>
+<p>NumPy's widest floating type follows the platform's C <code>long double</code>.</p>
+<p>Platforms may pad <code>np.longdouble</code> values for memory alignment; extra storage does not necessarily mean extra precision.</p>
+
+    </main>
+    <footer class="site-footer">
+    <div class="site-footer-inner">
+        <div>
+            <div>Field notes from the workbench.</div>
+            <div>Built one experiment at a time.</div>
+        </div>
+        <hr />
+        <div>
+            <span class="logo-text-large">Data Frog</span>
+            <span class="logo-text-small">lab notebook</span>
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Data Frog</title>
+    <link rel="stylesheet" href="/static/style.css" />
+    <link rel="icon" href="/static/favicon.ico" type="image/x-icon">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-3XCWXXR1VM"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-3XCWXXR1VM');
+    </script>
+</head>
+<body>
+    <header class="site-header">
+    <div class="site-header-inner">
+        <a class="brand-link" href="/">
+            <img class="brand-mark" src="/static/frog_logo.png" alt="">
+            <span class="brand-copy">
+                <strong class="brand-name">Data Frog</strong>
+                <small class="brand-tagline">Field notes in data and Python</small>
+            </span>
+        </a>
+        <nav class="site-nav" aria-label="Primary navigation">
+            <a href="/curriculum/">Curriculum</a>
+            <a href="/algorithms/">Algorithms</a>
+            <a href="/data-wrangling/" class="active" aria-current="page">Data Wrangling</a>
+            <a href="/statistics/">Statistics</a>
+            <a href="/videos/">Videos</a>
+            <a href="/#data-sourcing">Data Sourcing</a>
+        </nav>
+    </div>
+</header>
+
+    <main>
+        <p>NumPy gives Python dense, typed, multidimensional arrays. Fixed data types and contiguous storage cut memory overhead and move array operations out of slow Python loops.</p>
+<p>Install it with pip:</p>
+<p><code>pip install numpy</code></p>
+<p>Start a Python session:</p>
+<p><code>python</code></p>
+<p>Import NumPy under its standard alias:</p>
+<p><code>import numpy as np</code></p>
+<p>Now the <code>np</code> namespace exposes NumPy's array constructors and operations.</p>
+<h2>NumPy Learn By Topics</h2>
+<nav class="toc-component" aria-label="NumPy topics">
+  <ol class="toc-list">
+    <li class="toc-item"><a href="./1_create_array">Array construction, stacking &amp; file input</a></li>
+    <li class="toc-item"><a href="./2_index_ndarrays">Indexing, slicing &amp; strides</a></li>
+    <li class="toc-item"><a href="./3_io_numpy"><code>genfromtxt</code>: typed text import</a></li>
+    <li class="toc-item"><a href="./4_data_types">Numeric dtypes, scalars &amp; overflow</a></li>
+    <li class="toc-item"><a href="./5_broadcasting">Broadcasting rules &amp; shape compatibility</a></li>
+    <li class="toc-item"><a href="./6_byte_swapping">Endianness &amp; byte swapping</a></li>
+    <li class="toc-item"><a href="./7_structured_arrays">Structured dtypes &amp; record arrays</a></li>
+    <li class="toc-item"><a href="./8_custom_array_containers">Custom array dispatch protocols</a></li>
+    <li class="toc-item"><a href="./9_subclassing"><code>ndarray</code> subclassing &amp; view casting</a></li>
+    <li class="toc-item"><a href="./10_universal_functions">Ufuncs, reductions &amp; dtype control</a></li>
+    <li class="toc-item"><a href="./11_copies_views">Views, copies &amp; shared memory</a></li>
+    <li class="toc-item"><a href="./12_interoperability">Array interoperability protocols</a></li>
+  </ol>
+</nav>
+<h2>Ideas for Next Steps</h2>
+<p><a href="../library-landscape">Data Science Libraries in Python</a></p>
+<p><a href="https://www.youtube.com/watch?v=o64FV-ez6Gw">Idea for first project</a></p>
+<p><a href="https://www.reddit.com/r/Python/comments/a925bi/projects_for_numpypandas_novice/">Ideas for a beginner project</a></p>
+<ul>
+<li>Build a neural network in pure NumPy with vanilla gradient descent or SGD. Writing the backward pass by hand exposes backpropagation and update rules that TensorFlow, PyTorch, and Keras usually hide.</li>
+</ul>
+<h2>A note about Pandas</h2>
+<p>Pandas builds on NumPy and reuses many of its array conventions. Its data structures feed naturally into Matplotlib plots, SciPy analyses, and scikit-learn models.</p>
+
+    </main>
+    <footer class="site-footer">
+    <div class="site-footer-inner">
+        <div>
+            <div>Field notes from the workbench.</div>
+            <div>Built one experiment at a time.</div>
+        </div>
+        <hr />
+        <div>
+            <span class="logo-text-large">Data Frog</span>
+            <span class="logo-text-small">lab notebook</span>
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>
