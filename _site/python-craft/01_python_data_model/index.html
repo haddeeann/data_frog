@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Data Frog</title>
+    <link rel="stylesheet" href="/static/style.css" />
+    <link rel="icon" href="/static/favicon.ico" type="image/x-icon">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-3XCWXXR1VM"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-3XCWXXR1VM');
+    </script>
+</head>
+<body>
+    <header class="site-header">
+    <div class="site-header-inner">
+        <a class="brand-link" href="/">
+            <img class="brand-mark" src="/static/frog_logo.png" alt="">
+            <span class="brand-copy">
+                <strong class="brand-name">Data Frog</strong>
+                <small class="brand-tagline">Field notes in data and Python</small>
+            </span>
+        </a>
+        <nav class="site-nav" aria-label="Primary navigation">
+            <a href="/curriculum/">Curriculum</a>
+            <a href="/algorithms/">Algorithms</a>
+            <a href="/data-wrangling/">Data Wrangling</a>
+            <a href="/statistics/">Statistics</a>
+            <a href="/videos/">Videos</a>
+            <a href="/#data-sourcing">Data Sourcing</a>
+        </nav>
+    </div>
+</header>
+
+    <main>
+        <h1>The Python Data Model</h1>
+<p>If you come to Python from Java or C#, you bring a reflex: to make an object <em>do</em> something, you call a method on it — <code>list.size()</code>, <code>str.length()</code>. Python inverts that. You don't call the object; the interpreter calls the object, and your job is to say what happens when it does.</p>
+<p>That contract between your objects and the language is the data model, and almost everything that makes Python feel like Python — <code>len()</code>, <code>for</code> loops, <code>in</code>, truthiness, <code>with</code> — runs through it. For data work it matters twice over: the libraries you'll use are built on these protocols, and the code you write becomes pleasant exactly when you implement them.</p>
+<h2>The protocol idea</h2>
+<p>Python doesn't have interfaces you declare. It has behaviors it looks up, by special-name method, when a syntax asks for them. When you write:</p>
+<pre><code class="language-python"># illustrative fragment
+len(records)
+</code></pre>
+<p>the interpreter executes <code>type(records).__len__(records)</code>. When you write:</p>
+<pre><code class="language-python"># illustrative fragment
+for r in records:
+    ...
+</code></pre>
+<p>it looks for <code>type(records).__iter__</code> — and if that's missing, falls back to <code>__getitem__</code>, calling it with 0, 1, 2, ... until it raises <code>IndexError</code>. The for loop isn't a construct that works on lists. It's a construct that works on <em>anything that answers those lookups</em>.</p>
+<p>These special names are dunder (&quot;double underscore&quot;) methods, and there are two facts about the lookup that explain most of the surprises you'll ever hit:</p>
+<ol>
+<li><strong>Lookup happens on the type, not the instance.</strong> <code>len(x)</code> means <code>type(x).__len__(x)</code>, not <code>x.__len()</code>. Special methods aren't found through normal attribute lookup, so you can't monkey-patch <code>__len__</code> onto an instance and expect <code>len()</code> to see it.</li>
+<li><strong>The fallback chain is fixed.</strong> Each syntax tries a specific sequence of dunders. If you know the chain, you can predict exactly what an object will do — and implement exactly as much of it as you need.</li>
+</ol>
+<h2>The chains you'll use weekly</h2>
+<table>
+<thead>
+<tr>
+<th>You write</th>
+<th>Python tries, in order</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>len(x)</code></td>
+<td><code>__len__</code></td>
+</tr>
+<tr>
+<td><code>for x in obj</code></td>
+<td><code>__iter__</code>, then <code>__getitem__</code> with 0, 1, 2, ...</td>
+</tr>
+<tr>
+<td><code>x in obj</code></td>
+<td><code>__contains__</code>, then iteration</td>
+</tr>
+<tr>
+<td><code>if x:</code></td>
+<td><code>__bool__</code>, then <code>__len__</code> (nonzero = true)</td>
+</tr>
+<tr>
+<td><code>repr(x)</code></td>
+<td><code>__repr__</code></td>
+</tr>
+<tr>
+<td><code>str(x)</code></td>
+<td><code>__str__</code>, then <code>__repr__</code></td>
+</tr>
+</tbody>
+</table>
+<p>That <code>if x:</code> chain is where the first surprise lives, so let's build something real and watch it.</p>
+<h2>A runnable example</h2>
+<p>Say you've pulled a small batch of records and want it to behave like a proper collection — length, iteration, membership, honest display — without wrapping it in a class that fights the language.</p>
+<pre><code class="language-python"># python 3.10+, stdlib only
+class RecordBatch:
+    &quot;&quot;&quot;A named batch of dict records that behaves like a collection.&quot;&quot;&quot;
+
+    def __init__(self, name, records):
+        self.name = name
+        self._records = list(records)
+
+    def __len__(self):
+        return len(self._records)
+
+    def __getitem__(self, index):
+        return self._records[index]
+
+    def __contains__(self, record):
+        return record in self._records
+
+    def __repr__(self):
+        return f&quot;RecordBatch({self.name!r}, {len(self._records)} records)&quot;
+</code></pre>
+<p>Notice we never wrote <code>__iter__</code>. Iteration falls back to <code>__getitem__</code>, which slices fine here. Now the class works with the whole language:</p>
+<pre><code class="language-python">batch = RecordBatch(&quot;penguins&quot;, [
+    {&quot;species&quot;: &quot;Adelie&quot;, &quot;flipper_mm&quot;: 181},
+    {&quot;species&quot;: &quot;Gentoo&quot;, &quot;flipper_mm&quot;: 210},
+    {&quot;species&quot;: &quot;Adelie&quot;, &quot;flipper_mm&quot;: 186},
+])
+
+print(len(batch))                 # 3
+print(batch[1])                   # {'species': 'Gentoo', 'flipper_mm': 210}
+print({&quot;species&quot;: &quot;Adelie&quot;, &quot;flipper_mm&quot;: 181} in batch)   # True
+print([r for r in batch if r[&quot;flipper_mm&quot;] &gt; 180])          # all three records
+print(batch)                      # RecordBatch('penguins', 3 records)
+</code></pre>
+<p>Four lines of protocol implementation, and <code>RecordBatch</code> now works with <code>for</code>, list comprehensions, <code>in</code>, <code>len</code>, f-strings, and every function in the standard library that expects &quot;a sequence&quot; — which is a much larger club than &quot;a list&quot;.</p>
+<p>That last point is the practical payoff. Libraries write their code against protocols, not concrete types. A function with <code>for x in data:</code> accepts your <code>RecordBatch</code>, a generator, a file object, a database cursor. This is why Python code that respects the protocols composes, and code that type-checks <code>isinstance(data, list)</code> doesn't.</p>
+<h2>Failure modes</h2>
+<p><strong><code>__bool__</code> falls back to <code>__len__</code>.</strong> Our <code>RecordBatch</code> has no <code>__bool__</code>, so an empty batch is falsy:</p>
+<pre><code class="language-python">empty = RecordBatch(&quot;none&quot;, [])
+if not empty:
+    print(&quot;no records — is that an error, or just a quiet day?&quot;)
+</code></pre>
+<p>Sometimes an empty batch means &quot;nothing to do&quot;; sometimes it means the upstream job broke. If the difference matters, implement <code>__bool__</code> and raise, or return <code>True</code> unconditionally — but do it <em>consciously</em>. Silent falsiness on custom containers causes real bugs; people write <code>if batch:</code> without thinking about what emptiness means.</p>
+<p><strong>Returning nonsense from <code>__len__</code>.</strong> The protocol promises a nonnegative integer. Return <code>-1</code> or a float and callers get garbage or a <code>TypeError</code> from the interpreter itself. When a method is invoked <em>by the language</em>, you're writing an API for every caller in the program, not just yourself.</p>
+<p><strong>Mutating while iterating.</strong> The <code>__getitem__</code> fallback indexes eagerly — modify the batch mid-loop and you'll skip records. This isn't exotic; it's the classic bug of filtering a list while looping over it. Build a new container instead.</p>
+<p><strong>Confusing <code>__repr__</code> and <code>__str__</code>.</strong> <code>__repr__</code> is for developers and logs: unambiguous, ideally something you could paste back to reconstruct the object. <code>__str__</code> is for users. If you implement only one, make it <code>__repr__</code> — <code>str()</code> falls back to it, and the REPL uses it, so you'll see the benefit every debugging session.</p>
+<h2>What this buys you later</h2>
+<p>Everything downstream in this track builds here. <code>dataclasses</code> write <code>__repr__</code> and <code>__eq__</code> for you. <code>pytest</code>'s assertion introspection, <code>functools.total_ordering</code>, the way <code>enumerate</code> and <code>zip</code> consume anything iterable — protocols underneath. And when you reach pandas, the reason <code>df[&quot;x&quot;]</code> and <code>df.loc[...]</code> feel different is that they're answering different protocols: <code>__getitem__</code> versus a method with its own rules. Same idea, different chain.</p>
+<div class="exercise">
+  <p class="exercise-prompt"><strong>Exercise 1.</strong> Add an <code>__iter__</code> method to <code>RecordBatch</code> that yields records directly. Then explain: does the class behave any differently? When would writing it matter?</p>
+  <details class="exercise-solution">
+    <summary>Solution</summary>
+    <p><code>def __iter__(self): return iter(self._records)</code>. Behavior is nearly identical — the fallback was already indexing. It matters when indexing doesn't describe your data: infinite sequences, expensive random access (a database cursor), or tree traversal where "position 7" is meaningless. If iteration is natural but indexing isn't, implement <code>__iter__</code> and leave <code>__getitem__</code> out — then <code>batch[0]</code> raises <code>TypeError</code> instead of silently doing the wrong thing.</p>
+  </details></div>
+<div class="exercise">
+  <p class="exercise-prompt"><strong>Exercise 2.</strong> Without running it, predict what happens: <code>batch.__len__ = lambda: 99</code>, then <code>len(batch)</code>.</p>
+  <details class="exercise-solution">
+    <summary>Solution</summary>
+    <p><code>len(batch)</code> still returns 3. The assignment puts <code>__len__</code> on the <em>instance</em>, but the interpreter looks special methods up on the <em>type</em>. You'd have to set it on <code>RecordBatch</code> itself to change the answer — which is exactly the "lookup on the type" rule doing its job: it keeps built-in syntax predictable no matter what's been splattered on an object.</p>
+  </details></div>
+<div class="exercise">
+  <p class="exercise-prompt"><strong>Exercise 3.</strong> A colleague writes <code>if batch:</code> to guard against running analysis on an empty batch — but an empty batch should raise an error, not be skipped. Change <code>RecordBatch</code> so the empty case fails loudly, and explain what your <code>__bool__</code> does to the truthiness of non-empty batches.</p>
+  <details class="exercise-solution">
+    <summary>Solution</summary>
+    <p>Implement <code>def __bool__(self):</code> to raise <code>ValueError(f"{self.name} batch is empty")</code> if <code>len(self._records) == 0</code>, else return <code>True</code>. Now any truthiness check on an empty batch explodes — loud is the point. Non-empty batches are truthy, so <code>if batch:</code> keeps working for the legitimate use. The uncomfortable question this raises — "should a container be able to be false <em>and</em> mean it?" — is why many teams prefer explicit <code>len(batch) == 0</code> checks and reserve <code>__bool__</code> for objects where truthiness is unambiguous.</p>
+  </details></div>
+<h2>Takeaway</h2>
+<p>Python's syntax is a set of fixed dunder lookup chains, resolved on the type. Implement the protocols and your objects work with the entire language — loops, comprehensions, membership, libraries that &quot;just take a sequence.&quot; The two chains to burn in: iteration (<code>__iter__</code>, then <code>__getitem__</code>) and truthiness (<code>__bool__</code>, then <code>__len__</code>). When something behaves surprisingly in Python, check which chain is answering — it's almost always one of these.</p>
+
+    </main>
+    <footer class="site-footer">
+    <div class="site-footer-inner">
+        <div>
+            <div>Field notes from the workbench.</div>
+            <div>Built one experiment at a time.</div>
+        </div>
+        <hr />
+        <div>
+            <span class="logo-text-large">Data Frog</span>
+            <span class="logo-text-small">lab notebook</span>
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>

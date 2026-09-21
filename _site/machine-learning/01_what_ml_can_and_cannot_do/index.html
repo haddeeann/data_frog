@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Data Frog</title>
+    <link rel="stylesheet" href="/static/style.css" />
+    <link rel="icon" href="/static/favicon.ico" type="image/x-icon">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-3XCWXXR1VM"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-3XCWXXR1VM');
+    </script>
+</head>
+<body>
+    <header class="site-header">
+    <div class="site-header-inner">
+        <a class="brand-link" href="/">
+            <img class="brand-mark" src="/static/frog_logo.png" alt="">
+            <span class="brand-copy">
+                <strong class="brand-name">Data Frog</strong>
+                <small class="brand-tagline">Field notes in data and Python</small>
+            </span>
+        </a>
+        <nav class="site-nav" aria-label="Primary navigation">
+            <a href="/curriculum/">Curriculum</a>
+            <a href="/algorithms/">Algorithms</a>
+            <a href="/data-wrangling/">Data Wrangling</a>
+            <a href="/statistics/">Statistics</a>
+            <a href="/videos/">Videos</a>
+            <a href="/#data-sourcing">Data Sourcing</a>
+        </nav>
+    </div>
+</header>
+
+    <main>
+        <h1>What ML Can and Cannot Do</h1>
+<p>The most expensive failure in applied machine learning is not a badly tuned model. It's a well-tuned model solving a problem that didn't need one, or a &quot;prediction&quot; answering a question nobody asked. Before this track teaches you <em>how</em>, this lesson teaches the filter you'll run every request through for the rest of your career — because the projects that fail usually fail here, before the first line of modeling code.</p>
+<h2>What ML actually is</h2>
+<p>Strip the mystique: machine learning is fitting parameters to data so that a program's behavior improves with examples, instead of improving with your edits. A spam filter where you write the rules is software. A spam filter where 100,000 labeled emails set the rules is ML. That's the whole difference, and it carries the whole trade:</p>
+<ul>
+<li>You stop specifying the logic and start <strong>supplying examples that imply it.</strong></li>
+<li>The program gets better as data accumulates — and only as data accumulates.</li>
+<li>Its behavior becomes <strong>statistical</strong>: mostly right, with error rates you can measure but not individual decisions you can always explain.</li>
+</ul>
+<p>That trade is excellent when the logic is genuinely beyond writing — what makes an email spammy is a tangle of signals no one would hand-code — and terrible when the logic is three rules long. So the first question for any proposed ML project is not &quot;which model?&quot; It's: <strong>how would you solve this without ML?</strong></p>
+<h2>The ladder: rules, heuristics, models</h2>
+<p>Every prediction problem has a ladder, and you climb it only as far as the problem demands.</p>
+<ol>
+<li><strong>A fixed rule.</strong> &quot;Flag orders over $500 for review.&quot; Free, instant, auditable, debuggable.</li>
+<li><strong>A data-driven heuristic.</strong> &quot;Flag orders over the user's 90th percentile.&quot; One GROUP BY; still auditable; now it adapts to each customer.</li>
+<li><strong>Simple ML.</strong> Logistic regression on a handful of well-chosen features. Trainable in seconds, interpretable enough to argue about.</li>
+<li><strong>Complex ML.</strong> Gradient boosting, neural nets — big capacity, real cost in infrastructure and interpretability.</li>
+</ol>
+<p>Teams lose months by starting at rung 4 for problems that live on rung 2. The discipline of starting one rung too low is what makes senior data scientists look psychic: their baseline works, ships, and measures what the expensive version would have had to beat. Google's own engineering guide to ML opens with <a href="https://developers.google.com/machine-learning/guides/rules-of-ml">&quot;Don't be afraid to launch a product without machine learning&quot;</a> — the instinct isn't just defensible, it's the official recommendation.</p>
+<h2>A runnable demonstration of the ladder</h2>
+<p>Predict penguin species from flipper length — Gentoo or not, using real measurements. <strong>Data:</strong> Horst, Hill &amp; Gorman, <em>palmerpenguins</em> (2020), <a href="https://doi.org/10.5281/zenodo.3960218">10.5281/zenodo.3960218</a>, CC0. Loaded from the project's public CSV — the line needs network.</p>
+<pre><code class="language-python"># python 3.10+, pandas 3.0, numpy 2.5
+import numpy as np
+import pandas as pd
+
+url = &quot;https://raw.githubusercontent.com/allisonhorst/palmerpenguins/main/inst/extdata/penguins.csv&quot;
+df = pd.read_csv(url).dropna(subset=[&quot;flipper_length_mm&quot;, &quot;species&quot;])
+
+y = (df[&quot;species&quot;] == &quot;Gentoo&quot;).astype(int).to_numpy()   # 1 = Gentoo
+x = df[&quot;flipper_length_mm&quot;].to_numpy()
+</code></pre>
+<p><strong>Rung 0: the majority-class baseline.</strong> Guess the most common answer, always:</p>
+<pre><code class="language-python">acc_majority = max(y.mean(), 1 - y.mean())
+print(acc_majority)   # 0.6403508771929824
+</code></pre>
+<p>If you can't beat 64% — the non-Gentoo share of this file — your model is worth nothing. This number, unglamorous as it is, is the first thing to compute on every classification problem, forever.</p>
+<p><strong>Rung 1: one threshold.</strong> Gentoo flippers are longer; pick the split that minimizes errors:</p>
+<pre><code class="language-python">thresholds = np.arange(170, 231)
+errors = [np.sum((x &gt; t).astype(int) != y) for t in thresholds]
+best_t = thresholds[np.argmin(errors)]
+acc_threshold = 1 - min(errors) / len(y)
+print(best_t, acc_threshold)   # 206 0.9766081871345029
+</code></pre>
+<p>One <code>if</code> statement: <em>97.7% accuracy.</em> Nearly the entire &quot;penguin species problem&quot; is a comparison operator.</p>
+<p><strong>Rung 3: a learned model.</strong> A tiny logistic regression, by hand — standardized feature, gradient descent, no library:</p>
+<pre><code class="language-python">xs = (x - x.mean()) / x.std()          # standardize: gradient descent needs this
+w, b = 0.0, 0.0
+for _ in range(2000):
+    p = 1 / (1 + np.exp(-(w * xs + b)))           # predicted P(Gentoo)
+    w += 0.01 * np.mean((y - p) * xs)              # gradient step on w
+    b += 0.01 * np.mean(y - p)                     # ... and b
+
+acc_model = np.mean(((w * xs + b) &gt; 0).astype(int) == y)
+print(acc_model)   # 0.9736842105263158
+</code></pre>
+<p>97.4% — a hair <em>below</em> the single threshold. On one cleanly-separated feature, the learned model buys you nothing over the comparison operator — except probability scores instead of hard labels, which matters for some problems and not others. Now you know that, because you measured it, in fifteen lines.</p>
+<p>That is the entire point of this lesson as a practice: <strong>build the cheap rung first, make the expensive rung earn its complexity.</strong> Later in the track, when the feature is 40 columns of messy telemetry, rung 3 is where the value will actually be — and you'll know that too, because the baselines were there to compare.</p>
+<h2>When ML is the right tool</h2>
+<p>Climb past heuristics when the logic is genuinely unwritable:</p>
+<ul>
+<li><strong>High-dimensional structure:</strong> hundreds of weak signals whose combination carries the signal (text, telemetry, images, behavior).</li>
+<li><strong>Drifting targets:</strong> spam evolves, prices move, sensors age — a fixed rule decays; a retrained model tracks.</li>
+<li><strong>Per-person or per-item granularity:</strong> one threshold for everyone is crude; millions of personalized ones is ML's home turf.</li>
+</ul>
+<p>And stay off the ladder when the requirement is <em>explanation per decision</em> (some regulated decisions need reasons, not probabilities), when data is scarce (a heuristic plus judgment beats an overfit model), or when the decision is causal and your data is observational — a model that predicts &quot;users who churned clicked the cancel button&quot; is not telling you what an intervention would do. Causation gets its own track later; for now, treat any &quot;predictor&quot; language in a causal question as a red flag.</p>
+<h2>The failure modes that cost real money</h2>
+<p><strong>Goodhart's law.</strong> The moment a measure becomes the target, it stops measuring. Optimize the model for engagement minutes and you will get them — by any means the model finds.</p>
+<p><strong>Leakage.</strong> If anything in your features knows the answer &quot;from the future&quot; (the field was updated after the event), you'll see beautiful accuracy in training and zero in production. It's the single most common way projects report success and ship failure.</p>
+<p><strong>Asymmetric costs.</strong> A model that's 95% accurate is fine when both errors cost the same. When one error is a wasted coupon and the other is a fraud loss, accuracy is the wrong metric — and no amount of modeling fixes a cost structure you haven't told the model about.</p>
+<p><strong>Feedback loops.</strong> The model changes what users see; users react; the training data is now shaped by the model itself. Recommendation systems eat their own tails unless someone is watching for it.</p>
+<p>Each of these gets a full lesson later in this track or in Problem Framing. The job here is recognition: they all <em>look like modeling problems in progress</em>, and none of them are.</p>
+<div class="exercise">
+  <p class="exercise-prompt"><strong>Exercise 1.</strong> A support team wants to predict which tickets will be escalated, "so we can prioritize." What are the first two questions you'd ask before touching a model?</p>
+  <details class="exercise-solution">
+    <summary>Solution</summary>
+    <p>First: <em>what happens with the prediction?</em> If the action is "look at these tickets first," how many can the team actually act on per day — because that sets the operating point (precision at top-k), not "accuracy." Second: <em>what's the cheap version?</em> Tickets from certain plans, keywords, or repeat escalators may already separate most escalations — a rule or a GROUP BY, shippable this week, that becomes the baseline any model must beat. Both questions are upstream of modeling, and skipping them is how "prediction projects" spend a quarter producing what a filter already did.</p>
+  </details></div>
+<div class="exercise">
+  <p class="exercise-prompt"><strong>Exercise 2.</strong> In the penguin example, the hand-rolled logistic regression (97.4%) finished just under the single threshold (97.7%). Give a concrete change to the problem where the learned model would pull meaningfully ahead, and one where it still wouldn't.</p>
+  <details class="exercise-solution">
+    <summary>Solution</summary>
+    <p>Ahead: add features the threshold can't see — bill depth, body mass, island. Separation in 3D that no single flipper cutoff captures is exactly what a linear model with multiple weights buys you (and a tree would buy more). Still wouldn't help: if the features stay what they are, and the signal really is one clean cut on one variable. Capacity only pays when the structure needs it — which is why you check the cheap rung first instead of assuming.</p>
+  </details></div>
+<div class="exercise">
+  <p class="exercise-prompt"><strong>Exercise 3.</strong> You're told a fraud model is "99% accurate." Write down the three facts you need before that number means anything at all.</p>
+  <details class="exercise-solution">
+    <summary>Solution</summary>
+    <p>Base rate (fraud is maybe 1% of transactions — so "never fraud" also scores 99%: the majority baseline). Error costs (a missed fraud versus a blocked customer are not the same dollars). And how accuracy was measured — on held-out future data, or on data the model saw, with any feature that leaks the label (a "flagged_fraud" column updated post-hoc) quietly inflating the score. Without all three, 99% is a noise, not a result.</p>
+  </details></div>
+<h2>Takeaway</h2>
+<p>ML trades hand-written logic for data-implied logic; use it when the logic is unwritable, not when it's merely inconvenient. Always build the cheap rung — majority baseline, one rule, one heuristic — and make anything heavier beat it on a measured number. Compute the majority-class accuracy before anything else on every classification problem. And learn the four expensive failures by sight: Goodhart, leakage, asymmetric costs, feedback loops — they all masquerade as modeling problems.</p>
+
+    </main>
+    <footer class="site-footer">
+    <div class="site-footer-inner">
+        <div>
+            <div>Field notes from the workbench.</div>
+            <div>Built one experiment at a time.</div>
+        </div>
+        <hr />
+        <div>
+            <span class="logo-text-large">Data Frog</span>
+            <span class="logo-text-small">lab notebook</span>
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>

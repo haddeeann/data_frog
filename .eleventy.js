@@ -118,6 +118,31 @@ module.exports = function(eleventyConfig) {
         return out;
     });
 
+    // Drafted/reviewed lessons per track, for the "in review" queue on track
+    // pages. Published lessons are linked by the track's hand-written TOC;
+    // drafts render at their URL but only surface here, marked as drafts —
+    // flipping status to published (and merging) is the publish step.
+    eleventyConfig.addCollection("inReviewByTrack", function(collectionApi) {
+        const out = {};
+        TRACKS.forEach(function(t) { out[t.slug] = []; });
+        collectionApi.getAll().forEach(function(item) {
+            if (!item.data.track || item.data.type === "index") return;
+            const s = item.data.status;
+            if (s !== "drafted" && s !== "reviewed") return;
+            if (!out[item.data.track]) return;
+            out[item.data.track].push({
+                url: item.url,
+                title: item.data.title,
+                type: item.data.type,
+                status: s,
+            });
+        });
+        Object.values(out).forEach(function(ls) {
+            ls.sort(function(a, b) { return (a.url < b.url ? -1 : a.url > b.url ? 1 : 0); });
+        });
+        return out;
+    });
+
     return {
         dir: {
             input: "src",

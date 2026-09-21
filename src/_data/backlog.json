@@ -2,21 +2,6 @@
   "version": 1,
   "lessons": [
     {
-      "id": "python-data-model",
-      "track": "python-craft",
-      "module": "foundations",
-      "sequence": 1,
-      "target_path": "src/python-craft/01_python_data_model.md",
-      "type": "concept",
-      "difficulty": "beginner",
-      "wave": 1,
-      "size": "S",
-      "confidence": "high",
-      "prerequisites": [],
-      "title": "The Python Data Model",
-      "scope": "How Python actually invokes your code: the protocols behind len(), iteration, and truthiness."
-    },
-    {
       "id": "comprehensions-and-generators",
       "track": "python-craft",
       "module": "foundations",
@@ -379,23 +364,6 @@
       "prerequisites": [],
       "title": "Git for Small Teams",
       "scope": "Branches, PRs, and a review flow that survives data projects."
-    },
-    {
-      "id": "pandas-anatomy",
-      "track": "data-wrangling",
-      "module": "pandas-core",
-      "sequence": 1,
-      "target_path": "src/data-wrangling/01_pandas_anatomy.md",
-      "type": "concept",
-      "difficulty": "beginner",
-      "wave": 1,
-      "size": "M",
-      "confidence": "high",
-      "prerequisites": [
-        "data-wrangling/numpy/1_create_array"
-      ],
-      "title": "pandas Anatomy",
-      "scope": "Series, DataFrame, and the index: the three ideas everything else builds on."
     },
     {
       "id": "reading-files",
@@ -891,23 +859,6 @@
       ],
       "title": "Case Study: Three Tables, One Honest Table",
       "scope": "Multiple sources merged with validated keys and a real data dictionary."
-    },
-    {
-      "id": "distributions-reading",
-      "track": "statistics",
-      "module": "foundations",
-      "sequence": 1,
-      "target_path": "src/statistics/01_distributions_reading.md",
-      "type": "concept",
-      "difficulty": "beginner",
-      "wave": 1,
-      "size": "M",
-      "confidence": "high",
-      "prerequisites": [
-        "statistics/3_summarizing_quantitative_data"
-      ],
-      "title": "Reading Distributions",
-      "scope": "Shape, center, spread, tails: read a distribution before summarizing it."
     },
     {
       "id": "summary-statistics-traps",
@@ -1417,21 +1368,6 @@
       ],
       "title": "Forecasting Baselines",
       "scope": "Naive and seasonal baselines, and the humility they enforce."
-    },
-    {
-      "id": "what-ml-can-and-cannot",
-      "track": "machine-learning",
-      "module": "foundations",
-      "sequence": 1,
-      "target_path": "src/machine-learning/01_what_ml_can_and_cannot.md",
-      "type": "concept",
-      "difficulty": "beginner",
-      "wave": 1,
-      "size": "M",
-      "confidence": "high",
-      "prerequisites": [],
-      "title": "What ML Can and Cannot Do",
-      "scope": "The problems ML solves and the ones it just decorates."
     },
     {
       "id": "supervised-workflow",
@@ -2497,7 +2433,7 @@
         "recursion-call-stack"
       ],
       "title": "Tree Traversals",
-      "scope": "Preorder, inorder, postorder, and level order \u2014 and when each matters."
+      "scope": "Preorder, inorder, postorder, and level order — and when each matters."
     },
     {
       "id": "bst-ordered-structure",
@@ -2811,7 +2747,7 @@
         "seaborn-statistical-plots"
       ],
       "title": "Visualizing Distributions",
-      "scope": "Histograms, KDEs, violins \u2014 and what each implies about the data."
+      "scope": "Histograms, KDEs, violins — and what each implies about the data."
     },
     {
       "id": "visualizing-comparisons",
@@ -2877,7 +2813,7 @@
       "confidence": "medium",
       "prerequisites": [],
       "title": "Color and Perception",
-      "scope": "Sequential, diverging, categorical palettes \u2014 and accessibility."
+      "scope": "Sequential, diverging, categorical palettes — and accessibility."
     },
     {
       "id": "annotation-storytelling",
@@ -3064,7 +3000,7 @@
         "query-to-results"
       ],
       "title": "Indexes and B-Trees",
-      "scope": "How index structure turns scans into lookups \u2014 and when it doesn't."
+      "scope": "How index structure turns scans into lookups — and when it doesn't."
     },
     {
       "id": "composite-covering-indexes",
@@ -3395,7 +3331,7 @@
         "pytorch-tensors-autograd"
       ],
       "title": "Training Loops in PyTorch",
-      "scope": "Batches, forward, backward, step \u2014 the loop you'll write a thousand times."
+      "scope": "Batches, forward, backward, step — the loop you'll write a thousand times."
     },
     {
       "id": "overfitting-dropout-regularization",
